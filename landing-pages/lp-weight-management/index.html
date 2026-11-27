@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-motion="off" data-version="v0.5">
+<html lang="en" data-motion="off" data-version="v0.6">
 <head>
 <meta charset="utf-8">
-<meta name="aliv-lp-version" content="weight-management v0.5">
+<meta name="aliv-lp-version" content="weight-management v0.6">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
 <meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
@@ -53,7 +53,7 @@
 
 <style>
 /* ==========================================================================
-   ALIV — Weight management landing page · v0.5 (static infographics; research charts animate; guided chat). Same system as /lp-nad-plus/.
+   ALIV — Weight management landing page · v0.6 (static infographics; research charts animate; conversational guided chat; no menu). Same system as /lp-nad-plus/.
    Mobile first (single column), then a desktop layer from 960px:
    wider container, sticky side headings, multi-column steps and grids.
    ========================================================================== */
@@ -646,20 +646,8 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 @media (prefers-reduced-motion:reduce){ .nod{animation:none} }
 
 
-/* ---------- section rail ---------- */
-:root{--red:#C8102E;--red-bg:#FDECEE}
-[id]{scroll-margin-top:136px}
-.rail{position:sticky;top:var(--navh,79px);z-index:55;background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);
-  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.rail::-webkit-scrollbar{display:none}
-.rail-in{display:flex;width:max-content;padding:8px 12px}
-.rail .rail-logo,.rail .rail-g{display:none}
-.rail ol{list-style:none;display:flex;gap:4px}
-.rail a{display:block;padding:7px 12px;border-radius:16px;font-family:var(--display);font-weight:700;font-size:.78rem;
-  color:var(--neutral-700);text-decoration:none;white-space:nowrap;transition:color .2s,background .2s}
-.rail a:hover{color:var(--red)}
-.rail a.on{color:var(--red);background:var(--red-bg)}
-.split > .side{top:150px}
+/* ---------- sticky side headings ---------- */
+[id]{scroll-margin-top:90px}
 .split.no-stick > .side{position:static}
 
 /* ---------- clinic gallery ---------- */
@@ -690,39 +678,6 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 .charts.pre .lc .v{opacity:0}
 .charts.pre.go .lc .v{opacity:1}
 
-/* wide screens: the rail lives on the left on its own */
-@media(min-width:1200px){
-  :root{--rail:236px}
-  body{padding-left:var(--rail)}
-  body > nav:first-of-type{display:none}
-  [id]{scroll-margin-top:28px}
-  .split > .side{top:40px}
-  /* fully transparent rail: no panel, no frosting */
-  .rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);border:none;overflow-y:auto;overflow-x:hidden;z-index:60;
-    background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
-  .rail-in{display:block;width:auto;padding:26px 0}
-  .rail .rail-logo{display:block;padding:0 26px 14px;background:none}
-  .rail-logo img{height:54px;width:auto;display:block}
-  .rail .rail-g{display:block;padding:18px 26px 6px;font-family:var(--display);font-weight:700;font-size:.62rem;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--neutral-700)}
-  .rail ol{display:block}
-  .rail a{position:relative;border-radius:0;padding:8px 22px 8px 26px;font-size:.86rem;color:var(--green-700);white-space:normal;line-height:1.3}
-  .rail a::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:transparent}
-  .rail a.done{color:var(--neutral-700)}
-  /* over dark sections the names turn white, so the transparent rail stays readable */
-  .rail .lg-light{display:none}
-  .rail .rail-logo.lt .lg-dark{display:none}
-  .rail .rail-logo.lt .lg-light{display:block}
-  .rail .rail-g.lt{color:rgba(255,255,255,.7)}
-  .rail ol a.lt{color:rgba(255,255,255,.9)}
-  .rail ol a.lt.done{color:rgba(255,255,255,.65)}
-  .rail ol a.lt.on{color:var(--white);background:rgba(200,16,46,.85)}
-  .rail ol a.lt.on::before{background:var(--white)}
-  .rail a.on{color:var(--red);background:rgba(253,236,238,.75)}
-  .rail a.on::before{background:var(--red)}
-  .hero-media{width:100vw;transform:translateX(calc(-50% - var(--rail) / 2))}
-  .sticky{left:var(--rail)}
-}
 
 /* ==========================================================================
    TABLET (680px+)
@@ -827,14 +782,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
   <span class="read-bar" id="readBar" aria-hidden="true"></span>
 </nav>
 
-<!-- Section rail: fixed on the left on wide screens, a sticky strip under the top bar on phones.
-     The section you're reading is highlighted in red. -->
-<nav class="rail" id="rail" aria-label="Sections on this page">
-  <div class="rail-in">
-    <a class="rail-logo" href="#top"><img class="lg-dark" src="img/logo/aliv-green-sm.webp" alt="ALIV Regenerative Wellness by Dr. Tandulwadkar" width="200" height="119"><img class="lg-light" src="img/logo/aliv-white.webp" alt="" width="360" height="214"></a>
-    <p class="rail-g">Understand the problem</p><ol><li><a href="#why-stalls">Why weight loss stalls</a></li><li><a href="#explored">What works</a></li><li><a href="#numbers">The research</a></li><li><a href="#routes">The approach</a></li><li><a href="#safety">Safety</a></li></ol><p class="rail-g">Who can help</p><ol><li><a href="#aliv">About ALIV</a></li><li><a href="#team">Our doctors</a></li><li><a href="#programmes">Programmes</a></li><li><a href="#steps">How it works</a></li></ol><p class="rail-g">Next steps</p><ol><li><a href="#faq">Questions</a></li><li><a href="#book">Book a consultation</a></li><li><a href="#references">References</a></li></ol>
-  </div>
-</nav>
+
 
 <div id="top" class="wrap">
 
@@ -1313,7 +1261,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
     </div>
     <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
     <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
-    <p class="ver">Weight management page · v0.5</p>
+    <p class="ver">Weight management page · v0.6</p>
   </div>
 </footer>
 
@@ -1382,41 +1330,21 @@ if('IntersectionObserver' in window){
   document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
 }
 
-/* --- section rail (red = where you are), reading bar, sticky CTA, chat placement --- */
+/* --- reading bar, sticky CTA, chat placement --- */
 (function(){
-  var body=document.body,rail=document.getElementById('rail'),topNav=document.querySelector('body > nav'),
-      bar=document.getElementById('readBar'),st=document.getElementById('sticky'),aliv=document.getElementById('aliv'),
-      hero=document.querySelector('.hero');
-  var links=[].slice.call(rail.querySelectorAll('ol a[href^="#"]'));
-  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
-  var wide=window.matchMedia('(min-width:1200px)'),last=-2,ticking=false;
-  var railItems=[].slice.call(rail.querySelectorAll('.rail-logo,.rail-g,ol a'));
-  function setNavH(){ document.documentElement.style.setProperty('--navh',(topNav&&!wide.matches?topNav.offsetHeight:0)+'px'); }
+  var body=document.body,bar=document.getElementById('readBar'),st=document.getElementById('sticky'),
+      aliv=document.getElementById('aliv'),hero=document.querySelector('.hero'),ticking=false;
   function update(){
     ticking=false;
     var y=window.scrollY,max=document.documentElement.scrollHeight-window.innerHeight;
     if(bar) bar.style.setProperty('--p',max>0?Math.min(1,y/max):0);
-    var line=window.innerHeight*0.35,cur=-1;
-    secs.forEach(function(s,i){ if(s&&s.getBoundingClientRect().top<=line) cur=i; });
-    if(cur!==last){
-      last=cur;
-      links.forEach(function(a,i){ a.classList.toggle('on',i===cur); a.classList.toggle('done',i<cur);
-        if(i===cur) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); });
-      if(cur>-1 && !wide.matches){ var a=links[cur]; rail.scrollTo({left:a.offsetLeft-rail.clientWidth/2+a.offsetWidth/2,behavior:'smooth'}); }
-    }
-    if(wide.matches){
-      var zones=[].slice.call(document.querySelectorAll('.hero,.dark')).map(function(z){return z.getBoundingClientRect()});
-      railItems.forEach(function(el){ var r=el.getBoundingClientRect(),cy=r.top+r.height/2;
-        el.classList.toggle('lt',zones.some(function(z){return cy>=z.top&&cy<=z.bottom})); });
-    }
     var ctaOn=!!(aliv&&aliv.getBoundingClientRect().top<window.innerHeight*0.6);
     if(st) st.classList.toggle('show',ctaOn);
     body.classList.toggle('cta-on',ctaOn);
     if(hero) body.classList.toggle('past-hero',hero.getBoundingClientRect().bottom<80);
   }
   window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(update);} },{passive:true});
-  window.addEventListener('resize',function(){setNavH();last=-2;update();});
-  setNavH(); update();
+  window.addEventListener('resize',update); update();
 })();
 
 /* --- clinic gallery tabs --- */
@@ -1478,7 +1406,7 @@ if('IntersectionObserver' in window){
 
   /* ---------- free-text answers (side questions at any point) ---------- */
   var A={
-    why:{k:['why','stuck','plateau','not losing',"can't lose",'cant lose','stalled','not moving','gain'],t:"Usually it's more than one thing: insulin resistance, thyroid, hormones (PCOS, menopause, low testosterone), short sleep, losing muscle while dieting, fat in the liver, or some medicines. Each shows up in tests, which is why we test before we plan."},
+    why:{k:['why','stuck','plateau','not losing',"can't lose",'cant lose','stalled','not moving','gain','gaining','not reducing','kam nahi','vajan','wajan','motapa','belly','tummy','overweight','obese','obesity','lose weight','weight loss'],t:"Usually it's more than one thing: insulin resistance, thyroid, hormones (PCOS, menopause, low testosterone), short sleep, losing muscle while dieting, fat in the liver, or some medicines. Each shows up in tests, which is why we test before we plan."},
     thyroid:{k:['thyroid','tsh','hypothyroid'],t:"An underactive thyroid slows how your body uses energy and is common, especially in women. It's a simple blood test. If it's off, it's treated first. If it's normal, we look at the other causes."},
     pcos:{k:['pcos','pcod','ovary','ovarian','periods'],t:"PCOS is closely linked to insulin resistance, so diets often stall. The plan works on blood sugar, muscle and hormones together. If you're also trying to conceive, our fertility specialists work alongside."},
     meds:{k:['injection','injections','ozempic','mounjaro','wegovy','semaglutide','tirzepatide','glp','medicine','medication','tablet','pill'],t:"Prescription weight-loss medicines can help some people, but only after a doctor's assessment, and they can't be booked on their own. In large trials most people regained much of the weight within a year of stopping, so we only use them inside a plan that protects muscle and includes an exit plan."},
@@ -1531,7 +1459,7 @@ if('IntersectionObserver' in window){
   /* ---------- the flow ---------- */
   function start(){
     S={concern:null,duration:null,tried:[],signs:[],step:'start'};
-    bot("Hi, this is the ALIV team. A few quick taps and we'll show you what might be behind it. No personal details needed.");
+    bot("Hi, this is the ALIV team. Tap an option or just type, and we'll show you what might be behind it. No personal details needed.");
     later(function(){ bot('What brings you here?');
       chips(Object.keys(CONCERN).map(function(k){return {label:CONCERN[k],fn:function(){ me(CONCERN[k]); S.concern=k; track('chat_concern',{concern:k}); later(askDuration); }}})
         .concat([{label:'I just have a question',fn:function(){ me('I just have a question'); later(freeMode); }}]));
@@ -1629,17 +1557,65 @@ if('IntersectionObserver' in window){
                                                     : [{label:'Continue where I was',go:true,fn:resumeFlow}];
     chips(resume.concat([{label:'Book a consultation',fn:function(){ handoff(); }}]));
   }
-  function resumeFlow(){ me('Continue'); later(function(){ ({duration:askDuration,tried:askTried,signs:askSigns,safety:askSafety,reflect:askHow,how:askHow,doubts:function(){doubts()},handoff:handoff})[S.step](); }); }
+  function resumeFlow(silent){
+    if(silent!==true) me('Continue');
+    var go=({start:function(){ bot('What brings you here?'); chips(Object.keys(CONCERN).map(function(k){return {label:CONCERN[k],fn:function(){ me(CONCERN[k]); S.concern=k; later(askDuration); }}})); },
+             free:freeMode,duration:askDuration,tried:askTried,signs:askSigns,safety:askSafety,reflect:askHow,how:askHow,doubts:function(){doubts()},handoff:handoff})[S.step]||freeMode;
+    later(go,250);
+  }
 
-  /* free text, at any point */
-  function has(q,w){ return w.length<=3 ? new RegExp('\\b'+w+'\\b').test(q) : q.indexOf(w)>-1; }
+  /* free text, at any point: small talk -> answers to the current question -> topic answers -> helpful fallback */
+  function words(q){ return q.toLowerCase().replace(/[^a-z0-9\u0900-\u097f' ]/g,' ').split(/\s+/).filter(Boolean); }
+  function near(a,b){ /* one-letter typo tolerance for longer words */
+    if(a===b) return true; if(a.length<5||Math.abs(a.length-b.length)>1) return false;
+    if(a.length===b.length){ var df=[]; for(var t=0;t<a.length;t++) if(a[t]!==b[t]) df.push(t);
+      if(df.length===2&&df[1]===df[0]+1&&a[df[0]]===b[df[1]]&&a[df[1]]===b[df[0]]) return true; } /* swapped letters */
+    var i=0,j=0,d=0; while(i<a.length&&j<b.length){ if(a[i]===b[j]){i++;j++;continue;} if(++d>1) return false;
+      if(a.length>b.length) i++; else if(b.length>a.length) j++; else {i++;j++;} }
+    return d+(a.length-i)+(b.length-j)<=1; }
+  function has(q,w){
+    if(w.indexOf(' ')>-1||w.length<=3) return w.length<=3 ? new RegExp('\\b'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(q) : q.indexOf(w)>-1;
+    if(q.indexOf(w)>-1) return true;
+    return words(q).some(function(x){return near(x,w)});
+  }
+  var SMALL=[
+    {re:/^(hi+|hello+|hey+|hii+|helo|namaste|namaskar|hola|yo|good (morning|afternoon|evening))\b/,fn:function(){
+      bot("Hi! Good to have you here.");
+      if(S.step==='start'||S.step==='free') later(function(){ bot("You can tell me what's going on with your weight in your own words, or take a quick 1-minute check."); chips([{label:'Take the quick check',go:true,fn:function(){ log.innerHTML=''; start(); }},{label:'I have a question',fn:function(){ me('I have a question'); later(freeMode); }}]); });
+      else later(function(){ resumeFlow(true); },300); }},
+    {re:/^(thanks|thank you|thank u|thx|ty|dhanyavad|shukriya)\b/,fn:function(){ bot("You're welcome."); later(function(){ chips([{label:'Continue',go:true,fn:resumeFlow},{label:'Book a consultation',fn:handoff}]); }); }},
+    {re:/^(bye|goodbye|see you|later|not now|no thanks)\b/,fn:function(){ bot("Take care. We're here whenever you're ready."); endSoft(); }},
+    {re:/\b(who are you|are you (a )?(bot|human|real|doctor|ai)|is this (a )?(bot|human))\b/,fn:function(){ bot("I'm the ALIV team's assistant. I can explain how weight management works here and point you the right way. For anything personal, a real person from the team takes over on call or WhatsApp."); later(function(){ chips([{label:'Continue',go:true,fn:resumeFlow},{label:'Talk to a person',fn:function(){me('Talk to a person');later(function(){answer('human')})}}]); }); }},
+    {re:/^(ok|okay|k|sure|fine|cool|great|yes|yeah|yep|haan|ha|hmm+)\b/,fn:function(){ if(S.step==='handoff'){ bot('Great. Pick one below.'); handoff(); } else resumeFlow(true); }},
+    {re:/^(no|nope|nahi|na)\b/,fn:function(){ if(S.step==='handoff'){ bot("No problem. We're here whenever you're ready."); endSoft(); } else resumeFlow(true); }}
+  ];
+  /* typed answers to the question on screen */
+  var CONCERN_K={stuck:['not losing',"won't",'wont','stuck','plateau','not reducing','kam nahi','not moving','cant lose',"can't lose",'gaining'],
+                 regain:['back','regain','again','yo-yo','yoyo','rebound'],pcos:['pcos','pcod','hormone','hormones','periods','menopause','testosterone'],
+                 sugar:['sugar','diabet','prediabet','insulin','hba1c'],explore:['explor','curious','just looking','browsing']};
+  function stepAnswer(q){
+    if(S.step==='start'){ var k=Object.keys(CONCERN_K).filter(function(c){return CONCERN_K[c].some(function(w){return has(q,w)})})[0];
+      if(k){ S.concern=k; track('chat_concern',{concern:k}); bot('Got it: '+CONCERN[k].toLowerCase()+'.'); later(askDuration); return true; } }
+    if(S.step==='duration'){ var m=q.match(/(\d+(?:\.\d+)?)\s*(year|yr|month|mon|week)/), d=null;
+      if(m){ var n=parseFloat(m[1]),u=m[2]; var months=u[0]==='y'?n*12:(u==='week'?n/4:n); d=months<6?'short':(months<=24?'mid':'long'); }
+      else if(/(few|couple of) (weeks|months)|recent/.test(q)) d='short';
+      else if(/(years|long time|forever|always|since (school|college|childhood))/.test(q)) d='long';
+      if(d){ S.duration=d; bot('Thanks. '+DUR[d]+'.'); later(askTried); return true; } }
+    return false;
+  }
   function reply(q){
-    var ql=' '+q.toLowerCase()+' ';
+    var ql=' '+q.toLowerCase().trim()+' ', qt=q.toLowerCase().trim();
     if(RED.some(function(w){return has(ql,w)})){ msg("This sounds urgent. Please call 112 or go to the nearest emergency department now. This chat can't help with emergencies.",'bot alert'); return; }
     if(PREG.some(function(w){return has(ql,w)})){ bot("During pregnancy or breastfeeding, weight-loss treatment isn't suitable. Please speak to your obstetrician, and we'd be glad to help afterwards."); endSoft(); return; }
+    for(var i=0;i<SMALL.length;i++){ if(SMALL[i].re.test(qt)){ SMALL[i].fn(); return; } }
+    if(stepAnswer(ql)) return;
     var best=null,score=0; Object.keys(A).forEach(function(k){var s=A[k].k.filter(function(w){return has(ql,w)}).length; if(s>score){score=s;best=k;}});
-    if(!best){ bot("We don't have a good answer for that here, but a doctor can help. Book a consultation or message the team."); chips([{label:'Book a consultation',go:true,fn:handoff},{label:'Continue',fn:resumeFlow}]); return; }
-    answer(best);
+    if(best){ answer(best); return; }
+    bot("I didn't quite catch that. I can help with what's stalling your weight, the first visit, injections, IV therapy, diet, timing or clinics.");
+    later(function(){ chips([{label:"Why can't I lose weight?",fn:function(){me("Why can't I lose weight?");later(function(){answer('why')})}},
+      {label:'What happens at the first visit?',fn:function(){me('What happens at the first visit?');later(function(){answer('consult')})}},
+      {label:S.step==='free'||S.step==='start'?'Take the quick check':'Continue where I was',go:true,fn:function(){ if(S.step==='free'||S.step==='start'){log.innerHTML='';start();} else resumeFlow(); }},
+      {label:'Talk to a person',fn:function(){me('Talk to a person');later(function(){answer('human')})}}]); },250);
   }
 
   var started=false;

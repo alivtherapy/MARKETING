@@ -10,7 +10,10 @@
   blue #1257A8 = links only. Fonts: Avenir Heavy (display), Gordita (body).
 - Tracking IDs reused on every LP: Clarity uxteeaz5rs, Google Ads AW-11058315015, Meta Pixel 429598552784651.
 - Pages: `lp-weight-management/` (mobile-first, desktop two-column layer at 960px+).
-  Current version: v0.5. Preview build: `preview/lp-weight-management-v0.5-preview.html`.
+  Current version: v0.6. Preview build: `preview/lp-weight-management-v0.6-preview.html`.
+  v0.6: NO section menu anywhere (rail and phone strip removed, per Rish). Chat is conversational: greetings,
+  thanks, yes/no, "who are you", typed answers to the current question (e.g. "about 3 years"), Hinglish
+  ("vajan kam nahi ho raha"), one-letter and swapped-letter typos, and a helpful fallback instead of a dead end.
   v0.5 adds: guided chat flow (ALIV team voice): concern -> how long -> what tried -> signs -> safety check
   (pregnancy, under 18, eating disorder) -> "worth checking" list -> tests + Listen. Plan. Review. -> doubts
   (injections, IV, diet, time, cost, clinics) -> hand-off: prefilled form (interest + hidden chat_summary) or
@@ -40,7 +43,7 @@
 - Hero = the problem only. No ALIV mention, no booking button. Sell later in the page.
 - Order: problem → evidence → research → approach → safety → About ALIV (credentials + press)
   → doctors → programmes → how it works → FAQ → form → references → footer.
-- Sticky side headings on desktop (not Safety or FAQ). Section rail on the left (no Contents button), current section red.
+- Sticky side headings on desktop (not Safety or FAQ). No section menu of any kind on the page.
 - Sticky Book bar appears only from the About ALIV section.
 - Logos: img/logo/aliv-green.webp (light bg), aliv-white.webp (dark bg), aliv-blue.webp (spare).
 - "How it works" mantra to keep across materials: Listen. Plan. Review.
