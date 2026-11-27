@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en" data-motion="off" data-version="v0.9">
+<head>
+<meta charset="utf-8">
+<meta name="aliv-lp-version" content="weight-management v0.9">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
+<meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
+<!-- Speed: hero image and brand fonts (self-hosted) are fetched first -->
+<link rel="preload" as="image" href="img/band-sm.webp" media="(max-width:699px)" fetchpriority="high">
+<link rel="preload" as="image" href="img/band.webp" media="(min-width:700px)" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="fonts/avenir_heavy-webfont.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/gordita-regular-webfont.woff2" crossorigin>
+
+<!-- ===== Tracking: same accounts as /lp-nad-plus/ ===== -->
+<!-- Microsoft Clarity: loads after the page has rendered -->
+<script type="text/javascript">
+  window.addEventListener('load', function () { setTimeout(function () {
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "uxteeaz5rs");
+  }, 1500); });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11058315015"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'AW-11058315015');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+  /* fbq() is queued immediately (PageView and Lead are never lost); the library itself loads after the page */
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v;
+    window.addEventListener('load', function () { s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) });
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '429598552784651');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=429598552784651&ev=PageView&noscript=1" />
+</noscript>
+<!-- ===== End tracking ===== -->
+
+<style>
+/* ==========================================================================
+   ALIV — Weight management landing page · v0.6 (static infographics; research charts animate; conversational guided chat; no menu; base + checks sections; animated basics cards; habit guide; Pune gallery photos). Same system as /lp-nad-plus/.
+   Mobile first (single column), then a desktop layer from 960px:
+   wider container, sticky side headings, multi-column steps and grids.
+   ========================================================================== */
+
+@font-face{
+  font-family:'avenirheavy';
+  src:url('fonts/avenir_heavy-webfont.woff2') format('woff2');
+  font-weight:400 800; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'gorditaregular';
+  src:url('fonts/gordita-regular-webfont.woff2') format('woff2');
+  font-weight:300 600; font-style:normal; font-display:swap;
+}
+
+:root{
+  --green-900:#04301C; --green-700:#075330; --green-600:#0A6230; --green-200:#CDEADD;
+  --teal-900:#083B36; --teal-700:#0C544D; --teal-600:#17766B; --teal-500:#2E9187;
+  --teal-400:#5AA79E; --teal-300:#8FC4BD; --teal-200:#C2E0DB; --teal-100:#DCEEEA;
+  --aqua:#EDF7F4;
+  --yellow-500:#F2C200; --yellow-600:#CEA500;
+  --link:#1257A8; --link-dark:#0E4483;
+  --neutral-900:#16211E; --neutral-800:#3A4744; --neutral-700:#5F6E6A;
+  --neutral-300:#C6D3CF; --neutral-200:#DFE7E4; --neutral-100:#EEF3F1; --white:#FFFFFF;
+
+  --text:var(--green-700);
+  --text-longform:var(--neutral-800);
+  --ground:var(--white);
+  --ground-dark:var(--teal-700);
+  --border:var(--neutral-200);
+  --cta:var(--yellow-500); --cta-text:#172003; --cta-hover:var(--yellow-600);
+
+  --t-strong:var(--green-700); --t-mixed:var(--teal-600); --t-early:var(--teal-400);
+
+  --display:'avenirheavy','Avenir Heavy','Avenir Next','Segoe UI',system-ui,sans-serif;
+  --body:'gorditaregular',Gordita,Avenir,'Segoe UI',system-ui,sans-serif;
+
+  /* SWAP: hero still. Falls back to the gradient if the file is missing. */
+  --hero-img:url("img/band.webp");
+
+  --pad:22px; --max:660px; --radius:4px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
+[id]{scroll-margin-top:78px}
+body{overflow-x:hidden;overflow-x:clip;background:var(--ground);color:var(--text);
+  font-family:var(--body);font-size:16px;line-height:1.6;font-weight:400;
+  -webkit-font-smoothing:antialiased;padding-bottom:88px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+img{max-width:100%}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:60;background:var(--white);box-shadow:0 0 10px rgba(12,84,77,.15)}
+.nav-in{max-width:var(--max);margin:0 auto;padding:14px var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:.02em;
+  color:var(--green-700);text-decoration:none;line-height:1}
+.logo span{display:block;font-family:var(--body);font-weight:400;font-size:.53rem;
+  letter-spacing:.06em;color:var(--teal-600);margin-top:3px}
+.nav-links{display:none}
+.nav-cta{font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--green-700);
+  text-decoration:none;border:1px solid var(--green-700);padding:11px 20px;border-radius:var(--radius);
+  line-height:1.4;min-height:44px;display:flex;align-items:center;transition:background .18s,color .18s}
+.nav-cta:hover,.nav-cta:focus-visible{background:var(--green-700);color:var(--white)}
+
+/* ---------- type ---------- */
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.82rem;color:var(--teal-600);
+  margin-bottom:14px;display:block;line-height:1.4}
+.eyebrow::before{content:'';display:inline-block;width:18px;height:2px;background:var(--teal-500);
+  vertical-align:.28em;margin-right:9px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.85rem,7vw,2.5rem);
+  line-height:1.14;letter-spacing:-.01em;margin-bottom:20px;color:var(--green-700);text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,5.5vw,2rem);
+  line-height:1.2;letter-spacing:-.005em;margin-bottom:15px;color:var(--green-700);text-wrap:balance}
+h3{font-family:var(--display);font-weight:700;font-size:1.06rem;line-height:1.4;margin-bottom:9px;color:var(--green-700)}
+p{margin-bottom:15px;color:var(--text)}
+p.lead{font-size:1.12rem;color:var(--green-700);line-height:1.55}
+strong{font-family:var(--display);font-weight:700;color:var(--green-700)}
+a{color:var(--link)}
+.body a,.ac-b a,p a,li a{color:var(--link);text-decoration:underline;text-underline-offset:2px}
+.body a:hover,.ac-b a:hover,p a:hover,li a:hover{color:var(--link-dark)}
+.cite{font-family:var(--body);font-size:.62em;font-weight:400;vertical-align:super;
+  color:var(--link);text-decoration:none !important;padding:0 1px;line-height:0}
+.cite:hover{text-decoration:underline !important}
+
+/* ---------- section rhythm ---------- */
+section{padding:44px 0}
+.wash{background:var(--aqua);box-shadow:0 0 0 100vmax var(--aqua);clip-path:inset(0 -100vmax)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;padding:52px 0 54px}
+.hero-media{position:absolute;z-index:-1;top:0;bottom:0;left:50%;transform:translateX(-50%);
+  width:100vw;overflow:hidden;background-color:var(--teal-900);
+  background-image:var(--hero-img);background-size:cover;background-position:center}
+.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:699px){ :root{--hero-img:url("img/band-sm.webp")} }
+.hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(8,59,54,.82),rgba(12,84,77,.62))}
+.hero h1,.hero h1 em,.hero .lead{color:var(--white)}
+.hero h1 em{font-style:normal;color:var(--teal-200)}
+.hero .eyebrow{color:#BFDDD7}
+.hero .eyebrow::before{background:var(--yellow-500)}
+.hero .trust{color:#BFDDD7}
+.hero .trust span::before{background:var(--yellow-500)}
+.hero .btn-ghost{color:var(--white);border-bottom-color:rgba(255,255,255,.32)}
+.hero .btn-ghost:hover{color:var(--yellow-500)}
+.hero .disc{border-color:rgba(255,255,255,.45);border-left-color:var(--teal-500)}
+
+
+/* ---------- buttons ---------- */
+.btn{display:block;width:100%;text-align:center;background:var(--cta);color:var(--cta-text);
+  font-family:var(--display);font-weight:700;font-size:1rem;padding:16px;border-radius:var(--radius);
+  text-decoration:none;border:none;cursor:pointer;transition:background .18s}
+.btn:hover,.btn:focus-visible{background:var(--cta-hover)}
+.btn-ghost{display:block;text-align:center;margin-top:12px;min-height:48px;color:var(--green-700);
+  font-family:var(--display);font-weight:700;font-size:.94rem;text-decoration:none;padding:12px;
+  border-bottom:1px solid var(--border)}
+footer .btn{background:var(--green-700);color:var(--white)}
+footer .btn:hover,footer .btn:focus-visible{background:var(--green-600)}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-size:.82rem;color:var(--neutral-700)}
+.trust span{display:flex;align-items:center;gap:7px}
+.trust span::before{content:'';width:5px;height:5px;background:var(--teal-500);border-radius:50%}
+
+/* ---------- evidence tier chip ---------- */
+.tier{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;
+  font-size:.72rem;padding:6px 11px 5px;border:1px solid currentColor;border-radius:2px;
+  margin-bottom:12px;line-height:1.2}
+.tier::before{content:'';width:22px;height:4px;background:currentColor;border-radius:1px}
+.t-strong{color:var(--t-strong)}
+.t-mixed{color:var(--t-mixed)} .t-mixed::before{width:14px}
+.t-early{color:var(--t-early)} .t-early::before{width:7px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 22px}
+.legend .tier{margin:0;background:var(--white)}
+
+/* ---------- blocks ---------- */
+.note{font-size:.86rem;color:var(--neutral-700);line-height:1.55;margin-top:8px}
+.pull{font-family:var(--display);font-weight:700;font-size:1.32rem;line-height:1.32;color:var(--green-700);
+  padding:20px 0 20px 20px;border-left:3px solid var(--teal-500);margin:26px 0}
+.job{padding:18px 0;border-bottom:1px solid var(--border)}
+.job:first-of-type{border-top:1px solid var(--border)}
+.job h3{margin-bottom:5px}
+.job p{margin:0;font-size:.95rem;color:var(--text-longform)}
+.job p + p{margin-top:11px}
+.disc{background:var(--white);padding:18px 20px;font-size:.83rem;line-height:1.62;color:var(--neutral-800);
+  margin-top:26px;border:1px solid var(--border);border-left:3px solid var(--teal-300)}
+.disc strong{color:var(--neutral-900);font-size:.83rem}
+
+
+/* ---------- accordion ---------- */
+.ac-list{border-top:1px solid var(--border);margin-top:22px}
+.ac{border-bottom:1px solid var(--border);background:var(--white)}
+.ac > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;
+  padding:15px 8px 15px 0;min-height:56px;font-family:var(--display);font-weight:700;font-size:.98rem;
+  line-height:1.35;color:var(--green-700)}
+.ac > summary::-webkit-details-marker{display:none}
+.ac-ico{flex:none;width:24px;height:24px;color:var(--teal-600);display:block}
+.ac-ico svg{width:24px;height:24px;display:block}
+.ac-t{flex:1}
+.ac-chev{flex:none;width:9px;height:9px;margin-right:6px;border-right:2px solid var(--link);
+  border-bottom:2px solid var(--link);transform:rotate(-45deg);transition:transform .2s ease}
+.ac[open] > summary .ac-chev{transform:rotate(45deg)}
+.ac[open] > summary,.ac[open] .ac-b{background:var(--teal-100)}
+.ac[open] > summary{color:var(--teal-700)}
+@media (hover:hover){ .ac:hover > summary{background:var(--teal-100)} }
+.ac-b{padding:0 34px 20px 37px;font-size:.95rem;line-height:1.62;color:var(--text-longform)}
+.ac-b p{margin:0;color:var(--text-longform)}
+.ac-b p + p{margin-top:11px}
+
+/* ---------- evidence timeline ---------- */
+.ev{position:relative;padding:24px 0 24px 36px}
+.ev::after{content:'';position:absolute;left:6px;top:0;bottom:0;width:1px;background:var(--teal-200)}
+.ev::before{content:'';position:absolute;left:0;top:30px;width:13px;height:13px;border-radius:50%;
+  background:var(--green-700);z-index:1;box-shadow:0 0 0 4px var(--aqua)}
+.ev-mixed::before{width:11px;height:11px;left:1px;top:31px;background:var(--teal-600)}
+.ev-early::before{width:9px;height:9px;left:2px;top:32px;background:var(--aqua);border:2px solid var(--teal-400)}
+.ev-first::after{top:36px}
+.ev-last::after{bottom:auto;height:36px}
+.ev h3{margin-bottom:7px}
+.ev > p{margin:0;font-size:.95rem;color:var(--text-longform);line-height:1.62}
+.more{margin-top:10px}
+.more > summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--display);font-weight:700;font-size:.86rem;color:var(--link);padding:8px 0;min-height:40px}
+.more > summary::-webkit-details-marker{display:none}
+.more .ac-chev{width:8px;height:8px;margin:0}
+.more[open] > summary .ac-chev{transform:rotate(45deg)}
+.more > summary:hover{color:var(--link-dark)}
+.more .ac-b{padding:2px 0 4px;background:none}
+
+/* ---------- steps ---------- */
+.step{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:17px 0;border-bottom:1px solid var(--border)}
+.step:first-of-type{border-top:1px solid var(--border)}
+.num{font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--teal-500);padding-top:3px}
+.step p{margin:0;font-size:.95rem;color:var(--text-longform)}
+
+/* ---------- FAQ ---------- */
+details.q{border-bottom:1px solid var(--border)}
+details.q:first-of-type{border-top:1px solid var(--border)}
+details.q summary{list-style:none;cursor:pointer;padding:17px 30px 17px 0;position:relative;
+  font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.42;color:var(--green-700)}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{content:'';position:absolute;right:6px;top:22px;width:9px;height:9px;
+  border-right:2px solid var(--link);border-bottom:2px solid var(--link);transform:rotate(-45deg);transition:transform .2s ease}
+details.q[open] summary::after{transform:rotate(45deg)}
+details.q .body{padding:0 0 19px;font-size:.95rem;color:var(--text-longform);line-height:1.62}
+details.q .body p{color:var(--text-longform)}
+details.q .body p:last-child{margin-bottom:0}
+
+/* ---------- why ---------- */
+.why{padding:19px 0;border-top:1px solid var(--border)}
+.why:last-of-type{border-bottom:1px solid var(--border)}
+.why p{margin:0;font-size:.94rem;color:var(--text-longform)}
+
+/* ---------- references ---------- */
+.refs{counter-reset:r;list-style:none;margin-top:6px}
+.refs li{counter-increment:r;position:relative;padding:13px 0 13px 30px;border-bottom:1px solid var(--border);
+  font-size:.88rem;line-height:1.55;color:var(--text-longform)}
+.refs li::before{content:counter(r);position:absolute;left:0;top:14px;font-family:var(--display);
+  font-weight:700;font-size:.78rem;color:var(--teal-500)}
+.refs .who{display:block;font-size:.8rem;color:var(--neutral-700);margin-top:3px}
+.review{font-size:.82rem;color:var(--neutral-700);margin-top:20px;padding-top:14px;border-top:1px solid var(--border)}
+
+/* ---------- form ---------- */
+.form{background:var(--ground-dark);color:var(--white);margin:0 calc(var(--pad)*-1);padding:46px var(--pad)}
+.form h2{color:var(--white)}
+.form p{color:#C7E0DB}
+.form .eyebrow{color:#8FBDB5}
+.form .eyebrow::before{background:var(--yellow-500)}
+.form label{display:block;font-family:var(--display);font-weight:700;font-size:.76rem;color:#8FBDB5;margin:20px 0 7px}
+.form input,.form select{width:100%;background:transparent;border:none;border-bottom:1px solid #2B6D64;
+  color:var(--white);padding:11px 0;font-family:var(--body);font-size:1rem;border-radius:0}
+.form input:focus,.form select:focus{outline:none;border-bottom-color:var(--yellow-500)}
+.form select option{background:var(--teal-700);color:var(--white)}
+.form .btn{margin-top:30px}
+.form .fine{font-size:.76rem;color:#8FBDB5;margin-top:16px;line-height:1.7;text-align:center}
+.form .alert{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);
+  border-left:3px solid var(--yellow-500);border-radius:var(--radius);padding:14px 16px;margin-top:22px;
+  font-size:.88rem;line-height:1.6;color:var(--white)}
+.form input.is-err,.form select.is-err{border-bottom-color:var(--yellow-500)}
+.form-points{list-style:none;margin-top:18px}
+.form-points li{color:#C7E0DB;font-size:.9rem;padding:6px 0 6px 20px;position:relative}
+.form-points li::before{content:'';position:absolute;left:0;top:15px;width:6px;height:6px;border-radius:50%;background:var(--yellow-500)}
+
+/* ---------- footer ---------- */
+footer{background:var(--white);padding:52px 0 38px;border-top:1px solid var(--border)}
+.tag{font-family:var(--display);font-weight:700;font-size:.82rem;color:var(--teal-600);margin-bottom:14px}
+.tag::before{content:'';display:inline-block;width:18px;height:2px;background:var(--teal-500);vertical-align:.28em;margin-right:9px}
+footer .cols{display:flex;flex-wrap:wrap;gap:28px;margin:30px 0;font-size:.9rem;color:var(--neutral-700)}
+footer .cols a{color:var(--link);text-decoration:none;display:block;padding:9px 0;min-height:44px}
+footer .cols a:hover{color:var(--link-dark);text-decoration:underline}
+footer h4{font-family:var(--display);font-weight:700;font-size:.76rem;color:var(--neutral-700);margin-bottom:9px}
+.legal{font-size:.75rem;line-height:1.65;color:var(--neutral-700);margin-top:26px;padding-top:20px;border-top:1px solid var(--border)}
+.legal strong{color:var(--neutral-900)}
+
+/* ---------- sticky cta (mobile + desktop) ---------- */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--white);border-top:1px solid var(--border);
+  box-shadow:0 -2px 10px rgba(12,84,77,.10);padding:11px var(--pad) calc(11px + env(safe-area-inset-bottom));
+  transform:translateY(110%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.sticky.show{transform:none}
+.sticky-in{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:14px}
+.sticky .meta{flex:1;font-size:.76rem;color:var(--neutral-700);line-height:1.45}
+.sticky .btn{width:auto;padding:13px 24px;font-size:.9rem;white-space:nowrap}
+
+/* ---------- images ---------- */
+.fig{margin:28px 0 6px}
+.fig img{display:block;width:100%;height:auto;border:1px solid var(--border)}
+.fig-band{position:relative;left:50%;transform:translateX(-50%);width:100vw;max-width:100vw;margin:0;
+  background:var(--teal-200)}
+.fig-band img{display:block;width:100%;border:none;height:300px;object-fit:cover;object-position:center 40%}
+@media(max-width:559px){ .fig-band img{height:56vw;max-height:240px} }
+
+/* ---------- reveal + focus ---------- */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  .hero-media video{display:none}
+  .ac-chev,details.q summary::after{transition:none}
+}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{
+  outline:2px solid var(--link);outline-offset:3px}
+
+
+/* ==========================================================================
+   MOTION + INFOGRAPHICS. Every animation is triggered once, when its block
+   scrolls into view (.rv -> .in), and is switched off for reduced motion.
+   ========================================================================== */
+
+/* hero: live metabolic panel */
+.panel{position:relative;overflow:hidden;background:rgba(4,48,28,.58);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:22px 22px 18px;margin-top:30px}
+.panel-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.panel-h h3{color:var(--white);font-size:.95rem;margin:0}
+.live{font-size:.7rem;color:#BFDDD7;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--yellow-500);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.mk{display:grid;grid-template-columns:1fr 84px;gap:12px;align-items:center;padding:8px 0;
+  border-top:1px solid rgba(255,255,255,.1);font-size:.84rem;color:#D9ECE8;line-height:1.35}
+.mk:first-of-type{border-top:none}
+.mk i{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden;position:relative}
+.mk i::after{content:'';position:absolute;top:0;bottom:0;left:0;width:var(--w);border-radius:3px;
+  background:linear-gradient(90deg,var(--teal-400),var(--yellow-500));transform:scaleX(0);transform-origin:left;
+  transition:transform 1.2s cubic-bezier(.2,.7,.3,1);transition-delay:calc(var(--d) * 110ms + 250ms)}
+.panel.in .mk i::after{transform:scaleX(1)}
+.scan{position:absolute;left:0;right:0;height:70px;top:0;pointer-events:none;will-change:transform;
+  background:linear-gradient(transparent,rgba(143,196,189,.16),transparent);animation:scan 5s ease-in-out infinite}
+@keyframes scan{0%{transform:translateY(-70px)}65%,100%{transform:translateY(560px)}}
+.panel .fineprint{font-size:.7rem;color:#8FBDB5;margin:10px 0 0}
+
+/* credentials + press */
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:24px 18px;padding:38px 0 30px;border-bottom:1px solid var(--border)}
+.cred b{display:block;font-family:var(--display);font-weight:700;font-size:2.2rem;line-height:1;color:var(--green-700);letter-spacing:-.01em}
+.cred b small{font-size:.5em;margin-left:2px;color:var(--teal-600)}
+.cred > span{display:block;font-size:.8rem;color:var(--neutral-700);margin-top:8px;line-height:1.4}
+.press{padding:24px 0 6px;overflow:hidden}
+.press > p{font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--neutral-700);text-align:center;margin-bottom:12px}
+.press-mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee{display:flex;align-items:center;width:max-content;gap:44px;animation:marq 38s linear infinite}
+.press:hover .marquee,.press.off .marquee{animation-play-state:paused}
+.marquee img{height:40px;width:auto;filter:grayscale(1) contrast(1.1);opacity:.62;transition:opacity .2s,filter .2s}
+.marquee img:hover{opacity:1;filter:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* BMI scale: global vs Asian cut-offs */
+.bmi{margin:26px 0 8px;padding:20px 18px 16px;background:var(--aqua);border-radius:8px;position:relative}
+.bmi h3{font-size:.95rem;margin-bottom:16px}
+.bmi-row{margin-bottom:22px}
+.bmi-row > span{display:block;font-family:var(--display);font-weight:700;font-size:.76rem;color:var(--neutral-800);margin-bottom:6px}
+.track{position:relative;height:14px;border-radius:7px;background:var(--white);overflow:visible}
+.seg{position:absolute;top:0;bottom:0;transform:scaleX(0);transform-origin:left;
+  transition:transform .9s cubic-bezier(.2,.7,.3,1);transition-delay:calc(var(--d) * 180ms + 200ms)}
+.seg:first-child{border-radius:7px 0 0 7px}.seg:last-child{border-radius:0 7px 7px 0}
+.s1{background:var(--green-200)}.s2{background:var(--teal-300)}.s3{background:var(--teal-600)}
+.bmi.in .seg{transform:scaleX(1)}
+.tick{position:absolute;top:18px;transform:translateX(-50%);font-size:.7rem;color:var(--neutral-700);font-family:var(--display);font-weight:700}
+.bmi-tracks{position:relative;padding-top:26px}
+.pin{position:absolute;top:22px;bottom:18px;width:2px;background:var(--yellow-600);opacity:0;transition:opacity .5s 1.4s}
+.pin::before{content:'BMI 24';position:absolute;top:-20px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  font-family:var(--display);font-weight:700;font-size:.7rem;color:var(--cta-text);background:var(--yellow-500);padding:2px 7px;border-radius:3px}
+.bmi.in .pin{opacity:1}
+.bmi-key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.74rem;color:var(--neutral-800)}
+.bmi-key span{display:flex;align-items:center;gap:6px}
+.bmi-key span::before{content:'';width:12px;height:8px;border-radius:2px;background:var(--c)}
+.bmi .note{margin:12px 0 0}
+
+/* dark research band: animated trial charts */
+.dark{background:var(--teal-900);box-shadow:0 0 0 100vmax var(--teal-900);clip-path:inset(0 -100vmax)}
+.dark h2,.dark h3{color:var(--white)}
+.dark p{color:#C7E0DB}
+.dark .eyebrow{color:#8FBDB5}
+.dark .eyebrow::before{background:var(--yellow-500)}
+.dark .tier{color:var(--teal-200)}
+.dark .cite{color:var(--teal-200)}
+.charts{display:grid;gap:16px;margin-top:24px}
+.chart{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px 20px 18px}
+.chart h3{font-size:1.02rem;margin-bottom:4px}
+.bar-row{margin-top:14px}
+.bar-row .lbl{display:flex;justify-content:space-between;gap:10px;font-size:.8rem;color:#D9ECE8;margin-bottom:6px}
+.bar-row .lbl b{color:var(--white);font-family:var(--display);white-space:nowrap}
+.bar-row i{display:block;height:8px;border-radius:4px;background:rgba(255,255,255,.08);position:relative;overflow:hidden}
+.bar-row i::after{content:'';position:absolute;top:0;bottom:0;left:0;width:var(--v);background:var(--c,var(--teal-300));border-radius:4px;
+  transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.2,.7,.3,1) var(--dl,.2s)}
+.src{font-size:.75rem;color:#8FBDB5 !important;margin:16px 0 0 !important;line-height:1.5}
+.lc{display:block;width:100%;height:auto;margin-top:12px;overflow:visible}
+.lc .axis{stroke:rgba(255,255,255,.2);stroke-width:1}
+.lc .stop{stroke:rgba(242,194,0,.55);stroke-width:1;stroke-dasharray:3 4}
+.lc .path{fill:none;stroke:var(--yellow-500);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s ease .3s}
+.rv.in .lc .path{stroke-dashoffset:0}
+.lc text{fill:#C7E0DB;font-size:10px;font-family:var(--body)}
+.lc .v{fill:var(--white);font-size:12px;font-family:var(--display);font-weight:700}
+.lc circle{fill:var(--yellow-500);opacity:0;transition:opacity .4s}
+.lc .c1{transition-delay:.3s}.lc .c2{transition-delay:1.5s}.lc .c3{transition-delay:2.4s}
+.rv.in .lc circle{opacity:1}
+
+/* approach: layered build */
+.layers{display:flex;flex-direction:column-reverse;align-items:center;gap:8px;margin:26px 0 8px}
+.layer{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:16px 18px;border-radius:6px;color:var(--white);
+  opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.3,1);transition-delay:calc(var(--i) * 200ms + 150ms)}
+.rv.in .layer{opacity:1;transform:none}
+.layer b{font-family:var(--display);font-weight:700;font-size:.86rem;color:var(--yellow-500);padding-top:2px}
+.layer h3{color:var(--white);font-size:1rem;margin-bottom:3px}
+.layer p{color:rgba(255,255,255,.85);margin:0;font-size:.88rem;line-height:1.5}
+.layer em{font-style:normal;display:inline-block;margin-top:6px;font-size:.72rem;font-family:var(--display);font-weight:700;
+  color:var(--teal-900);background:var(--teal-100);padding:2px 7px;border-radius:2px}
+.l1{background:var(--green-700);width:100%}.l2{background:var(--teal-700);width:97%}
+.l3{background:var(--teal-600);width:94%}.l4{background:var(--teal-500);width:91%}
+.layers-cap{text-align:center;font-size:.8rem;color:var(--neutral-700);margin-top:10px}
+
+/* ALIV programmes */
+.progs{display:grid;gap:12px;margin-top:20px}
+.prog{display:block;border:1px solid var(--border);border-radius:6px;padding:18px 20px;text-decoration:none;background:var(--white);
+  transition:border-color .2s,transform .2s,box-shadow .2s}
+.prog:hover{border-color:var(--teal-500);transform:translateY(-2px);box-shadow:0 8px 24px rgba(12,84,77,.08)}
+.prog h3{margin-bottom:4px}
+.prog p{margin:0;font-size:.9rem;color:var(--text-longform)}
+.prog span{display:inline-block;margin-top:10px;font-family:var(--display);font-weight:700;font-size:.84rem;color:var(--link)}
+
+/* steps: progress line draws on scroll */
+.steps{position:relative}
+.steps::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:2px;background:var(--teal-300);
+  transform:scaleY(0);transform-origin:top;transition:transform 1.6s cubic-bezier(.2,.7,.3,1) .2s}
+.rv.in .steps::before{transform:scaleY(1)}
+.step{position:relative}
+.num{position:relative;z-index:1}
+.num span{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;
+  background:var(--white);border:2px solid var(--teal-500);font-size:.8rem;margin-left:-1px}
+
+/* team */
+.team{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px}
+.member{margin:0}
+.member .ph{aspect-ratio:4/3;overflow:hidden;border-radius:6px;background:var(--teal-100)}
+.member img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.member:hover img{transform:scale(1.05)}
+.member b{display:block;font-family:var(--display);font-weight:700;font-size:.86rem;color:var(--green-700);margin-top:9px;line-height:1.3}
+.member span{display:block;font-size:.75rem;color:var(--neutral-700);line-height:1.35;margin-top:2px}
+.team-more{font-size:.82rem;color:var(--neutral-700);margin-top:14px}
+
+@media (prefers-reduced-motion:reduce){
+  .mk i::after,.seg,.bar-row i::after,.layer,.steps::before,.member img{transition:none !important;transform:none !important}
+  .layer{opacity:1}
+  .lc .path{transition:none;stroke-dashoffset:0}
+  .lc circle,.pin{transition:none;opacity:1}
+  .scan,.live::before{animation:none}
+  .scan{display:none}
+  .marquee{animation:none;flex-wrap:wrap;justify-content:center;width:auto;row-gap:16px}
+  .marquee .dup{display:none}
+}
+
+
+/* ==========================================================================
+   v1 ADDITIONS: logo, contents drawer, hero drivers, static (no-motion) mode
+   ========================================================================== */
+.logo img{display:block;height:50px;width:auto}
+.nav-in{position:relative}
+.read-bar{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--teal-500);transform-origin:left;transform:scaleX(var(--p,0))}
+.drivers{list-style:none;counter-reset:d}
+.drivers li{counter-increment:d;display:grid;grid-template-columns:26px 1fr;gap:10px;padding:9px 0;
+  border-top:1px solid rgba(255,255,255,.1);font-size:.9rem;color:#D9ECE8;line-height:1.4}
+.drivers li:first-child{border-top:none}
+.drivers li::before{content:counter(d,decimal-leading-zero);font-family:var(--display);font-weight:700;font-size:.72rem;color:var(--yellow-500);padding-top:2px}
+
+.aliv-intro{max-width:640px}
+.form-logo{display:block;height:54px;width:auto;margin-bottom:26px}
+.foot-logo{display:block;height:64px;width:auto;margin-bottom:22px}
+
+/* STATIC MODE (this version): infographics show in their final state, nothing moves.
+   The advanced version sets data-motion="on" to switch the animations back on. */
+[data-motion="off"] .rv{opacity:1;transform:none;transition:none}
+[data-motion="off"] .mk i::after,[data-motion="off"] .seg,
+[data-motion="off"] .layer,[data-motion="off"] .steps::before{transition:none !important;transform:none !important;opacity:1}
+[data-motion="off"] .lc circle,[data-motion="off"] .pin{transition:none;opacity:1}
+[data-motion="off"] .scan,[data-motion="off"] .live::before{animation:none}
+[data-motion="off"] .marquee{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:18px 40px}
+[data-motion="off"] .marquee .dup{display:none}
+[data-motion="off"] .press-mask{-webkit-mask-image:none;mask-image:none}
+
+
+/* ==========================================================================
+   v0.3: glass research cards, pyramid, programme cards, story timeline, chat
+   ========================================================================== */
+.ev > p + p{margin-top:10px}
+
+/* 3. liquid glass research cards */
+.charts{position:relative;isolation:isolate}
+.charts::before{content:'';position:absolute;z-index:-1;inset:-50px -6%;pointer-events:none;filter:blur(24px);
+  background:radial-gradient(38% 60% at 18% 35%,rgba(46,145,135,.7),transparent 70%),
+             radial-gradient(30% 55% at 82% 70%,rgba(242,194,0,.28),transparent 70%),
+             radial-gradient(34% 50% at 52% 8%,rgba(143,196,189,.45),transparent 70%)}
+.chart{position:relative;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,.22);
+  background:linear-gradient(140deg,rgba(255,255,255,.16),rgba(255,255,255,.04) 42%,rgba(255,255,255,.09));
+  -webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(255,255,255,.08),0 24px 48px rgba(0,0,0,.28)}
+.chart::before{content:'';position:absolute;left:0;right:0;top:0;height:42%;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0))}
+.chart::after{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(255,255,255,0) 38%,rgba(255,255,255,.12) 68%,rgba(255,255,255,.45));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.chart > *{position:relative;z-index:1}
+
+/* 5. pyramid */
+.pyr{margin-top:26px}
+.pyr-shape{display:grid;grid-template-rows:repeat(4,62px);gap:5px;max-width:400px;margin:0 auto}
+.band{display:flex;align-items:center;justify-content:center;background:var(--c);color:var(--white);
+  font-family:var(--display);font-weight:700;font-size:.84rem;text-align:center;line-height:1.2;padding-top:4px}
+.band span{display:flex;flex-direction:column;align-items:center;gap:2px}
+.band b{color:var(--yellow-500);font-size:.68rem}
+.pyr-text{list-style:none;margin-top:24px}
+.pyr-text li{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--border)}
+.pyr-text li:last-child{border-bottom:1px solid var(--border)}
+.pn{width:30px;height:30px;border-radius:50%;background:var(--c);color:var(--yellow-500);font-family:var(--display);
+  font-weight:700;font-size:.7rem;display:flex;align-items:center;justify-content:center}
+.pyr-text h3{font-size:.98rem;margin-bottom:3px}
+.pyr-text p{margin:0;font-size:.9rem;color:var(--text-longform);line-height:1.5}
+.pyr-text em{font-style:normal;display:inline-block;margin-top:6px;font-size:.72rem;font-family:var(--display);font-weight:700;
+  color:var(--teal-900);background:var(--teal-100);padding:2px 8px;border-radius:2px}
+
+/* 6. programme cards */
+.pscale{display:flex;align-items:center;gap:10px;margin:20px 0 4px;font-family:var(--display);font-weight:700;font-size:.72rem;color:var(--neutral-700)}
+.pscale i{flex:1;max-width:60px;height:1px;background:var(--neutral-300)}
+.pcard{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  transition:box-shadow .2s,border-color .2s}
+.pcard:hover{border-color:var(--teal-300);box-shadow:0 10px 28px rgba(12,84,77,.1)}
+.pcard-top{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--c);color:var(--white);padding:13px 20px}
+.pcard-type{font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase}
+.pcard-lvl{display:flex;align-items:center;gap:4px}
+.pcard-lvl i{display:block;width:16px;height:4px;border-radius:2px;background:rgba(255,255,255,.3)}
+.pcard-lvl i.on{background:var(--yellow-500)}
+.pcard-lvl small{font-size:.7rem;margin-left:6px;color:rgba(255,255,255,.85)}
+.pcard-body{padding:18px 20px 6px;flex:1}
+.pcard-body h3{font-size:1.1rem;margin-bottom:6px}
+.pcard-body p{font-size:.9rem;color:var(--text-longform);margin-bottom:14px;line-height:1.5}
+.pcard-body .pcard-k{font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--neutral-700);margin-bottom:6px}
+.pcard-body ul{list-style:none;margin-bottom:14px}
+.pcard-body li{position:relative;padding:5px 0 5px 22px;font-size:.88rem;color:var(--text-longform);border-top:1px dashed var(--border)}
+.pcard-body li:first-child{border-top:none}
+.pcard-body li::before{content:'';position:absolute;left:3px;top:11px;width:8px;height:5px;border-left:2px solid var(--teal-500);border-bottom:2px solid var(--teal-500);transform:rotate(-45deg)}
+.pcard-cta{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border);
+  font-family:var(--display);font-weight:700;font-size:.88rem;color:var(--link);text-decoration:none;min-height:48px}
+.pcard-cta:hover{background:var(--aqua);color:var(--link-dark)}
+
+/* 7. Listen. Plan. Review. */
+.story-lead{font-size:1.02rem;color:var(--text-longform);max-width:560px}
+.story{list-style:none;display:grid;gap:30px;margin-top:26px;position:relative}
+.chap{position:relative}
+.ill{margin:0 0 14px;background:var(--white);border:1px solid var(--border);border-radius:18px;padding:14px 16px;
+  display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;position:relative;z-index:1}
+.ill svg{width:100%;height:100%;overflow:visible}
+.ln{fill:none;stroke:var(--green-700);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ln2{fill:none;stroke:var(--teal-500);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ln-s{fill:none;stroke:var(--neutral-300);stroke-width:3;stroke-linecap:round}
+.ok{fill:none;stroke:var(--teal-600);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.up{fill:none;stroke:var(--yellow-600);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.dot{fill:var(--teal-500)}
+.t-l{font-family:var(--display);font-weight:700;font-size:10.5px;fill:var(--green-700)}
+.t-s{font-family:var(--body);font-size:9px;fill:var(--neutral-700)}
+.t-c{font-family:var(--display);font-weight:700;font-size:12px;fill:var(--green-700)}
+.nod{transform-box:view-box;transform-origin:182px 74px;animation:nod 3.4s ease-in-out infinite}
+@keyframes nod{0%,55%,100%{transform:rotate(0)}64%{transform:rotate(-8deg)}72%{transform:rotate(0)}80%{transform:rotate(-7deg)}88%{transform:rotate(0)}}
+.chap-n{display:inline-block;font-family:var(--display);font-weight:700;font-size:.78rem;color:var(--white);background:var(--teal-600);
+  padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.chap h3{font-size:1.08rem}
+.chap p{font-size:.94rem;color:var(--text-longform);margin:0}
+.chap:not(:last-child)::after{content:'';display:block;width:0;height:30px;margin:14px auto -30px;border-left:2px dashed var(--teal-300)}
+.loop{margin:26px 0 0;font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--teal-700)}
+.loop span{display:inline-block;font-size:1.2rem;margin-right:6px;vertical-align:-2px}
+
+/* 1. chat assistant */
+.chat-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:75;display:flex;align-items:center;gap:9px;
+  background:var(--green-700);color:var(--white);border:none;border-radius:28px;padding:13px 18px 13px 14px;cursor:pointer;
+  font-family:var(--display);font-weight:700;font-size:.88rem;box-shadow:0 8px 24px rgba(4,48,28,.3);
+  opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s,bottom .3s}
+.chat-fab svg{width:22px;height:22px}
+body.past-hero .chat-fab{opacity:1;transform:none;pointer-events:auto}
+body.cta-on .chat-fab{bottom:calc(84px + env(safe-area-inset-bottom))}
+body.chat-open .chat-fab{opacity:0;pointer-events:none}
+.chat{padding:0 !important;position:fixed;z-index:95;right:0;left:0;bottom:0;height:min(82vh,640px);background:var(--white);border-radius:18px 18px 0 0;
+  box-shadow:0 -10px 40px rgba(4,48,28,.25);display:flex;flex-direction:column;transform:translateY(105%);visibility:hidden;
+  transition:transform .3s cubic-bezier(.4,0,.2,1),visibility 0s linear .3s}
+body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.chat-h{display:flex;align-items:center;gap:12px;padding:14px 14px 12px 18px;background:var(--teal-700);color:var(--white);border-radius:18px 18px 0 0}
+.chat-h img{height:30px;width:auto}
+.chat-h div{flex:1;line-height:1.3}
+.chat-h b{display:block;font-family:var(--display);font-size:.95rem}
+.chat-h small{font-size:.72rem;color:#BFDDD7}
+.chat-x{width:44px;height:44px;border:none;background:none;color:var(--white);font-size:1.6rem;cursor:pointer}
+.chat-log{flex:1;overflow-y:auto;padding:16px;background:var(--aqua);display:flex;flex-direction:column;gap:10px}
+.msg{max-width:86%;padding:10px 13px;border-radius:14px;font-size:.9rem;line-height:1.5}
+.msg.bot{background:var(--white);color:var(--neutral-800);border:1px solid var(--border);border-bottom-left-radius:4px;align-self:flex-start}
+.msg.me{background:var(--teal-600);color:var(--white);border-bottom-right-radius:4px;align-self:flex-end}
+.msg.alert{background:#FFF6D6;border-color:var(--yellow-500)}
+.msg a{color:var(--link)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start}
+.chips button,.chips a{font-family:var(--display);font-weight:700;font-size:.78rem;border:1px solid var(--teal-500);color:var(--teal-700);
+  background:var(--white);border-radius:16px;padding:7px 12px;cursor:pointer;text-decoration:none;min-height:34px}
+.chips button:hover,.chips a:hover{background:var(--teal-100)}
+.chips .go{background:var(--yellow-500);border-color:var(--yellow-500);color:var(--cta-text)}
+.chat-f{display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--border)}
+.chat-f input{flex:1;border:1px solid var(--border);border-radius:22px;padding:11px 16px;font-family:var(--body);font-size:1rem;min-width:0}
+.chat-f input:focus{outline:2px solid var(--teal-500);outline-offset:0}
+.chat-f button{border:none;background:var(--green-700);color:var(--white);border-radius:22px;padding:0 18px;font-family:var(--display);font-weight:700;cursor:pointer}
+.chat-note{font-size:.68rem;color:var(--neutral-700);text-align:center;padding:0 12px 8px}
+.chips button[aria-pressed="true"]{background:var(--teal-600);border-color:var(--teal-600);color:var(--white)}
+.msg ul.worth{margin:2px 0 0 18px}
+.msg ul.worth li{margin:3px 0;font-family:var(--display);font-weight:700;color:var(--green-700)}
+.chat-added{margin:18px 0 0;padding:10px 12px;border-left:3px solid var(--yellow-500);background:rgba(255,255,255,.08);font-size:.84rem;color:var(--white) !important}
+.basics{display:grid;gap:14px;margin-top:22px}
+.basic{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.basic h3{margin-bottom:8px}
+.basic ul{list-style:none}
+.basic li{position:relative;padding:6px 0 6px 18px;font-size:.92rem;color:var(--text-longform);line-height:1.5;border-top:1px dashed var(--border)}
+.basic li:first-child{border-top:none}
+.basic li::before{content:'';position:absolute;left:2px;top:14px;width:6px;height:6px;border-radius:50%;background:var(--teal-500)}
+.basic-extra{margin-top:14px}
+.basic-extra p{font-size:.92rem;color:var(--text-longform);margin:0}
+.ready{margin-top:26px;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--yellow-500);border-radius:12px;padding:20px 22px}
+.ready label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:.92rem;color:var(--text-longform);cursor:pointer;border-top:1px dashed var(--border)}
+.ready label:first-of-type{border-top:none}
+.ready input{margin-top:4px;width:18px;height:18px;accent-color:var(--teal-600);flex:none}
+.ready-out{margin:12px 0 0;font-family:var(--display);font-weight:700;color:var(--green-700)}
+.checks{list-style:none;margin-top:22px}
+.checks li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--border)}
+.checks li:last-child{border-bottom:1px solid var(--border)}
+.checks li b{font-family:var(--display);color:var(--teal-500);font-size:.95rem;padding-top:2px}
+.checks h3{margin-bottom:4px}
+.checks p{margin:0;font-size:.93rem;color:var(--text-longform)}
+.paths{margin-top:24px;display:grid;gap:10px}
+.path{display:grid;gap:2px;padding:12px 16px;background:var(--aqua);border-radius:10px}
+.path b{font-family:var(--display);color:var(--green-700);font-size:.92rem}
+.path span{font-size:.9rem;color:var(--text-longform)}
+@media(min-width:960px){ .basics{grid-template-columns:repeat(3,1fr)} .paths{grid-template-columns:repeat(2,1fr)} .paths .pcard-k{grid-column:1/-1} }
+
+/* ---------- base cards: looping illustrations ---------- */
+.anim-wrap{margin:-20px -22px 16px;border-radius:12px 12px 0 0;overflow:hidden}
+.anim{display:block;width:100%;height:auto}
+.anim text{font-family:var(--display);font-weight:700}
+/* sleep */
+.sl-wall{fill:#16303F;animation:slWall 10s ease-in-out infinite}
+.sl-sky{fill:#0C2231;animation:slSky 10s ease-in-out infinite}
+.sl-moon-cut{fill:#0C2231;animation:slSky 10s ease-in-out infinite}
+.sl-moon,.sl-stars,.sl-lights,.sl-z,.sl-eye-c,.sl-t1{animation:slNight 10s ease-in-out infinite}
+.sl-stars circle{fill:#fff}
+.sl-lights rect{fill:#F2C200}
+.sl-city rect{fill:#1F3F52;animation:slCity 10s ease-in-out infinite}
+.sl-sun{fill:#F2C200;transform-box:view-box;animation:slSun 10s ease-in-out infinite}
+.sl-frame{fill:none;stroke:#E8E1D3;stroke-width:3}
+.sl-strap{fill:#0C544D}
+.sl-watch{fill:#0C544D}.sl-face{fill:#F7F3EA}
+.sl-ticks path{stroke:#0C544D;stroke-width:2;stroke-linecap:round}
+.sl-hr,.sl-min{stroke:#075330;stroke-linecap:round;transform-box:view-box;transform-origin:52px 50px}
+.sl-hr{stroke-width:3;animation:slHr 10s ease-in-out infinite}
+.sl-min{stroke-width:2;animation:slMin 10s ease-in-out infinite}
+.sl-pin{fill:#F2C200}
+.sl-t{font-size:12px;fill:#E8E1D3}
+.sl-t2,.sl-badge,.sl-eye-o{animation:slDay 10s ease-in-out infinite}
+.sl-t2{fill:#075330}
+.sl-badge rect{fill:#F2C200}.sl-badge text{font-size:10px;fill:#172003}
+.sl-bed{fill:#8C6A4F}.sl-leg{stroke:#8C6A4F;stroke-width:4;stroke-linecap:round}
+.sl-pillow{fill:#F7F3EA}.sl-skin{fill:#C68B67}.sl-hair{fill:none;stroke:#2B1B14;stroke-width:5;stroke-linecap:round}
+.sl-eye-c{fill:none;stroke:#2B1B14;stroke-width:1.6;stroke-linecap:round}.sl-eye-o{fill:#2B1B14}
+.sl-blanket{fill:#2E9187}
+.sl-z text{fill:#BFDDD7;font-size:13px}
+.sl-z{animation:slNight 10s ease-in-out infinite,slZ 2.5s ease-in-out infinite}
+@keyframes slWall{0%,52%{fill:#16303F}66%,90%{fill:#F4EEE2}100%{fill:#16303F}}
+@keyframes slSky{0%,50%{fill:#0C2231}60%{fill:#F0A868}70%,90%{fill:#BFE3F0}100%{fill:#0C2231}}
+@keyframes slCity{0%,52%{fill:#1F3F52}66%,90%{fill:#9DB7C2}100%{fill:#1F3F52}}
+@keyframes slNight{0%,50%{opacity:1}60%,92%{opacity:0}100%{opacity:1}}
+@keyframes slDay{0%,58%{opacity:0}68%,90%{opacity:1}100%{opacity:0}}
+@keyframes slSun{0%,52%{transform:translateY(50px)}70%,90%{transform:translateY(0)}100%{transform:translateY(50px)}}
+@keyframes slHr{0%{transform:rotate(330deg)}62%,92%{transform:rotate(555deg)}100%{transform:rotate(690deg)}}
+@keyframes slMin{0%{transform:rotate(0)}62%,92%{transform:rotate(2700deg)}100%{transform:rotate(2880deg)}}
+@keyframes slZ{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+/* food */
+.fd-bg{fill:#F6F1E7}.fd-plate{fill:#fff;stroke:#E2DACB;stroke-width:2}.fd-plate-in{fill:#FBF8F2}
+.fd-w{transform-box:fill-box;transform-origin:center;opacity:0;animation:fdPop 8s ease-out infinite}
+.fd-w2{animation-delay:.5s}.fd-w3{animation-delay:1s}.fd-w4{animation-delay:1.5s}
+.fd-n{fill:#fff;opacity:.92}.fd-nt{font-size:9px;fill:#075330}
+.fd-leg{font-size:9.5px;fill:#5F6E6A}
+.fd-btl{fill:none;stroke:#0C544D;stroke-width:2.4}.fd-cap{fill:#0C544D}.fd-neck{fill:#DCEEEA;stroke:#0C544D;stroke-width:2}
+.fd-water{fill:#8FC4BD;transform-box:fill-box;transform-origin:bottom;animation:fdFill 8s ease-in-out infinite}
+.fd-ticks path{stroke:#0C544D;stroke-width:1.5}.fd-ticks text{font-size:8px;fill:#5F6E6A;font-family:var(--body)}
+.fd-drop{fill:#5AA79E;animation:fdDrop 1.2s ease-in infinite}
+.fd-goal{font-size:10px;fill:#075330}
+@keyframes fdPop{0%{opacity:0;transform:scale(.6)}8%{opacity:1;transform:scale(1.04)}11%,86%{opacity:1;transform:scale(1)}94%,100%{opacity:0;transform:scale(1)}}
+@keyframes fdFill{0%{transform:scaleY(0)}55%,88%{transform:scaleY(.82)}100%{transform:scaleY(0)}}
+@keyframes fdDrop{0%{transform:translateY(0);opacity:1}80%{transform:translateY(34px);opacity:1}100%{transform:translateY(38px);opacity:0}}
+/* movement */
+.mv-bg{fill:#EAF3F1}.mv-phone{fill:#16211E}.mv-screen{fill:#fff}
+.mv-h{font-size:8.5px;fill:#16211E}
+.mv-map{fill:#EEF3F1}.mv-road{stroke:#DCE5E2;stroke-width:3}
+.mv-route{fill:none;stroke:#E8742A;stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:mvRoute 8s ease-in-out infinite}
+.mv-start{fill:#2E9187}.mv-end{fill:#E8742A;opacity:0;animation:mvEnd 8s ease-in-out infinite}
+.mv-k{font-size:7.5px;fill:#5F6E6A;font-family:var(--body)!important;font-weight:400!important}
+.mv-v{font-size:13px;fill:#16211E}
+.mv-zones rect{fill:#DCE5E2}.mv-z2{fill:#2E9187 !important;animation:mvPulse 1.6s ease-in-out infinite}
+.mv-chip rect{fill:#fff;stroke:#C2E0DB}.mv-chip text{font-size:9.5px;fill:#075330}
+.mv-chip{opacity:0;animation:mvChip 8s ease-out infinite}.mv-chip3{animation-delay:.6s}.mv-chip2{animation-delay:1.2s}
+@keyframes mvRoute{0%{stroke-dashoffset:1}55%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+@keyframes mvEnd{0%,52%{opacity:0}58%,88%{opacity:1}100%{opacity:0}}
+@keyframes mvPulse{0%,100%{opacity:1}50%{opacity:.55}}
+@keyframes mvChip{0%,10%{opacity:0;transform:translateY(6px)}18%,86%{opacity:1;transform:none}96%,100%{opacity:0}}
+.basics:not(.play) .anim *{animation-play-state:paused !important}
+
+/* ---------- readiness check with a guide ---------- */
+.ready{display:grid;gap:18px;padding:0;overflow:visible}
+.ready-guide{background:var(--aqua);padding:16px 18px;border-bottom:1px solid var(--border);border-radius:12px 12px 0 0}
+.ready-g-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.ready-g-top .note{margin:0}
+.gender{display:flex;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:20px;padding:3px}
+.gender button{border:none;background:none;border-radius:16px;padding:6px 14px;font-family:var(--display);font-weight:700;font-size:.8rem;color:var(--green-700);cursor:pointer;min-height:34px}
+.gender button[aria-pressed="true"]{background:var(--green-700);color:var(--white)}
+.ready-g-body{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center}
+.buddy{width:100%;height:auto;display:block}
+.buddy-stage{overflow:hidden;width:100%}
+.b-legl,.b-legr,.b-arml,.b-armr{transform-box:view-box}
+.b-legl{transform-origin:64px 168px}.b-legr{transform-origin:96px 168px}
+.b-arml{transform-origin:54px 102px}.b-armr{transform-origin:106px 102px}
+.buddy.walking .b-legl,.buddy.walking .b-armr{animation:swingA .32s ease-in-out infinite alternate}
+.buddy.walking .b-legr,.buddy.walking .b-arml{animation:swingB .32s ease-in-out infinite alternate}
+.buddy.walking .b-arms-up,.buddy.walking .b-spark{opacity:0}.buddy.walking .b-arms-down{opacity:1}
+@keyframes swingA{from{transform:rotate(-16deg)}to{transform:rotate(16deg)}}
+@keyframes swingB{from{transform:rotate(16deg)}to{transform:rotate(-16deg)}}
+.bubble{position:relative;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:12px 14px;font-size:.9rem;line-height:1.5;color:var(--neutral-800)}
+.bubble::before{content:'';position:absolute;left:-7px;top:22px;width:12px;height:12px;background:var(--white);border-left:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg)}
+.bubble b{font-family:var(--display);color:var(--green-700);display:block;margin-bottom:2px}
+.bubble a{font-family:var(--display);font-weight:700;color:var(--link);display:inline-block;margin-top:6px}
+.ready-list{padding:0 22px 20px}
+.ready-score{margin:12px 0 0;font-family:var(--display);font-weight:700;color:var(--green-700)}
+/* character */
+.b-skin{fill:#C68B67}.b-hair{fill:#2B1B14}.b-shirt{fill:#2E9187}.b-kurta{fill:#17766B}.b-dupatta{fill:none;stroke:#F2C200;stroke-width:5;stroke-linecap:round}
+.b-leg{stroke:#4A3B32;stroke-width:12;stroke-linecap:round}.b-shoe{stroke:#16211E;stroke-width:7;stroke-linecap:round}
+.b-arm{stroke:#C68B67;stroke-width:10;stroke-linecap:round;fill:none}
+.b-shadow{fill:rgba(4,48,28,.12)}
+.b-eye{fill:#2B1B14}.b-brow{stroke:#2B1B14;stroke-width:2.6;stroke-linecap:round;transform-box:fill-box;transform-origin:center;transition:transform .3s}
+.b-cheek{fill:#E89A8A;opacity:0;transition:opacity .3s}
+.b-mouth{fill:none;stroke:#7A2E22;stroke-width:2.6;stroke-linecap:round;opacity:0;transition:opacity .2s}
+.b-m3{fill:#7A2E22}
+.b-arms-up,.b-spark{opacity:0}
+.b-spark path{fill:#F2C200}
+.buddy .b-f-only{display:none}
+.buddy.g-f .b-f-only{display:inline}.buddy.g-f .b-m-only{display:none}
+.buddy.mood-0 .b-m0,.buddy.mood-1 .b-m1,.buddy.mood-2 .b-m2,.buddy.mood-3 .b-m3{opacity:1}
+.buddy.mood-0 .b-brow-l{transform:rotate(-14deg)}.buddy.mood-0 .b-brow-r{transform:rotate(14deg)}
+.buddy.mood-2 .b-cheek,.buddy.mood-3 .b-cheek{opacity:.7}
+.buddy.mood-3 .b-arms-up,.buddy.mood-3 .b-spark{opacity:1}.buddy.mood-3 .b-arms-down{opacity:0}
+.buddy.mood-3 .b-spark{animation:twinkle 1.4s ease-in-out infinite}
+.buddy.bump{animation:bump .45s ease-out}
+@keyframes bump{0%{transform:translateY(0)}35%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.4}}
+@media(min-width:760px){
+  .ready{grid-template-columns:300px 1fr;gap:0}
+  .ready-guide{border-bottom:none;border-right:1px solid var(--border);padding:22px}
+  .ready-g-body{grid-template-columns:1fr;justify-items:center}
+  .buddy{width:150px}
+  .bubble::before{left:50%;top:-7px;transform:translateX(-50%) rotate(135deg)}
+  .ready-list{padding:22px 24px}
+  .ready-g-top{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:759px){ .ready-guide{position:sticky;top:78px;z-index:5;box-shadow:0 6px 14px rgba(4,48,28,.08)} .ready-g-top .note{display:none} .buddy{width:80px} }
+@media(min-width:760px){ .ready-guide{border-radius:12px 0 0 12px} }
+@media (prefers-reduced-motion:reduce){ .anim *,.buddy,.b-spark{animation:none !important} .fd-w,.mv-chip,.mv-end{opacity:1} .mv-route{stroke-dashoffset:0} .fd-water{transform:scaleY(.82)} }
+
+.ver{font-size:.7rem;color:var(--neutral-300);margin-top:12px}
+
+@media (prefers-reduced-motion:reduce){ .nod{animation:none} }
+
+
+/* ---------- sticky side headings ---------- */
+[id]{scroll-margin-top:90px}
+.split.no-stick > .side{position:static}
+
+/* ---------- clinic gallery ---------- */
+.gallery{display:grid;gap:14px;margin:30px 0 8px}
+.g{margin:0;position:relative;overflow:hidden;border-radius:12px;background:var(--teal-100)}
+.g img{display:block;width:100%;height:100%;object-fit:cover}
+.g figcaption{position:absolute;left:10px;bottom:10px;background:rgba(4,48,28,.75);color:var(--white);font-family:var(--display);
+  font-weight:700;font-size:.74rem;padding:5px 11px;border-radius:14px}
+.g-lead{aspect-ratio:4/5;max-height:560px}
+.g-lead img{object-position:center 60%}
+.gal-tabs{display:flex;gap:6px;margin-bottom:10px}
+.gal-tabs button{flex:1;min-height:44px;padding:9px 12px;border:1px solid var(--border);border-radius:22px;background:var(--white);
+  font-family:var(--display);font-weight:700;font-size:.8rem;color:var(--green-700);cursor:pointer}
+.gal-tabs button[aria-selected="true"]{background:var(--green-700);border-color:var(--green-700);color:var(--white)}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gal-grid .g{aspect-ratio:4/3}
+.gal-grid[hidden]{display:none}
+.slot{display:flex;align-items:center;justify-content:center;text-align:center;border:1.5px dashed var(--teal-300);background:var(--aqua)}
+.slot span{font-size:.7rem;color:var(--neutral-700);line-height:1.4;padding:8px}
+.slot b{display:block;font-family:var(--display);font-size:.84rem;color:var(--teal-700)}
+.gal-addr{font-size:.82rem;color:var(--neutral-700);margin:10px 0 0}
+.gal-addr a{color:var(--link)}
+
+/* ---------- research chart entrance ---------- */
+.charts.go .bar-row i::after{transform:scaleX(1)}
+.lc .path{stroke-dasharray:none !important;stroke-dashoffset:0 !important;transition:none !important}
+.lc circle{opacity:1 !important;transition:none !important}
+.lc .v{transition:opacity .5s ease 1.3s}
+.charts.pre .lc .v{opacity:0}
+.charts.pre.go .lc .v{opacity:1}
+
+
+/* ==========================================================================
+   TABLET (680px+)
+   ========================================================================== */
+@media(min-width:680px){
+  body{font-size:16.5px}
+  .hero{padding:64px 0 60px}
+  section{padding:80px 0}
+  h1{font-size:2.5rem}
+  h2{font-size:2rem}
+  .btn{width:auto;display:inline-block;padding:16px 40px}
+  .btn-ghost{display:inline-block;margin-left:22px;margin-top:0;border:none}
+  .form{padding:60px 44px}
+  .fig-band img{height:380px}
+  .creds{grid-template-columns:repeat(4,1fr)}
+  .charts{grid-template-columns:1fr 1fr}
+  .team{grid-template-columns:repeat(3,1fr)}
+  .chat{left:auto;right:20px;bottom:20px;width:380px;height:min(78vh,600px);border-radius:18px}
+  body.cta-on .chat{bottom:92px}
+}
+
+/* ==========================================================================
+   DESKTOP (960px+): wide container, two-column sections
+   ========================================================================== */
+@media(min-width:960px){
+  :root{--max:1140px;--pad:40px}
+  body{font-size:17px}
+  h1{font-size:3.1rem}
+  h2{font-size:2.25rem}
+  .logo img{height:56px}
+
+  /* hero: copy left, "what we measure" right */
+  .hero{padding:96px 0 92px}
+  .hero-grid{display:grid;grid-template-columns:7fr 4fr;gap:72px;align-items:center}
+  .hero .disc{max-width:640px}
+
+  /* side-heading layout: heading sticks while the content scrolls */
+  .split{display:grid;grid-template-columns:4fr 7fr;gap:72px;align-items:start}
+  .split > .side{position:sticky;top:110px}
+  .split > .side .pull{font-size:1.4rem}
+
+  .ac-list.two{display:grid;grid-template-columns:1fr 1fr;column-gap:36px;border-top:none;align-items:start}
+  .ac-list.two .ac{border-top:1px solid var(--border);border-bottom:none}
+  .ac-list.two .ac:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
+
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:10px}
+  .step{display:block;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:26px 26px 28px}
+  .step:first-of-type{border-top:1px solid var(--border)}
+  .num{font-size:1.5rem;margin-bottom:14px;padding:0}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+  .cards .job:nth-child(2){border-top:1px solid var(--border)}
+
+  .why-grid{display:grid;grid-template-columns:6fr 5fr;gap:64px;align-items:center}
+
+  .form{margin:0;padding:64px 64px;border-radius:6px}
+  .form-grid{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:start}
+  .form-grid label:first-of-type{margin-top:0}
+
+  footer .foot-grid{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:start}
+  footer .cols{margin:0;justify-content:space-between}
+
+
+  .hero .panel{margin-top:0;padding:26px 28px 20px}
+  .creds{padding:44px 0 34px}
+  .cred b{font-size:2.7rem}
+  .charts{grid-template-columns:repeat(3,1fr);gap:20px}
+  .progs{grid-template-columns:repeat(3,1fr);gap:20px}
+  .layers{max-width:760px;margin:34px auto 8px}
+  .l2{width:94%}.l3{width:88%}.l4{width:82%}
+  .pyr{display:grid;grid-template-columns:420px 1fr;gap:0 48px;align-items:start}
+  .gallery{grid-template-columns:7fr 5fr;align-items:stretch}
+  .g-lead{aspect-ratio:auto;min-height:340px}
+  .pyr-shape{grid-template-rows:repeat(4,104px);margin:0;max-width:none}
+  .band{font-size:.98rem}.band b{font-size:.74rem}
+  .pyr-text{display:grid;grid-template-rows:repeat(4,104px);gap:5px;margin:0}
+  .pyr-text li{align-self:center;border:none;padding:0;position:relative}
+  .pyr-text li:last-child{border:none}
+  .pyr-text li::before{content:'';position:absolute;left:-44px;top:15px;width:36px;border-top:2px dotted var(--teal-300)}
+  .layers-cap{text-align:left;margin-left:0}
+  .story{grid-template-columns:repeat(3,1fr);gap:28px}
+  .chap:not(:last-child)::after{position:absolute;z-index:0;top:33%;right:-28px;width:28px;height:0;margin:0;border-left:none;border-top:2px dashed var(--teal-300)}
+  .layer{grid-template-columns:44px 1fr;padding:20px 26px}
+  .steps::before{left:26px;right:26px;top:52px;bottom:auto;width:auto;height:2px;transform:scaleX(0);transform-origin:left}
+  .rv.in .steps::before{transform:scaleX(1)}
+  .bmi{padding:26px 28px 20px}
+}
+</style>
+<noscript><style>
+  .rv{opacity:1 !important;transform:none !important}
+  .mk i::after,.seg,.bar-row i::after,.layer,.steps::before{transform:none !important;opacity:1 !important}
+  .lc .path{stroke-dashoffset:0 !important}.lc circle,.pin{opacity:1 !important}
+  .sticky{transform:none}
+</style></noscript>
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#top"><img src="img/logo/aliv-green-sm.webp" alt="ALIV Regenerative Wellness by Dr. Tandulwadkar" width="200" height="119"></a>
+  </div>
+  <span class="read-bar" id="readBar" aria-hidden="true"></span>
+</nav>
+
+
+
+<div id="top" class="wrap">
+
+  <!-- ============================ HERO ============================ -->
+  <header class="hero">
+    <div class="hero-media" aria-hidden="true"><video id="heroVid" muted loop playsinline preload="none"></video></div>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Weight management</span>
+        <h1>Doing everything right, and the weight still won't shift? <em>It's rarely about willpower.</em></h1>
+        <p class="lead">Eating less and moving more works for a while, then stops. Or the weight comes back. Usually something underneath hasn't been looked at yet.</p>
+        <a class="btn" href="#why-stalls">See why it stalls &nbsp;&darr;</a>
+      </div>
+      <aside class="panel" aria-label="What can quietly stall weight loss">
+        <div class="panel-h"><h3>What can quietly stall weight loss</h3></div>
+        <ol class="drivers">
+          <li>Insulin resistance and blood sugar</li>
+          <li>An underactive thyroid</li>
+          <li>Hormones: PCOS, menopause, low testosterone</li>
+          <li>Short sleep and long-term stress</li>
+          <li>Losing muscle while dieting</li>
+          <li>Fat in the liver</li>
+          <li>Some everyday medicines</li>
+        </ol>
+        <p class="fineprint">Most people have more than one. Each shows up in tests.</p>
+      </aside>
+    </div>
+  </header>
+
+  <!-- ======================= 1. WHY WEIGHT LOSS STALLS ======================= -->
+  <section class="rv" id="why-stalls">
+    <div class="split">
+      <div class="side">
+        <span class="eyebrow">The body you're working with</span>
+        <h2>Why weight loss stalls.</h2>
+        <div class="pull">The scale can look normal while the metabolic risk is already there.</div>
+      </div>
+      <div>
+        <p>Body fat isn't only stored energy. It's run by hormones, sleep, muscle and blood sugar. When one of those is off, eating less and moving more works for a while, then stops.</p>
+        <p><strong>South Asian bodies carry risk earlier.</strong> At the same BMI, South Asians tend to carry more body fat, and more of it around the organs. The WHO recommends lower BMI action points for Asian populations<a class="cite" href="#references">1</a>, and one well-known comparison found more than double the body fat in an Indian man of the same BMI as a European man<a class="cite" href="#references">2</a>.</p>
+        <div class="bmi rv" role="img" aria-label="BMI risk cut-offs. Global: increased risk from 25, high risk from 30. Asian populations: increased risk from 23, high risk from 27.5. A BMI of 24 is normal on the global scale but already increased risk on the Asian scale.">
+          <h3>Same number, different risk</h3>
+          <div class="bmi-tracks">
+          <div class="bmi-row"><span>Global cut-offs</span><div class="track"><span class="seg s1" style="left:0.0%;width:39.4%;--d:0"></span><span class="seg s2" style="left:39.4%;width:30.3%;--d:1"></span><span class="seg s3" style="left:69.7%;width:30.3%;--d:2"></span><span class="tick" style="left:39.4%">25</span><span class="tick" style="left:69.7%">30</span></div></div>
+          <div class="bmi-row"><span>Asian cut-offs (WHO)<a class="cite" href="#references">1</a></span><div class="track"><span class="seg s1" style="left:0.0%;width:27.3%;--d:3"></span><span class="seg s2" style="left:27.3%;width:27.3%;--d:4"></span><span class="seg s3" style="left:54.5%;width:45.5%;--d:5"></span><span class="tick" style="left:27.3%">23</span><span class="tick" style="left:54.5%">27.5</span></div></div>
+          <span class="pin" style="left:33.3%" aria-hidden="true"></span>
+          </div>
+          <div class="bmi-key"><span style="--c:var(--green-200)">Lower risk</span><span style="--c:var(--teal-300)">Increased risk</span><span style="--c:var(--teal-600)">High risk</span></div>
+          <p class="note">A BMI of 24 reads as "normal" on the global scale. On the Asian scale it's already in the increased-risk band.</p>
+        </div>
+
+        <h3 style="margin-top:34px">What actually drives fat storage</h3>
+        <p class="note">Established physiology. What is proven about each <em>treatment</em> is labelled in the next section.</p>
+
+        <div class="ac-list">
+          <!-- ICON SLOTS: 24px inline SVG placeholders. Swap for the ALIV icon set when ready. -->
+          <details class="ac">
+            <summary><span class="ac-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/></svg></span><span class="ac-t">Blood sugar and insulin resistance</span><span class="ac-chev" aria-hidden="true"></span></summary>
+            <div class="ac-b"><p>When cells stop responding well to insulin, the body produces more of it. High insulin makes stored fat harder to release, especially around the waist. It often shows up in bloodwork years before diabetes does.</p></div>
+          </details>
+          <details class="ac">
+            <summary><span class="ac-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 4c-2 3-2 5 0 8s2 5 0 8M16 4c2 3 2 5 0 8s-2 5 0 8"/></svg></span><span class="ac-t">Thyroid</span><span class="ac-chev" aria-hidden="true"></span></summary>
+            <div class="ac-b"><p>An underactive thyroid slows energy use and is common, particularly in women. It's a simple blood test, and it's worth ruling out before blaming effort.</p></div>
+          </details>
+          <details class="ac">
+            <summary><span class="ac-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="5"/><path d="M12 14v7M9 18h6"/></svg></span><span class="ac-t">Hormones: PCOS, menopause, testosterone</span><span class="ac-chev" aria-hidden="true"></span></summary>
+            <div class="ac-b"><p>PCOS is tightly linked to insulin resistance. Menopause shifts where fat is stored. Low testosterone in men makes muscle harder to keep. Each changes what a sensible plan looks like.</p></div>
+          </details>
+          <details class="ac">
+            <summary><span class="ac-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><span class="ac-t">Sleep and stress</span><span class="ac-chev" aria-hidden="true"></span></summary>
+            <div class="ac-b"><p>Short sleep raises hunger and changes what you lose. In one controlled trial, people on the same diet lost noticeably less fat and more muscle when their sleep was cut short<a class="cite" href="#references">3</a>.</p></div>
+          </details>
+          <details class="ac">
+            <summary><span class="ac-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h3M18 12h3M6 8v8M18 8v8M9 10v4M15 10v4M9 12h6"/></svg></span><span class="ac-t">Muscle mass</span><span class="ac-chev" aria-hidden="true"></span></summary>
+            <div class="ac-b"><p>Muscle is the tissue that uses most of your blood sugar. Crash diets strip it away, which is one reason weight comes back. Protecting muscle is part of the plan from day one.</p></div>
+          </details>
+          <details class="ac">
+            <summary><span class="ac-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12a7 7 0 0 1 14 0v2a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="M9 21h6"/></svg></span><span class="ac-t">Appetite signalling</span><span class="ac-chev" aria-hidden="true"></span></summary>
+            <div class="ac-b"><p>Hunger and fullness are controlled by gut and brain hormones, not just discipline. After weight loss the body pushes hunger up to win the weight back. That's biology, and it can be planned for.</p></div>
+          </details>
+          <details class="ac">
+            <summary><span class="ac-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4h12v6a6 6 0 0 1-12 0z"/><path d="M12 16v5"/></svg></span><span class="ac-t">Fatty liver and inflammation</span><span class="ac-chev" aria-hidden="true"></span></summary>
+            <div class="ac-b"><p>Fat in the liver is common in Indian adults, including slim ones, and it worsens insulin resistance. It's usually silent and often reverses with the right changes.</p></div>
+          </details>
+          <details class="ac">
+            <summary><span class="ac-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="16" height="6" rx="3"/><path d="M12 9v6"/></svg></span><span class="ac-t">Medications</span><span class="ac-chev" aria-hidden="true"></span></summary>
+            <div class="ac-b"><p>Some common medicines, including certain antidepressants, steroids and diabetes drugs, can make weight harder to lose. Never stop one on your own. Bring the list and the doctor will review it.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. WHAT WORKS (EVIDENCE) ==================== -->
+  <section class="rv wash" id="explored">
+    <div class="split">
+      <div class="side">
+        <span class="eyebrow">What works</span>
+        <h2>Every claim below carries its evidence.</h2>
+        <p class="note" style="margin-bottom:18px">Each approach is labelled by how strong the human evidence is. Most people need more than one.</p>
+        <div class="legend">
+          <span class="tier t-strong">Strong</span>
+          <span class="tier t-mixed">Good, smaller trials</span>
+          <span class="tier t-early">Early or weak</span>
+        </div>
+      </div>
+      <div>
+        <div class="ev ev-strong ev-first">
+          <span class="tier t-strong">Strong human evidence</span>
+          <h3>Nutrition built around a steady deficit</h3>
+          <p>Losing weight needs an energy deficit. That part is settled. What isn't one-size-fits-all is how you get there: what you eat, when, and how much your blood sugar and appetite allow.</p>
+          <p>Crash diets lose weight fast, and much of it is muscle and water. We plan for a pace you can hold and food you'll actually eat, Indian food included.</p>
+        </div>
+
+        <div class="ev ev-strong">
+          <span class="tier t-strong">Strong human evidence</span>
+          <h3>Protein and strength training</h3>
+          <p>Eating enough protein and lifting weights while in a deficit protects muscle. In one trial, a higher-protein group lost more fat and gained muscle on the same calorie deficit<a class="cite" href="#references">4</a>.</p>
+          <p>This is what decides whether you end up lighter or actually leaner. It matters even more if medication is part of the plan, because rapid loss takes muscle with it.</p>
+        </div>
+
+        <div class="ev ev-strong">
+          <span class="tier t-strong">Strong human evidence</span>
+          <h3>Prescription medication, where clinically appropriate</h3>
+          <p>Newer medicines that act on appetite hormones produced average losses of roughly 15–20% of body weight in large trials, alongside lifestyle changes<a class="cite" href="#references">5</a><a class="cite" href="#references">6</a>.</p>
+          <p>They are prescription-only, not right for everyone, and not a shortcut. When people stopped, most regained a large share of the weight within a year<a class="cite" href="#references">7</a>. That is why we only consider them inside a plan that builds muscle and habits.</p>
+              <p><strong>Your doctor decides if medication has a role. You can't book it on its own.</strong></p>
+        </div>
+
+        <div class="ev ev-mixed">
+          <span class="tier t-mixed">Good, smaller trials</span>
+          <h3>Sleep and stress</h3>
+          <p>Better sleep won't melt fat by itself, but poor sleep undermines everything else. In a controlled trial, short sleep cut the share of weight lost as fat on the same diet<a class="cite" href="#references">3</a>.</p>
+          <p>It's a small study, so treat it as direction, not a precise number. In practice, fixing sleep is often what makes the rest of the plan stick.</p>
+        </div>
+
+        <div class="ev ev-early ev-last">
+          <span class="tier t-early">Early or weak evidence</span>
+          <h3>Supplements and "fat burners"</h3>
+          <p>Most products sold for weight loss have little good evidence in humans. Some support a specific deficiency your bloodwork shows. Few do much beyond that.</p>
+          <p>If you're low in something, correcting it helps you feel better and train better. We'll tell you what's worth taking and what's worth skipping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. THE RESEARCH ==================== -->
+  <section class="rv dark" id="numbers">
+    <span class="eyebrow">The numbers behind the plan</span>
+    <h2>What the trials actually measured.</h2>
+    <p style="max-width:640px">Three findings that shape how we build every plan. Small trials are labelled as small.</p>
+    <div class="charts">
+      <div class="chart">
+        <span class="tier t-mixed">Small randomised trial</span>
+        <h3>Sleep changes what you lose</h3>
+        <div class="bar-row"><div class="lbl"><span>Fat lost · 8.5 h sleep</span><b>1.4 kg</b></div><i style="--v:58%;--c:var(--teal-300)"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Fat lost · 5.5 h sleep</span><b>0.6 kg</b></div><i style="--v:25%;--c:var(--teal-300);--dl:.4s"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Lean mass lost · 8.5 h sleep</span><b>1.5 kg</b></div><i style="--v:62%;--c:var(--yellow-500);--dl:.6s"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Lean mass lost · 5.5 h sleep</span><b>2.4 kg</b></div><i style="--v:100%;--c:var(--yellow-500);--dl:.8s"></i></div>
+        <p class="src">Same diet for 14 days, 10 adults. Less sleep meant less fat and more lean mass lost.<a class="cite" href="#references">3</a></p>
+      </div>
+      <div class="chart">
+        <span class="tier t-mixed">Randomised trial</span>
+        <h3>Protein decides lean versus lighter</h3>
+        <div class="bar-row"><div class="lbl"><span>Fat lost · higher protein</span><b>4.8 kg</b></div><i style="--v:100%;--c:var(--teal-300)"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Fat lost · lower protein</span><b>3.5 kg</b></div><i style="--v:73%;--c:var(--teal-300);--dl:.4s"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Lean mass gained · higher protein</span><b>+1.2 kg</b></div><i style="--v:25%;--c:var(--yellow-500);--dl:.6s"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Lean mass gained · lower protein</span><b>+0.1 kg</b></div><i style="--v:2%;--c:var(--yellow-500);--dl:.8s"></i></div>
+        <p class="src">4 weeks, same calorie deficit plus training, 40 young men.<a class="cite" href="#references">4</a></p>
+      </div>
+      <div class="chart">
+        <span class="tier t-strong">Large randomised trial</span>
+        <h3>Why the exit plan matters</h3>
+        <svg class="lc" viewBox="0 0 320 175" role="img" aria-label="Average weight change: minus 17.3 percent at week 68 on treatment, then minus 5.6 percent at week 120, one year after treatment stopped.">
+          <line class="axis" x1="30" y1="22" x2="300" y2="22"/>
+          <line class="axis" x1="30" y1="22" x2="30" y2="150"/>
+          <line class="stop" x1="183" y1="22" x2="183" y2="150"/>
+          <text x="188" y="36">Treatment stopped</text>
+          <text x="0" y="26">0%</text><text x="0" y="128">−17%</text>
+          <path class="path" id="lcPath" d="M30 22 C 80 40, 130 118, 183 125 S 262 66, 300 56"><animate class="lc-anim" attributeName="d" begin="indefinite" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .7 .3 1" from="M30 22 C 80 22, 130 22, 183 22 S 262 22, 300 22" to="M30 22 C 80 40, 130 118, 183 125 S 262 66, 300 56"/></path>
+          <circle class="c1" cx="30" cy="22" r="4"/><circle class="c2" cx="183" cy="125" r="5"><animate class="lc-anim" attributeName="cy" begin="indefinite" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .7 .3 1" from="22" to="125"/></circle><circle class="c3" cx="300" cy="56" r="5"><animate class="lc-anim" attributeName="cy" begin="indefinite" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .7 .3 1" from="22" to="56"/></circle>
+          <text class="v" x="128" y="142">−17.3%</text><text class="v" x="262" y="80">−5.6%</text>
+          <text x="22" y="168">Wk 0</text><text x="170" y="168">Wk 68</text><text x="282" y="168">Wk 120</text>
+        </svg>
+        <p class="src">A year after stopping a weight-loss medicine, people regained about two-thirds of what they'd lost.<a class="cite" href="#references">7</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 4. THE APPROACH ======================= -->
+  <section class="rv" id="routes">
+    <span class="eyebrow">The approach</span>
+    <h2>Lifestyle-led or medically supported.</h2>
+    <p style="margin-bottom:20px">Not competing options. Different starting points, set by your results.</p>
+
+    <div class="pyr" role="group" aria-label="The approach, built in four layers from the bottom up">
+      <div class="pyr-shape" aria-hidden="true"><div class="band" style="--c:var(--teal-500);clip-path:polygon(38.0% 0,62.0% 0,71.5% 100%,28.5% 100%)"><span><b>04</b>Prescription</span></div><div class="band" style="--c:var(--teal-600);clip-path:polygon(28.5% 0,71.5% 0,81.0% 100%,19.0% 100%)"><span><b>03</b>IV &amp; nutrients</span></div><div class="band" style="--c:var(--teal-700);clip-path:polygon(19.0% 0,81.0% 0,90.5% 100%,9.5% 100%)"><span><b>02</b>Lifestyle</span></div><div class="band" style="--c:var(--green-700);clip-path:polygon(9.5% 0,90.5% 0,100.0% 100%,0.0% 100%)"><span><b>01</b>Diagnostics</span></div></div>
+      <ol class="pyr-text"><li style="--c:var(--teal-500)"><span class="pn">04</span><div><h3>Prescription support</h3><p>Only where clinically appropriate, with closer monitoring and an exit plan.</p><em>Your doctor decides</em></div></li><li style="--c:var(--teal-600)"><span class="pn">03</span><div><h3>Targeted IV and nutrient support</h3><p>Corrects deficiencies and supports energy and training. Supports the plan, doesn't replace it.</p><em>Supportive, evidence still early</em></div></li><li style="--c:var(--teal-700)"><span class="pn">02</span><div><h3>Lifestyle foundation</h3><p>Nutrition for your blood sugar, strength training for muscle, sleep and stress.</p></div></li><li style="--c:var(--green-700)"><span class="pn">01</span><div><h3>Diagnostics</h3><p>Bloodwork, body composition, and FibroScan where indicated. Every plan starts here.</p></div></li></ol>
+    </div>
+    <p class="layers-cap">Built from the bottom up. Everyone starts at 01. Not everyone needs the top two layers.</p>
+
+    <div class="pull">Medication can start it. Muscle and habits keep it.</div>
+
+    <div class="disc"><strong>What we won't tell you:</strong> that it's all willpower, or that medical support is cheating. Both are wrong. The right plan depends on your body, and your body shows up in your results.</div>
+  </section>
+
+  <!-- ======================= 4b. GET THE BASE RIGHT (lifestyle basics) ======================= -->
+  <section class="rv wash" id="base">
+    <span class="eyebrow">The base of the pyramid</span>
+    <h2>Get the base right first.</h2>
+    <p style="max-width:640px">Most people hope a treatment will do the work. It can't on its own. These three basics come first for everyone, and everything else is built on them.</p>
+    <div class="basics" id="basicsAnim">
+      <div class="basic">
+        <figure class="anim-wrap"><svg class="anim anim-sleep" viewBox="0 0 320 170" role="img" aria-label="A person asleep from 11 pm to 6:30 am while the window turns from moon and city lights to sunrise">
+  <defs><clipPath id="winClip"><rect x="226" y="20" width="76" height="74" rx="4"/></clipPath></defs>
+  <rect class="sl-wall" x="0" y="0" width="320" height="170" rx="14"/>
+  <g clip-path="url(#winClip)">
+    <rect class="sl-sky" x="226" y="20" width="76" height="74"/>
+    <circle class="sl-sun" cx="264" cy="52" r="11"/>
+    <g class="sl-moon"><circle cx="278" cy="38" r="8" fill="#F6F1D5"/><circle cx="282" cy="35" r="7" class="sl-moon-cut"/></g>
+    <g class="sl-stars"><circle cx="240" cy="30" r="1.2"/><circle cx="256" cy="44" r="1"/><circle cx="292" cy="56" r="1.2"/></g>
+    <g class="sl-city">
+      <rect x="228" y="66" width="14" height="28"/><rect x="243" y="58" width="12" height="36"/><rect x="256" y="70" width="16" height="24"/>
+      <rect x="273" y="62" width="12" height="32"/><rect x="286" y="72" width="16" height="22"/>
+    </g>
+    <g class="sl-lights"><rect x="231" y="70" width="3" height="3"/><rect x="236" y="78" width="3" height="3"/><rect x="246" y="62" width="3" height="3"/>
+      <rect x="250" y="74" width="3" height="3"/><rect x="260" y="76" width="3" height="3"/><rect x="266" y="82" width="3" height="3"/>
+      <rect x="276" y="67" width="3" height="3"/><rect x="279" y="80" width="3" height="3"/><rect x="290" y="77" width="3" height="3"/></g>
+  </g>
+  <rect x="226" y="20" width="76" height="74" rx="4" class="sl-frame"/><path class="sl-frame" d="M264 20v74M226 57h76"/>
+  <rect x="44" y="18" width="16" height="12" rx="3" class="sl-strap"/><rect x="44" y="70" width="16" height="12" rx="3" class="sl-strap"/>
+  <circle cx="52" cy="50" r="24" class="sl-watch"/><circle cx="52" cy="50" r="19" class="sl-face"/>
+  <g class="sl-ticks"><path d="M52 34v4M52 62v4M36 50h4M64 50h4"/></g>
+  <line class="sl-hr" x1="52" y1="50" x2="52" y2="40"/>
+  <line class="sl-min" x1="52" y1="50" x2="52" y2="35"/>
+  <circle cx="52" cy="50" r="2" class="sl-pin"/>
+  <text x="52" y="98" text-anchor="middle" class="sl-t sl-t1">11:00 PM</text>
+  <text x="52" y="98" text-anchor="middle" class="sl-t sl-t2">6:30 AM</text>
+  <g class="sl-badge"><rect x="22" y="106" width="60" height="18" rx="9"/><text x="52" y="119" text-anchor="middle">7.5 h sleep</text></g>
+  <rect x="96" y="80" width="10" height="56" rx="3" class="sl-bed"/>
+  <rect x="96" y="118" width="128" height="14" rx="4" class="sl-bed"/>
+  <path d="M104 132v14M216 132v14" class="sl-leg"/>
+  <ellipse cx="122" cy="108" rx="16" ry="7" class="sl-pillow"/>
+  <circle cx="126" cy="100" r="10" class="sl-skin"/>
+  <path d="M117 96c2-8 14-10 18-2" class="sl-hair"/>
+  <path class="sl-eye-c" d="M127 101q3 2 6 0"/>
+  <circle class="sl-eye-o" cx="130" cy="100" r="1.6"/>
+  <path d="M134 104c20-8 60-10 86-2v14H134z" class="sl-blanket"/>
+  <g class="sl-z"><text x="146" y="86">z</text><text x="156" y="74">z</text><text x="168" y="60">Z</text></g>
+</svg></figure>
+        <h3>1 · Sleep</h3>
+        <ul>
+          <li>7 to 8 hours, waking up fresh.</li>
+          <li>Screens off an hour before bed.</li>
+          <li>Short sleep means more hunger and less fat lost<a class="cite" href="#references">3</a>.</li>
+        </ul>
+      </div>
+      <div class="basic">
+        <figure class="anim-wrap"><svg class="anim anim-food" viewBox="0 0 320 170" role="img" aria-label="A plate filling in order: protein, fibre, fats, then carbs, and a water bottle filling to 3.5 litres">
+  <rect x="0" y="0" width="320" height="170" rx="14" class="fd-bg"/>
+  <circle cx="104" cy="86" r="56" class="fd-plate"/><circle cx="104" cy="86" r="49" class="fd-plate-in"/>
+  <g class="fd-w fd-w1"><path d="M104 86L104.8 40.0A46 46 0 0 1 148.0 99.4Z" fill="#E3A16B"/><circle cx="128.3" cy="68.4" r="7" class="fd-n"/><text x="128.3" y="71.6" text-anchor="middle" class="fd-nt">1</text></g><g class="fd-w fd-w2"><path d="M104 86L147.5 101.0A46 46 0 0 1 60.5 101.0Z" fill="#6FAE6A"/><circle cx="104.0" cy="116.0" r="7" class="fd-n"/><text x="104.0" y="119.2" text-anchor="middle" class="fd-nt">2</text></g><g class="fd-w fd-w3"><path d="M104 86L60.0 99.4A46 46 0 0 1 60.0 72.6Z" fill="#F2C200"/><circle cx="74.0" cy="86.0" r="7" class="fd-n"/><text x="74.0" y="89.2" text-anchor="middle" class="fd-nt">3</text></g><g class="fd-w fd-w4"><path d="M104 86L60.5 71.0A46 46 0 0 1 103.2 40.0Z" fill="#D8C39A"/><circle cx="86.4" cy="61.7" r="7" class="fd-n"/><text x="86.4" y="64.9" text-anchor="middle" class="fd-nt">4</text></g>
+  <text x="104" y="160" text-anchor="middle" class="fd-leg">1 protein · 2 fibre · 3 fats · 4 carbs</text>
+  <defs><clipPath id="btlClip"><path d="M232 46h36v100a8 8 0 0 1-8 8h-20a8 8 0 0 1-8-8z"/></clipPath></defs>
+  <rect x="240" y="20" width="20" height="10" rx="3" class="fd-cap"/>
+  <path d="M236 30h28v10l4 6H232l4-6z" class="fd-neck"/>
+  <g clip-path="url(#btlClip)"><rect x="230" y="46" width="40" height="110" class="fd-water"/></g>
+  <path d="M232 46h36v100a8 8 0 0 1-8 8h-20a8 8 0 0 1-8-8z" class="fd-btl"/>
+  <g class="fd-ticks"><path d="M268 129h-6M268 104h-6M268 79h-6M268 54h-6"/>
+    <text x="274" y="132">1L</text><text x="274" y="107">2L</text><text x="274" y="82">3L</text><text x="274" y="57">4L</text></g>
+  <circle class="fd-drop" cx="250" cy="10" r="3"/>
+  <text x="250" y="166" text-anchor="middle" class="fd-goal">3–4 L a day</text>
+</svg></figure>
+        <h3>2 · Food and water</h3>
+        <ul>
+          <li>3 to 4 litres of water a day.</li>
+          <li>Protein: 1 g per kg of your goal weight (75 kg goal = 75 g).</li>
+          <li>Eat in order: protein and fibre, then fats, then carbs.</li>
+          <li>Fruit and sweets after meals, not as snacks.</li>
+          <li>Eat between 9am and 7pm. Hungry later? Nuts or seeds.</li>
+        </ul>
+      </div>
+      <div class="basic">
+        <figure class="anim-wrap"><svg class="anim anim-move" viewBox="0 0 320 170" role="img" aria-label="A fitness app showing a 5 kilometre brisk incline walk in heart-rate zone 2">
+  <rect x="0" y="0" width="320" height="170" rx="14" class="mv-bg"/>
+  <rect x="98" y="8" width="124" height="156" rx="16" class="mv-phone"/>
+  <rect x="104" y="16" width="112" height="140" rx="10" class="mv-screen"/>
+  <text x="112" y="30" class="mv-h">Morning walk · incline</text>
+  <rect x="110" y="36" width="100" height="58" rx="6" class="mv-map"/>
+  <path d="M110 58h100M110 76h100M140 36v58M178 36v58" class="mv-road"/>
+  <path class="mv-route" pathLength="1" d="M118 86 C 126 70, 134 82, 144 66 S 160 46, 172 56 S 192 76, 200 48"/>
+  <circle cx="118" cy="86" r="3" class="mv-start"/><circle cx="200" cy="48" r="3.4" class="mv-end"/>
+  <text x="112" y="108" class="mv-k">Distance</text><text x="112" y="121" class="mv-v"><tspan class="mv-dist">5.02</tspan> km</text>
+  <text x="166" y="108" class="mv-k">Time</text><text x="166" y="121" class="mv-v mv-time">52:14</text>
+  <text x="112" y="136" class="mv-k">Heart rate · Zone 2</text>
+  <g class="mv-zones"><rect x="112" y="141" width="18" height="6" rx="2"/><rect class="mv-z2" x="132" y="141" width="18" height="6" rx="2"/><rect x="152" y="141" width="18" height="6" rx="2"/><rect x="172" y="141" width="18" height="6" rx="2"/><rect x="192" y="141" width="18" height="6" rx="2"/></g>
+  <g class="mv-chip mv-chip1"><rect x="10" y="40" width="80" height="24" rx="12"/><text x="50" y="56" text-anchor="middle">Incline 6%</text></g>
+  <g class="mv-chip mv-chip2"><rect x="230" y="100" width="82" height="24" rx="12"/><text x="271" y="116" text-anchor="middle">+ Dead bugs ✓</text></g>
+  <g class="mv-chip mv-chip3"><rect x="10" y="100" width="80" height="24" rx="12"/><text x="50" y="116" text-anchor="middle">In one go</text></g>
+</svg></figure>
+        <h3>3 · Movement</h3>
+        <ul>
+          <li>Brisk incline walk: build from 45 to 75 minutes, in one go.</li>
+          <li>Add core work, like dead bugs.</li>
+          <li>Sore knees? Walk flat, a little longer.</li>
+          <li>Already lifting? Track inches, not kilos.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="basic basic-extra">
+      <span class="tier t-early">Early evidence</span>
+      <h3>Small daily additions</h3>
+      <p>ALIV's lifestyle guide includes a morning glass of water with natural powders such as moringa, cinnamon and turmeric. They add micronutrients and antioxidants. They support the basics; they don't replace them.</p>
+    </div>
+    <div class="ready" id="ready">
+      <div class="ready-guide">
+        <div class="ready-g-top">
+          <span class="note">Your guide:</span>
+          <div class="gender" role="group" aria-label="Choose your guide">
+            <button type="button" data-g="m" aria-pressed="true">Male</button>
+            <button type="button" data-g="f" aria-pressed="false">Female</button>
+          </div>
+        </div>
+        <div class="ready-g-body">
+          <div class="buddy-stage"><svg class="buddy" id="buddy" viewBox="0 0 160 250" role="img" aria-label="Your guide">
+            <ellipse cx="80" cy="242" rx="40" ry="5" class="b-shadow"/>
+            <g class="b-f-only"><path d="M50 60c-6 40 0 70 8 84h44c8-14 14-44 8-84z" class="b-hair"/></g>
+            <g class="b-legs"><g class="b-legl"><path d="M64 168v62" class="b-leg"/><path d="M56 232h16" class="b-shoe"/></g><g class="b-legr"><path d="M96 168v62" class="b-leg"/><path d="M88 232h16" class="b-shoe"/></g></g>
+            <path class="b-m-only b-shirt" d="M54 96c6-8 46-8 52 0l6 74H48z"/>
+            <path class="b-f-only b-kurta" d="M54 96c6-8 46-8 52 0l10 90H44z"/>
+            <g class="b-arms-down"><g class="b-arml"><path d="M54 102l-12 52" class="b-arm"/><circle cx="42" cy="156" r="5" class="b-skin"/></g><g class="b-armr"><path d="M106 102l12 52" class="b-arm"/><circle cx="118" cy="156" r="5" class="b-skin"/></g></g>
+            <g class="b-arms-up"><path d="M54 102l-18-38M106 102l18-38" class="b-arm"/><circle cx="35" cy="61" r="5" class="b-skin"/><circle cx="125" cy="61" r="5" class="b-skin"/></g>
+            <rect x="74" y="80" width="12" height="14" class="b-skin"/>
+            <circle cx="80" cy="60" r="26" class="b-skin"/>
+            <circle cx="54" cy="62" r="5" class="b-skin"/><circle cx="106" cy="62" r="5" class="b-skin"/>
+            <path class="b-m-only b-hair" d="M54 56c-2-22 16-32 30-30 14 1 26 10 24 30-6-10-16-14-28-14-12 0-20 6-26 14z"/>
+            <path class="b-f-only b-hair" d="M54 60c-4-24 14-36 28-34 16 1 28 14 24 34-8-14-18-18-28-18-10 0-18 6-24 18z"/>
+            <g class="b-face">
+              <path class="b-brow b-brow-l" d="M64 50h10"/><path class="b-brow b-brow-r" d="M86 50h10"/>
+              <circle cx="69" cy="59" r="2.8" class="b-eye"/><circle cx="91" cy="59" r="2.8" class="b-eye"/>
+              <circle cx="63" cy="69" r="4" class="b-cheek"/><circle cx="97" cy="69" r="4" class="b-cheek"/>
+              <path class="b-mouth b-m0" d="M71 74q9-6 18 0"/>
+              <path class="b-mouth b-m1" d="M72 72h16"/>
+              <path class="b-mouth b-m2" d="M70 70q10 9 20 0"/>
+              <path class="b-mouth b-m3" d="M68 68q12 14 24 0z"/>
+            </g>
+            <g class="b-spark"><path d="M24 30l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M136 20l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></g>
+          </svg></div>
+          <div class="bubble" id="readyOut" aria-live="polite"><b>Hi!</b> Tick what you already do, and I'll tell you how your base looks.</div>
+        </div>
+      </div>
+      <div class="ready-list">
+        <h3>Are you ready? A 30-second check</h3>
+        <p class="note">Tick what you already do most days.</p>
+        <label><input type="checkbox" data-i="0"> I sleep 7 to 8 hours and wake up fresh</label>
+        <label><input type="checkbox" data-i="1"> I keep screens away for the last hour before bed</label>
+        <label><input type="checkbox" data-i="2"> I drink 3 to 4 litres of water</label>
+        <label><input type="checkbox" data-i="3"> I eat protein at every meal</label>
+        <label><input type="checkbox" data-i="4"> I eat protein and fibre before carbs</label>
+        <label><input type="checkbox" data-i="5"> I eat within a 10 to 11 hour window</label>
+        <label><input type="checkbox" data-i="6"> I walk briskly for 45 minutes or more, in one go</label>
+        <label><input type="checkbox" data-i="7"> I snack on nuts or seeds, not sugar</label>
+        <p class="ready-score" id="readyScore">0 of 8</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 5. SAFETY ============================ -->
+  <section class="rv" id="safety">
+    <div class="split no-stick">
+      <div class="side">
+        <span class="eyebrow">Safety</span>
+        <h2>Faster isn't better. Not everyone qualifies.</h2>
+        <p>Done under supervision, weight management is safe for most people. That is not the same as every method being right for everyone.</p>
+      </div>
+      <div class="cards">
+        <div class="job"><h3>The pace matters</h3><p>Losing too fast costs muscle, energy and sometimes gallbladder health. We aim for a pace your body can hold.</p></div>
+        <div class="job"><h3>Muscle matters</h3><p>We track fat and muscle separately. Weight lost as muscle is weight that tends to come back.</p></div>
+        <div class="job"><h3>Not everyone qualifies</h3><p>Pregnancy, breastfeeding, a history of eating disorders and some medical histories rule out certain approaches, including medication. Your assessment decides.</p></div>
+        <div class="job"><h3>What people report</h3><p>Early tiredness and hunger as the body adjusts. With medication: nausea, constipation and reduced appetite, usually early on. Our medical team monitors throughout.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== 6. ABOUT ALIV (credentials + press) =================== -->
+  <section class="rv" id="aliv">
+    <div class="aliv-intro">
+      <span class="eyebrow">Who can help</span>
+      <h2>ALIV Regenerative Wellness.</h2>
+      <p>A doctor-led regenerative medicine and longevity practice founded by Dr. Tandulwadkar, with clinics in Pune and Mumbai. Weight management here starts with tests, not a diet sheet.</p>
+    </div>
+    <!-- GALLERY. Pune photos: Ambiance Shoot (Praveen) + ALIV Ambiance, Google Drive "Ambiance Images".
+         Mumbai: SWAP each .slot for <figure class="g"><img ...><figcaption>...</figcaption></figure> (800x600 WebP, q~74). -->
+    <div class="gallery">
+      <figure class="g g-lead"><img src="img/clinic/lounge-hero.webp" alt="A recliner, IV stand and meditation artwork in the ALIV IV lounge" width="1000" height="1250" loading="lazy" decoding="async"><figcaption>IV lounge, Pune</figcaption></figure>
+      <div>
+        <div class="gal-tabs" role="tablist" aria-label="Choose a clinic">
+          <button type="button" role="tab" aria-selected="true" aria-controls="gal-pune" data-city="pune">Pune · Koregaon Park</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="gal-mumbai" data-city="mumbai">Mumbai · Linking Road</button>
+        </div>
+        <div class="gal-grid" id="gal-pune" role="tabpanel" aria-label="Pune clinic"><figure class="g"><img src="img/clinic/pune-reception.webp" alt="ALIV reception desk with the ALIV Regenerative Wellness panel" width="800" height="600" loading="lazy" decoding="async"><figcaption>Reception</figcaption></figure><figure class="g"><img src="img/clinic/pune-lounge.webp" alt="Two recliners by the windows in the IV lounge" width="800" height="600" loading="lazy" decoding="async"><figcaption>IV lounge</figcaption></figure><figure class="g"><img src="img/clinic/pune-consultation.webp" alt="Consultation room with fluted glass walls" width="800" height="600" loading="lazy" decoding="async"><figcaption>Consultation room</figcaption></figure><figure class="g"><img src="img/clinic/pune-waiting.webp" alt="Waiting area seating" width="800" height="600" loading="lazy" decoding="async"><figcaption>Waiting area</figcaption></figure><figure class="g"><img src="img/clinic/pune-checks.webp" alt="A nurse taking a blood pressure reading" width="800" height="600" loading="lazy" decoding="async"><figcaption>Checks before every session</figcaption></figure><figure class="g"><img src="img/clinic/pune-brand.webp" alt="ALIV Regenerative Wellness wall logo" width="800" height="600" loading="lazy" decoding="async"><figcaption>ALIV, Pune</figcaption></figure></div>
+        <div class="gal-grid" id="gal-mumbai" role="tabpanel" aria-label="Mumbai clinic" hidden><figure class="g slot"><span>Photo to add<b>Reception</b></span></figure><figure class="g slot"><span>Photo to add<b>IV lounge</b></span></figure><figure class="g slot"><span>Photo to add<b>Consultation room</b></span></figure><figure class="g slot"><span>Photo to add<b>Clinic exterior</b></span></figure></div>
+        <p class="gal-addr"><a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Pune on Maps</a> · <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Mumbai on Maps</a></p>
+      </div>
+    </div>
+  <div class="creds rv" aria-label="About ALIV">
+    <div class="cred"><b>2016</b><span>Pioneering regenerative medicine and longevity since</span></div>
+    <div class="cred"><b><span class="cnt" data-count="10">10</span></b><span>Doctors and scientists on the ALIV panel</span></div>
+    <div class="cred"><b><span class="cnt" data-count="9">9</span><small>+</small></b><span>Markers checked before any plan</span></div>
+    <div class="cred"><b><span class="cnt" data-count="2">2</span></b><span>Clinics: Koregaon Park, Pune and Linking Road, Mumbai</span></div>
+  </div>
+  <div class="press">
+    <p>As featured in</p>
+    <div class="press-mask"><div class="marquee"><img src="img/press/femina.webp" alt="Femina" width="180" height="90" loading="lazy"><img src="img/press/midday.webp" alt="Mid-day" width="180" height="90" loading="lazy"><img src="img/press/pune-times.webp" alt="Pune Times" width="180" height="90" loading="lazy"><img src="img/press/pune-mirror.webp" alt="Pune Mirror" width="180" height="90" loading="lazy"><img src="img/press/biospectrum.webp" alt="BioSpectrum" width="180" height="90" loading="lazy"><img src="img/press/sakal.webp" alt="Sakal" width="180" height="90" loading="lazy"><img src="img/press/women-shine.webp" alt="Women Shine" width="180" height="90" loading="lazy"><img src="img/press/apn-news.webp" alt="APN News" width="180" height="90" loading="lazy"><img src="img/press/dainik-daitya.webp" alt="Dainik" width="180" height="90" loading="lazy"><img class="dup" src="img/press/femina.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/midday.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/pune-times.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/pune-mirror.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/biospectrum.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/sakal.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/women-shine.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/apn-news.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/dainik-daitya.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"></div></div>
+  </div>
+
+  </section>
+
+  <!-- =========================== 7. OUR DOCTORS =========================== -->
+  <section class="rv wash" id="team">
+    <div class="why-grid">
+      <div>
+        <div class="team"><figure class="member"><div class="ph"><img src="img/team/Dr-Rajesh.webp" alt="Dr. Rajesh Tandulwadkar" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Rajesh Tandulwadkar</b><span>Gastro Surgeon &amp; Liver Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sunita.webp" alt="Dr. Sunita Tandulwadkar" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Sunita Tandulwadkar</b><span>ObGyn &amp; Infertility Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Ramesh.webp" alt="Dr. Ramesh Bhonde" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Ramesh Bhonde</b><span>Scientific Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Samta.webp" alt="Dr. Samta Singhania" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Samta Singhania</b><span>Obstetrician &amp; Gynecologist</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sonali.webp" alt="Dr. Sonali Dhomane" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Sonali Dhomane</b><span>Infertility Specialist</span></figure><figure class="member"><div class="ph"><img src="img/team/rishi.webp" alt="Rishi Tandulwadkar" width="480" height="360" loading="lazy" decoding="async"></div><b>Rishi Tandulwadkar</b><span>Founder &amp; CEO</span></figure></div>
+        <p class="team-more">Plus orthopaedic, surgical and counselling specialists on the wider ALIV panel.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Our doctors</span>
+        <h2>Assessment first, every time.</h2>
+        <div class="why"><h3>Doctor-led.</h3><p>Dr. Sunita Tandulwadkar and Dr. Rajesh Tandulwadkar lead the clinical team. They will tell you if something isn't for you.</p></div>
+        <div class="why"><h3>Measured.</h3><p>Bloodwork and body composition set the plan, and repeat tests show whether it's working.</p></div>
+        <div class="why"><h3>Honest.</h3><p>No crash diets. No miracle promises. Every claim on this page carries its evidence.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 7b. WHAT WE CHECK, IN ORDER ======================= -->
+  <section class="rv" id="checks">
+    <span class="eyebrow">What we check</span>
+    <h2>What we check, in order.</h2>
+    <p style="max-width:640px">Before anything starts, these four checks decide which plan is right for you, and whether you're ready to start at all.</p>
+    <ol class="checks">
+      <li><b>01</b><div><h3>Body composition</h3><p>BMI first, then how much of your weight is fat and how much is muscle and bone. Then which kind of fat: around the organs (the stubborn kind) or under the skin. More fat around the organs means a longer walking routine.</p></div></li>
+      <li><b>02</b><div><h3>Thyroid</h3><p>If your thyroid is off, nothing else works until it's treated. You fix the base and sort your thyroid medicine for 1 to 2 months, repeat the tests after about 6 weeks, and only then start. With a family history, check it every 6 to 9 months.</p></div></li>
+      <li><b>03</b><div><h3>Insulin resistance</h3><p>Often the missed test. If you lose weight on a diet and it comes straight back the moment you stop, insulin resistance is a common reason. It decides whether medical support has a role.</p></div></li>
+      <li><b>04</b><div><h3>Safety screening</h3><p>Before any prescription support: your family history and screening tests, so the doctor knows it's safe for you.</p></div></li>
+    </ol>
+    <div class="paths">
+      <p class="pcard-k">Where the checks usually lead</p>
+      <div class="path"><b>Thyroid off</b><span>Fix the thyroid and the base first. Re-test, then start.</span></div>
+      <div class="path"><b>Thyroid and insulin normal</b><span>The basics plus IV support.</span></div>
+      <div class="path"><b>Insulin resistance, or appetite hard to control</b><span>The basics plus doctor-led medical support, at the lowest effective dose.</span></div>
+      <div class="path"><b>Established metabolic disease</b><span>Advanced Metabolic Reset.</span></div>
+    </div>
+  </section>
+
+  <!-- ======================= 8. PROGRAMMES ======================= -->
+  <section class="rv" id="programmes">
+    <span class="eyebrow">Programmes</span>
+    <h2>Where your plan can lead.</h2>
+    <p class="note" style="margin-bottom:0">ALIV programmes your doctor may recommend. Eligibility is decided after assessment.</p>
+    <div class="pscale" aria-hidden="true"><span>Supportive</span><i></i><span>Intensive</span><i></i><span>Clinical</span></div>
+    <div class="progs">
+      <article class="pcard">
+        <div class="pcard-top" style="--c:var(--teal-500)"><span class="pcard-type">IV nutrient therapy</span><span class="pcard-lvl" title="Supportive"><i class="on"></i><i class=""></i><i class=""></i><small>Supportive</small></span></div>
+        <div class="pcard-body"><h3>Trim &amp; Tone Elixir</h3><p>Supports fat metabolism, energy and training alongside your plan.</p><p class="pcard-k">Best for</p><ul><li>Stuck at a plateau</li><li>Postpartum weight</li><li>Active people and fitness beginners</li></ul></div>
+        <a class="pcard-cta" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/trim-tone-elixir" target="_blank" rel="noopener">View programme <span aria-hidden="true">&rarr;</span></a>
+      </article>
+      <article class="pcard">
+        <div class="pcard-top" style="--c:var(--teal-700)"><span class="pcard-type">Medically guided protocol</span><span class="pcard-lvl" title="Intensive"><i class="on"></i><i class="on"></i><i class=""></i><small>Intensive</small></span></div>
+        <div class="pcard-body"><h3>FatLoss Max</h3><p>ALIV's most intensive protocol for significant weight loss and breaking plateaus.</p><p class="pcard-k">Best for</p><ul><li>Significant weight to lose</li><li>Repeated plateaus</li><li>Eligible after doctor assessment</li></ul></div>
+        <a class="pcard-cta" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/fatloss-max" target="_blank" rel="noopener">View programme <span aria-hidden="true">&rarr;</span></a>
+      </article>
+      <article class="pcard">
+        <div class="pcard-top" style="--c:var(--green-700)"><span class="pcard-type">Speciality protocol</span><span class="pcard-lvl" title="Clinical"><i class="on"></i><i class="on"></i><i class="on"></i><small>Clinical</small></span></div>
+        <div class="pcard-body"><h3>Advanced Metabolic Reset</h3><p>For established metabolic disease, beyond weight loss.</p><p class="pcard-k">Best for</p><ul><li>Insulin resistance or pre-diabetes</li><li>Fatty liver (NAFLD)</li><li>"Normal" BMI with poor markers</li></ul></div>
+        <a class="pcard-cta" href="https://www.alivtherapy.in/therapy/speciality-protocols/advanced-metabolic-reset" target="_blank" rel="noopener">View programme <span aria-hidden="true">&rarr;</span></a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ======================= 9. HOW IT WORKS: Listen. Plan. Review. ======================= -->
+  <section class="rv wash" id="steps">
+    <span class="eyebrow">How it works</span>
+    <h2>Listen. Plan. Review.</h2>
+    <p class="story-lead">Three words to remember. The last two repeat until the plan is working.</p>
+    <ol class="story">
+      <li class="chap">
+        <figure class="ill"><svg viewBox="0 0 240 160" role="img" aria-label="A doctor sitting across a table from a patient, nodding as she listens">
+  <path class="ln2" d="M80 22h44a8 8 0 0 1 8 8v12a8 8 0 0 1-8 8H98l-10 8v-8h-8a8 8 0 0 1-8-8V30a8 8 0 0 1 8-8z"/>
+  <circle class="dot" cx="92" cy="36" r="2.4"/><circle class="dot" cx="102" cy="36" r="2.4"/><circle class="dot" cx="112" cy="36" r="2.4"/>
+  <path class="ln" d="M34 150V112h36M34 112V82"/>
+  <circle class="ln" cx="58" cy="66" r="11"/>
+  <path class="ln" d="M58 78c-6 14-6 24-2 34h26v38M58 92c12 6 26 9 44 9"/>
+  <path class="ln" d="M96 104h52M122 104v46M108 150h28"/>
+  <rect class="ln2" x="126" y="96" width="16" height="8" rx="1"/>
+  <path class="ln" d="M206 150V112h-36M206 112V82"/>
+  <path class="ln" d="M182 78c6 14 6 24 2 34h-26v38M182 92c-10 6-22 8-36 8"/>
+  <path class="ln2" d="M176 84c2 12 10 12 12 0M182 96v6"/><circle class="ln2" cx="182" cy="104" r="2.5"/>
+  <g class="nod">
+    <circle class="ln" cx="182" cy="62" r="11"/>
+    <path class="ln" d="M171 60c0-13 8-17 15-16 7 1 9 7 8 14"/>
+    <circle class="ln" cx="195" cy="50" r="4.5"/>
+    <path class="ln" d="M175 64h4"/>
+  </g>
+</svg></figure>
+        <span class="chap-n">01 · We listen</span>
+        <h3>Consultation and assessment</h3>
+        <p>You talk, the doctor listens. Then bloodwork and body composition show what's actually going on. Some people need further tests before a plan makes sense.</p>
+      </li>
+      <li class="chap">
+        <figure class="ill"><svg viewBox="0 0 300 170" role="img" aria-label="Your plan as a wheel: nutrition, strength, sleep and stress, nutrients and IV, and medical support if needed"><path d="M151.6 40.0 A46 46 0 0 1 193.2 70.3" fill="none" stroke="var(--green-700)" stroke-width="18"/><text x="195.8" y="25.9" text-anchor="start" class="t-l">Nutrition</text><path d="M194.2 73.3 A46 46 0 0 1 178.3 122.2" fill="none" stroke="var(--teal-700)" stroke-width="18"/><text x="224.2" y="113.1" text-anchor="start" class="t-l">Strength</text><path d="M175.7 124.1 A46 46 0 0 1 124.3 124.1" fill="none" stroke="var(--teal-600)" stroke-width="18"/><text x="150.0" y="167.0" text-anchor="middle" class="t-l">Sleep &amp; stress</text><path d="M121.7 122.2 A46 46 0 0 1 105.8 73.3" fill="none" stroke="var(--teal-500)" stroke-width="18"/><text x="75.8" y="113.1" text-anchor="end" class="t-l">Nutrients &amp; IV</text><path d="M106.8 70.3 A46 46 0 0 1 148.4 40.0" fill="none" stroke="var(--teal-300)" stroke-width="18" stroke-dasharray="5 4"/><text x="104.2" y="25.9" text-anchor="end" class="t-l">Medical support<tspan x="104.2" dy="11" class="t-s">if needed</tspan></text><text x="150" y="84" text-anchor="middle" class="t-c">Your</text><text x="150" y="98" text-anchor="middle" class="t-c">plan</text></svg></figure>
+        <span class="chap-n">02 · We plan</span>
+        <h3>A plan built from your results</h3>
+        <p>Nutrition, strength, sleep and stress, plus nutrients or medical support only if your results call for it.</p>
+      </li>
+      <li class="chap">
+        <figure class="ill"><svg viewBox="0 0 240 160" role="img" aria-label="A doctor reviewing a report, ticking what is on track and marking what needs work">
+  <circle class="ln" cx="66" cy="48" r="12"/>
+  <path class="ln" d="M54 48c-1-14 6-19 12-19s14 4 12 19M54 48c-1 9 1 13 4 15M78 48c1 9-1 13-4 15"/>
+  <circle class="ln2" cx="61" cy="49" r="3.4"/><circle class="ln2" cx="71" cy="49" r="3.4"/><path class="ln2" d="M64.4 49h3.2"/>
+  <path class="ln" d="M40 150c0-40 6-76 26-78 20 2 26 38 26 78M66 72l-6 16M66 72l6 16"/>
+  <path class="ln" d="M46 104c14 10 40 8 66 0M88 96c10-2 18-8 24-12"/>
+  <g transform="rotate(5 150 90)">
+    <rect class="ln" x="112" y="36" width="80" height="104" rx="5" fill="#fff"/>
+    <path class="ln2" d="M124 50h40"/>
+    <path class="ln-s" d="M124 68h34M124 88h34M124 108h34M124 126h26"/>
+    <path class="ok" d="M168 66l4 4 8-9M168 86l4 4 8-9M168 124l4 4 8-9"/>
+    <path class="up" d="M174 112v-10M169 106l5-5 5 5"/>
+  </g>
+  <path class="ln" d="M112 84l14-16"/><path class="ln2" d="M126 68l3-4"/>
+  <path class="ok" d="M128 152l3 3 6-7"/><text x="140" y="155" class="t-s">On track</text>
+  <path class="up" d="M188 156v-8M184 151l4-4 4 4"/><text x="196" y="155" class="t-s">Needs work</text>
+</svg></figure>
+        <span class="chap-n">03 · We review</span>
+        <h3>Review, then adjust</h3>
+        <p>The first month is a trial: 4 to 5 weekly sessions. Inches are measured every week and body composition every month, with a review each month. What's on track stays. What isn't, changes.</p>
+      </li>
+    </ol>
+    <p class="loop"><span aria-hidden="true">&#8635;</span> Plan and review repeat until it's working.</p>
+    <a class="btn" href="#book" style="margin-top:22px">Book a Consultation</a>
+  </section>
+
+  <!-- ============================== 10. FAQ ============================== -->
+  <section class="rv" id="faq">
+    <div class="split no-stick">
+      <div class="side">
+        <span class="eyebrow">Questions</span>
+        <h2>The ones people actually ask.</h2>
+      </div>
+      <div>
+        <details class="q"><summary>Is this a diet plan?</summary><div class="body"><p>No. A diet plan starts with food. We start with your bloodwork, body composition and history, then build nutrition, training and sleep around what they show.</p></div></details>
+        <details class="q"><summary>Can I just get the weight-loss injection?</summary><div class="body"><p>Not on its own. Prescription medication is a clinical decision made after assessment, only for people who qualify, and only inside a plan that protects muscle and prepares you for coming off it.</p></div></details>
+        <details class="q"><summary>Will the weight come back?</summary><div class="body"><p>It can, which is why the plan is built for maintenance from the start. Keeping muscle, sleep and eating habits in place is what holds the result. Stopping medication without that plan usually means regain<a class="cite" href="#references">7</a>.</p></div></details>
+        <details class="q"><summary>How fast will I lose weight?</summary><div class="body"><p>It depends on where you start. We aim for a steady pace that protects muscle, and judge progress on body composition and bloodwork as well as the scale.</p></div></details>
+        <details class="q"><summary>I'm not overweight, but my waist and blood sugar are creeping up. Is this for me?</summary><div class="body"><p>Often, yes. This is common in South Asians at a "normal" BMI<a class="cite" href="#references">1</a>. Your assessment will show whether it's fat around the organs, blood sugar, or something else.</p></div></details>
+        <details class="q"><summary>Why do you focus on inches, not kilos?</summary><div class="body"><p>Because the scale can't tell fat from muscle. Someone can lose 5 inches in a week with no change in weight, and that's a great result: fat is going and muscle is staying. If weight drops but inches don't, something is wrong, usually too little protein. We aim for at least as much inch loss as weight loss.</p></div></details>
+        <details class="q"><summary>What happens after I reach my goal?</summary><div class="body"><p>The aim is to get about 70 to 80% of the way with our support. By then your body has reset, and the basics carry you the rest of the way. If there are times in the year when the routine slips, a few top-up sessions help you stay on track rather than drifting back.</p></div></details>
+        <details class="q"><summary>What does it cost?</summary><div class="body"><p>It depends on your plan, which depends on your results. You'll get a clear quote after your assessment, before anything starts.</p></div></details>
+        <details class="q"><summary>Is it safe?</summary><div class="body"><p>Under medical supervision, for most people, yes. Some approaches aren't suitable for everyone. Pregnancy, breastfeeding and some medical histories are exclusions, and your assessment decides what's safe for you.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= 11. FORM ============================= -->
+  <section class="rv" id="book">
+    <div class="form">
+      <div class="form-grid">
+        <div>
+          <img class="form-logo" src="img/logo/aliv-white.webp" alt="ALIV" width="360" height="214" loading="lazy">
+          <span class="eyebrow">Begin</span>
+          <h2>Are you the right fit?</h2>
+          <p>One conversation, your bloodwork, and a straight answer about what will actually move the needle for you. Nothing begins before that.</p>
+          <ul class="form-points">
+            <li>Reviewed by a doctor first</li>
+            <li>A reply within one working day</li>
+            <li>An enquiry, not a commitment</li>
+          </ul>
+        </div>
+        <div>
+          <!-- BACKEND: posts to this page like /lp-nad-plus/. Wire to the same handler. -->
+          <form method="post" id="enquiryForm" novalidate>
+            <input type="hidden" name="source" value="lp-weight-management">
+            <input type="hidden" name="chat_summary" id="chatSummary" value="">
+            <p class="chat-added" id="chatNote" hidden>Your answers from the chat are attached. Just add your name and number.</p>
+            <label for="n">Name</label>
+            <input id="n" name="name" type="text" autocomplete="name" required maxlength="80">
+
+            <label for="ph">Phone</label>
+            <input id="ph" name="phone" type="tel" autocomplete="tel" required inputmode="numeric"
+                   pattern="[0-9]{10}" minlength="10" maxlength="10" class="only-number">
+
+            <label for="ct">City</label>
+            <select id="ct" name="city" required>
+              <option value="Pune">Pune</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <label for="ai">Area of interest</label>
+            <select id="ai" name="interest" required>
+              <option value="Weight that won't shift despite effort">Weight that won't shift despite effort</option>
+              <option value="Weight that keeps coming back">Weight that keeps coming back</option>
+              <option value="PCOS or hormones">PCOS or hormones</option>
+              <option value="Blood sugar or insulin resistance">Blood sugar or insulin resistance</option>
+              <option value="Weight after pregnancy or menopause">Weight after pregnancy or menopause</option>
+              <option value="Losing fat, keeping muscle">Losing fat, keeping muscle</option>
+              <option value="Exploring medical options">Exploring medical options</option>
+              <option value="Not sure yet, help me understand">Not sure yet, help me understand</option>
+            </select>
+
+            <div class="alert" id="formErr" hidden></div>
+            <button class="btn" type="submit" name="submit" value="1">Book a Consultation</button>
+          </form>
+          <p class="fine">A member of our medical team will be in touch within one working day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== 12. REFERENCES ========================== -->
+  <section class="rv wash" id="references">
+    <div class="split">
+      <div class="side">
+        <span class="eyebrow">References</span>
+        <h2>The publications behind this page.</h2>
+        <p class="note">Numbered to match the markers in the text.</p>
+      </div>
+      <div>
+        <ol class="refs">
+          <li>WHO Expert Consultation. Appropriate body-mass index for Asian populations and its implications for policy and intervention strategies. <em>Lancet</em> 2004;363(9403):157–63. <a href="https://pubmed.ncbi.nlm.nih.gov/14726171/" target="_blank" rel="noopener">View on PubMed</a><span class="who">Expert consultation and review.</span></li>
+          <li>Yajnik CS, Yudkin JS. The Y-Y paradox. <em>Lancet</em> 2004;363(9403):163. <a href="https://pubmed.ncbi.nlm.nih.gov/14726172/" target="_blank" rel="noopener">View on PubMed</a><span class="who">Single comparison of two men; illustrative, not a population study.</span></li>
+          <li>Nedeltcheva AV, et al. Insufficient sleep undermines dietary efforts to reduce adiposity. <em>Ann Intern Med</em> 2010;153(7):435–41. <a href="https://pubmed.ncbi.nlm.nih.gov/20921542/" target="_blank" rel="noopener">View on PubMed</a><span class="who">Small randomised crossover trial.</span></li>
+          <li>Longland TM, et al. Higher compared with lower dietary protein during an energy deficit combined with intense exercise promotes greater lean mass gain and fat mass loss: a randomized trial. <em>Am J Clin Nutr</em> 2016;103(3):738–46. <a href="https://pubmed.ncbi.nlm.nih.gov/26817506/" target="_blank" rel="noopener">View on PubMed</a><span class="who">Randomised trial in young men.</span></li>
+          <li>Wilding JPH, et al. Once-weekly semaglutide in adults with overweight or obesity. <em>N Engl J Med</em> 2021;384(11):989–1002. <a href="https://pubmed.ncbi.nlm.nih.gov/33567185/" target="_blank" rel="noopener">View on PubMed</a><span class="who">Randomised, double-blind, placebo-controlled trial (STEP 1).</span></li>
+          <li>Jastreboff AM, et al. Tirzepatide once weekly for the treatment of obesity. <em>N Engl J Med</em> 2022;387(3):205–16. <a href="https://pubmed.ncbi.nlm.nih.gov/35658024/" target="_blank" rel="noopener">View on PubMed</a><span class="who">Randomised, double-blind, placebo-controlled trial (SURMOUNT-1).</span></li>
+          <li>Wilding JPH, et al. Weight regain and cardiometabolic effects after withdrawal of semaglutide: the STEP 1 trial extension. <em>Diabetes Obes Metab</em> 2022;24(8):1553–64. <a href="https://pubmed.ncbi.nlm.nih.gov/35441470/" target="_blank" rel="noopener">View on PubMed</a><span class="who">Off-treatment follow-up of a randomised trial.</span></li>
+        </ol>
+        <!-- TODO: fill before going live -->
+        <p class="review">Medically reviewed by [DOCTOR NAME, QUALIFICATION] · Last reviewed [DATE]</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="foot-logo" src="img/logo/aliv-green.webp" alt="ALIV Regenerative Wellness by Dr. Tandulwadkar" width="360" height="214" loading="lazy">
+        <div class="tag">Live better now, Age better later</div>
+        <h2>Begin with a single conversation.</h2>
+        <a class="btn" href="#book" style="margin-top:18px">Book a Consultation</a>
+      </div>
+      <div class="cols">
+        <div><h4>Explore</h4><a href="#why-stalls">Why weight loss stalls</a><a href="#explored">What works</a><a href="#aliv">About ALIV</a><a href="#book">Book a consultation</a></div>
+        <div><h4>Contact</h4><a href="tel:+917719988811">+91 77199 88811</a><a href="https://wa.me/917719988811" target="_blank" rel="noopener">WhatsApp</a></div>
+        <div><h4>Clinics</h4><a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Koregaon Park, Pune</a><a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Linking Road, Mumbai</a></div>
+      </div>
+    </div>
+    <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
+    <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
+    <p class="ver">Weight management page · v0.9</p>
+  </div>
+</footer>
+
+<!-- Weight management chat assistant (guided, answers from this page; AI backend can plug in later) -->
+<button class="chat-fab" id="chatFab" type="button" aria-controls="chat" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
+  Ask about weight
+</button>
+<section class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Chat with the ALIV team about weight management" aria-hidden="true">
+  <div class="chat-h">
+    <img src="img/logo/aliv-white.webp" alt="" width="360" height="214" loading="lazy">
+    <div><b>ALIV team</b><small>A few quick questions, no personal details</small></div>
+    <button class="chat-x" id="chatX" type="button" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-log" id="chatLog" aria-live="polite"></div>
+  <p class="chat-note">General information, not medical advice. Emergencies: call 112.</p>
+  <form class="chat-f" id="chatF" autocomplete="off">
+    <label class="sr" for="chatIn" style="position:absolute;left:-9999px">Your question</label>
+    <input id="chatIn" type="text" maxlength="300" placeholder="Type your question">
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<div class="sticky" id="sticky">
+  <div class="sticky-in">
+    <div class="meta">Doctor-led<br>Pune &amp; Mumbai</div>
+    <a class="btn" href="#book">Book a Consultation</a>
+  </div>
+</div>
+
+<script>
+/* --- hero loop: add encoded files to enable; falls back to the still image --- */
+var ROOT = '/lp-weight-management/';
+var HERO_VIDEO = {
+  wide: { webm:'', mp4:'' },   /* e.g. ROOT + 'assets/wm-hero-1920x1080.mp4' */
+  tall: { webm:'', mp4:'' }    /* e.g. ROOT + 'assets/wm-hero-720x1280.mp4'  */
+};
+(function(){
+  var v=document.getElementById('heroVid'); if(!v) return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var thrifty=(navigator.connection&&(navigator.connection.saveData||/2g/.test(navigator.connection.effectiveType||'')));
+  if(reduce||thrifty) return;
+  var set=window.matchMedia('(min-width:700px)').matches?HERO_VIDEO.wide:HERO_VIDEO.tall;
+  if(!set||(!set.mp4&&!set.webm)) return;
+  if(set.webm){var a=document.createElement('source');a.src=set.webm;a.type='video/webm';v.appendChild(a);}
+  if(set.mp4){var b=document.createElement('source');b.src=set.mp4;b.type='video/mp4';v.appendChild(b);}
+  v.load(); var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){});
+})();
+
+/* --- accordions: one open at a time within a list --- */
+document.querySelectorAll('.ac-list').forEach(function(list){
+  list.addEventListener('toggle',function(e){
+    if(!e.target.open) return;
+    list.querySelectorAll('details.ac[open]').forEach(function(d){ if(d!==e.target) d.open=false; });
+  },true);
+});
+
+/* --- scroll reveal --- */
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+} else {
+  document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+}
+
+/* --- reading bar, sticky CTA, chat placement --- */
+(function(){
+  var body=document.body,bar=document.getElementById('readBar'),st=document.getElementById('sticky'),
+      aliv=document.getElementById('aliv'),hero=document.querySelector('.hero'),ticking=false;
+  function update(){
+    ticking=false;
+    var y=window.scrollY,max=document.documentElement.scrollHeight-window.innerHeight;
+    if(bar) bar.style.setProperty('--p',max>0?Math.min(1,y/max):0);
+    var ctaOn=!!(aliv&&aliv.getBoundingClientRect().top<window.innerHeight*0.6);
+    if(st) st.classList.toggle('show',ctaOn);
+    body.classList.toggle('cta-on',ctaOn);
+    if(hero) body.classList.toggle('past-hero',hero.getBoundingClientRect().bottom<80);
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(update);} },{passive:true});
+  window.addEventListener('resize',update); update();
+})();
+
+/* --- base card animations: play only while visible --- */
+(function(){
+  var b=document.getElementById('basicsAnim'); if(!b) return;
+  if(!('IntersectionObserver' in window)){ b.classList.add('play'); return; }
+  new IntersectionObserver(function(es){ b.classList.toggle('play',es[0].isIntersecting); },{threshold:.15}).observe(b);
+})();
+
+/* --- readiness check: the guide reacts to your habits --- */
+(function(){
+  var box=document.getElementById('ready'),out=document.getElementById('readyOut'),score=document.getElementById('readyScore'),
+      buddy=document.getElementById('buddy'); if(!box) return;
+  var cbs=[].slice.call(box.querySelectorAll('input[type=checkbox]'));
+  var TIPS=["Start with sleep: aim for 7 to 8 hours. A tired body holds on to weight.",
+    "Put the phone away an hour before bed. Better sleep makes everything easier.",
+    "Keep a 1-litre bottle nearby and finish it three times a day.",
+    "Add protein to every meal: eggs, paneer, dal, curd, fish or chicken.",
+    "Eat your protein and veggies first, carbs last. Your blood sugar stays steadier.",
+    "Try eating between 9am and 7pm, with a handful of nuts if you're hungry later.",
+    "Walk briskly for 45 minutes in one go, and build up to 75.",
+    "Swap sugary snacks for a handful of nuts or seeds."];
+  var ORDER=[0,3,2,6,4,5,1,7];
+  var gender='m';
+  function setMood(m){ buddy.setAttribute('class','buddy g-'+gender+' mood-'+m); void buddy.getBBox; buddy.classList.add('bump'); setTimeout(function(){buddy.classList.remove('bump')},460); }
+  function upd(){
+    var on=cbs.map(function(c){return c.checked}),n=on.filter(Boolean).length,missing=ORDER.filter(function(i){return !on[i]});
+    score.textContent=n+' of 8';
+    var mood=n<=2?0:n<=5?1:n<=7?2:3, head, tip;
+    if(n===8){ head='Your base is rock solid!'; tip="If the weight still won't move, something underneath needs testing. <a href=\"#checks\">See what we check</a>"; }
+    else{
+      head=['Hmm, we have some work to do.','Hmm, we have some work to do.','Hmm, we have some work to do.','A decent start.','A decent start.','Getting there!','Nice, your base looks good!','So close!'][n];
+      tip='<b style="display:inline;color:inherit;font-family:inherit">Next step:</b> '+TIPS[missing[0]];
+      if(n<=5) tip+=' Treatment multiplies effort, so this comes first.';
+    }
+    out.innerHTML='<b>'+head+'</b>'+tip; setMood(mood);
+  }
+  cbs.forEach(function(c){c.addEventListener('change',upd)});
+  /* switching guides: the man walks out to the left and the woman walks in from the right (and back again) */
+  var busy=false,reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function swap(to){ buddy.classList.remove('g-m','g-f'); buddy.classList.add('g-'+to); gender=to; }
+  [].slice.call(box.querySelectorAll('.gender button')).forEach(function(b){ b.addEventListener('click',function(){
+    var to=b.dataset.g; if(to===gender||busy) return;
+    box.querySelectorAll('.gender button').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false')});
+    if(reduce||!buddy.animate){ swap(to); return; }
+    busy=true; var out=to==='f'?'-140%':'140%', inn=to==='f'?'140%':'-140%';
+    buddy.classList.add('walking');
+    buddy.animate([{transform:'translateX(0)'},{transform:'translateX('+out+')'}],{duration:750,easing:'ease-in',fill:'forwards'}).onfinish=function(){
+      swap(to);
+      var a=buddy.animate([{transform:'translateX('+inn+')'},{transform:'translateX(0)'}],{duration:900,easing:'ease-out',fill:'forwards'});
+      a.onfinish=function(){ buddy.classList.remove('walking'); a.cancel(); busy=false; };
+    };
+  });});
+  buddy.setAttribute('class','buddy g-m mood-1');
+})();
+
+/* --- clinic gallery tabs --- */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.gal-tabs [role="tab"]'));
+  tabs.forEach(function(t){ t.addEventListener('click',function(){
+    tabs.forEach(function(o){ var on=o===t; o.setAttribute('aria-selected',on?'true':'false');
+      document.getElementById('gal-'+o.dataset.city).hidden=!on; });
+  });});
+})();
+
+/* --- research charts: bars grow from 0, numbers count up, the line flows down from 0% --- */
+(function(){
+  var ch=document.querySelector('.charts'); if(!ch) return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){ ch.classList.add('go'); return; }
+  ch.classList.add('pre');
+  var path=document.getElementById('lcPath');
+  var FLAT='M30 22 C 80 22, 130 22, 183 22 S 262 22, 300 22';
+  if(path){ path.setAttribute('d',FLAT); ch.querySelectorAll('.lc .c2,.lc .c3').forEach(function(c){c.setAttribute('cy','22')}); }
+  var nums=[].slice.call(ch.querySelectorAll('.bar-row .lbl b')).map(function(b){
+    var m=b.textContent.match(/^([+−-]?)(\d+(?:\.\d+)?)(.*)$/); if(!m) return null;
+    var o={el:b,sign:m[1],to:parseFloat(m[2]),dec:(m[2].split('.')[1]||'').length,unit:m[3],
+           delay:parseFloat(getComputedStyle(b.closest('.bar-row').querySelector('i')).getPropertyValue('--dl'))||0.2};
+    b.textContent=o.sign+(0).toFixed(o.dec)+o.unit; return o; }).filter(Boolean);
+  function count(o){ var t0=null; function f(t){ if(!t0)t0=t; var k=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-k,3);
+      o.el.textContent=o.sign+(o.to*e).toFixed(o.dec)+o.unit; if(k<1) requestAnimationFrame(f); }
+    setTimeout(function(){requestAnimationFrame(f)},o.delay*1000); }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(!e.isIntersecting) return; io.disconnect();
+    ch.classList.add('go'); nums.forEach(count);
+    setTimeout(function(){ ch.querySelectorAll('.lc-anim').forEach(function(a){ try{a.beginElement()}catch(err){} });
+      setTimeout(function(){ if(path) path.setAttribute('d','M30 22 C 80 40, 130 118, 183 125 S 262 66, 300 56'); },1700); },250);
+  }); },{threshold:.3});
+  io.observe(ch);
+})();
+
+/* --- weight management chat assistant (ALIV team) ---
+   A guided conversation: concern -> 3 quick questions -> safety check -> what's worth checking ->
+   how ALIV works -> doubts -> hand-off to the form or WhatsApp. No name or phone is asked in chat.
+   Every line is written to match this page, so it cannot invent medical claims or name drugs.
+   AI HOOK: free-text questions go through reply(); swap it for a call to your own server later,
+   keeping the RED and PREG checks first, in the browser. */
+(function(){
+  var WA_NUMBER='917719988811'; /* TODO: confirm the WhatsApp (Wati) number */
+  var body=document.body,fab=document.getElementById('chatFab'),box=document.getElementById('chat'),
+      log=document.getElementById('chatLog'),form=document.getElementById('chatF'),inp=document.getElementById('chatIn'),
+      x=document.getElementById('chatX');
+  if(!fab) return;
+  function track(name,data){ try{ if(window.gtag) gtag('event',name,data||{}); if(window.fbq) fbq('trackCustom',name,data||{}); }catch(e){} }
+
+  /* ---------- conversation state ---------- */
+  var S={concern:null,duration:null,tried:[],signs:[],step:'start'};
+  var CONCERN={stuck:"Weight won't shift",regain:'It keeps coming back',pcos:'PCOS or hormones',sugar:'Blood sugar is creeping up',explore:'Just exploring'};
+  var INTEREST={stuck:"Weight that won't shift despite effort",regain:'Weight that keeps coming back',pcos:'PCOS or hormones',sugar:'Blood sugar or insulin resistance',explore:'Not sure yet, help me understand'};
+  var DUR={short:'Under 6 months',mid:'6 months to 2 years',long:'More than 2 years'};
+  var TRIED={diet:'Diets',gym:'Gym or sport',coach:'An app or coach',meds:'Medication',none:'Nothing structured yet'};
+  var SIGNS={tired:'Often tired',sleep:'Poor sleep',periods:'Irregular periods or PCOS',family:'Diabetes in the family',waist:'Waist growing',medicine:'On regular medicines'};
+
+  /* ---------- free-text answers (side questions at any point) ---------- */
+  var A={
+    why:{k:['why','stuck','plateau','not losing',"can't lose",'cant lose','stalled','not moving','gain','gaining','not reducing','kam nahi','vajan','wajan','motapa','belly','tummy','overweight','obese','obesity','lose weight','weight loss'],t:"Usually it's more than one thing: insulin resistance, thyroid, hormones (PCOS, menopause, low testosterone), short sleep, losing muscle while dieting, fat in the liver, or some medicines. Each shows up in tests, which is why we test before we plan."},
+    thyroid:{k:['thyroid','tsh','hypothyroid'],t:"An underactive thyroid slows how your body uses energy and is common, especially in women. If it's off, nothing else works until it's treated: you fix it and the basics first, re-test after about 6 weeks, then start. With a family history, check it every 6 to 9 months."},
+    pcos:{k:['pcos','pcod','ovary','ovarian','periods'],t:"PCOS is closely linked to insulin resistance, so diets often stall. The plan works on blood sugar, muscle and hormones together. If you're also trying to conceive, our fertility specialists work alongside."},
+    meds:{k:['injection','injections','ozempic','mounjaro','wegovy','semaglutide','tirzepatide','glp','medicine','medication','tablet','pill'],t:"Prescription weight-loss medicines can help some people, but only after a doctor's assessment, and they can't be booked on their own. In large trials most people regained much of the weight within a year of stopping, so we only use them inside a plan that protects muscle and includes an exit plan."},
+    consult:{k:['consult','consultation','appointment','first visit','what happens','assessment','test','tests','blood','bloodwork','scan'],t:"At your first visit: a medical consultation, bloodwork (blood sugar, insulin resistance, thyroid, hormones, lipids, liver) and a body composition scan. Your doctor explains the results and the plan. Some people need extra tests first."},
+    cost:{k:['cost','price','fee','fees','charges','how much','rupees','rs','inr','package'],t:"It depends on your plan, and your plan depends on your results. The team gives you a clear quote after your assessment, before anything starts."},
+    time:{k:['how long','how fast','weeks','months','quick','results','kg'],t:"Weeks, not days. We aim for a steady pace that protects muscle, and judge progress on body composition and repeat bloodwork, not just the scale."},
+    diet:{k:['diet','food','eat','eating','keto','fasting','vegetarian','vegan','jain','protein','gym','exercise','workout'],t:"No crash diets. Nutrition is built around your blood sugar, with enough protein to protect muscle, and food you'll actually eat: Indian, vegetarian and Jain included. Strength training is part of every plan."},
+    iv:{k:['iv','drip','drips','trim','tone','fatloss max','nutrient','nutrients','vitamin'],t:"IV nutrient therapy (such as Trim & Tone Elixir) can correct deficiencies and support energy and training. It supports the plan. It doesn't replace food, training and sleep, and your doctor decides whether it suits you."},
+    safe:{k:['safe','safety','side effect','side effects','risk','risks'],t:"Under medical supervision, weight management is safe for most people. Some approaches aren't suitable during pregnancy or breastfeeding, or with certain medical histories. Your assessment decides what's safe for you."},
+    where:{k:['where','location','clinic','pune','mumbai','address','timing','timings','open','far'],t:'Two clinics: <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Koregaon Park, Pune</a> and <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Linking Road, Mumbai</a>. The first visit is in person, because the tests are.',html:true},
+    human:{k:['human','person','call','talk','whatsapp','speak','contact','number'],t:'Of course. <a href="tel:+917719988811">Call us</a>, or use the WhatsApp button below and your answers go with it.',html:true}
+  };
+  var RED=['chest pain','faint','fainting','suicid','self harm','self-harm','kill myself','emergency','vomiting blood',"can't breathe",'cannot breathe'];
+  var PREG=['pregnan','breastfeed','breast feed','nursing'];
+
+  /* ---------- tiny UI helpers ---------- */
+  function msg(t,cls,html){var d=document.createElement('div');d.className='msg '+(cls||'bot');if(html)d.innerHTML=t;else d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
+  function bot(t,html){return msg(t,'bot',html);}
+  function me(t){return msg(t,'me');}
+  function clearChips(){[].slice.call(log.querySelectorAll('.chips')).forEach(function(c){c.remove()});}
+  function chips(opts){
+    clearChips(); var c=document.createElement('div');c.className='chips';
+    opts.forEach(function(o){
+      var b=document.createElement(o.href?'a':'button');
+      if(o.href){b.href=o.href; if(o.ext){b.target='_blank';b.rel='noopener';}} else b.type='button';
+      b.textContent=o.label; if(o.go) b.className='go';
+      b.addEventListener('click',function(ev){ if(o.fn) { if(!o.href) ev.preventDefault(); o.fn(); } });
+      c.appendChild(b);
+    });
+    log.appendChild(c);log.scrollTop=log.scrollHeight;
+  }
+  function multi(map,key,onDone,noneKey){
+    clearChips(); var c=document.createElement('div');c.className='chips';var sel=S[key]=[];
+    Object.keys(map).forEach(function(k){
+      var b=document.createElement('button');b.type='button';b.textContent=map[k];b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){
+        var i=sel.indexOf(k); if(i>-1){sel.splice(i,1);b.setAttribute('aria-pressed','false');}
+        else{ if(k===noneKey){ sel.length=0; [].slice.call(c.querySelectorAll('[aria-pressed]')).forEach(function(o){o.setAttribute('aria-pressed','false')}); }
+              else { var n=sel.indexOf(noneKey); if(n>-1){sel.splice(n,1); var nb=c.querySelector('[data-k="'+noneKey+'"]'); if(nb) nb.setAttribute('aria-pressed','false');} }
+              sel.push(k);b.setAttribute('aria-pressed','true'); }
+      });
+      b.dataset.k=k; c.appendChild(b);
+    });
+    var d=document.createElement('button');d.type='button';d.className='go';d.textContent='Done';
+    d.addEventListener('click',function(){ me(sel.length?sel.map(function(k){return map[k]}).join(', '):'None of these'); onDone(); });
+    c.appendChild(d); log.appendChild(c); log.scrollTop=log.scrollHeight;
+  }
+  function later(fn,ms){ setTimeout(fn,ms||420); }
+
+  /* ---------- the flow ---------- */
+  function start(){
+    S={concern:null,duration:null,tried:[],signs:[],step:'start'};
+    bot("Hi, this is the ALIV team. Tap an option or just type, and we'll show you what might be behind it. No personal details needed.");
+    later(function(){ bot('What brings you here?');
+      chips(Object.keys(CONCERN).map(function(k){return {label:CONCERN[k],fn:function(){ me(CONCERN[k]); S.concern=k; track('chat_concern',{concern:k}); later(askDuration); }}})
+        .concat([{label:'I just have a question',fn:function(){ me('I just have a question'); later(freeMode); }}]));
+    },300);
+  }
+  function askDuration(){ S.step='duration';
+    bot(S.concern==='explore' ? "Good place to start. Have you been trying to manage your weight for a while?" : 'How long has this been going on?');
+    chips(Object.keys(DUR).map(function(k){return {label:DUR[k],fn:function(){ me(DUR[k]); S.duration=k; later(askTried); }}}));
+  }
+  function askTried(){ S.step='tried'; bot("What have you tried so far? Pick all that apply."); multi(TRIED,'tried',function(){ later(askSigns); },'none'); }
+  function askSigns(){ S.step='signs'; bot("Do any of these sound like you? Pick all that apply, or skip with Done."); multi(SIGNS,'signs',function(){ later(askBasics); }); }
+  var BASICS={sleep:'7 to 8 hours of sleep',water:'3 to 4 litres of water',protein:'Protein at every meal',walk:'45+ minutes of brisk walking'};
+  function askBasics(){ S.step='basics'; bot("And which of these basics do you already do most days?"); multi(BASICS,'basics',function(){ later(askSafety); }); }
+  function askSafety(){ S.step='safety';
+    bot('One quick check. Does any of this apply right now?');
+    chips([{label:'Pregnant or breastfeeding',fn:function(){ me('Pregnant or breastfeeding'); later(function(){ bot("Thanks for telling us. Weight-loss treatment isn't suitable right now. Please speak to your obstetrician, and we'd be glad to help afterwards."); endSoft(); }); }},
+           {label:'Under 18',fn:function(){ me('Under 18'); later(function(){ bot("Thanks. For under-18s, please start with your family doctor or a paediatrician, together with a parent."); endSoft(); }); }},
+           {label:'Past or current eating disorder',fn:function(){ me('Past or current eating disorder'); later(function(){ bot("Thank you for sharing that. A weight-loss plan isn't the right first step. Please speak to your doctor or a mental health professional first. If you'd still like to talk to us, we're here."); chips([{label:'Talk to the team',fn:function(){me('Talk to the team');later(handoff);}}]); }); }},
+           {label:'None of these',go:true,fn:function(){ me('None of these'); later(reflect); }}]);
+  }
+  function reflect(){ S.step='reflect';
+    var worth=[],add=function(w){ if(worth.indexOf(w)<0) worth.push(w); };
+    var sig=S.signs;
+    if(S.concern==='sugar'||sig.indexOf('family')>-1||sig.indexOf('periods')>-1||sig.indexOf('waist')>-1) add('insulin resistance and blood sugar');
+    if(sig.indexOf('tired')>-1) add('thyroid');
+    if(S.concern==='pcos'||sig.indexOf('periods')>-1) add('hormones, including PCOS markers');
+    if(sig.indexOf('sleep')>-1) add('sleep');
+    if(sig.indexOf('waist')>-1) add('fat in the liver');
+    if(S.concern==='regain'||S.tried.indexOf('diet')>-1) add('muscle versus fat (body composition)');
+    if(sig.indexOf('medicine')>-1) add('your current medicines');
+    if(worth.length<2){ add('insulin resistance and blood sugar'); add('thyroid'); }
+    worth=worth.slice(0,4);
+    var missing=Object.keys(BASICS).filter(function(k){return (S.basics||[]).indexOf(k)<0});
+    var opener='';
+    if(S.duration==='long'||S.tried.indexOf('diet')>-1) opener="Diets that work for a while and then stop is a very common pattern. It usually means something underneath hasn't been measured yet. ";
+    else if(S.concern==='regain') opener="Weight coming back isn't a willpower failure. After weight loss the body pushes hunger up and, if muscle was lost, uses less energy. ";
+    else opener="Thanks, that's helpful. ";
+    bot(opener+'From what you\'ve shared, these are worth checking:');
+    later(function(){
+      bot('<ul class="worth">'+worth.map(function(w){return '<li>'+w.charAt(0).toUpperCase()+w.slice(1)+'</li>'}).join('')+'</ul>',true);
+      if(sig.indexOf('sleep')>-1) later(function(){ bot('On sleep: in a controlled trial, people on the same diet lost less fat and more muscle when their sleep was cut short.'); askHow(); },500);
+      else if(S.concern==='regain') later(function(){ bot('On regain: protecting muscle and having an exit plan is what helps weight stay off. That is built into every ALIV plan.'); askHow(); },500);
+      else later(askHow,500);
+      if(missing.length) later(function(){ bot('And the base to build: '+missing.map(function(k){return BASICS[k].toLowerCase()}).join(', ')+'. Treatment multiplies effort, so these come first.'); },350);
+    },450);
+    track('chat_reflect',{concern:S.concern});
+  }
+  function askHow(){ S.step='how';
+    later(function(){
+      bot("All of these show up in tests. None of them show up on a diet chart. That's why ALIV starts with tests: bloodwork plus a body composition scan, reviewed by a doctor.");
+      later(function(){
+        bot('Then it runs in three steps: <b>Listen. Plan. Review.</b> Doctor-led since 2016, with clinics in Pune and Mumbai.',true);
+        doubts();
+      },500);
+    },300);
+  }
+  var DOUBTS=[['meds','Will I be put on injections?'],['iv','Is it just IV drips?'],['diet','Do I have to diet?'],['time','How long will it take?'],['cost','What does it cost?'],['where','Where are the clinics?']];
+  function doubts(asked){ S.step='doubts'; asked=asked||[];
+    var list=DOUBTS.filter(function(d){return asked.indexOf(d[0])<0}).slice(0,4).map(function(d){
+      return {label:d[1],fn:function(){ me(d[1]); asked.push(d[0]); later(function(){ bot(A[d[0]].t,A[d[0]].html); doubts(asked); }); }};
+    });
+    list.unshift({label:"Sounds right. What's next?",go:true,fn:function(){ me("Sounds right. What's next?"); later(handoff); }});
+    chips(list);
+  }
+  function summary(){
+    var parts=['Concern: '+(CONCERN[S.concern]||'not given')];
+    if(S.duration) parts.push('Trying for: '+DUR[S.duration]);
+    if(S.tried.length) parts.push('Tried: '+S.tried.map(function(k){return TRIED[k]}).join(', '));
+    if(S.signs.length) parts.push('Also: '+S.signs.map(function(k){return SIGNS[k]}).join(', '));
+    if(S.basics) parts.push('Basics in place: '+(S.basics.length?S.basics.map(function(k){return BASICS[k]}).join(', '):'none yet'));
+    return parts.join('. ')+'.';
+  }
+  function handoff(){ S.step='handoff';
+    bot('The next step is a consultation, where a doctor listens, orders the right tests and explains what they show. Would you like a doctor to look at this?');
+    var wa='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent('Hi ALIV team, I\'m interested in weight management. '+summary());
+    chips([{label:'Yes, book a consultation',go:true,fn:toForm},
+           {label:'Message the team on WhatsApp',href:wa,ext:true,fn:function(){ track('chat_whatsapp',{concern:S.concern}); }},
+           {label:'Not yet',fn:function(){ me('Not yet'); later(function(){ bot("No problem. The doctors' profiles and common questions are further down this page. We're here whenever you're ready."); endSoft(); }); }}]);
+  }
+  function toForm(){
+    me('Yes, book a consultation'); track('chat_book',{concern:S.concern});
+    var sel=document.getElementById('ai'),hid=document.getElementById('chatSummary'),note=document.getElementById('chatNote');
+    if(sel&&INTEREST[S.concern]) sel.value=INTEREST[S.concern];
+    if(hid) hid.value=summary();
+    if(note) note.hidden=false;
+    later(function(){
+      bot("Great. We've added your answers to the booking form, so you won't need to repeat yourself. It takes 20 seconds.");
+      setTimeout(function(){ close(); var b=document.getElementById('book'); if(b) b.scrollIntoView({behavior:'smooth'}); var n=document.getElementById('n'); if(n) setTimeout(function(){n.focus({preventScroll:true})},700); },900);
+    });
+  }
+  function endSoft(){ chips([{label:'Start again',fn:function(){ log.innerHTML=''; start(); }},{label:'I have a question',fn:function(){ me('I have a question'); later(freeMode); }}]); }
+  function freeMode(){ S.step='free'; bot('Ask anything below, or pick one:');
+    chips([['why',"Why can't I lose weight?"],['meds','Weight-loss injections'],['consult','What happens at the first visit?'],['pcos','PCOS and weight'],['cost','What does it cost?']].map(function(d){
+      return {label:d[1],fn:function(){ me(d[1]); later(function(){ answer(d[0]); }); }};
+    }).concat([{label:'Take the quick check',go:true,fn:function(){ log.innerHTML=''; start(); }}]));
+  }
+  function answer(key){
+    bot(A[key].t,A[key].html);
+    var resume = (S.step==='free'||S.step==='start') ? [{label:'Take the quick check',go:true,fn:function(){ log.innerHTML=''; start(); }}]
+                                                    : [{label:'Continue where I was',go:true,fn:resumeFlow}];
+    chips(resume.concat([{label:'Book a consultation',fn:function(){ handoff(); }}]));
+  }
+  function resumeFlow(silent){
+    if(silent!==true) me('Continue');
+    var go=({start:function(){ bot('What brings you here?'); chips(Object.keys(CONCERN).map(function(k){return {label:CONCERN[k],fn:function(){ me(CONCERN[k]); S.concern=k; later(askDuration); }}})); },
+             free:freeMode,duration:askDuration,tried:askTried,signs:askSigns,basics:askBasics,safety:askSafety,reflect:askHow,how:askHow,doubts:function(){doubts()},handoff:handoff})[S.step]||freeMode;
+    later(go,250);
+  }
+
+  /* free text, at any point: small talk -> answers to the current question -> topic answers -> helpful fallback */
+  function words(q){ return q.toLowerCase().replace(/[^a-z0-9\u0900-\u097f' ]/g,' ').split(/\s+/).filter(Boolean); }
+  function near(a,b){ /* one-letter typo tolerance for longer words */
+    if(a===b) return true; if(a.length<5||Math.abs(a.length-b.length)>1) return false;
+    if(a.length===b.length){ var df=[]; for(var t=0;t<a.length;t++) if(a[t]!==b[t]) df.push(t);
+      if(df.length===2&&df[1]===df[0]+1&&a[df[0]]===b[df[1]]&&a[df[1]]===b[df[0]]) return true; } /* swapped letters */
+    var i=0,j=0,d=0; while(i<a.length&&j<b.length){ if(a[i]===b[j]){i++;j++;continue;} if(++d>1) return false;
+      if(a.length>b.length) i++; else if(b.length>a.length) j++; else {i++;j++;} }
+    return d+(a.length-i)+(b.length-j)<=1; }
+  function has(q,w){
+    if(w.indexOf(' ')>-1||w.length<=3) return w.length<=3 ? new RegExp('\\b'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(q) : q.indexOf(w)>-1;
+    if(q.indexOf(w)>-1) return true;
+    return words(q).some(function(x){return near(x,w)});
+  }
+  var SMALL=[
+    {re:/^(hi+|hello+|hey+|hii+|helo|namaste|namaskar|hola|yo|good (morning|afternoon|evening))\b/,fn:function(){
+      bot("Hi! Good to have you here.");
+      if(S.step==='start'||S.step==='free') later(function(){ bot("You can tell me what's going on with your weight in your own words, or take a quick 1-minute check."); chips([{label:'Take the quick check',go:true,fn:function(){ log.innerHTML=''; start(); }},{label:'I have a question',fn:function(){ me('I have a question'); later(freeMode); }}]); });
+      else later(function(){ resumeFlow(true); },300); }},
+    {re:/^(thanks|thank you|thank u|thx|ty|dhanyavad|shukriya)\b/,fn:function(){ bot("You're welcome."); later(function(){ chips([{label:'Continue',go:true,fn:resumeFlow},{label:'Book a consultation',fn:handoff}]); }); }},
+    {re:/^(bye|goodbye|see you|later|not now|no thanks)\b/,fn:function(){ bot("Take care. We're here whenever you're ready."); endSoft(); }},
+    {re:/\b(who are you|are you (a )?(bot|human|real|doctor|ai)|is this (a )?(bot|human))\b/,fn:function(){ bot("I'm the ALIV team's assistant. I can explain how weight management works here and point you the right way. For anything personal, a real person from the team takes over on call or WhatsApp."); later(function(){ chips([{label:'Continue',go:true,fn:resumeFlow},{label:'Talk to a person',fn:function(){me('Talk to a person');later(function(){answer('human')})}}]); }); }},
+    {re:/^(ok|okay|k|sure|fine|cool|great|yes|yeah|yep|haan|ha|hmm+)\b/,fn:function(){ if(S.step==='handoff'){ bot('Great. Pick one below.'); handoff(); } else resumeFlow(true); }},
+    {re:/^(no|nope|nahi|na)\b/,fn:function(){ if(S.step==='handoff'){ bot("No problem. We're here whenever you're ready."); endSoft(); } else resumeFlow(true); }}
+  ];
+  /* typed answers to the question on screen */
+  var CONCERN_K={stuck:['not losing',"won't",'wont','stuck','plateau','not reducing','kam nahi','not moving','cant lose',"can't lose",'gaining'],
+                 regain:['back','regain','again','yo-yo','yoyo','rebound'],pcos:['pcos','pcod','hormone','hormones','periods','menopause','testosterone'],
+                 sugar:['sugar','diabet','prediabet','insulin','hba1c'],explore:['explor','curious','just looking','browsing']};
+  function stepAnswer(q){
+    if(S.step==='start'){ var k=Object.keys(CONCERN_K).filter(function(c){return CONCERN_K[c].some(function(w){return has(q,w)})})[0];
+      if(k){ S.concern=k; track('chat_concern',{concern:k}); bot('Got it: '+CONCERN[k].toLowerCase()+'.'); later(askDuration); return true; } }
+    if(S.step==='duration'){ var m=q.match(/(\d+(?:\.\d+)?)\s*(year|yr|month|mon|week)/), d=null;
+      if(m){ var n=parseFloat(m[1]),u=m[2]; var months=u[0]==='y'?n*12:(u==='week'?n/4:n); d=months<6?'short':(months<=24?'mid':'long'); }
+      else if(/(few|couple of) (weeks|months)|recent/.test(q)) d='short';
+      else if(/(years|long time|forever|always|since (school|college|childhood))/.test(q)) d='long';
+      if(d){ S.duration=d; bot('Thanks. '+DUR[d]+'.'); later(askTried); return true; } }
+    return false;
+  }
+  function reply(q){
+    var ql=' '+q.toLowerCase().trim()+' ', qt=q.toLowerCase().trim();
+    if(RED.some(function(w){return has(ql,w)})){ msg("This sounds urgent. Please call 112 or go to the nearest emergency department now. This chat can't help with emergencies.",'bot alert'); return; }
+    if(PREG.some(function(w){return has(ql,w)})){ bot("During pregnancy or breastfeeding, weight-loss treatment isn't suitable. Please speak to your obstetrician, and we'd be glad to help afterwards."); endSoft(); return; }
+    for(var i=0;i<SMALL.length;i++){ if(SMALL[i].re.test(qt)){ SMALL[i].fn(); return; } }
+    if(stepAnswer(ql)) return;
+    var best=null,score=0; Object.keys(A).forEach(function(k){var s=A[k].k.filter(function(w){return has(ql,w)}).length; if(s>score){score=s;best=k;}});
+    if(best){ answer(best); return; }
+    bot("I didn't quite catch that. I can help with what's stalling your weight, the first visit, injections, IV therapy, diet, timing or clinics.");
+    later(function(){ chips([{label:"Why can't I lose weight?",fn:function(){me("Why can't I lose weight?");later(function(){answer('why')})}},
+      {label:'What happens at the first visit?',fn:function(){me('What happens at the first visit?');later(function(){answer('consult')})}},
+      {label:S.step==='free'||S.step==='start'?'Take the quick check':'Continue where I was',go:true,fn:function(){ if(S.step==='free'||S.step==='start'){log.innerHTML='';start();} else resumeFlow(); }},
+      {label:'Talk to a person',fn:function(){me('Talk to a person');later(function(){answer('human')})}}]); },250);
+  }
+
+  var started=false;
+  function open(){
+    body.classList.add('chat-open');box.setAttribute('aria-hidden','false');fab.setAttribute('aria-expanded','true');
+    if(!started){ started=true; start(); track('chat_open'); }
+    setTimeout(function(){inp.focus()},300);
+  }
+  function close(){ body.classList.remove('chat-open');box.setAttribute('aria-hidden','true');fab.setAttribute('aria-expanded','false'); }
+  fab.addEventListener('click',open); x.addEventListener('click',function(){close();fab.focus()});
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&body.classList.contains('chat-open')) close(); });
+  form.addEventListener('submit',function(e){ e.preventDefault(); var q=inp.value.trim(); if(!q) return; inp.value=''; me(q); setTimeout(function(){reply(q)},300); });
+})();
+
+/* --- pause the logo marquee while it is off-screen --- */
+(function(){
+  var pr=document.querySelector('.press'); if(!pr||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(es){ pr.classList.toggle('off',!es[0].isIntersecting); }).observe(pr);
+})();
+
+/* --- count-up for credential numbers --- */
+(function(){
+  var els=document.querySelectorAll('.cnt'); if(!els.length||!('IntersectionObserver' in window)) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(document.documentElement.dataset.motion==='off') return;
+  var o=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting) return; o.unobserve(e.target);
+    var el=e.target,end=+el.dataset.count,t0=null;
+    function f(t){ if(!t0) t0=t; var k=Math.min(1,(t-t0)/1200); el.textContent=Math.round(end*(1-Math.pow(1-k,3))); if(k<1) requestAnimationFrame(f); }
+    requestAnimationFrame(f);
+  })},{threshold:.6});
+  els.forEach(function(el){o.observe(el)});
+})();
+
+/* --- enquiry form: digits-only phone + simple validation --- */
+(function(){
+  var f=document.getElementById('enquiryForm'), ph=document.getElementById('ph'), err=document.getElementById('formErr');
+  if(!f) return;
+  ['input','keyup','blur','paste','drop'].forEach(function(ev){
+    ph.addEventListener(ev,function(){ var c=this.value.replace(/\D/g,'').slice(0,10); if(this.value!==c) this.value=c; });
+  });
+  f.addEventListener('submit',function(e){
+    var n=document.getElementById('n'), msgs=[];
+    [n,ph].forEach(function(el){el.classList.remove('is-err')});
+    if(!n.value.trim()){msgs.push('Please enter your name.');n.classList.add('is-err');}
+    if(!/^[0-9]{10}$/.test(ph.value)){msgs.push('Please enter a 10-digit phone number.');ph.classList.add('is-err');}
+    if(msgs.length){ e.preventDefault(); err.innerHTML='<strong>Almost there.</strong> '+msgs.join(' '); err.hidden=false; err.scrollIntoView({block:'center'}); }
+    else if(window.fbq){ fbq('track','Lead'); }
+  });
+})();
+</script>
+</body>
+</html>
