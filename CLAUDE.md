@@ -16,7 +16,7 @@
   (injections, IV, diet, time, cost, clinics) -> hand-off: prefilled form (interest + hidden chat_summary) or
   WhatsApp with answers. Never asks name/phone, never shows a fee, never names drugs. Free text works at any step.
   Analytics events: chat_open, chat_concern, chat_reflect, chat_book, chat_whatsapp (gtag + fbq trackCustom).
-  v0.4 adds: left section rail on wide screens (no button; transparent frosted glass; current section in red #C8102E), chip strip under the
+  v0.4 adds: left section rail on wide screens (no button; fully transparent, names turn white over dark sections; current section in red #C8102E), chip strip under the
   top bar on phones; clinic gallery in About ALIV (lounge photo + Pune/Mumbai photo slots to fill);
   Safety and FAQ headings no longer sticky; research charts animate in (bars + numbers from 0, line flows from 0%).
   v0.3 adds: evidence text inline (no "More"), liquid-glass research cards, approach pyramid (labels inside,
