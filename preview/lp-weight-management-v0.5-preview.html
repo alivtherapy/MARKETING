@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-motion="off" data-version="v0.4">
+<html lang="en" data-motion="off" data-version="v0.5">
 <head>
 <meta charset="utf-8">
-<meta name="aliv-lp-version" content="weight-management v0.4">
+<meta name="aliv-lp-version" content="weight-management v0.5">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
 <meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
@@ -16,7 +16,7 @@
 
 <style>
 /* ==========================================================================
-   ALIV — Weight management landing page · v0.4 (static infographics; research charts animate). Same system as /lp-nad-plus/.
+   ALIV — Weight management landing page · v0.5 (static infographics; research charts animate; guided chat). Same system as /lp-nad-plus/.
    Mobile first (single column), then a desktop layer from 960px:
    wider container, sticky side headings, multi-column steps and grids.
    ========================================================================== */
@@ -600,6 +600,10 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 .chat-f input:focus{outline:2px solid var(--teal-500);outline-offset:0}
 .chat-f button{border:none;background:var(--green-700);color:var(--white);border-radius:22px;padding:0 18px;font-family:var(--display);font-weight:700;cursor:pointer}
 .chat-note{font-size:.68rem;color:var(--neutral-700);text-align:center;padding:0 12px 8px}
+.chips button[aria-pressed="true"]{background:var(--teal-600);border-color:var(--teal-600);color:var(--white)}
+.msg ul.worth{margin:2px 0 0 18px}
+.msg ul.worth li{margin:3px 0;font-family:var(--display);font-weight:700;color:var(--green-700)}
+.chat-added{margin:18px 0 0;padding:10px 12px;border-left:3px solid var(--yellow-500);background:rgba(255,255,255,.08);font-size:.84rem;color:var(--white) !important}
 .ver{font-size:.7rem;color:var(--neutral-300);margin-top:12px}
 
 @media (prefers-reduced-motion:reduce){ .nod{animation:none} }
@@ -1183,6 +1187,8 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
           <!-- BACKEND: posts to this page like /lp-nad-plus/. Wire to the same handler. -->
           <form method="post" id="enquiryForm" novalidate onsubmit="if(this.checkValidity()){alert('Preview only: the form is not connected.');return false}">
             <input type="hidden" name="source" value="lp-weight-management">
+            <input type="hidden" name="chat_summary" id="chatSummary" value="">
+            <p class="chat-added" id="chatNote" hidden>Your answers from the chat are attached. Just add your name and number.</p>
             <label for="n">Name</label>
             <input id="n" name="name" type="text" autocomplete="name" required maxlength="80">
 
@@ -1260,7 +1266,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
     </div>
     <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
     <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
-    <p class="ver">Weight management page · v0.4</p>
+    <p class="ver">Weight management page · v0.5</p>
   </div>
 </footer>
 
@@ -1269,10 +1275,10 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
   Ask about weight
 </button>
-<section class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Weight management questions" aria-hidden="true">
+<section class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Chat with the ALIV team about weight management" aria-hidden="true">
   <div class="chat-h">
     <img src="data:image/webp;base64,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" alt="" width="360" height="214" loading="lazy">
-    <div><b>Weight questions</b><small>Instant answers from our doctors' guidance</small></div>
+    <div><b>ALIV team</b><small>A few quick questions, no personal details</small></div>
     <button class="chat-x" id="chatX" type="button" aria-label="Close chat">&times;</button>
   </div>
   <div class="chat-log" id="chatLog" aria-live="polite"></div>
@@ -1395,68 +1401,204 @@ if('IntersectionObserver' in window){
   io.observe(ch);
 })();
 
-/* --- weight management chat assistant ---
-   Guided and rule-based: every answer below is written to match this page, so it cannot invent medical claims.
-   BACKEND HOOK: to make it AI-powered later, replace reply() with a call to your own server (e.g. Claude API),
-   keeping RED_FLAGS checked first, in the browser. */
+/* --- weight management chat assistant (ALIV team) ---
+   A guided conversation: concern -> 3 quick questions -> safety check -> what's worth checking ->
+   how ALIV works -> doubts -> hand-off to the form or WhatsApp. No name or phone is asked in chat.
+   Every line is written to match this page, so it cannot invent medical claims or name drugs.
+   AI HOOK: free-text questions go through reply(); swap it for a call to your own server later,
+   keeping the RED and PREG checks first, in the browser. */
 (function(){
+  var WA_NUMBER='917719988811'; /* TODO: confirm the WhatsApp (Wati) number */
   var body=document.body,fab=document.getElementById('chatFab'),box=document.getElementById('chat'),
       log=document.getElementById('chatLog'),form=document.getElementById('chatF'),inp=document.getElementById('chatIn'),
       x=document.getElementById('chatX');
   if(!fab) return;
-  var WA='https://wa.me/917719988811';
+  function track(name,data){ try{ if(window.gtag) gtag('event',name,data||{}); if(window.fbq) fbq('trackCustom',name,data||{}); }catch(e){} }
+
+  /* ---------- conversation state ---------- */
+  var S={concern:null,duration:null,tried:[],signs:[],step:'start'};
+  var CONCERN={stuck:"Weight won't shift",regain:'It keeps coming back',pcos:'PCOS or hormones',sugar:'Blood sugar is creeping up',explore:'Just exploring'};
+  var INTEREST={stuck:"Weight that won't shift despite effort",regain:'Weight that keeps coming back',pcos:'PCOS or hormones',sugar:'Blood sugar or insulin resistance',explore:'Not sure yet, help me understand'};
+  var DUR={short:'Under 6 months',mid:'6 months to 2 years',long:'More than 2 years'};
+  var TRIED={diet:'Diets',gym:'Gym or sport',coach:'An app or coach',meds:'Medication',none:'Nothing structured yet'};
+  var SIGNS={tired:'Often tired',sleep:'Poor sleep',periods:'Irregular periods or PCOS',family:'Diabetes in the family',waist:'Waist growing',medicine:'On regular medicines'};
+
+  /* ---------- free-text answers (side questions at any point) ---------- */
   var A={
-    why:{k:['why','stuck','plateau','not losing',"can't lose",'cant lose','stalled','not moving','gain'],
-      t:"Usually it's more than one thing: insulin resistance, thyroid, hormones (PCOS, menopause, low testosterone), short sleep, losing muscle while dieting, fat in the liver, or some medicines. Each shows up in tests, which is why we test before we plan.",
-      n:['thyroid','pcos','consult']},
-    thyroid:{k:['thyroid','tsh','hypothyroid'],t:"An underactive thyroid slows how your body uses energy and is common, especially in women. It's a simple blood test. If it's off, it's treated first. If it's normal, we look at the other causes.",n:['why','consult']},
-    pcos:{k:['pcos','pcod','ovary','ovarian','periods'],t:"PCOS is closely linked to insulin resistance, so diets often stall. The plan works on blood sugar, muscle and hormones together. If you're also trying to conceive, our fertility specialists work alongside.",n:['diet','consult']},
-    meds:{k:['injection','injections','ozempic','mounjaro','wegovy','semaglutide','tirzepatide','glp','medicine','medication','tablet','pill'],
-      t:"Prescription weight-loss medicines can help some people, but only after a doctor's assessment. They can't be booked on their own. In large trials most people regained much of the weight within a year of stopping, so we only use them inside a plan that protects muscle and includes an exit plan.",n:['safe','consult']},
-    consult:{k:['consult','consultation','appointment','first visit','what happens','assessment','test','tests','blood','bloodwork','scan'],
-      t:"At your first visit: a medical consultation, bloodwork (blood sugar, insulin resistance, thyroid, hormones, lipids, liver) and a body composition scan. Your doctor explains the results and the plan. Some people need extra tests first.",n:['cost','time','book']},
-    cost:{k:['cost','price','fee','fees','charges','how much','rupees','rs','inr','package'],t:"It depends on your plan, which depends on your results. You'll get a clear quote after your assessment, before anything starts. For consultation fees, message us on WhatsApp.",n:['consult','human']},
-    time:{k:['how long','how fast','weeks','months','quick','results','kg'],t:"Weeks, not days. We aim for a steady pace that protects muscle, and judge progress on body composition and repeat bloodwork, not just the scale.",n:['diet','consult']},
-    diet:{k:['diet','food','eat','eating','keto','fasting','vegetarian','vegan','protein','gym','exercise','workout'],t:"No crash diets. Nutrition is built around your blood sugar, with enough protein to protect muscle, and food you'll actually eat, Indian and vegetarian included. Strength training is part of every plan.",n:['time','consult']},
-    iv:{k:['iv','drip','drips','trim','tone','fatloss max','nutrient','nutrients','vitamin'],t:"IV nutrient therapy (such as Trim & Tone Elixir) can correct deficiencies and support energy and training. It supports the plan. It doesn't replace food, training and sleep. Your doctor will say whether it suits you.",n:['safe','consult']},
-    safe:{k:['safe','safety','side effect','side effects','risk','risks'],t:"Under medical supervision, weight management is safe for most people. Some approaches aren't suitable during pregnancy or breastfeeding, or with certain medical histories. Your assessment decides what's safe for you.",n:['consult','human']},
-    where:{k:['where','location','clinic','pune','mumbai','address','timing','timings','open'],t:'Two clinics: <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Koregaon Park, Pune</a> and <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Linking Road, Mumbai</a>.',html:true,n:['book','human']},
-    human:{k:['human','person','call','talk','whatsapp','speak','contact','number'],t:'Happy to connect you. <a href="'+WA+'" target="_blank" rel="noopener">WhatsApp us</a> or call <a href="tel:+917719988811">+91 77199 88811</a>. Or book a consultation and a doctor reviews it first.',html:true,n:['book']}
+    why:{k:['why','stuck','plateau','not losing',"can't lose",'cant lose','stalled','not moving','gain'],t:"Usually it's more than one thing: insulin resistance, thyroid, hormones (PCOS, menopause, low testosterone), short sleep, losing muscle while dieting, fat in the liver, or some medicines. Each shows up in tests, which is why we test before we plan."},
+    thyroid:{k:['thyroid','tsh','hypothyroid'],t:"An underactive thyroid slows how your body uses energy and is common, especially in women. It's a simple blood test. If it's off, it's treated first. If it's normal, we look at the other causes."},
+    pcos:{k:['pcos','pcod','ovary','ovarian','periods'],t:"PCOS is closely linked to insulin resistance, so diets often stall. The plan works on blood sugar, muscle and hormones together. If you're also trying to conceive, our fertility specialists work alongside."},
+    meds:{k:['injection','injections','ozempic','mounjaro','wegovy','semaglutide','tirzepatide','glp','medicine','medication','tablet','pill'],t:"Prescription weight-loss medicines can help some people, but only after a doctor's assessment, and they can't be booked on their own. In large trials most people regained much of the weight within a year of stopping, so we only use them inside a plan that protects muscle and includes an exit plan."},
+    consult:{k:['consult','consultation','appointment','first visit','what happens','assessment','test','tests','blood','bloodwork','scan'],t:"At your first visit: a medical consultation, bloodwork (blood sugar, insulin resistance, thyroid, hormones, lipids, liver) and a body composition scan. Your doctor explains the results and the plan. Some people need extra tests first."},
+    cost:{k:['cost','price','fee','fees','charges','how much','rupees','rs','inr','package'],t:"It depends on your plan, and your plan depends on your results. The team gives you a clear quote after your assessment, before anything starts."},
+    time:{k:['how long','how fast','weeks','months','quick','results','kg'],t:"Weeks, not days. We aim for a steady pace that protects muscle, and judge progress on body composition and repeat bloodwork, not just the scale."},
+    diet:{k:['diet','food','eat','eating','keto','fasting','vegetarian','vegan','jain','protein','gym','exercise','workout'],t:"No crash diets. Nutrition is built around your blood sugar, with enough protein to protect muscle, and food you'll actually eat: Indian, vegetarian and Jain included. Strength training is part of every plan."},
+    iv:{k:['iv','drip','drips','trim','tone','fatloss max','nutrient','nutrients','vitamin'],t:"IV nutrient therapy (such as Trim & Tone Elixir) can correct deficiencies and support energy and training. It supports the plan. It doesn't replace food, training and sleep, and your doctor decides whether it suits you."},
+    safe:{k:['safe','safety','side effect','side effects','risk','risks'],t:"Under medical supervision, weight management is safe for most people. Some approaches aren't suitable during pregnancy or breastfeeding, or with certain medical histories. Your assessment decides what's safe for you."},
+    where:{k:['where','location','clinic','pune','mumbai','address','timing','timings','open','far'],t:'Two clinics: <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Koregaon Park, Pune</a> and <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Linking Road, Mumbai</a>. The first visit is in person, because the tests are.',html:true},
+    human:{k:['human','person','call','talk','whatsapp','speak','contact','number'],t:'Of course. <a href="tel:+917719988811">Call us</a>, or use the WhatsApp button below and your answers go with it.',html:true}
   };
-  var LABEL={why:"Why can't I lose weight?",thyroid:'Is it my thyroid?',pcos:'PCOS and weight',meds:'Weight-loss injections',consult:'What happens at the first visit?',
-    cost:'What does it cost?',time:'How long does it take?',diet:'Do I have to diet?',iv:'IV therapy',safe:'Is it safe?',where:'Clinic locations',human:'Talk to a person',book:'Book a consultation'};
-  var RED=['chest pain','faint','fainting','suicid','self harm','self-harm','kill myself','emergency','vomiting blood','can\'t breathe','cannot breathe'];
+  var RED=['chest pain','faint','fainting','suicid','self harm','self-harm','kill myself','emergency','vomiting blood',"can't breathe",'cannot breathe'];
   var PREG=['pregnan','breastfeed','breast feed','nursing'];
-  function el(t,c,html){var d=document.createElement('div');d.className=c;if(html)d.innerHTML=t;else d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
-  function chips(keys){
-    var c=document.createElement('div');c.className='chips';
-    keys.forEach(function(k){
-      if(k==='book'){var a=document.createElement('a');a.href='#book';a.className='go';a.textContent=LABEL.book;a.addEventListener('click',function(){close()});c.appendChild(a);return;}
-      var b=document.createElement('button');b.type='button';b.textContent=LABEL[k];b.addEventListener('click',function(){ask(LABEL[k],k)});c.appendChild(b);
+
+  /* ---------- tiny UI helpers ---------- */
+  function msg(t,cls,html){var d=document.createElement('div');d.className='msg '+(cls||'bot');if(html)d.innerHTML=t;else d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
+  function bot(t,html){return msg(t,'bot',html);}
+  function me(t){return msg(t,'me');}
+  function clearChips(){[].slice.call(log.querySelectorAll('.chips')).forEach(function(c){c.remove()});}
+  function chips(opts){
+    clearChips(); var c=document.createElement('div');c.className='chips';
+    opts.forEach(function(o){
+      var b=document.createElement(o.href?'a':'button');
+      if(o.href){b.href=o.href; if(o.ext){b.target='_blank';b.rel='noopener';}} else b.type='button';
+      b.textContent=o.label; if(o.go) b.className='go';
+      b.addEventListener('click',function(ev){ if(o.fn) { if(!o.href) ev.preventDefault(); o.fn(); } });
+      c.appendChild(b);
     });
     log.appendChild(c);log.scrollTop=log.scrollHeight;
   }
-  function has(q,w){ return w.length<=3 ? new RegExp('\\b'+w+'\\b').test(q) : q.indexOf(w)>-1; }
-  function reply(q,key){
-    q=' '+q.toLowerCase()+' ';
-    if(RED.some(function(w){return has(q,w)})){ el('This sounds urgent. Please call 112 or go to the nearest emergency department now. This chat can\'t help with emergencies.','msg bot alert'); return; }
-    if(!key && PREG.some(function(w){return has(q,w)})){ el("During pregnancy or breastfeeding, weight-loss treatments aren't suitable. Please speak to your obstetrician. We're happy to help afterwards.",'msg bot'); chips(['human']); return; }
-    if(!key){ var best=null,score=0; Object.keys(A).forEach(function(k){var s=A[k].k.filter(function(w){return has(q,w)}).length; if(s>score){score=s;best=k;}}); key=best; }
-    if(key==='book'){ location.hash='#book'; close(); return; }
-    if(!key){ el("I don't have a good answer for that here. A doctor can help: book a consultation or message us on WhatsApp.",'msg bot'); chips(['human','book']); return; }
-    el(A[key].t,'msg bot',A[key].html); chips(A[key].n.concat(A[key].n.indexOf('book')<0?['book']:[]));
+  function multi(map,key,onDone,noneKey){
+    clearChips(); var c=document.createElement('div');c.className='chips';var sel=S[key]=[];
+    Object.keys(map).forEach(function(k){
+      var b=document.createElement('button');b.type='button';b.textContent=map[k];b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){
+        var i=sel.indexOf(k); if(i>-1){sel.splice(i,1);b.setAttribute('aria-pressed','false');}
+        else{ if(k===noneKey){ sel.length=0; [].slice.call(c.querySelectorAll('[aria-pressed]')).forEach(function(o){o.setAttribute('aria-pressed','false')}); }
+              else { var n=sel.indexOf(noneKey); if(n>-1){sel.splice(n,1); var nb=c.querySelector('[data-k="'+noneKey+'"]'); if(nb) nb.setAttribute('aria-pressed','false');} }
+              sel.push(k);b.setAttribute('aria-pressed','true'); }
+      });
+      b.dataset.k=k; c.appendChild(b);
+    });
+    var d=document.createElement('button');d.type='button';d.className='go';d.textContent='Done';
+    d.addEventListener('click',function(){ me(sel.length?sel.map(function(k){return map[k]}).join(', '):'None of these'); onDone(); });
+    c.appendChild(d); log.appendChild(c); log.scrollTop=log.scrollHeight;
   }
-  function ask(text,key){ el(text,'msg me'); setTimeout(function(){reply(text,key)},280); }
+  function later(fn,ms){ setTimeout(fn,ms||420); }
+
+  /* ---------- the flow ---------- */
+  function start(){
+    S={concern:null,duration:null,tried:[],signs:[],step:'start'};
+    bot("Hi, this is the ALIV team. A few quick taps and we'll show you what might be behind it. No personal details needed.");
+    later(function(){ bot('What brings you here?');
+      chips(Object.keys(CONCERN).map(function(k){return {label:CONCERN[k],fn:function(){ me(CONCERN[k]); S.concern=k; track('chat_concern',{concern:k}); later(askDuration); }}})
+        .concat([{label:'I just have a question',fn:function(){ me('I just have a question'); later(freeMode); }}]));
+    },300);
+  }
+  function askDuration(){ S.step='duration';
+    bot(S.concern==='explore' ? "Good place to start. Have you been trying to manage your weight for a while?" : 'How long has this been going on?');
+    chips(Object.keys(DUR).map(function(k){return {label:DUR[k],fn:function(){ me(DUR[k]); S.duration=k; later(askTried); }}}));
+  }
+  function askTried(){ S.step='tried'; bot("What have you tried so far? Pick all that apply."); multi(TRIED,'tried',function(){ later(askSigns); },'none'); }
+  function askSigns(){ S.step='signs'; bot("Do any of these sound like you? Pick all that apply, or skip with Done."); multi(SIGNS,'signs',function(){ later(askSafety); }); }
+  function askSafety(){ S.step='safety';
+    bot('One quick check. Does any of this apply right now?');
+    chips([{label:'Pregnant or breastfeeding',fn:function(){ me('Pregnant or breastfeeding'); later(function(){ bot("Thanks for telling us. Weight-loss treatment isn't suitable right now. Please speak to your obstetrician, and we'd be glad to help afterwards."); endSoft(); }); }},
+           {label:'Under 18',fn:function(){ me('Under 18'); later(function(){ bot("Thanks. For under-18s, please start with your family doctor or a paediatrician, together with a parent."); endSoft(); }); }},
+           {label:'Past or current eating disorder',fn:function(){ me('Past or current eating disorder'); later(function(){ bot("Thank you for sharing that. A weight-loss plan isn't the right first step. Please speak to your doctor or a mental health professional first. If you'd still like to talk to us, we're here."); chips([{label:'Talk to the team',fn:function(){me('Talk to the team');later(handoff);}}]); }); }},
+           {label:'None of these',go:true,fn:function(){ me('None of these'); later(reflect); }}]);
+  }
+  function reflect(){ S.step='reflect';
+    var worth=[],add=function(w){ if(worth.indexOf(w)<0) worth.push(w); };
+    var sig=S.signs;
+    if(S.concern==='sugar'||sig.indexOf('family')>-1||sig.indexOf('periods')>-1||sig.indexOf('waist')>-1) add('insulin resistance and blood sugar');
+    if(sig.indexOf('tired')>-1) add('thyroid');
+    if(S.concern==='pcos'||sig.indexOf('periods')>-1) add('hormones, including PCOS markers');
+    if(sig.indexOf('sleep')>-1) add('sleep');
+    if(sig.indexOf('waist')>-1) add('fat in the liver');
+    if(S.concern==='regain'||S.tried.indexOf('diet')>-1) add('muscle versus fat (body composition)');
+    if(sig.indexOf('medicine')>-1) add('your current medicines');
+    if(worth.length<2){ add('insulin resistance and blood sugar'); add('thyroid'); }
+    worth=worth.slice(0,4);
+    var opener='';
+    if(S.duration==='long'||S.tried.indexOf('diet')>-1) opener="Diets that work for a while and then stop is a very common pattern. It usually means something underneath hasn't been measured yet. ";
+    else if(S.concern==='regain') opener="Weight coming back isn't a willpower failure. After weight loss the body pushes hunger up and, if muscle was lost, uses less energy. ";
+    else opener="Thanks, that's helpful. ";
+    bot(opener+'From what you\'ve shared, these are worth checking:');
+    later(function(){
+      bot('<ul class="worth">'+worth.map(function(w){return '<li>'+w.charAt(0).toUpperCase()+w.slice(1)+'</li>'}).join('')+'</ul>',true);
+      if(sig.indexOf('sleep')>-1) later(function(){ bot('On sleep: in a controlled trial, people on the same diet lost less fat and more muscle when their sleep was cut short.'); askHow(); },500);
+      else if(S.concern==='regain') later(function(){ bot('On regain: protecting muscle and having an exit plan is what helps weight stay off. That is built into every ALIV plan.'); askHow(); },500);
+      else later(askHow,500);
+    },450);
+    track('chat_reflect',{concern:S.concern});
+  }
+  function askHow(){ S.step='how';
+    later(function(){
+      bot("All of these show up in tests. None of them show up on a diet chart. That's why ALIV starts with tests: bloodwork plus a body composition scan, reviewed by a doctor.");
+      later(function(){
+        bot('Then it runs in three steps: <b>Listen. Plan. Review.</b> Doctor-led since 2016, with clinics in Pune and Mumbai.',true);
+        doubts();
+      },500);
+    },300);
+  }
+  var DOUBTS=[['meds','Will I be put on injections?'],['iv','Is it just IV drips?'],['diet','Do I have to diet?'],['time','How long will it take?'],['cost','What does it cost?'],['where','Where are the clinics?']];
+  function doubts(asked){ S.step='doubts'; asked=asked||[];
+    var list=DOUBTS.filter(function(d){return asked.indexOf(d[0])<0}).slice(0,4).map(function(d){
+      return {label:d[1],fn:function(){ me(d[1]); asked.push(d[0]); later(function(){ bot(A[d[0]].t,A[d[0]].html); doubts(asked); }); }};
+    });
+    list.unshift({label:"Sounds right. What's next?",go:true,fn:function(){ me("Sounds right. What's next?"); later(handoff); }});
+    chips(list);
+  }
+  function summary(){
+    var parts=['Concern: '+(CONCERN[S.concern]||'not given')];
+    if(S.duration) parts.push('Trying for: '+DUR[S.duration]);
+    if(S.tried.length) parts.push('Tried: '+S.tried.map(function(k){return TRIED[k]}).join(', '));
+    if(S.signs.length) parts.push('Also: '+S.signs.map(function(k){return SIGNS[k]}).join(', '));
+    return parts.join('. ')+'.';
+  }
+  function handoff(){ S.step='handoff';
+    bot('The next step is a consultation, where a doctor listens, orders the right tests and explains what they show. Would you like a doctor to look at this?');
+    var wa='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent('Hi ALIV team, I\'m interested in weight management. '+summary());
+    chips([{label:'Yes, book a consultation',go:true,fn:toForm},
+           {label:'Message the team on WhatsApp',href:wa,ext:true,fn:function(){ track('chat_whatsapp',{concern:S.concern}); }},
+           {label:'Not yet',fn:function(){ me('Not yet'); later(function(){ bot("No problem. The doctors' profiles and common questions are further down this page. We're here whenever you're ready."); endSoft(); }); }}]);
+  }
+  function toForm(){
+    me('Yes, book a consultation'); track('chat_book',{concern:S.concern});
+    var sel=document.getElementById('ai'),hid=document.getElementById('chatSummary'),note=document.getElementById('chatNote');
+    if(sel&&INTEREST[S.concern]) sel.value=INTEREST[S.concern];
+    if(hid) hid.value=summary();
+    if(note) note.hidden=false;
+    later(function(){
+      bot("Great. We've added your answers to the booking form, so you won't need to repeat yourself. It takes 20 seconds.");
+      setTimeout(function(){ close(); var b=document.getElementById('book'); if(b) b.scrollIntoView({behavior:'smooth'}); var n=document.getElementById('n'); if(n) setTimeout(function(){n.focus({preventScroll:true})},700); },900);
+    });
+  }
+  function endSoft(){ chips([{label:'Start again',fn:function(){ log.innerHTML=''; start(); }},{label:'I have a question',fn:function(){ me('I have a question'); later(freeMode); }}]); }
+  function freeMode(){ S.step='free'; bot('Ask anything below, or pick one:');
+    chips([['why',"Why can't I lose weight?"],['meds','Weight-loss injections'],['consult','What happens at the first visit?'],['pcos','PCOS and weight'],['cost','What does it cost?']].map(function(d){
+      return {label:d[1],fn:function(){ me(d[1]); later(function(){ answer(d[0]); }); }};
+    }).concat([{label:'Take the quick check',go:true,fn:function(){ log.innerHTML=''; start(); }}]));
+  }
+  function answer(key){
+    bot(A[key].t,A[key].html);
+    var resume = (S.step==='free'||S.step==='start') ? [{label:'Take the quick check',go:true,fn:function(){ log.innerHTML=''; start(); }}]
+                                                    : [{label:'Continue where I was',go:true,fn:resumeFlow}];
+    chips(resume.concat([{label:'Book a consultation',fn:function(){ handoff(); }}]));
+  }
+  function resumeFlow(){ me('Continue'); later(function(){ ({duration:askDuration,tried:askTried,signs:askSigns,safety:askSafety,reflect:askHow,how:askHow,doubts:function(){doubts()},handoff:handoff})[S.step](); }); }
+
+  /* free text, at any point */
+  function has(q,w){ return w.length<=3 ? new RegExp('\\b'+w+'\\b').test(q) : q.indexOf(w)>-1; }
+  function reply(q){
+    var ql=' '+q.toLowerCase()+' ';
+    if(RED.some(function(w){return has(ql,w)})){ msg("This sounds urgent. Please call 112 or go to the nearest emergency department now. This chat can't help with emergencies.",'bot alert'); return; }
+    if(PREG.some(function(w){return has(ql,w)})){ bot("During pregnancy or breastfeeding, weight-loss treatment isn't suitable. Please speak to your obstetrician, and we'd be glad to help afterwards."); endSoft(); return; }
+    var best=null,score=0; Object.keys(A).forEach(function(k){var s=A[k].k.filter(function(w){return has(ql,w)}).length; if(s>score){score=s;best=k;}});
+    if(!best){ bot("We don't have a good answer for that here, but a doctor can help. Book a consultation or message the team."); chips([{label:'Book a consultation',go:true,fn:handoff},{label:'Continue',fn:resumeFlow}]); return; }
+    answer(best);
+  }
+
   var started=false;
   function open(){
     body.classList.add('chat-open');box.setAttribute('aria-hidden','false');fab.setAttribute('aria-expanded','true');
-    if(!started){started=true; el("Hi. Ask anything about weight management, or pick a question. Answers follow our doctors' guidance.",'msg bot'); chips(['why','meds','consult','cost','pcos','human']);}
+    if(!started){ started=true; start(); track('chat_open'); }
     setTimeout(function(){inp.focus()},300);
   }
   function close(){ body.classList.remove('chat-open');box.setAttribute('aria-hidden','true');fab.setAttribute('aria-expanded','false'); }
   fab.addEventListener('click',open); x.addEventListener('click',function(){close();fab.focus()});
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&body.classList.contains('chat-open')) close(); });
-  form.addEventListener('submit',function(e){ e.preventDefault(); var q=inp.value.trim(); if(!q) return; inp.value=''; ask(q); });
+  form.addEventListener('submit',function(e){ e.preventDefault(); var q=inp.value.trim(); if(!q) return; inp.value=''; me(q); setTimeout(function(){reply(q)},300); });
 })();
 
 /* --- pause the logo marquee while it is off-screen --- */

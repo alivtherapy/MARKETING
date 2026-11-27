@@ -10,7 +10,12 @@
   blue #1257A8 = links only. Fonts: Avenir Heavy (display), Gordita (body).
 - Tracking IDs reused on every LP: Clarity uxteeaz5rs, Google Ads AW-11058315015, Meta Pixel 429598552784651.
 - Pages: `lp-weight-management/` (mobile-first, desktop two-column layer at 960px+).
-  Current version: v0.4. Preview build: `preview/lp-weight-management-v0.4-preview.html`.
+  Current version: v0.5. Preview build: `preview/lp-weight-management-v0.5-preview.html`.
+  v0.5 adds: guided chat flow (ALIV team voice): concern -> how long -> what tried -> signs -> safety check
+  (pregnancy, under 18, eating disorder) -> "worth checking" list -> tests + Listen. Plan. Review. -> doubts
+  (injections, IV, diet, time, cost, clinics) -> hand-off: prefilled form (interest + hidden chat_summary) or
+  WhatsApp with answers. Never asks name/phone, never shows a fee, never names drugs. Free text works at any step.
+  Analytics events: chat_open, chat_concern, chat_reflect, chat_book, chat_whatsapp (gtag + fbq trackCustom).
   v0.4 adds: left section rail on wide screens (no button; current section in red #C8102E), chip strip under the
   top bar on phones; clinic gallery in About ALIV (lounge photo + Pune/Mumbai photo slots to fill);
   Safety and FAQ headings no longer sticky; research charts animate in (bars + numbers from 0, line flows from 0%).
@@ -63,6 +68,7 @@
 ## Open items
 - Clinic photos needed: Pune + Mumbai (reception, consultation room, body composition scan, exterior; Mumbai lounge).
   Confirm which city the infusion-lounge photo is from.
-- Chat assistant conversion flow: proposed, waiting for approval before building.
+- WhatsApp number for chat hand-off: Rish to confirm (single constant WA_NUMBER in the chat script).
+- Form backend must accept the new hidden field `chat_summary`.
 - "Medically reviewed by [DOCTOR NAME]" placeholder on NAD+ and fat-loss pages.
 - Confirm WhatsApp number = +91 77199 88811; founding year 2015 vs 2016.

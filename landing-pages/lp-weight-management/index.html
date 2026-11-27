@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-motion="off" data-version="v0.4">
+<html lang="en" data-motion="off" data-version="v0.5">
 <head>
 <meta charset="utf-8">
-<meta name="aliv-lp-version" content="weight-management v0.4">
+<meta name="aliv-lp-version" content="weight-management v0.5">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
 <meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
@@ -53,7 +53,7 @@
 
 <style>
 /* ==========================================================================
-   ALIV — Weight management landing page · v0.4 (static infographics; research charts animate). Same system as /lp-nad-plus/.
+   ALIV — Weight management landing page · v0.5 (static infographics; research charts animate; guided chat). Same system as /lp-nad-plus/.
    Mobile first (single column), then a desktop layer from 960px:
    wider container, sticky side headings, multi-column steps and grids.
    ========================================================================== */
@@ -637,6 +637,10 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 .chat-f input:focus{outline:2px solid var(--teal-500);outline-offset:0}
 .chat-f button{border:none;background:var(--green-700);color:var(--white);border-radius:22px;padding:0 18px;font-family:var(--display);font-weight:700;cursor:pointer}
 .chat-note{font-size:.68rem;color:var(--neutral-700);text-align:center;padding:0 12px 8px}
+.chips button[aria-pressed="true"]{background:var(--teal-600);border-color:var(--teal-600);color:var(--white)}
+.msg ul.worth{margin:2px 0 0 18px}
+.msg ul.worth li{margin:3px 0;font-family:var(--display);font-weight:700;color:var(--green-700)}
+.chat-added{margin:18px 0 0;padding:10px 12px;border-left:3px solid var(--yellow-500);background:rgba(255,255,255,.08);font-size:.84rem;color:var(--white) !important}
 .ver{font-size:.7rem;color:var(--neutral-300);margin-top:12px}
 
 @media (prefers-reduced-motion:reduce){ .nod{animation:none} }
@@ -1220,6 +1224,8 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
           <!-- BACKEND: posts to this page like /lp-nad-plus/. Wire to the same handler. -->
           <form method="post" id="enquiryForm" novalidate>
             <input type="hidden" name="source" value="lp-weight-management">
+            <input type="hidden" name="chat_summary" id="chatSummary" value="">
+            <p class="chat-added" id="chatNote" hidden>Your answers from the chat are attached. Just add your name and number.</p>
             <label for="n">Name</label>
             <input id="n" name="name" type="text" autocomplete="name" required maxlength="80">
 
@@ -1297,7 +1303,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
     </div>
     <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
     <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
-    <p class="ver">Weight management page · v0.4</p>
+    <p class="ver">Weight management page · v0.5</p>
   </div>
 </footer>
 
@@ -1306,10 +1312,10 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
   Ask about weight
 </button>
-<section class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Weight management questions" aria-hidden="true">
+<section class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Chat with the ALIV team about weight management" aria-hidden="true">
   <div class="chat-h">
     <img src="img/logo/aliv-white.webp" alt="" width="360" height="214" loading="lazy">
-    <div><b>Weight questions</b><small>Instant answers from our doctors' guidance</small></div>
+    <div><b>ALIV team</b><small>A few quick questions, no personal details</small></div>
     <button class="chat-x" id="chatX" type="button" aria-label="Close chat">&times;</button>
   </div>
   <div class="chat-log" id="chatLog" aria-live="polite"></div>
@@ -1432,68 +1438,204 @@ if('IntersectionObserver' in window){
   io.observe(ch);
 })();
 
-/* --- weight management chat assistant ---
-   Guided and rule-based: every answer below is written to match this page, so it cannot invent medical claims.
-   BACKEND HOOK: to make it AI-powered later, replace reply() with a call to your own server (e.g. Claude API),
-   keeping RED_FLAGS checked first, in the browser. */
+/* --- weight management chat assistant (ALIV team) ---
+   A guided conversation: concern -> 3 quick questions -> safety check -> what's worth checking ->
+   how ALIV works -> doubts -> hand-off to the form or WhatsApp. No name or phone is asked in chat.
+   Every line is written to match this page, so it cannot invent medical claims or name drugs.
+   AI HOOK: free-text questions go through reply(); swap it for a call to your own server later,
+   keeping the RED and PREG checks first, in the browser. */
 (function(){
+  var WA_NUMBER='917719988811'; /* TODO: confirm the WhatsApp (Wati) number */
   var body=document.body,fab=document.getElementById('chatFab'),box=document.getElementById('chat'),
       log=document.getElementById('chatLog'),form=document.getElementById('chatF'),inp=document.getElementById('chatIn'),
       x=document.getElementById('chatX');
   if(!fab) return;
-  var WA='https://wa.me/917719988811';
+  function track(name,data){ try{ if(window.gtag) gtag('event',name,data||{}); if(window.fbq) fbq('trackCustom',name,data||{}); }catch(e){} }
+
+  /* ---------- conversation state ---------- */
+  var S={concern:null,duration:null,tried:[],signs:[],step:'start'};
+  var CONCERN={stuck:"Weight won't shift",regain:'It keeps coming back',pcos:'PCOS or hormones',sugar:'Blood sugar is creeping up',explore:'Just exploring'};
+  var INTEREST={stuck:"Weight that won't shift despite effort",regain:'Weight that keeps coming back',pcos:'PCOS or hormones',sugar:'Blood sugar or insulin resistance',explore:'Not sure yet, help me understand'};
+  var DUR={short:'Under 6 months',mid:'6 months to 2 years',long:'More than 2 years'};
+  var TRIED={diet:'Diets',gym:'Gym or sport',coach:'An app or coach',meds:'Medication',none:'Nothing structured yet'};
+  var SIGNS={tired:'Often tired',sleep:'Poor sleep',periods:'Irregular periods or PCOS',family:'Diabetes in the family',waist:'Waist growing',medicine:'On regular medicines'};
+
+  /* ---------- free-text answers (side questions at any point) ---------- */
   var A={
-    why:{k:['why','stuck','plateau','not losing',"can't lose",'cant lose','stalled','not moving','gain'],
-      t:"Usually it's more than one thing: insulin resistance, thyroid, hormones (PCOS, menopause, low testosterone), short sleep, losing muscle while dieting, fat in the liver, or some medicines. Each shows up in tests, which is why we test before we plan.",
-      n:['thyroid','pcos','consult']},
-    thyroid:{k:['thyroid','tsh','hypothyroid'],t:"An underactive thyroid slows how your body uses energy and is common, especially in women. It's a simple blood test. If it's off, it's treated first. If it's normal, we look at the other causes.",n:['why','consult']},
-    pcos:{k:['pcos','pcod','ovary','ovarian','periods'],t:"PCOS is closely linked to insulin resistance, so diets often stall. The plan works on blood sugar, muscle and hormones together. If you're also trying to conceive, our fertility specialists work alongside.",n:['diet','consult']},
-    meds:{k:['injection','injections','ozempic','mounjaro','wegovy','semaglutide','tirzepatide','glp','medicine','medication','tablet','pill'],
-      t:"Prescription weight-loss medicines can help some people, but only after a doctor's assessment. They can't be booked on their own. In large trials most people regained much of the weight within a year of stopping, so we only use them inside a plan that protects muscle and includes an exit plan.",n:['safe','consult']},
-    consult:{k:['consult','consultation','appointment','first visit','what happens','assessment','test','tests','blood','bloodwork','scan'],
-      t:"At your first visit: a medical consultation, bloodwork (blood sugar, insulin resistance, thyroid, hormones, lipids, liver) and a body composition scan. Your doctor explains the results and the plan. Some people need extra tests first.",n:['cost','time','book']},
-    cost:{k:['cost','price','fee','fees','charges','how much','rupees','rs','inr','package'],t:"It depends on your plan, which depends on your results. You'll get a clear quote after your assessment, before anything starts. For consultation fees, message us on WhatsApp.",n:['consult','human']},
-    time:{k:['how long','how fast','weeks','months','quick','results','kg'],t:"Weeks, not days. We aim for a steady pace that protects muscle, and judge progress on body composition and repeat bloodwork, not just the scale.",n:['diet','consult']},
-    diet:{k:['diet','food','eat','eating','keto','fasting','vegetarian','vegan','protein','gym','exercise','workout'],t:"No crash diets. Nutrition is built around your blood sugar, with enough protein to protect muscle, and food you'll actually eat, Indian and vegetarian included. Strength training is part of every plan.",n:['time','consult']},
-    iv:{k:['iv','drip','drips','trim','tone','fatloss max','nutrient','nutrients','vitamin'],t:"IV nutrient therapy (such as Trim & Tone Elixir) can correct deficiencies and support energy and training. It supports the plan. It doesn't replace food, training and sleep. Your doctor will say whether it suits you.",n:['safe','consult']},
-    safe:{k:['safe','safety','side effect','side effects','risk','risks'],t:"Under medical supervision, weight management is safe for most people. Some approaches aren't suitable during pregnancy or breastfeeding, or with certain medical histories. Your assessment decides what's safe for you.",n:['consult','human']},
-    where:{k:['where','location','clinic','pune','mumbai','address','timing','timings','open'],t:'Two clinics: <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Koregaon Park, Pune</a> and <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Linking Road, Mumbai</a>.',html:true,n:['book','human']},
-    human:{k:['human','person','call','talk','whatsapp','speak','contact','number'],t:'Happy to connect you. <a href="'+WA+'" target="_blank" rel="noopener">WhatsApp us</a> or call <a href="tel:+917719988811">+91 77199 88811</a>. Or book a consultation and a doctor reviews it first.',html:true,n:['book']}
+    why:{k:['why','stuck','plateau','not losing',"can't lose",'cant lose','stalled','not moving','gain'],t:"Usually it's more than one thing: insulin resistance, thyroid, hormones (PCOS, menopause, low testosterone), short sleep, losing muscle while dieting, fat in the liver, or some medicines. Each shows up in tests, which is why we test before we plan."},
+    thyroid:{k:['thyroid','tsh','hypothyroid'],t:"An underactive thyroid slows how your body uses energy and is common, especially in women. It's a simple blood test. If it's off, it's treated first. If it's normal, we look at the other causes."},
+    pcos:{k:['pcos','pcod','ovary','ovarian','periods'],t:"PCOS is closely linked to insulin resistance, so diets often stall. The plan works on blood sugar, muscle and hormones together. If you're also trying to conceive, our fertility specialists work alongside."},
+    meds:{k:['injection','injections','ozempic','mounjaro','wegovy','semaglutide','tirzepatide','glp','medicine','medication','tablet','pill'],t:"Prescription weight-loss medicines can help some people, but only after a doctor's assessment, and they can't be booked on their own. In large trials most people regained much of the weight within a year of stopping, so we only use them inside a plan that protects muscle and includes an exit plan."},
+    consult:{k:['consult','consultation','appointment','first visit','what happens','assessment','test','tests','blood','bloodwork','scan'],t:"At your first visit: a medical consultation, bloodwork (blood sugar, insulin resistance, thyroid, hormones, lipids, liver) and a body composition scan. Your doctor explains the results and the plan. Some people need extra tests first."},
+    cost:{k:['cost','price','fee','fees','charges','how much','rupees','rs','inr','package'],t:"It depends on your plan, and your plan depends on your results. The team gives you a clear quote after your assessment, before anything starts."},
+    time:{k:['how long','how fast','weeks','months','quick','results','kg'],t:"Weeks, not days. We aim for a steady pace that protects muscle, and judge progress on body composition and repeat bloodwork, not just the scale."},
+    diet:{k:['diet','food','eat','eating','keto','fasting','vegetarian','vegan','jain','protein','gym','exercise','workout'],t:"No crash diets. Nutrition is built around your blood sugar, with enough protein to protect muscle, and food you'll actually eat: Indian, vegetarian and Jain included. Strength training is part of every plan."},
+    iv:{k:['iv','drip','drips','trim','tone','fatloss max','nutrient','nutrients','vitamin'],t:"IV nutrient therapy (such as Trim & Tone Elixir) can correct deficiencies and support energy and training. It supports the plan. It doesn't replace food, training and sleep, and your doctor decides whether it suits you."},
+    safe:{k:['safe','safety','side effect','side effects','risk','risks'],t:"Under medical supervision, weight management is safe for most people. Some approaches aren't suitable during pregnancy or breastfeeding, or with certain medical histories. Your assessment decides what's safe for you."},
+    where:{k:['where','location','clinic','pune','mumbai','address','timing','timings','open','far'],t:'Two clinics: <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Koregaon Park, Pune</a> and <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Linking Road, Mumbai</a>. The first visit is in person, because the tests are.',html:true},
+    human:{k:['human','person','call','talk','whatsapp','speak','contact','number'],t:'Of course. <a href="tel:+917719988811">Call us</a>, or use the WhatsApp button below and your answers go with it.',html:true}
   };
-  var LABEL={why:"Why can't I lose weight?",thyroid:'Is it my thyroid?',pcos:'PCOS and weight',meds:'Weight-loss injections',consult:'What happens at the first visit?',
-    cost:'What does it cost?',time:'How long does it take?',diet:'Do I have to diet?',iv:'IV therapy',safe:'Is it safe?',where:'Clinic locations',human:'Talk to a person',book:'Book a consultation'};
-  var RED=['chest pain','faint','fainting','suicid','self harm','self-harm','kill myself','emergency','vomiting blood','can\'t breathe','cannot breathe'];
+  var RED=['chest pain','faint','fainting','suicid','self harm','self-harm','kill myself','emergency','vomiting blood',"can't breathe",'cannot breathe'];
   var PREG=['pregnan','breastfeed','breast feed','nursing'];
-  function el(t,c,html){var d=document.createElement('div');d.className=c;if(html)d.innerHTML=t;else d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
-  function chips(keys){
-    var c=document.createElement('div');c.className='chips';
-    keys.forEach(function(k){
-      if(k==='book'){var a=document.createElement('a');a.href='#book';a.className='go';a.textContent=LABEL.book;a.addEventListener('click',function(){close()});c.appendChild(a);return;}
-      var b=document.createElement('button');b.type='button';b.textContent=LABEL[k];b.addEventListener('click',function(){ask(LABEL[k],k)});c.appendChild(b);
+
+  /* ---------- tiny UI helpers ---------- */
+  function msg(t,cls,html){var d=document.createElement('div');d.className='msg '+(cls||'bot');if(html)d.innerHTML=t;else d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
+  function bot(t,html){return msg(t,'bot',html);}
+  function me(t){return msg(t,'me');}
+  function clearChips(){[].slice.call(log.querySelectorAll('.chips')).forEach(function(c){c.remove()});}
+  function chips(opts){
+    clearChips(); var c=document.createElement('div');c.className='chips';
+    opts.forEach(function(o){
+      var b=document.createElement(o.href?'a':'button');
+      if(o.href){b.href=o.href; if(o.ext){b.target='_blank';b.rel='noopener';}} else b.type='button';
+      b.textContent=o.label; if(o.go) b.className='go';
+      b.addEventListener('click',function(ev){ if(o.fn) { if(!o.href) ev.preventDefault(); o.fn(); } });
+      c.appendChild(b);
     });
     log.appendChild(c);log.scrollTop=log.scrollHeight;
   }
-  function has(q,w){ return w.length<=3 ? new RegExp('\\b'+w+'\\b').test(q) : q.indexOf(w)>-1; }
-  function reply(q,key){
-    q=' '+q.toLowerCase()+' ';
-    if(RED.some(function(w){return has(q,w)})){ el('This sounds urgent. Please call 112 or go to the nearest emergency department now. This chat can\'t help with emergencies.','msg bot alert'); return; }
-    if(!key && PREG.some(function(w){return has(q,w)})){ el("During pregnancy or breastfeeding, weight-loss treatments aren't suitable. Please speak to your obstetrician. We're happy to help afterwards.",'msg bot'); chips(['human']); return; }
-    if(!key){ var best=null,score=0; Object.keys(A).forEach(function(k){var s=A[k].k.filter(function(w){return has(q,w)}).length; if(s>score){score=s;best=k;}}); key=best; }
-    if(key==='book'){ location.hash='#book'; close(); return; }
-    if(!key){ el("I don't have a good answer for that here. A doctor can help: book a consultation or message us on WhatsApp.",'msg bot'); chips(['human','book']); return; }
-    el(A[key].t,'msg bot',A[key].html); chips(A[key].n.concat(A[key].n.indexOf('book')<0?['book']:[]));
+  function multi(map,key,onDone,noneKey){
+    clearChips(); var c=document.createElement('div');c.className='chips';var sel=S[key]=[];
+    Object.keys(map).forEach(function(k){
+      var b=document.createElement('button');b.type='button';b.textContent=map[k];b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){
+        var i=sel.indexOf(k); if(i>-1){sel.splice(i,1);b.setAttribute('aria-pressed','false');}
+        else{ if(k===noneKey){ sel.length=0; [].slice.call(c.querySelectorAll('[aria-pressed]')).forEach(function(o){o.setAttribute('aria-pressed','false')}); }
+              else { var n=sel.indexOf(noneKey); if(n>-1){sel.splice(n,1); var nb=c.querySelector('[data-k="'+noneKey+'"]'); if(nb) nb.setAttribute('aria-pressed','false');} }
+              sel.push(k);b.setAttribute('aria-pressed','true'); }
+      });
+      b.dataset.k=k; c.appendChild(b);
+    });
+    var d=document.createElement('button');d.type='button';d.className='go';d.textContent='Done';
+    d.addEventListener('click',function(){ me(sel.length?sel.map(function(k){return map[k]}).join(', '):'None of these'); onDone(); });
+    c.appendChild(d); log.appendChild(c); log.scrollTop=log.scrollHeight;
   }
-  function ask(text,key){ el(text,'msg me'); setTimeout(function(){reply(text,key)},280); }
+  function later(fn,ms){ setTimeout(fn,ms||420); }
+
+  /* ---------- the flow ---------- */
+  function start(){
+    S={concern:null,duration:null,tried:[],signs:[],step:'start'};
+    bot("Hi, this is the ALIV team. A few quick taps and we'll show you what might be behind it. No personal details needed.");
+    later(function(){ bot('What brings you here?');
+      chips(Object.keys(CONCERN).map(function(k){return {label:CONCERN[k],fn:function(){ me(CONCERN[k]); S.concern=k; track('chat_concern',{concern:k}); later(askDuration); }}})
+        .concat([{label:'I just have a question',fn:function(){ me('I just have a question'); later(freeMode); }}]));
+    },300);
+  }
+  function askDuration(){ S.step='duration';
+    bot(S.concern==='explore' ? "Good place to start. Have you been trying to manage your weight for a while?" : 'How long has this been going on?');
+    chips(Object.keys(DUR).map(function(k){return {label:DUR[k],fn:function(){ me(DUR[k]); S.duration=k; later(askTried); }}}));
+  }
+  function askTried(){ S.step='tried'; bot("What have you tried so far? Pick all that apply."); multi(TRIED,'tried',function(){ later(askSigns); },'none'); }
+  function askSigns(){ S.step='signs'; bot("Do any of these sound like you? Pick all that apply, or skip with Done."); multi(SIGNS,'signs',function(){ later(askSafety); }); }
+  function askSafety(){ S.step='safety';
+    bot('One quick check. Does any of this apply right now?');
+    chips([{label:'Pregnant or breastfeeding',fn:function(){ me('Pregnant or breastfeeding'); later(function(){ bot("Thanks for telling us. Weight-loss treatment isn't suitable right now. Please speak to your obstetrician, and we'd be glad to help afterwards."); endSoft(); }); }},
+           {label:'Under 18',fn:function(){ me('Under 18'); later(function(){ bot("Thanks. For under-18s, please start with your family doctor or a paediatrician, together with a parent."); endSoft(); }); }},
+           {label:'Past or current eating disorder',fn:function(){ me('Past or current eating disorder'); later(function(){ bot("Thank you for sharing that. A weight-loss plan isn't the right first step. Please speak to your doctor or a mental health professional first. If you'd still like to talk to us, we're here."); chips([{label:'Talk to the team',fn:function(){me('Talk to the team');later(handoff);}}]); }); }},
+           {label:'None of these',go:true,fn:function(){ me('None of these'); later(reflect); }}]);
+  }
+  function reflect(){ S.step='reflect';
+    var worth=[],add=function(w){ if(worth.indexOf(w)<0) worth.push(w); };
+    var sig=S.signs;
+    if(S.concern==='sugar'||sig.indexOf('family')>-1||sig.indexOf('periods')>-1||sig.indexOf('waist')>-1) add('insulin resistance and blood sugar');
+    if(sig.indexOf('tired')>-1) add('thyroid');
+    if(S.concern==='pcos'||sig.indexOf('periods')>-1) add('hormones, including PCOS markers');
+    if(sig.indexOf('sleep')>-1) add('sleep');
+    if(sig.indexOf('waist')>-1) add('fat in the liver');
+    if(S.concern==='regain'||S.tried.indexOf('diet')>-1) add('muscle versus fat (body composition)');
+    if(sig.indexOf('medicine')>-1) add('your current medicines');
+    if(worth.length<2){ add('insulin resistance and blood sugar'); add('thyroid'); }
+    worth=worth.slice(0,4);
+    var opener='';
+    if(S.duration==='long'||S.tried.indexOf('diet')>-1) opener="Diets that work for a while and then stop is a very common pattern. It usually means something underneath hasn't been measured yet. ";
+    else if(S.concern==='regain') opener="Weight coming back isn't a willpower failure. After weight loss the body pushes hunger up and, if muscle was lost, uses less energy. ";
+    else opener="Thanks, that's helpful. ";
+    bot(opener+'From what you\'ve shared, these are worth checking:');
+    later(function(){
+      bot('<ul class="worth">'+worth.map(function(w){return '<li>'+w.charAt(0).toUpperCase()+w.slice(1)+'</li>'}).join('')+'</ul>',true);
+      if(sig.indexOf('sleep')>-1) later(function(){ bot('On sleep: in a controlled trial, people on the same diet lost less fat and more muscle when their sleep was cut short.'); askHow(); },500);
+      else if(S.concern==='regain') later(function(){ bot('On regain: protecting muscle and having an exit plan is what helps weight stay off. That is built into every ALIV plan.'); askHow(); },500);
+      else later(askHow,500);
+    },450);
+    track('chat_reflect',{concern:S.concern});
+  }
+  function askHow(){ S.step='how';
+    later(function(){
+      bot("All of these show up in tests. None of them show up on a diet chart. That's why ALIV starts with tests: bloodwork plus a body composition scan, reviewed by a doctor.");
+      later(function(){
+        bot('Then it runs in three steps: <b>Listen. Plan. Review.</b> Doctor-led since 2016, with clinics in Pune and Mumbai.',true);
+        doubts();
+      },500);
+    },300);
+  }
+  var DOUBTS=[['meds','Will I be put on injections?'],['iv','Is it just IV drips?'],['diet','Do I have to diet?'],['time','How long will it take?'],['cost','What does it cost?'],['where','Where are the clinics?']];
+  function doubts(asked){ S.step='doubts'; asked=asked||[];
+    var list=DOUBTS.filter(function(d){return asked.indexOf(d[0])<0}).slice(0,4).map(function(d){
+      return {label:d[1],fn:function(){ me(d[1]); asked.push(d[0]); later(function(){ bot(A[d[0]].t,A[d[0]].html); doubts(asked); }); }};
+    });
+    list.unshift({label:"Sounds right. What's next?",go:true,fn:function(){ me("Sounds right. What's next?"); later(handoff); }});
+    chips(list);
+  }
+  function summary(){
+    var parts=['Concern: '+(CONCERN[S.concern]||'not given')];
+    if(S.duration) parts.push('Trying for: '+DUR[S.duration]);
+    if(S.tried.length) parts.push('Tried: '+S.tried.map(function(k){return TRIED[k]}).join(', '));
+    if(S.signs.length) parts.push('Also: '+S.signs.map(function(k){return SIGNS[k]}).join(', '));
+    return parts.join('. ')+'.';
+  }
+  function handoff(){ S.step='handoff';
+    bot('The next step is a consultation, where a doctor listens, orders the right tests and explains what they show. Would you like a doctor to look at this?');
+    var wa='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent('Hi ALIV team, I\'m interested in weight management. '+summary());
+    chips([{label:'Yes, book a consultation',go:true,fn:toForm},
+           {label:'Message the team on WhatsApp',href:wa,ext:true,fn:function(){ track('chat_whatsapp',{concern:S.concern}); }},
+           {label:'Not yet',fn:function(){ me('Not yet'); later(function(){ bot("No problem. The doctors' profiles and common questions are further down this page. We're here whenever you're ready."); endSoft(); }); }}]);
+  }
+  function toForm(){
+    me('Yes, book a consultation'); track('chat_book',{concern:S.concern});
+    var sel=document.getElementById('ai'),hid=document.getElementById('chatSummary'),note=document.getElementById('chatNote');
+    if(sel&&INTEREST[S.concern]) sel.value=INTEREST[S.concern];
+    if(hid) hid.value=summary();
+    if(note) note.hidden=false;
+    later(function(){
+      bot("Great. We've added your answers to the booking form, so you won't need to repeat yourself. It takes 20 seconds.");
+      setTimeout(function(){ close(); var b=document.getElementById('book'); if(b) b.scrollIntoView({behavior:'smooth'}); var n=document.getElementById('n'); if(n) setTimeout(function(){n.focus({preventScroll:true})},700); },900);
+    });
+  }
+  function endSoft(){ chips([{label:'Start again',fn:function(){ log.innerHTML=''; start(); }},{label:'I have a question',fn:function(){ me('I have a question'); later(freeMode); }}]); }
+  function freeMode(){ S.step='free'; bot('Ask anything below, or pick one:');
+    chips([['why',"Why can't I lose weight?"],['meds','Weight-loss injections'],['consult','What happens at the first visit?'],['pcos','PCOS and weight'],['cost','What does it cost?']].map(function(d){
+      return {label:d[1],fn:function(){ me(d[1]); later(function(){ answer(d[0]); }); }};
+    }).concat([{label:'Take the quick check',go:true,fn:function(){ log.innerHTML=''; start(); }}]));
+  }
+  function answer(key){
+    bot(A[key].t,A[key].html);
+    var resume = (S.step==='free'||S.step==='start') ? [{label:'Take the quick check',go:true,fn:function(){ log.innerHTML=''; start(); }}]
+                                                    : [{label:'Continue where I was',go:true,fn:resumeFlow}];
+    chips(resume.concat([{label:'Book a consultation',fn:function(){ handoff(); }}]));
+  }
+  function resumeFlow(){ me('Continue'); later(function(){ ({duration:askDuration,tried:askTried,signs:askSigns,safety:askSafety,reflect:askHow,how:askHow,doubts:function(){doubts()},handoff:handoff})[S.step](); }); }
+
+  /* free text, at any point */
+  function has(q,w){ return w.length<=3 ? new RegExp('\\b'+w+'\\b').test(q) : q.indexOf(w)>-1; }
+  function reply(q){
+    var ql=' '+q.toLowerCase()+' ';
+    if(RED.some(function(w){return has(ql,w)})){ msg("This sounds urgent. Please call 112 or go to the nearest emergency department now. This chat can't help with emergencies.",'bot alert'); return; }
+    if(PREG.some(function(w){return has(ql,w)})){ bot("During pregnancy or breastfeeding, weight-loss treatment isn't suitable. Please speak to your obstetrician, and we'd be glad to help afterwards."); endSoft(); return; }
+    var best=null,score=0; Object.keys(A).forEach(function(k){var s=A[k].k.filter(function(w){return has(ql,w)}).length; if(s>score){score=s;best=k;}});
+    if(!best){ bot("We don't have a good answer for that here, but a doctor can help. Book a consultation or message the team."); chips([{label:'Book a consultation',go:true,fn:handoff},{label:'Continue',fn:resumeFlow}]); return; }
+    answer(best);
+  }
+
   var started=false;
   function open(){
     body.classList.add('chat-open');box.setAttribute('aria-hidden','false');fab.setAttribute('aria-expanded','true');
-    if(!started){started=true; el("Hi. Ask anything about weight management, or pick a question. Answers follow our doctors' guidance.",'msg bot'); chips(['why','meds','consult','cost','pcos','human']);}
+    if(!started){ started=true; start(); track('chat_open'); }
     setTimeout(function(){inp.focus()},300);
   }
   function close(){ body.classList.remove('chat-open');box.setAttribute('aria-hidden','true');fab.setAttribute('aria-expanded','false'); }
   fab.addEventListener('click',open); x.addEventListener('click',function(){close();fab.focus()});
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&body.classList.contains('chat-open')) close(); });
-  form.addEventListener('submit',function(e){ e.preventDefault(); var q=inp.value.trim(); if(!q) return; inp.value=''; ask(q); });
+  form.addEventListener('submit',function(e){ e.preventDefault(); var q=inp.value.trim(); if(!q) return; inp.value=''; me(q); setTimeout(function(){reply(q)},300); });
 })();
 
 /* --- pause the logo marquee while it is off-screen --- */
