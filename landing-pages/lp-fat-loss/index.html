@@ -86,7 +86,7 @@
   --body:'gorditaregular',Gordita,Avenir,Jost,system-ui,sans-serif;
 
   /* SWAP: hero still. Falls back to the gradient if the file is missing. */
-  --hero-img:url("img/hero.webp");
+  --hero-img:url("img/band.webp");
 
   --pad:22px; --max:660px; --radius:4px;
 }
@@ -344,6 +344,154 @@ footer h4{font-family:var(--display);font-weight:700;font-size:.76rem;color:var(
 a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{
   outline:2px solid var(--link);outline-offset:3px}
 
+
+/* ==========================================================================
+   MOTION + INFOGRAPHICS. Every animation is triggered once, when its block
+   scrolls into view (.rv -> .in), and is switched off for reduced motion.
+   ========================================================================== */
+
+/* hero: live metabolic panel */
+.panel{position:relative;overflow:hidden;background:rgba(4,48,28,.58);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:22px 22px 18px;margin-top:30px}
+.panel-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.panel-h h3{color:var(--white);font-size:.95rem;margin:0}
+.live{font-size:.7rem;color:#BFDDD7;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--yellow-500);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,194,0,.6)}70%{box-shadow:0 0 0 8px rgba(242,194,0,0)}100%{box-shadow:0 0 0 0 rgba(242,194,0,0)}}
+.mk{display:grid;grid-template-columns:1fr 84px;gap:12px;align-items:center;padding:8px 0;
+  border-top:1px solid rgba(255,255,255,.1);font-size:.84rem;color:#D9ECE8;line-height:1.35}
+.mk:first-of-type{border-top:none}
+.mk i{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden;position:relative}
+.mk i::after{content:'';position:absolute;top:0;bottom:0;left:0;width:var(--w);border-radius:3px;
+  background:linear-gradient(90deg,var(--teal-400),var(--yellow-500));transform:scaleX(0);transform-origin:left;
+  transition:transform 1.2s cubic-bezier(.2,.7,.3,1);transition-delay:calc(var(--d) * 110ms + 250ms)}
+.panel.in .mk i::after{transform:scaleX(1)}
+.scan{position:absolute;left:0;right:0;height:70px;top:-70px;pointer-events:none;
+  background:linear-gradient(transparent,rgba(143,196,189,.16),transparent);animation:scan 5s ease-in-out infinite}
+@keyframes scan{0%{top:-70px}65%,100%{top:100%}}
+.panel .fineprint{font-size:.7rem;color:#8FBDB5;margin:10px 0 0}
+
+/* credentials + press */
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:24px 18px;padding:38px 0 30px;border-bottom:1px solid var(--border)}
+.cred b{display:block;font-family:var(--display);font-weight:700;font-size:2.2rem;line-height:1;color:var(--green-700);letter-spacing:-.01em}
+.cred b small{font-size:.5em;margin-left:2px;color:var(--teal-600)}
+.cred > span{display:block;font-size:.8rem;color:var(--neutral-700);margin-top:8px;line-height:1.4}
+.press{padding:24px 0 6px;overflow:hidden}
+.press > p{font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--neutral-700);text-align:center;margin-bottom:12px}
+.press-mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee{display:flex;align-items:center;width:max-content;gap:44px;animation:marq 38s linear infinite}
+.press:hover .marquee{animation-play-state:paused}
+.marquee img{height:40px;width:auto;filter:grayscale(1) contrast(1.1);opacity:.62;transition:opacity .2s,filter .2s}
+.marquee img:hover{opacity:1;filter:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* BMI scale: global vs Asian cut-offs */
+.bmi{margin:26px 0 8px;padding:20px 18px 16px;background:var(--aqua);border-radius:8px;position:relative}
+.bmi h3{font-size:.95rem;margin-bottom:16px}
+.bmi-row{margin-bottom:22px}
+.bmi-row > span{display:block;font-family:var(--display);font-weight:700;font-size:.76rem;color:var(--neutral-800);margin-bottom:6px}
+.track{position:relative;height:14px;border-radius:7px;background:var(--white);overflow:visible}
+.seg{position:absolute;top:0;bottom:0;transform:scaleX(0);transform-origin:left;
+  transition:transform .9s cubic-bezier(.2,.7,.3,1);transition-delay:calc(var(--d) * 180ms + 200ms)}
+.seg:first-child{border-radius:7px 0 0 7px}.seg:last-child{border-radius:0 7px 7px 0}
+.s1{background:var(--green-200)}.s2{background:var(--teal-300)}.s3{background:var(--teal-600)}
+.bmi.in .seg{transform:scaleX(1)}
+.tick{position:absolute;top:18px;transform:translateX(-50%);font-size:.7rem;color:var(--neutral-700);font-family:var(--display);font-weight:700}
+.bmi-tracks{position:relative;padding-top:26px}
+.pin{position:absolute;top:22px;bottom:18px;width:2px;background:var(--yellow-600);opacity:0;transition:opacity .5s 1.4s}
+.pin::before{content:'BMI 24';position:absolute;top:-20px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  font-family:var(--display);font-weight:700;font-size:.7rem;color:var(--cta-text);background:var(--yellow-500);padding:2px 7px;border-radius:3px}
+.bmi.in .pin{opacity:1}
+.bmi-key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.74rem;color:var(--neutral-800)}
+.bmi-key span{display:flex;align-items:center;gap:6px}
+.bmi-key span::before{content:'';width:12px;height:8px;border-radius:2px;background:var(--c)}
+.bmi .note{margin:12px 0 0}
+
+/* dark research band: animated trial charts */
+.dark{background:var(--teal-900);box-shadow:0 0 0 100vmax var(--teal-900);clip-path:inset(0 -100vmax)}
+.dark h2,.dark h3{color:var(--white)}
+.dark p{color:#C7E0DB}
+.dark .eyebrow{color:#8FBDB5}
+.dark .eyebrow::before{background:var(--yellow-500)}
+.dark .tier{color:var(--teal-200)}
+.dark .cite{color:var(--teal-200)}
+.charts{display:grid;gap:16px;margin-top:24px}
+.chart{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:22px 20px 18px}
+.chart h3{font-size:1.02rem;margin-bottom:4px}
+.bar-row{margin-top:14px}
+.bar-row .lbl{display:flex;justify-content:space-between;gap:10px;font-size:.8rem;color:#D9ECE8;margin-bottom:6px}
+.bar-row .lbl b{color:var(--white);font-family:var(--display);white-space:nowrap}
+.bar-row i{display:block;height:8px;border-radius:4px;background:rgba(255,255,255,.08);position:relative;overflow:hidden}
+.bar-row i::after{content:'';position:absolute;top:0;bottom:0;left:0;width:var(--v);background:var(--c,var(--teal-300));border-radius:4px;
+  transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.2,.7,.3,1) var(--dl,.2s)}
+.rv.in .bar-row i::after{transform:scaleX(1)}
+.src{font-size:.75rem;color:#8FBDB5 !important;margin:16px 0 0 !important;line-height:1.5}
+.lc{display:block;width:100%;height:auto;margin-top:12px;overflow:visible}
+.lc .axis{stroke:rgba(255,255,255,.2);stroke-width:1}
+.lc .stop{stroke:rgba(242,194,0,.55);stroke-width:1;stroke-dasharray:3 4}
+.lc .path{fill:none;stroke:var(--yellow-500);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s ease .3s}
+.rv.in .lc .path{stroke-dashoffset:0}
+.lc text{fill:#C7E0DB;font-size:10px;font-family:var(--body)}
+.lc .v{fill:var(--white);font-size:12px;font-family:var(--display);font-weight:700}
+.lc circle{fill:var(--yellow-500);opacity:0;transition:opacity .4s}
+.lc .c1{transition-delay:.3s}.lc .c2{transition-delay:1.5s}.lc .c3{transition-delay:2.4s}
+.rv.in .lc circle{opacity:1}
+
+/* approach: layered build */
+.layers{display:flex;flex-direction:column-reverse;align-items:center;gap:8px;margin:26px 0 8px}
+.layer{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:16px 18px;border-radius:6px;color:var(--white);
+  opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.3,1);transition-delay:calc(var(--i) * 200ms + 150ms)}
+.rv.in .layer{opacity:1;transform:none}
+.layer b{font-family:var(--display);font-weight:700;font-size:.86rem;color:var(--yellow-500);padding-top:2px}
+.layer h3{color:var(--white);font-size:1rem;margin-bottom:3px}
+.layer p{color:rgba(255,255,255,.85);margin:0;font-size:.88rem;line-height:1.5}
+.layer em{font-style:normal;display:inline-block;margin-top:6px;font-size:.72rem;font-family:var(--display);font-weight:700;
+  color:var(--teal-900);background:var(--teal-100);padding:2px 7px;border-radius:2px}
+.l1{background:var(--green-700);width:100%}.l2{background:var(--teal-700);width:97%}
+.l3{background:var(--teal-600);width:94%}.l4{background:var(--teal-500);width:91%}
+.layers-cap{text-align:center;font-size:.8rem;color:var(--neutral-700);margin-top:10px}
+
+/* ALIV programmes */
+.progs{display:grid;gap:12px;margin-top:20px}
+.prog{display:block;border:1px solid var(--border);border-radius:6px;padding:18px 20px;text-decoration:none;background:var(--white);
+  transition:border-color .2s,transform .2s,box-shadow .2s}
+.prog:hover{border-color:var(--teal-500);transform:translateY(-2px);box-shadow:0 8px 24px rgba(12,84,77,.08)}
+.prog h3{margin-bottom:4px}
+.prog p{margin:0;font-size:.9rem;color:var(--text-longform)}
+.prog span{display:inline-block;margin-top:10px;font-family:var(--display);font-weight:700;font-size:.84rem;color:var(--link)}
+
+/* steps: progress line draws on scroll */
+.steps{position:relative}
+.steps::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:2px;background:var(--teal-300);
+  transform:scaleY(0);transform-origin:top;transition:transform 1.6s cubic-bezier(.2,.7,.3,1) .2s}
+.rv.in .steps::before{transform:scaleY(1)}
+.step{position:relative}
+.num{position:relative;z-index:1}
+.num span{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;
+  background:var(--white);border:2px solid var(--teal-500);font-size:.8rem;margin-left:-1px}
+
+/* team */
+.team{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px}
+.member{margin:0}
+.member .ph{aspect-ratio:4/3;overflow:hidden;border-radius:6px;background:var(--teal-100)}
+.member img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.member:hover img{transform:scale(1.05)}
+.member b{display:block;font-family:var(--display);font-weight:700;font-size:.86rem;color:var(--green-700);margin-top:9px;line-height:1.3}
+.member span{display:block;font-size:.75rem;color:var(--neutral-700);line-height:1.35;margin-top:2px}
+.team-more{font-size:.82rem;color:var(--neutral-700);margin-top:14px}
+
+@media (prefers-reduced-motion:reduce){
+  .mk i::after,.seg,.bar-row i::after,.layer,.steps::before,.member img{transition:none !important;transform:none !important}
+  .layer{opacity:1}
+  .lc .path{transition:none;stroke-dashoffset:0}
+  .lc circle,.pin{transition:none;opacity:1}
+  .scan,.live::before{animation:none}
+  .scan{display:none}
+  .marquee{animation:none;flex-wrap:wrap;justify-content:center;width:auto;row-gap:16px}
+  .marquee .dup{display:none}
+}
+
 /* ==========================================================================
    TABLET (680px+)
    ========================================================================== */
@@ -357,7 +505,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   .btn-ghost{display:inline-block;margin-left:22px;margin-top:0;border:none}
   .form{padding:60px 44px}
   .fig-band img{height:380px}
-  .stats{grid-template-columns:1fr 1fr;gap:18px}
+  .creds{grid-template-columns:repeat(4,1fr)}
+  .charts{grid-template-columns:1fr 1fr}
+  .team{grid-template-columns:repeat(3,1fr)}
 }
 
 /* ==========================================================================
@@ -411,10 +561,24 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   footer .cols{margin:0;justify-content:space-between}
 
   .sticky{display:none}
+
+  .hero .panel{margin-top:0;padding:26px 28px 20px}
+  .creds{padding:44px 0 34px}
+  .cred b{font-size:2.7rem}
+  .charts{grid-template-columns:repeat(3,1fr);gap:20px}
+  .progs{grid-template-columns:repeat(3,1fr);gap:20px}
+  .layers{max-width:760px;margin:34px auto 8px}
+  .l2{width:94%}.l3{width:88%}.l4{width:82%}
+  .layer{grid-template-columns:44px 1fr;padding:20px 26px}
+  .steps::before{left:26px;right:26px;top:52px;bottom:auto;width:auto;height:2px;transform:scaleX(0);transform-origin:left}
+  .rv.in .steps::before{transform:scaleX(1)}
+  .bmi{padding:26px 28px 20px}
 }
 </style>
 <noscript><style>
   .rv{opacity:1 !important;transform:none !important}
+  .mk i::after,.seg,.bar-row i::after,.layer,.steps::before{transform:none !important;opacity:1 !important}
+  .lc .path{stroke-dashoffset:0 !important}.lc circle,.pin{opacity:1 !important}
   .sticky{transform:none}
 </style></noscript>
 </head>
@@ -425,6 +589,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     <div class="nav-links">
       <a href="#why-stalls">Why it stalls</a>
       <a href="#explored">What works</a>
+      <a href="#numbers">The research</a>
       <a href="#routes">The approach</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -451,20 +616,33 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
           <span>Koregaon Park &amp; Linking Road</span>
         </div>
       </div>
-      <aside class="measure" aria-label="What we measure first">
-        <h3>What we measure before we advise</h3>
-        <ul>
-          <li>Blood sugar and insulin resistance</li>
-          <li>Thyroid function</li>
-          <li>Hormones, including PCOS markers where relevant</li>
-          <li>Lipids and liver health</li>
-          <li>Body composition: fat versus muscle, not just weight</li>
-          <li>Sleep, stress, medication and history</li>
-        </ul>
+      <aside class="panel rv" aria-label="What we measure before we advise">
+        <div class="scan" aria-hidden="true"></div>
+        <div class="panel-h"><h3>What we measure before we advise</h3><span class="live">Assessment</span></div>
+        <div class="mk" style="--d:0"><span>Insulin resistance (HOMA-IR)</span><i style="--w:78%"></i></div>
+        <div class="mk" style="--d:1"><span>HbA1c and fasting glucose</span><i style="--w:62%"></i></div>
+        <div class="mk" style="--d:2"><span>ApoB, Lp(a) and full lipids</span><i style="--w:70%"></i></div>
+        <div class="mk" style="--d:3"><span>hs-CRP (inflammation)</span><i style="--w:48%"></i></div>
+        <div class="mk" style="--d:4"><span>Thyroid and hormones</span><i style="--w:66%"></i></div>
+        <div class="mk" style="--d:5"><span>Liver enzymes, FibroScan where indicated</span><i style="--w:56%"></i></div>
+        <div class="mk" style="--d:6"><span>Body composition: fat versus muscle</span><i style="--w:84%"></i></div>
+        <p class="fineprint">Illustrative. Your own results set your plan.</p>
       </aside>
     </div>
     <div class="disc"><strong>Important information.</strong> Fat loss at ALIV is doctor-led and starts with a medical assessment. Results vary from person to person and no outcome is guaranteed. This page is educational and is not medical advice.</div>
   </header>
+
+  <!-- ===================== CREDENTIALS + PRESS ===================== -->
+  <div class="creds rv" aria-label="About ALIV">
+    <div class="cred"><b>2016</b><span>Pioneering regenerative medicine and longevity since</span></div>
+    <div class="cred"><b><span class="cnt" data-count="10">10</span></b><span>Doctors and scientists on the ALIV panel</span></div>
+    <div class="cred"><b><span class="cnt" data-count="9">9</span><small>+</small></b><span>Markers checked before any plan</span></div>
+    <div class="cred"><b><span class="cnt" data-count="2">2</span></b><span>Clinics: Koregaon Park, Pune and Linking Road, Mumbai</span></div>
+  </div>
+  <div class="press">
+    <p>As featured in</p>
+    <div class="press-mask"><div class="marquee"><img src="img/press/femina.webp" alt="Femina" width="180" height="90" loading="lazy"><img src="img/press/midday.webp" alt="Mid-day" width="180" height="90" loading="lazy"><img src="img/press/pune-times.webp" alt="Pune Times" width="180" height="90" loading="lazy"><img src="img/press/pune-mirror.webp" alt="Pune Mirror" width="180" height="90" loading="lazy"><img src="img/press/biospectrum.webp" alt="BioSpectrum" width="180" height="90" loading="lazy"><img src="img/press/sakal.webp" alt="Sakal" width="180" height="90" loading="lazy"><img src="img/press/women-shine.webp" alt="Women Shine" width="180" height="90" loading="lazy"><img src="img/press/apn-news.webp" alt="APN News" width="180" height="90" loading="lazy"><img src="img/press/dainik-daitya.webp" alt="Dainik" width="180" height="90" loading="lazy"><img class="dup" src="img/press/femina.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/midday.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/pune-times.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/pune-mirror.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/biospectrum.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/sakal.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/women-shine.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/apn-news.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/dainik-daitya.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"></div></div>
+  </div>
 
   <!-- ======================= 1. WHY FAT LOSS STALLS ======================= -->
   <section class="rv" id="why-stalls">
@@ -477,9 +655,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
       <div>
         <p>Fat isn't only stored energy. It's run by hormones, sleep, muscle and blood sugar. When one of those is off, eating less and moving more works for a while, then stops.</p>
         <p><strong>South Asian bodies carry risk earlier.</strong> At the same BMI, South Asians tend to carry more body fat, and more of it around the organs. The WHO recommends lower BMI action points for Asian populations<a class="cite" href="#references">1</a>, and one well-known comparison found more than double the body fat in an Indian man of the same BMI as a European man<a class="cite" href="#references">2</a>.</p>
-        <div class="stats">
-          <div class="stat"><b>23</b><span>BMI where WHO flags increased risk for Asian populations, versus 25 globally<a class="cite" href="#references">1</a></span></div>
-          <div class="stat"><b>27.5</b><span>BMI where WHO flags high risk for Asian populations, versus 30 globally<a class="cite" href="#references">1</a></span></div>
+        <div class="bmi rv" role="img" aria-label="BMI risk cut-offs. Global: increased risk from 25, high risk from 30. Asian populations: increased risk from 23, high risk from 27.5. A BMI of 24 is normal on the global scale but already increased risk on the Asian scale.">
+          <h3>Same number, different risk</h3>
+          <div class="bmi-tracks">
+          <div class="bmi-row"><span>Global cut-offs</span><div class="track"><span class="seg s1" style="left:0.0%;width:39.4%;--d:0"></span><span class="seg s2" style="left:39.4%;width:30.3%;--d:1"></span><span class="seg s3" style="left:69.7%;width:30.3%;--d:2"></span><span class="tick" style="left:39.4%">25</span><span class="tick" style="left:69.7%">30</span></div></div>
+          <div class="bmi-row"><span>Asian cut-offs (WHO)<a class="cite" href="#references">1</a></span><div class="track"><span class="seg s1" style="left:0.0%;width:27.3%;--d:3"></span><span class="seg s2" style="left:27.3%;width:27.3%;--d:4"></span><span class="seg s3" style="left:54.5%;width:45.5%;--d:5"></span><span class="tick" style="left:27.3%">23</span><span class="tick" style="left:54.5%">27.5</span></div></div>
+          <span class="pin" style="left:33.3%" aria-hidden="true"></span>
+          </div>
+          <div class="bmi-key"><span style="--c:var(--green-200)">Lower risk</span><span style="--c:var(--teal-300)">Increased risk</span><span style="--c:var(--teal-600)">High risk</span></div>
+          <p class="note">A BMI of 24 reads as "normal" on the global scale. On the Asian scale it's already in the increased-risk band.</p>
         </div>
 
         <h3 style="margin-top:34px">What actually drives fat storage</h3>
@@ -594,23 +778,69 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     </div>
   </section>
 
+  <!-- ==================== 2b. THE NUMBERS (research band) ==================== -->
+  <section class="rv dark" id="numbers">
+    <span class="eyebrow">The numbers behind the plan</span>
+    <h2>What the trials actually measured.</h2>
+    <p style="max-width:640px">Three findings that shape how we build every plan. Small trials are labelled as small.</p>
+    <div class="charts">
+      <div class="chart">
+        <span class="tier t-mixed">Small randomised trial</span>
+        <h3>Sleep changes what you lose</h3>
+        <div class="bar-row"><div class="lbl"><span>Fat lost · 8.5 h sleep</span><b>1.4 kg</b></div><i style="--v:58%;--c:var(--teal-300)"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Fat lost · 5.5 h sleep</span><b>0.6 kg</b></div><i style="--v:25%;--c:var(--teal-300);--dl:.4s"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Lean mass lost · 8.5 h sleep</span><b>1.5 kg</b></div><i style="--v:62%;--c:var(--yellow-500);--dl:.6s"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Lean mass lost · 5.5 h sleep</span><b>2.4 kg</b></div><i style="--v:100%;--c:var(--yellow-500);--dl:.8s"></i></div>
+        <p class="src">Same diet for 14 days, 10 adults. Less sleep meant less fat and more lean mass lost.<a class="cite" href="#references">3</a></p>
+      </div>
+      <div class="chart">
+        <span class="tier t-mixed">Randomised trial</span>
+        <h3>Protein decides lean versus lighter</h3>
+        <div class="bar-row"><div class="lbl"><span>Fat lost · higher protein</span><b>4.8 kg</b></div><i style="--v:100%;--c:var(--teal-300)"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Fat lost · lower protein</span><b>3.5 kg</b></div><i style="--v:73%;--c:var(--teal-300);--dl:.4s"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Lean mass gained · higher protein</span><b>+1.2 kg</b></div><i style="--v:25%;--c:var(--yellow-500);--dl:.6s"></i></div>
+        <div class="bar-row"><div class="lbl"><span>Lean mass gained · lower protein</span><b>+0.1 kg</b></div><i style="--v:2%;--c:var(--yellow-500);--dl:.8s"></i></div>
+        <p class="src">4 weeks, same calorie deficit plus training, 40 young men.<a class="cite" href="#references">4</a></p>
+      </div>
+      <div class="chart">
+        <span class="tier t-strong">Large randomised trial</span>
+        <h3>Why the exit plan matters</h3>
+        <svg class="lc" viewBox="0 0 320 175" role="img" aria-label="Average weight change: minus 17.3 percent at week 68 on treatment, then minus 5.6 percent at week 120, one year after treatment stopped.">
+          <line class="axis" x1="30" y1="22" x2="300" y2="22"/>
+          <line class="axis" x1="30" y1="22" x2="30" y2="150"/>
+          <line class="stop" x1="183" y1="22" x2="183" y2="150"/>
+          <text x="188" y="36">Treatment stopped</text>
+          <text x="0" y="26">0%</text><text x="0" y="128">−17%</text>
+          <path class="path" pathLength="1" d="M30 22 C 80 40, 130 118, 183 125 S 262 66, 300 56"/>
+          <circle class="c1" cx="30" cy="22" r="4"/><circle class="c2" cx="183" cy="125" r="5"/><circle class="c3" cx="300" cy="56" r="5"/>
+          <text class="v" x="128" y="142">−17.3%</text><text class="v" x="262" y="80">−5.6%</text>
+          <text x="22" y="168">Wk 0</text><text x="170" y="168">Wk 68</text><text x="282" y="168">Wk 120</text>
+        </svg>
+        <p class="src">A year after stopping a weight-loss medicine, people regained about two-thirds of what they'd lost.<a class="cite" href="#references">7</a></p>
+      </div>
+    </div>
+  </section>
+
   <!-- ======================= 3. THE APPROACH ======================= -->
   <section class="rv" id="routes">
     <span class="eyebrow">The approach</span>
     <h2>Lifestyle-led or medically supported.</h2>
     <p style="margin-bottom:20px">Not competing options. Different starting points, set by your results.</p>
 
-    <div class="routes">
-      <div class="job">
-        <h3>Lifestyle-led</h3>
-        <p>For most people this is the right start. Nutrition, training, sleep and any deficiencies, set from your bloodwork and body composition, with regular review.</p>
-        <p>Slower at first. It's also what keeps the weight off.</p>
-      </div>
-      <div class="job">
-        <h3>Medically supported</h3>
-        <p>For people who qualify on clinical grounds, the doctor may add prescription support on top of the lifestyle plan, never instead of it.</p>
-        <p>It needs closer monitoring, a plan to protect muscle, and an exit plan from the start.</p>
-      </div>
+    <div class="layers rv" aria-label="ALIV's approach, built in four layers from the bottom up">
+      <div class="layer l1" style="--i:0"><b>01</b><div><h3>Diagnostics</h3><p>Bloodwork, body composition, and FibroScan where indicated. Every plan starts here.</p></div></div>
+      <div class="layer l2" style="--i:1"><b>02</b><div><h3>Lifestyle foundation</h3><p>Nutrition for your blood sugar, strength training for muscle, sleep and stress.</p></div></div>
+      <div class="layer l3" style="--i:2"><b>03</b><div><h3>Targeted IV and nutrient support</h3><p>Corrects deficiencies and supports energy and training. Supports the plan, doesn't replace it.</p><em>Supportive, evidence still early</em></div></div>
+      <div class="layer l4" style="--i:3"><b>04</b><div><h3>Prescription support</h3><p>Only where clinically appropriate, with closer monitoring and an exit plan.</p><em>Your doctor decides</em></div></div>
+    </div>
+    <p class="layers-cap">Built from the bottom up. Not everyone needs the top two layers.</p>
+
+    <h3 style="margin-top:34px">Where your plan can lead</h3>
+    <p class="note" style="margin-bottom:0">ALIV programmes your doctor may recommend. Eligibility is decided after assessment.</p>
+    <div class="progs">
+      <a class="prog" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/trim-tone-elixir" target="_blank" rel="noopener"><h3>Trim &amp; Tone Elixir</h3><p>IV nutrient support for plateaus, postpartum weight and active people.</p><span>View programme &rarr;</span></a>
+      <a class="prog" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/fatloss-max" target="_blank" rel="noopener"><h3>FatLoss Max</h3><p>ALIV's most intensive medically guided protocol, for significant weight loss.</p><span>View programme &rarr;</span></a>
+      <a class="prog" href="https://www.alivtherapy.in/therapy/speciality-protocols/advanced-metabolic-reset" target="_blank" rel="noopener"><h3>Advanced Metabolic Reset</h3><p>For established metabolic disease: insulin resistance, fatty liver, type 2 diabetes.</p><span>View programme &rarr;</span></a>
     </div>
 
     <div class="pull">Medication can start it. Muscle and habits keep it.</div>
@@ -619,8 +849,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   </section>
 </div>
 
-<!-- SWAP: 1600x800 clinic / training image -->
-<figure class="fig fig-band"><img width="1600" height="800" loading="lazy" decoding="async" src="img/band.jpg" alt="The ALIV clinic" onerror="this.style.visibility='hidden'"></figure>
+
 
 <div class="wrap">
   <!-- ======================= 4. YOUR NEXT STEPS ======================= -->
@@ -628,9 +857,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     <span class="eyebrow">How it runs</span>
     <h2>Your next steps.</h2>
     <div class="steps">
-      <div class="step"><div class="num">01</div><div><h3>Consultation and assessment</h3><p>A medical consultation, bloodwork and body composition. Some people need further tests before a plan makes sense.</p></div></div>
-      <div class="step"><div class="num">02</div><div><h3>Your plan</h3><p>Your results and goals set the plan: nutrition, training, sleep, and whether medical support has a role.</p></div></div>
-      <div class="step"><div class="num">03</div><div><h3>Start and review</h3><p>Review points are set from day one, tracked on body composition and repeat bloodwork, not just the scale. If it isn't working, it changes.</p></div></div>
+      <div class="step"><div class="num"><span>01</span></div><div><h3>Consultation and assessment</h3><p>A medical consultation, bloodwork and body composition. Some people need further tests before a plan makes sense.</p></div></div>
+      <div class="step"><div class="num"><span>02</span></div><div><h3>Your plan</h3><p>Your results and goals set the plan: nutrition, training, sleep, and whether medical support has a role.</p></div></div>
+      <div class="step"><div class="num"><span>03</span></div><div><h3>Start and review</h3><p>Review points are set from day one, tracked on body composition and repeat bloodwork, not just the scale. If it isn't working, it changes.</p></div></div>
     </div>
     <a class="btn" href="#book" style="margin-top:28px">Book a Consultation</a>
   </section>
@@ -655,7 +884,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   <!-- =========================== 6. WHY ALIV =========================== -->
   <section class="rv wash">
     <div class="why-grid">
-      <figure class="fig"><img width="1200" height="700" loading="lazy" decoding="async" src="img/doctors.webp" alt="Dr. Rajesh Tandulwadkar, Rishi Tandulwadkar and Dr. Sunita Tandulwadkar"></figure>
+      <div>
+        <div class="team"><figure class="member"><div class="ph"><img src="img/team/Dr-Rajesh.webp" alt="Dr. Rajesh Tandulwadkar" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Rajesh Tandulwadkar</b><span>Gastro Surgeon &amp; Liver Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sunita.webp" alt="Dr. Sunita Tandulwadkar" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Sunita Tandulwadkar</b><span>ObGyn &amp; Infertility Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Ramesh.webp" alt="Dr. Ramesh Bhonde" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Ramesh Bhonde</b><span>Scientific Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Samta.webp" alt="Dr. Samta Singhania" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Samta Singhania</b><span>Obstetrician &amp; Gynecologist</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sonali.webp" alt="Dr. Sonali Dhomane" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Sonali Dhomane</b><span>Infertility Specialist</span></figure><figure class="member"><div class="ph"><img src="img/team/rishi.webp" alt="Rishi Tandulwadkar" width="800" height="600" loading="lazy" decoding="async"></div><b>Rishi Tandulwadkar</b><span>Founder &amp; CEO</span></figure></div>
+        <p class="team-more">Plus orthopaedic, surgical and counselling specialists on the wider ALIV panel.</p>
+      </div>
       <div>
         <span class="eyebrow">Why ALIV</span>
         <h2>Assessment first, every time.</h2>
@@ -732,6 +964,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
         <details class="q"><summary>Will the weight come back?</summary><div class="body"><p>It can, which is why the plan is built for maintenance from the start. Keeping muscle, sleep and eating habits in place is what holds the result. Stopping medication without that plan usually means regain<a class="cite" href="#references">7</a>.</p></div></details>
         <details class="q"><summary>How fast will I lose fat?</summary><div class="body"><p>It depends on where you start. We aim for a steady pace that protects muscle, and judge progress on body composition and bloodwork as well as the scale.</p></div></details>
         <details class="q"><summary>I'm not overweight, but my waist and blood sugar are creeping up. Is this for me?</summary><div class="body"><p>Often, yes. This is common in South Asians at a "normal" BMI<a class="cite" href="#references">1</a>. Your assessment will show whether it's fat around the organs, blood sugar, or something else.</p></div></details>
+        <details class="q"><summary>What does it cost?</summary><div class="body"><p>It depends on your plan, which depends on your results. You'll get a clear quote after your assessment, before anything starts.</p></div></details>
         <details class="q"><summary>Is it safe?</summary><div class="body"><p>Under medical supervision, for most people, yes. Some approaches aren't suitable for everyone. Pregnancy, breastfeeding and some medical histories are exclusions, and your assessment decides what's safe for you.</p></div></details>
       </div>
     </div>
@@ -828,6 +1061,19 @@ if('IntersectionObserver' in window){
 } else {
   document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
 }
+
+/* --- count-up for credential numbers --- */
+(function(){
+  var els=document.querySelectorAll('.cnt'); if(!els.length||!('IntersectionObserver' in window)) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var o=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting) return; o.unobserve(e.target);
+    var el=e.target,end=+el.dataset.count,t0=null;
+    function f(t){ if(!t0) t0=t; var k=Math.min(1,(t-t0)/1200); el.textContent=Math.round(end*(1-Math.pow(1-k,3))); if(k<1) requestAnimationFrame(f); }
+    requestAnimationFrame(f);
+  })},{threshold:.6});
+  els.forEach(function(el){o.observe(el)});
+})();
 
 /* --- enquiry form: digits-only phone + simple validation --- */
 (function(){
