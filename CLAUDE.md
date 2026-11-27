@@ -17,6 +17,7 @@
   multiplier" pull quote replaced by a habit guide character (Male/Female toggle) whose face changes with the
   readiness score (0-2 worried, 3-5 neutral, 6-7 happy, 8 celebrating) and gives one next-step tip in priority
   order (sleep, protein, water, walk, food order, window, screens, snacks); sticky on phones.
+  Switching guide: current one walks out (man exits left, woman exits right), the other walks in from the opposite side.
   v0.7 (content only, graphics pass later): "Get the base right" section after the approach (sleep / food and
   water / movement, daily additions, "treatment is a multiplier", 8-item readiness check); "What we check, in order"
   between doctors and programmes (body composition -> thyroid -> insulin resistance -> safety screening, plus

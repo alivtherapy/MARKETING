@@ -748,6 +748,15 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 .gender button[aria-pressed="true"]{background:var(--green-700);color:var(--white)}
 .ready-g-body{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center}
 .buddy{width:100%;height:auto;display:block}
+.buddy-stage{overflow:hidden;width:100%}
+.b-legl,.b-legr,.b-arml,.b-armr{transform-box:view-box}
+.b-legl{transform-origin:64px 168px}.b-legr{transform-origin:96px 168px}
+.b-arml{transform-origin:54px 102px}.b-armr{transform-origin:106px 102px}
+.buddy.walking .b-legl,.buddy.walking .b-armr{animation:swingA .32s ease-in-out infinite alternate}
+.buddy.walking .b-legr,.buddy.walking .b-arml{animation:swingB .32s ease-in-out infinite alternate}
+.buddy.walking .b-arms-up,.buddy.walking .b-spark{opacity:0}.buddy.walking .b-arms-down{opacity:1}
+@keyframes swingA{from{transform:rotate(-16deg)}to{transform:rotate(16deg)}}
+@keyframes swingB{from{transform:rotate(16deg)}to{transform:rotate(-16deg)}}
 .bubble{position:relative;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:12px 14px;font-size:.9rem;line-height:1.5;color:var(--neutral-800)}
 .bubble::before{content:'';position:absolute;left:-7px;top:22px;width:12px;height:12px;background:var(--white);border-left:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg)}
 .bubble b{font-family:var(--display);color:var(--green-700);display:block;margin-bottom:2px}
@@ -1254,13 +1263,13 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
           </div>
         </div>
         <div class="ready-g-body">
-          <svg class="buddy" id="buddy" viewBox="0 0 160 250" role="img" aria-label="Your guide">
+          <div class="buddy-stage"><svg class="buddy" id="buddy" viewBox="0 0 160 250" role="img" aria-label="Your guide">
             <ellipse cx="80" cy="242" rx="40" ry="5" class="b-shadow"/>
             <g class="b-f-only"><path d="M50 60c-6 40 0 70 8 84h44c8-14 14-44 8-84z" class="b-hair"/></g>
-            <g class="b-legs"><path d="M64 168v62M96 168v62" class="b-leg"/><path d="M56 232h16M88 232h16" class="b-shoe"/></g>
+            <g class="b-legs"><g class="b-legl"><path d="M64 168v62" class="b-leg"/><path d="M56 232h16" class="b-shoe"/></g><g class="b-legr"><path d="M96 168v62" class="b-leg"/><path d="M88 232h16" class="b-shoe"/></g></g>
             <path class="b-m-only b-shirt" d="M54 96c6-8 46-8 52 0l6 74H48z"/>
             <path class="b-f-only b-kurta" d="M54 96c6-8 46-8 52 0l10 90H44z"/>
-            <g class="b-arms-down"><path d="M54 102l-12 52M106 102l12 52" class="b-arm"/><circle cx="42" cy="156" r="5" class="b-skin"/><circle cx="118" cy="156" r="5" class="b-skin"/></g>
+            <g class="b-arms-down"><g class="b-arml"><path d="M54 102l-12 52" class="b-arm"/><circle cx="42" cy="156" r="5" class="b-skin"/></g><g class="b-armr"><path d="M106 102l12 52" class="b-arm"/><circle cx="118" cy="156" r="5" class="b-skin"/></g></g>
             <g class="b-arms-up"><path d="M54 102l-18-38M106 102l18-38" class="b-arm"/><circle cx="35" cy="61" r="5" class="b-skin"/><circle cx="125" cy="61" r="5" class="b-skin"/></g>
             <rect x="74" y="80" width="12" height="14" class="b-skin"/>
             <circle cx="80" cy="60" r="26" class="b-skin"/>
@@ -1277,7 +1286,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
               <path class="b-mouth b-m3" d="M68 68q12 14 24 0z"/>
             </g>
             <g class="b-spark"><path d="M24 30l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M136 20l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></g>
-          </svg>
+          </svg></div>
           <div class="bubble" id="readyOut" aria-live="polite"><b>Hi!</b> Tick what you already do, and I'll tell you how your base looks.</div>
         </div>
       </div>
@@ -1713,9 +1722,20 @@ if('IntersectionObserver' in window){
     out.innerHTML='<b>'+head+'</b>'+tip; setMood(mood);
   }
   cbs.forEach(function(c){c.addEventListener('change',upd)});
+  /* switching guides: the man walks out to the left and the woman walks in from the right (and back again) */
+  var busy=false,reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function swap(to){ buddy.classList.remove('g-m','g-f'); buddy.classList.add('g-'+to); gender=to; }
   [].slice.call(box.querySelectorAll('.gender button')).forEach(function(b){ b.addEventListener('click',function(){
-    gender=b.dataset.g; box.querySelectorAll('.gender button').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false')});
-    buddy.classList.remove('g-m','g-f'); buddy.classList.add('g-'+gender);
+    var to=b.dataset.g; if(to===gender||busy) return;
+    box.querySelectorAll('.gender button').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false')});
+    if(reduce||!buddy.animate){ swap(to); return; }
+    busy=true; var out=to==='f'?'-140%':'140%', inn=to==='f'?'140%':'-140%';
+    buddy.classList.add('walking');
+    buddy.animate([{transform:'translateX(0)'},{transform:'translateX('+out+')'}],{duration:750,easing:'ease-in',fill:'forwards'}).onfinish=function(){
+      swap(to);
+      var a=buddy.animate([{transform:'translateX('+inn+')'},{transform:'translateX(0)'}],{duration:900,easing:'ease-out',fill:'forwards'});
+      a.onfinish=function(){ buddy.classList.remove('walking'); a.cancel(); busy=false; };
+    };
   });});
   buddy.setAttribute('class','buddy g-m mood-1');
 })();
