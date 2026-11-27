@@ -10,7 +10,13 @@
   blue #1257A8 = links only. Fonts: Avenir Heavy (display), Gordita (body).
 - Tracking IDs reused on every LP: Clarity uxteeaz5rs, Google Ads AW-11058315015, Meta Pixel 429598552784651.
 - Pages: `lp-weight-management/` (mobile-first, desktop two-column layer at 960px+).
-  Current version: v0.7. Preview build: `preview/lp-weight-management-v0.7-preview.html`.
+  Current version: v0.8. Preview build: `preview/lp-weight-management-v0.8-preview.html`.
+  v0.8: base cards have looping SVG animations on top (sleep: watch 11:00 PM -> 6:30 AM, window moon + city
+  lights -> sunrise, "7.5 h sleep"; food: plate fills in order protein/fibre/fats/carbs + bottle fills to 3-4 L;
+  movement: run-tracker phone, route draws, 5.02 km, zone 2, chips) and crisper points. "Treatment is a
+  multiplier" pull quote replaced by a habit guide character (Male/Female toggle) whose face changes with the
+  readiness score (0-2 worried, 3-5 neutral, 6-7 happy, 8 celebrating) and gives one next-step tip in priority
+  order (sleep, protein, water, walk, food order, window, screens, snacks); sticky on phones.
   v0.7 (content only, graphics pass later): "Get the base right" section after the approach (sleep / food and
   water / movement, daily additions, "treatment is a multiplier", 8-item readiness check); "What we check, in order"
   between doctors and programmes (body composition -> thyroid -> insulin resistance -> safety screening, plus

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-motion="off" data-version="v0.7">
+<html lang="en" data-motion="off" data-version="v0.8">
 <head>
 <meta charset="utf-8">
-<meta name="aliv-lp-version" content="weight-management v0.7">
+<meta name="aliv-lp-version" content="weight-management v0.8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
 <meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
@@ -53,7 +53,7 @@
 
 <style>
 /* ==========================================================================
-   ALIV — Weight management landing page · v0.6 (static infographics; research charts animate; conversational guided chat; no menu; base + checks sections). Same system as /lp-nad-plus/.
+   ALIV — Weight management landing page · v0.6 (static infographics; research charts animate; conversational guided chat; no menu; base + checks sections; animated basics cards; habit guide). Same system as /lp-nad-plus/.
    Mobile first (single column), then a desktop layer from 960px:
    wider container, sticky side headings, multi-column steps and grids.
    ========================================================================== */
@@ -666,6 +666,128 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 .path b{font-family:var(--display);color:var(--green-700);font-size:.92rem}
 .path span{font-size:.9rem;color:var(--text-longform)}
 @media(min-width:960px){ .basics{grid-template-columns:repeat(3,1fr)} .paths{grid-template-columns:repeat(2,1fr)} .paths .pcard-k{grid-column:1/-1} }
+
+/* ---------- base cards: looping illustrations ---------- */
+.anim-wrap{margin:-20px -22px 16px;border-radius:12px 12px 0 0;overflow:hidden}
+.anim{display:block;width:100%;height:auto}
+.anim text{font-family:var(--display);font-weight:700}
+/* sleep */
+.sl-wall{fill:#16303F;animation:slWall 10s ease-in-out infinite}
+.sl-sky{fill:#0C2231;animation:slSky 10s ease-in-out infinite}
+.sl-moon-cut{fill:#0C2231;animation:slSky 10s ease-in-out infinite}
+.sl-moon,.sl-stars,.sl-lights,.sl-z,.sl-eye-c,.sl-t1{animation:slNight 10s ease-in-out infinite}
+.sl-stars circle{fill:#fff}
+.sl-lights rect{fill:#F2C200}
+.sl-city rect{fill:#1F3F52;animation:slCity 10s ease-in-out infinite}
+.sl-sun{fill:#F2C200;transform-box:view-box;animation:slSun 10s ease-in-out infinite}
+.sl-frame{fill:none;stroke:#E8E1D3;stroke-width:3}
+.sl-strap{fill:#0C544D}
+.sl-watch{fill:#0C544D}.sl-face{fill:#F7F3EA}
+.sl-ticks path{stroke:#0C544D;stroke-width:2;stroke-linecap:round}
+.sl-hr,.sl-min{stroke:#075330;stroke-linecap:round;transform-box:view-box;transform-origin:52px 50px}
+.sl-hr{stroke-width:3;animation:slHr 10s ease-in-out infinite}
+.sl-min{stroke-width:2;animation:slMin 10s ease-in-out infinite}
+.sl-pin{fill:#F2C200}
+.sl-t{font-size:12px;fill:#E8E1D3}
+.sl-t2,.sl-badge,.sl-eye-o{animation:slDay 10s ease-in-out infinite}
+.sl-t2{fill:#075330}
+.sl-badge rect{fill:#F2C200}.sl-badge text{font-size:10px;fill:#172003}
+.sl-bed{fill:#8C6A4F}.sl-leg{stroke:#8C6A4F;stroke-width:4;stroke-linecap:round}
+.sl-pillow{fill:#F7F3EA}.sl-skin{fill:#C68B67}.sl-hair{fill:none;stroke:#2B1B14;stroke-width:5;stroke-linecap:round}
+.sl-eye-c{fill:none;stroke:#2B1B14;stroke-width:1.6;stroke-linecap:round}.sl-eye-o{fill:#2B1B14}
+.sl-blanket{fill:#2E9187}
+.sl-z text{fill:#BFDDD7;font-size:13px}
+.sl-z{animation:slNight 10s ease-in-out infinite,slZ 2.5s ease-in-out infinite}
+@keyframes slWall{0%,52%{fill:#16303F}66%,90%{fill:#F4EEE2}100%{fill:#16303F}}
+@keyframes slSky{0%,50%{fill:#0C2231}60%{fill:#F0A868}70%,90%{fill:#BFE3F0}100%{fill:#0C2231}}
+@keyframes slCity{0%,52%{fill:#1F3F52}66%,90%{fill:#9DB7C2}100%{fill:#1F3F52}}
+@keyframes slNight{0%,50%{opacity:1}60%,92%{opacity:0}100%{opacity:1}}
+@keyframes slDay{0%,58%{opacity:0}68%,90%{opacity:1}100%{opacity:0}}
+@keyframes slSun{0%,52%{transform:translateY(50px)}70%,90%{transform:translateY(0)}100%{transform:translateY(50px)}}
+@keyframes slHr{0%{transform:rotate(330deg)}62%,92%{transform:rotate(555deg)}100%{transform:rotate(690deg)}}
+@keyframes slMin{0%{transform:rotate(0)}62%,92%{transform:rotate(2700deg)}100%{transform:rotate(2880deg)}}
+@keyframes slZ{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+/* food */
+.fd-bg{fill:#F6F1E7}.fd-plate{fill:#fff;stroke:#E2DACB;stroke-width:2}.fd-plate-in{fill:#FBF8F2}
+.fd-w{transform-box:fill-box;transform-origin:center;opacity:0;animation:fdPop 8s ease-out infinite}
+.fd-w2{animation-delay:.5s}.fd-w3{animation-delay:1s}.fd-w4{animation-delay:1.5s}
+.fd-n{fill:#fff;opacity:.92}.fd-nt{font-size:9px;fill:#075330}
+.fd-leg{font-size:9.5px;fill:#5F6E6A}
+.fd-btl{fill:none;stroke:#0C544D;stroke-width:2.4}.fd-cap{fill:#0C544D}.fd-neck{fill:#DCEEEA;stroke:#0C544D;stroke-width:2}
+.fd-water{fill:#8FC4BD;transform-box:fill-box;transform-origin:bottom;animation:fdFill 8s ease-in-out infinite}
+.fd-ticks path{stroke:#0C544D;stroke-width:1.5}.fd-ticks text{font-size:8px;fill:#5F6E6A;font-family:var(--body)}
+.fd-drop{fill:#5AA79E;animation:fdDrop 1.2s ease-in infinite}
+.fd-goal{font-size:10px;fill:#075330}
+@keyframes fdPop{0%{opacity:0;transform:scale(.6)}8%{opacity:1;transform:scale(1.04)}11%,86%{opacity:1;transform:scale(1)}94%,100%{opacity:0;transform:scale(1)}}
+@keyframes fdFill{0%{transform:scaleY(0)}55%,88%{transform:scaleY(.82)}100%{transform:scaleY(0)}}
+@keyframes fdDrop{0%{transform:translateY(0);opacity:1}80%{transform:translateY(34px);opacity:1}100%{transform:translateY(38px);opacity:0}}
+/* movement */
+.mv-bg{fill:#EAF3F1}.mv-phone{fill:#16211E}.mv-screen{fill:#fff}
+.mv-h{font-size:8.5px;fill:#16211E}
+.mv-map{fill:#EEF3F1}.mv-road{stroke:#DCE5E2;stroke-width:3}
+.mv-route{fill:none;stroke:#E8742A;stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:mvRoute 8s ease-in-out infinite}
+.mv-start{fill:#2E9187}.mv-end{fill:#E8742A;opacity:0;animation:mvEnd 8s ease-in-out infinite}
+.mv-k{font-size:7.5px;fill:#5F6E6A;font-family:var(--body)!important;font-weight:400!important}
+.mv-v{font-size:13px;fill:#16211E}
+.mv-zones rect{fill:#DCE5E2}.mv-z2{fill:#2E9187 !important;animation:mvPulse 1.6s ease-in-out infinite}
+.mv-chip rect{fill:#fff;stroke:#C2E0DB}.mv-chip text{font-size:9.5px;fill:#075330}
+.mv-chip{opacity:0;animation:mvChip 8s ease-out infinite}.mv-chip3{animation-delay:.6s}.mv-chip2{animation-delay:1.2s}
+@keyframes mvRoute{0%{stroke-dashoffset:1}55%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+@keyframes mvEnd{0%,52%{opacity:0}58%,88%{opacity:1}100%{opacity:0}}
+@keyframes mvPulse{0%,100%{opacity:1}50%{opacity:.55}}
+@keyframes mvChip{0%,10%{opacity:0;transform:translateY(6px)}18%,86%{opacity:1;transform:none}96%,100%{opacity:0}}
+.basics:not(.play) .anim *{animation-play-state:paused !important}
+
+/* ---------- readiness check with a guide ---------- */
+.ready{display:grid;gap:18px;padding:0;overflow:visible}
+.ready-guide{background:var(--aqua);padding:16px 18px;border-bottom:1px solid var(--border);border-radius:12px 12px 0 0}
+.ready-g-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.ready-g-top .note{margin:0}
+.gender{display:flex;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:20px;padding:3px}
+.gender button{border:none;background:none;border-radius:16px;padding:6px 14px;font-family:var(--display);font-weight:700;font-size:.8rem;color:var(--green-700);cursor:pointer;min-height:34px}
+.gender button[aria-pressed="true"]{background:var(--green-700);color:var(--white)}
+.ready-g-body{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center}
+.buddy{width:100%;height:auto;display:block}
+.bubble{position:relative;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:12px 14px;font-size:.9rem;line-height:1.5;color:var(--neutral-800)}
+.bubble::before{content:'';position:absolute;left:-7px;top:22px;width:12px;height:12px;background:var(--white);border-left:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg)}
+.bubble b{font-family:var(--display);color:var(--green-700);display:block;margin-bottom:2px}
+.bubble a{font-family:var(--display);font-weight:700;color:var(--link);display:inline-block;margin-top:6px}
+.ready-list{padding:0 22px 20px}
+.ready-score{margin:12px 0 0;font-family:var(--display);font-weight:700;color:var(--green-700)}
+/* character */
+.b-skin{fill:#C68B67}.b-hair{fill:#2B1B14}.b-shirt{fill:#2E9187}.b-kurta{fill:#17766B}.b-dupatta{fill:none;stroke:#F2C200;stroke-width:5;stroke-linecap:round}
+.b-leg{stroke:#4A3B32;stroke-width:12;stroke-linecap:round}.b-shoe{stroke:#16211E;stroke-width:7;stroke-linecap:round}
+.b-arm{stroke:#C68B67;stroke-width:10;stroke-linecap:round;fill:none}
+.b-shadow{fill:rgba(4,48,28,.12)}
+.b-eye{fill:#2B1B14}.b-brow{stroke:#2B1B14;stroke-width:2.6;stroke-linecap:round;transform-box:fill-box;transform-origin:center;transition:transform .3s}
+.b-cheek{fill:#E89A8A;opacity:0;transition:opacity .3s}
+.b-mouth{fill:none;stroke:#7A2E22;stroke-width:2.6;stroke-linecap:round;opacity:0;transition:opacity .2s}
+.b-m3{fill:#7A2E22}
+.b-arms-up,.b-spark{opacity:0}
+.b-spark path{fill:#F2C200}
+.buddy .b-f-only{display:none}
+.buddy.g-f .b-f-only{display:inline}.buddy.g-f .b-m-only{display:none}
+.buddy.mood-0 .b-m0,.buddy.mood-1 .b-m1,.buddy.mood-2 .b-m2,.buddy.mood-3 .b-m3{opacity:1}
+.buddy.mood-0 .b-brow-l{transform:rotate(-14deg)}.buddy.mood-0 .b-brow-r{transform:rotate(14deg)}
+.buddy.mood-2 .b-cheek,.buddy.mood-3 .b-cheek{opacity:.7}
+.buddy.mood-3 .b-arms-up,.buddy.mood-3 .b-spark{opacity:1}.buddy.mood-3 .b-arms-down{opacity:0}
+.buddy.mood-3 .b-spark{animation:twinkle 1.4s ease-in-out infinite}
+.buddy.bump{animation:bump .45s ease-out}
+@keyframes bump{0%{transform:translateY(0)}35%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.4}}
+@media(min-width:760px){
+  .ready{grid-template-columns:300px 1fr;gap:0}
+  .ready-guide{border-bottom:none;border-right:1px solid var(--border);padding:22px}
+  .ready-g-body{grid-template-columns:1fr;justify-items:center}
+  .buddy{width:150px}
+  .bubble::before{left:50%;top:-7px;transform:translateX(-50%) rotate(135deg)}
+  .ready-list{padding:22px 24px}
+  .ready-g-top{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:759px){ .ready-guide{position:sticky;top:78px;z-index:5;box-shadow:0 6px 14px rgba(4,48,28,.08)} .ready-g-top .note{display:none} .buddy{width:80px} }
+@media(min-width:760px){ .ready-guide{border-radius:12px 0 0 12px} }
+@media (prefers-reduced-motion:reduce){ .anim *,.buddy,.b-spark{animation:none !important} .fd-w,.mv-chip,.mv-end{opacity:1} .mv-route{stroke-dashoffset:0} .fd-water{transform:scaleY(.82)} }
+
 .ver{font-size:.7rem;color:var(--neutral-300);margin-top:12px}
 
 @media (prefers-reduced-motion:reduce){ .nod{animation:none} }
@@ -1019,32 +1141,101 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
     <span class="eyebrow">The base of the pyramid</span>
     <h2>Get the base right first.</h2>
     <p style="max-width:640px">Most people hope a treatment will do the work. It can't on its own. These three basics come first for everyone, and everything else is built on them.</p>
-    <div class="basics">
+    <div class="basics" id="basicsAnim">
       <div class="basic">
+        <figure class="anim-wrap"><svg class="anim anim-sleep" viewBox="0 0 320 170" role="img" aria-label="A person asleep from 11 pm to 6:30 am while the window turns from moon and city lights to sunrise">
+  <defs><clipPath id="winClip"><rect x="226" y="20" width="76" height="74" rx="4"/></clipPath></defs>
+  <rect class="sl-wall" x="0" y="0" width="320" height="170" rx="14"/>
+  <g clip-path="url(#winClip)">
+    <rect class="sl-sky" x="226" y="20" width="76" height="74"/>
+    <circle class="sl-sun" cx="264" cy="52" r="11"/>
+    <g class="sl-moon"><circle cx="278" cy="38" r="8" fill="#F6F1D5"/><circle cx="282" cy="35" r="7" class="sl-moon-cut"/></g>
+    <g class="sl-stars"><circle cx="240" cy="30" r="1.2"/><circle cx="256" cy="44" r="1"/><circle cx="292" cy="56" r="1.2"/></g>
+    <g class="sl-city">
+      <rect x="228" y="66" width="14" height="28"/><rect x="243" y="58" width="12" height="36"/><rect x="256" y="70" width="16" height="24"/>
+      <rect x="273" y="62" width="12" height="32"/><rect x="286" y="72" width="16" height="22"/>
+    </g>
+    <g class="sl-lights"><rect x="231" y="70" width="3" height="3"/><rect x="236" y="78" width="3" height="3"/><rect x="246" y="62" width="3" height="3"/>
+      <rect x="250" y="74" width="3" height="3"/><rect x="260" y="76" width="3" height="3"/><rect x="266" y="82" width="3" height="3"/>
+      <rect x="276" y="67" width="3" height="3"/><rect x="279" y="80" width="3" height="3"/><rect x="290" y="77" width="3" height="3"/></g>
+  </g>
+  <rect x="226" y="20" width="76" height="74" rx="4" class="sl-frame"/><path class="sl-frame" d="M264 20v74M226 57h76"/>
+  <rect x="44" y="18" width="16" height="12" rx="3" class="sl-strap"/><rect x="44" y="70" width="16" height="12" rx="3" class="sl-strap"/>
+  <circle cx="52" cy="50" r="24" class="sl-watch"/><circle cx="52" cy="50" r="19" class="sl-face"/>
+  <g class="sl-ticks"><path d="M52 34v4M52 62v4M36 50h4M64 50h4"/></g>
+  <line class="sl-hr" x1="52" y1="50" x2="52" y2="40"/>
+  <line class="sl-min" x1="52" y1="50" x2="52" y2="35"/>
+  <circle cx="52" cy="50" r="2" class="sl-pin"/>
+  <text x="52" y="98" text-anchor="middle" class="sl-t sl-t1">11:00 PM</text>
+  <text x="52" y="98" text-anchor="middle" class="sl-t sl-t2">6:30 AM</text>
+  <g class="sl-badge"><rect x="22" y="106" width="60" height="18" rx="9"/><text x="52" y="119" text-anchor="middle">7.5 h sleep</text></g>
+  <rect x="96" y="80" width="10" height="56" rx="3" class="sl-bed"/>
+  <rect x="96" y="118" width="128" height="14" rx="4" class="sl-bed"/>
+  <path d="M104 132v14M216 132v14" class="sl-leg"/>
+  <ellipse cx="122" cy="108" rx="16" ry="7" class="sl-pillow"/>
+  <circle cx="126" cy="100" r="10" class="sl-skin"/>
+  <path d="M117 96c2-8 14-10 18-2" class="sl-hair"/>
+  <path class="sl-eye-c" d="M127 101q3 2 6 0"/>
+  <circle class="sl-eye-o" cx="130" cy="100" r="1.6"/>
+  <path d="M134 104c20-8 60-10 86-2v14H134z" class="sl-blanket"/>
+  <g class="sl-z"><text x="146" y="86">z</text><text x="156" y="74">z</text><text x="168" y="60">Z</text></g>
+</svg></figure>
         <h3>1 · Sleep</h3>
         <ul>
           <li>7 to 8 hours, waking up fresh.</li>
-          <li>Screens off for the last hour before bed, so your sleep hormones can do their job.</li>
-          <li>Poor sleep upsets the hormones that control hunger and fat burning<a class="cite" href="#references">3</a>.</li>
+          <li>Screens off an hour before bed.</li>
+          <li>Short sleep means more hunger and less fat lost<a class="cite" href="#references">3</a>.</li>
         </ul>
       </div>
       <div class="basic">
+        <figure class="anim-wrap"><svg class="anim anim-food" viewBox="0 0 320 170" role="img" aria-label="A plate filling in order: protein, fibre, fats, then carbs, and a water bottle filling to 3.5 litres">
+  <rect x="0" y="0" width="320" height="170" rx="14" class="fd-bg"/>
+  <circle cx="104" cy="86" r="56" class="fd-plate"/><circle cx="104" cy="86" r="49" class="fd-plate-in"/>
+  <g class="fd-w fd-w1"><path d="M104 86L104.8 40.0A46 46 0 0 1 148.0 99.4Z" fill="#E3A16B"/><circle cx="128.3" cy="68.4" r="7" class="fd-n"/><text x="128.3" y="71.6" text-anchor="middle" class="fd-nt">1</text></g><g class="fd-w fd-w2"><path d="M104 86L147.5 101.0A46 46 0 0 1 60.5 101.0Z" fill="#6FAE6A"/><circle cx="104.0" cy="116.0" r="7" class="fd-n"/><text x="104.0" y="119.2" text-anchor="middle" class="fd-nt">2</text></g><g class="fd-w fd-w3"><path d="M104 86L60.0 99.4A46 46 0 0 1 60.0 72.6Z" fill="#F2C200"/><circle cx="74.0" cy="86.0" r="7" class="fd-n"/><text x="74.0" y="89.2" text-anchor="middle" class="fd-nt">3</text></g><g class="fd-w fd-w4"><path d="M104 86L60.5 71.0A46 46 0 0 1 103.2 40.0Z" fill="#D8C39A"/><circle cx="86.4" cy="61.7" r="7" class="fd-n"/><text x="86.4" y="64.9" text-anchor="middle" class="fd-nt">4</text></g>
+  <text x="104" y="160" text-anchor="middle" class="fd-leg">1 protein · 2 fibre · 3 fats · 4 carbs</text>
+  <defs><clipPath id="btlClip"><path d="M232 46h36v100a8 8 0 0 1-8 8h-20a8 8 0 0 1-8-8z"/></clipPath></defs>
+  <rect x="240" y="20" width="20" height="10" rx="3" class="fd-cap"/>
+  <path d="M236 30h28v10l4 6H232l4-6z" class="fd-neck"/>
+  <g clip-path="url(#btlClip)"><rect x="230" y="46" width="40" height="110" class="fd-water"/></g>
+  <path d="M232 46h36v100a8 8 0 0 1-8 8h-20a8 8 0 0 1-8-8z" class="fd-btl"/>
+  <g class="fd-ticks"><path d="M268 129h-6M268 104h-6M268 79h-6M268 54h-6"/>
+    <text x="274" y="132">1L</text><text x="274" y="107">2L</text><text x="274" y="82">3L</text><text x="274" y="57">4L</text></g>
+  <circle class="fd-drop" cx="250" cy="10" r="3"/>
+  <text x="250" y="166" text-anchor="middle" class="fd-goal">3–4 L a day</text>
+</svg></figure>
         <h3>2 · Food and water</h3>
         <ul>
           <li>3 to 4 litres of water a day.</li>
-          <li>Protein of at least 1 g per kg of your goal weight. Aiming for 75 kg means about 75 g a day. Track it.</li>
-          <li>Eat in order: protein and fibre first, then fats, then carbohydrates. This keeps blood sugar steady.</li>
-          <li>Keep fruit and simple carbs for the end of a meal, not as snacks.</li>
-          <li>Eat within a 10 to 11 hour window, for example 9am to 7pm. If you're hungry in between: nuts, seeds or a protein bar.</li>
+          <li>Protein: 1 g per kg of your goal weight (75 kg goal = 75 g).</li>
+          <li>Eat in order: protein and fibre, then fats, then carbs.</li>
+          <li>Fruit and sweets after meals, not as snacks.</li>
+          <li>Eat between 9am and 7pm. Hungry later? Nuts or seeds.</li>
         </ul>
       </div>
       <div class="basic">
+        <figure class="anim-wrap"><svg class="anim anim-move" viewBox="0 0 320 170" role="img" aria-label="A fitness app showing a 5 kilometre brisk incline walk in heart-rate zone 2">
+  <rect x="0" y="0" width="320" height="170" rx="14" class="mv-bg"/>
+  <rect x="98" y="8" width="124" height="156" rx="16" class="mv-phone"/>
+  <rect x="104" y="16" width="112" height="140" rx="10" class="mv-screen"/>
+  <text x="112" y="30" class="mv-h">Morning walk · incline</text>
+  <rect x="110" y="36" width="100" height="58" rx="6" class="mv-map"/>
+  <path d="M110 58h100M110 76h100M140 36v58M178 36v58" class="mv-road"/>
+  <path class="mv-route" pathLength="1" d="M118 86 C 126 70, 134 82, 144 66 S 160 46, 172 56 S 192 76, 200 48"/>
+  <circle cx="118" cy="86" r="3" class="mv-start"/><circle cx="200" cy="48" r="3.4" class="mv-end"/>
+  <text x="112" y="108" class="mv-k">Distance</text><text x="112" y="121" class="mv-v"><tspan class="mv-dist">5.02</tspan> km</text>
+  <text x="166" y="108" class="mv-k">Time</text><text x="166" y="121" class="mv-v mv-time">52:14</text>
+  <text x="112" y="136" class="mv-k">Heart rate · Zone 2</text>
+  <g class="mv-zones"><rect x="112" y="141" width="18" height="6" rx="2"/><rect class="mv-z2" x="132" y="141" width="18" height="6" rx="2"/><rect x="152" y="141" width="18" height="6" rx="2"/><rect x="172" y="141" width="18" height="6" rx="2"/><rect x="192" y="141" width="18" height="6" rx="2"/></g>
+  <g class="mv-chip mv-chip1"><rect x="10" y="40" width="80" height="24" rx="12"/><text x="50" y="56" text-anchor="middle">Incline 6%</text></g>
+  <g class="mv-chip mv-chip2"><rect x="230" y="100" width="82" height="24" rx="12"/><text x="271" y="116" text-anchor="middle">+ Dead bugs ✓</text></g>
+  <g class="mv-chip mv-chip3"><rect x="10" y="100" width="80" height="24" rx="12"/><text x="50" y="116" text-anchor="middle">In one go</text></g>
+</svg></figure>
         <h3>3 · Movement</h3>
         <ul>
-          <li>Brisk walking on an incline (zone 2 cardio). Start with 30 to 45 minutes and build to 60 to 75, in one go.</li>
-          <li>Add core work, such as dead bugs.</li>
-          <li>Knee or foot problems? Walk flat and a little longer instead.</li>
-          <li>Already strength training? Keep going, and judge progress in inches, not kilos.</li>
+          <li>Brisk incline walk: build from 45 to 75 minutes, in one go.</li>
+          <li>Add core work, like dead bugs.</li>
+          <li>Sore knees? Walk flat, a little longer.</li>
+          <li>Already lifting? Track inches, not kilos.</li>
         </ul>
       </div>
     </div>
@@ -1053,20 +1244,56 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
       <h3>Small daily additions</h3>
       <p>ALIV's lifestyle guide includes a morning glass of water with natural powders such as moringa, cinnamon and turmeric. They add micronutrients and antioxidants. They support the basics; they don't replace them.</p>
     </div>
-    <div class="pull">Treatment is a multiplier. Multiply it by zero effort, and the result is zero.</div>
-
     <div class="ready" id="ready">
-      <h3>Are you ready? A 30-second check</h3>
-      <p class="note">Tick what you already do most days.</p>
-      <label><input type="checkbox"> I sleep 7 to 8 hours and wake up fresh</label>
-      <label><input type="checkbox"> I keep screens away for the last hour before bed</label>
-      <label><input type="checkbox"> I drink 3 to 4 litres of water</label>
-      <label><input type="checkbox"> I eat protein at every meal</label>
-      <label><input type="checkbox"> I eat protein and fibre before carbs</label>
-      <label><input type="checkbox"> I eat within a 10 to 11 hour window</label>
-      <label><input type="checkbox"> I walk briskly for 45 minutes or more, in one go</label>
-      <label><input type="checkbox"> I snack on nuts or seeds, not sugar</label>
-      <p class="ready-out" id="readyOut" aria-live="polite">0 of 8. Every tick makes any treatment work harder for you.</p>
+      <div class="ready-guide">
+        <div class="ready-g-top">
+          <span class="note">Your guide:</span>
+          <div class="gender" role="group" aria-label="Choose your guide">
+            <button type="button" data-g="m" aria-pressed="true">Male</button>
+            <button type="button" data-g="f" aria-pressed="false">Female</button>
+          </div>
+        </div>
+        <div class="ready-g-body">
+          <svg class="buddy" id="buddy" viewBox="0 0 160 250" role="img" aria-label="Your guide">
+            <ellipse cx="80" cy="242" rx="40" ry="5" class="b-shadow"/>
+            <g class="b-f-only"><path d="M50 60c-6 40 0 70 8 84h44c8-14 14-44 8-84z" class="b-hair"/></g>
+            <g class="b-legs"><path d="M64 168v62M96 168v62" class="b-leg"/><path d="M56 232h16M88 232h16" class="b-shoe"/></g>
+            <path class="b-m-only b-shirt" d="M54 96c6-8 46-8 52 0l6 74H48z"/>
+            <path class="b-f-only b-kurta" d="M54 96c6-8 46-8 52 0l10 90H44z"/>
+            <g class="b-arms-down"><path d="M54 102l-12 52M106 102l12 52" class="b-arm"/><circle cx="42" cy="156" r="5" class="b-skin"/><circle cx="118" cy="156" r="5" class="b-skin"/></g>
+            <g class="b-arms-up"><path d="M54 102l-18-38M106 102l18-38" class="b-arm"/><circle cx="35" cy="61" r="5" class="b-skin"/><circle cx="125" cy="61" r="5" class="b-skin"/></g>
+            <rect x="74" y="80" width="12" height="14" class="b-skin"/>
+            <circle cx="80" cy="60" r="26" class="b-skin"/>
+            <circle cx="54" cy="62" r="5" class="b-skin"/><circle cx="106" cy="62" r="5" class="b-skin"/>
+            <path class="b-m-only b-hair" d="M54 56c-2-22 16-32 30-30 14 1 26 10 24 30-6-10-16-14-28-14-12 0-20 6-26 14z"/>
+            <path class="b-f-only b-hair" d="M54 60c-4-24 14-36 28-34 16 1 28 14 24 34-8-14-18-18-28-18-10 0-18 6-24 18z"/>
+            <g class="b-face">
+              <path class="b-brow b-brow-l" d="M64 50h10"/><path class="b-brow b-brow-r" d="M86 50h10"/>
+              <circle cx="69" cy="59" r="2.8" class="b-eye"/><circle cx="91" cy="59" r="2.8" class="b-eye"/>
+              <circle cx="63" cy="69" r="4" class="b-cheek"/><circle cx="97" cy="69" r="4" class="b-cheek"/>
+              <path class="b-mouth b-m0" d="M71 74q9-6 18 0"/>
+              <path class="b-mouth b-m1" d="M72 72h16"/>
+              <path class="b-mouth b-m2" d="M70 70q10 9 20 0"/>
+              <path class="b-mouth b-m3" d="M68 68q12 14 24 0z"/>
+            </g>
+            <g class="b-spark"><path d="M24 30l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M136 20l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></g>
+          </svg>
+          <div class="bubble" id="readyOut" aria-live="polite"><b>Hi!</b> Tick what you already do, and I'll tell you how your base looks.</div>
+        </div>
+      </div>
+      <div class="ready-list">
+        <h3>Are you ready? A 30-second check</h3>
+        <p class="note">Tick what you already do most days.</p>
+        <label><input type="checkbox" data-i="0"> I sleep 7 to 8 hours and wake up fresh</label>
+        <label><input type="checkbox" data-i="1"> I keep screens away for the last hour before bed</label>
+        <label><input type="checkbox" data-i="2"> I drink 3 to 4 litres of water</label>
+        <label><input type="checkbox" data-i="3"> I eat protein at every meal</label>
+        <label><input type="checkbox" data-i="4"> I eat protein and fibre before carbs</label>
+        <label><input type="checkbox" data-i="5"> I eat within a 10 to 11 hour window</label>
+        <label><input type="checkbox" data-i="6"> I walk briskly for 45 minutes or more, in one go</label>
+        <label><input type="checkbox" data-i="7"> I snack on nuts or seeds, not sugar</label>
+        <p class="ready-score" id="readyScore">0 of 8</p>
+      </div>
     </div>
   </section>
 
@@ -1364,7 +1591,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
     </div>
     <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
     <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
-    <p class="ver">Weight management page · v0.7</p>
+    <p class="ver">Weight management page · v0.8</p>
   </div>
 </footer>
 
@@ -1450,16 +1677,47 @@ if('IntersectionObserver' in window){
   window.addEventListener('resize',update); update();
 })();
 
-/* --- readiness check --- */
+/* --- base card animations: play only while visible --- */
 (function(){
-  var box=document.getElementById('ready'),out=document.getElementById('readyOut'); if(!box) return;
+  var b=document.getElementById('basicsAnim'); if(!b) return;
+  if(!('IntersectionObserver' in window)){ b.classList.add('play'); return; }
+  new IntersectionObserver(function(es){ b.classList.toggle('play',es[0].isIntersecting); },{threshold:.15}).observe(b);
+})();
+
+/* --- readiness check: the guide reacts to your habits --- */
+(function(){
+  var box=document.getElementById('ready'),out=document.getElementById('readyOut'),score=document.getElementById('readyScore'),
+      buddy=document.getElementById('buddy'); if(!box) return;
   var cbs=[].slice.call(box.querySelectorAll('input[type=checkbox]'));
-  function upd(){ var n=cbs.filter(function(c){return c.checked}).length,msg;
-    if(n===cbs.length) msg='8 of 8. Your base is strong. If weight still won\'t move, it\'s time to test what\'s underneath.';
-    else if(n>=5) msg=n+' of 8. A good base. Tightening the rest makes any treatment work harder for you.';
-    else msg=n+' of 8. Start here. These basics come first, and a consultation shows which matter most for you.';
-    out.textContent=msg; }
+  var TIPS=["Start with sleep: aim for 7 to 8 hours. A tired body holds on to weight.",
+    "Put the phone away an hour before bed. Better sleep makes everything easier.",
+    "Keep a 1-litre bottle nearby and finish it three times a day.",
+    "Add protein to every meal: eggs, paneer, dal, curd, fish or chicken.",
+    "Eat your protein and veggies first, carbs last. Your blood sugar stays steadier.",
+    "Try eating between 9am and 7pm, with a handful of nuts if you're hungry later.",
+    "Walk briskly for 45 minutes in one go, and build up to 75.",
+    "Swap sugary snacks for a handful of nuts or seeds."];
+  var ORDER=[0,3,2,6,4,5,1,7];
+  var gender='m';
+  function setMood(m){ buddy.setAttribute('class','buddy g-'+gender+' mood-'+m); void buddy.getBBox; buddy.classList.add('bump'); setTimeout(function(){buddy.classList.remove('bump')},460); }
+  function upd(){
+    var on=cbs.map(function(c){return c.checked}),n=on.filter(Boolean).length,missing=ORDER.filter(function(i){return !on[i]});
+    score.textContent=n+' of 8';
+    var mood=n<=2?0:n<=5?1:n<=7?2:3, head, tip;
+    if(n===8){ head='Your base is rock solid!'; tip="If the weight still won't move, something underneath needs testing. <a href=\"#checks\">See what we check</a>"; }
+    else{
+      head=['Hmm, we have some work to do.','Hmm, we have some work to do.','Hmm, we have some work to do.','A decent start.','A decent start.','Getting there!','Nice, your base looks good!','So close!'][n];
+      tip='<b style="display:inline;color:inherit;font-family:inherit">Next step:</b> '+TIPS[missing[0]];
+      if(n<=5) tip+=' Treatment multiplies effort, so this comes first.';
+    }
+    out.innerHTML='<b>'+head+'</b>'+tip; setMood(mood);
+  }
   cbs.forEach(function(c){c.addEventListener('change',upd)});
+  [].slice.call(box.querySelectorAll('.gender button')).forEach(function(b){ b.addEventListener('click',function(){
+    gender=b.dataset.g; box.querySelectorAll('.gender button').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false')});
+    buddy.classList.remove('g-m','g-f'); buddy.classList.add('g-'+gender);
+  });});
+  buddy.setAttribute('class','buddy g-m mood-1');
 })();
 
 /* --- clinic gallery tabs --- */
