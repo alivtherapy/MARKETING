@@ -10,7 +10,9 @@
   blue #1257A8 = links only. Fonts: Avenir Heavy (display), Gordita (body).
 - Tracking IDs reused on every LP: Clarity uxteeaz5rs, Google Ads AW-11058315015, Meta Pixel 429598552784651.
 - Pages: `lp-weight-management/` (mobile-first, desktop two-column layer at 960px+).
-  Current version: v0.8. Preview build: `preview/lp-weight-management-v0.8-preview.html`.
+  Current version: v0.9. Preview build: `preview/lp-weight-management-v0.9-preview.html`.
+  v0.9: gallery filled with real Pune photos (lead: IV lounge DSC03105; tiles: reception, IV lounge, consultation
+  room, waiting area, BP check, ALIV wall logo). Mumbai tab still placeholders.
   v0.8: base cards have looping SVG animations on top (sleep: watch 11:00 PM -> 6:30 AM, window moon + city
   lights -> sunrise, "7.5 h sleep"; food: plate fills in order protein/fibre/fats/carbs + bottle fills to 3-4 L;
   movement: run-tracker phone, route draws, 5.02 km, zone 2, chips) and crisper points. "Treatment is a
@@ -92,10 +94,21 @@
   medication = "doctor decides after assessment".
 - No body-shaming / negative self-image hooks in weight-loss copy (Meta policy).
 
+## Photo library (Google Drive "Ambiance Images", reviewed Nov 2026)
+- All photos are the Pune clinic: 603/604 Kumar Business Centre, Bund Garden Rd, Pune 411001 (shared floor with
+  Solo Clinic IVF & ObGyn; door plaque lists +91 77199 88811). No Mumbai photos exist in Drive.
+- Good ALIV/unbranded: Praveen shoot "All" (IV lounges, DSC03105/03058/02962/02973, IV bag, BP check),
+  "Photo" (ALIV wall logo 04258, green wave panel 04274, waiting area 04271), ALIV Ambiance phone shots
+  (reception 142248, waiting 142610, lounge 142020/142031, consultation 142314).
+- Do NOT use: anything Solo-branded (scrubs, signs, IVF awards, gynae/gastro rooms), patient on IV (no consent),
+  readable drug labels (lidocaine), "FatLoss & MetaBoost IV" poster ("No Side Effects" claim), patient letters,
+  construction shots (04227-04238). Religious idols/guru portraits: team decision.
+- Missing: Mumbai (all), building exterior styled, team at work with consent.
+
 ## Open items
-- Clinic photos needed: Pune + Mumbai (reception, consultation room, body composition scan, exterior; Mumbai lounge).
-  Confirm which city the infusion-lounge photo is from.
+- Address wording: page says "Koregaon Park, Pune"; clinic plaque says Kumar Business Centre, Bund Garden Rd. Confirm.
+- Clinic photos needed: Mumbai (reception, IV lounge, consultation room, exterior).
 - WhatsApp number for chat hand-off: Rish to confirm (single constant WA_NUMBER in the chat script).
 - Form backend must accept the new hidden field `chat_summary`.
 - "Medically reviewed by [DOCTOR NAME]" placeholder on NAD+ and fat-loss pages.
-- Confirm WhatsApp number = +91 77199 88811; founding year 2015 vs 2016.
+- +91 77199 88811 is on the Pune door plaque; confirm it is the WhatsApp/Wati line. Founding year 2015 vs 2016.

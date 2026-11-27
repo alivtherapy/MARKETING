@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-motion="off" data-version="v0.8">
+<html lang="en" data-motion="off" data-version="v0.9">
 <head>
 <meta charset="utf-8">
-<meta name="aliv-lp-version" content="weight-management v0.8">
+<meta name="aliv-lp-version" content="weight-management v0.9">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
 <meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
@@ -53,7 +53,7 @@
 
 <style>
 /* ==========================================================================
-   ALIV — Weight management landing page · v0.6 (static infographics; research charts animate; conversational guided chat; no menu; base + checks sections; animated basics cards; habit guide). Same system as /lp-nad-plus/.
+   ALIV — Weight management landing page · v0.6 (static infographics; research charts animate; conversational guided chat; no menu; base + checks sections; animated basics cards; habit guide; Pune gallery photos). Same system as /lp-nad-plus/.
    Mobile first (single column), then a desktop layer from 960px:
    wider container, sticky side headings, multi-column steps and grids.
    ========================================================================== */
@@ -812,7 +812,8 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 .g img{display:block;width:100%;height:100%;object-fit:cover}
 .g figcaption{position:absolute;left:10px;bottom:10px;background:rgba(4,48,28,.75);color:var(--white);font-family:var(--display);
   font-weight:700;font-size:.74rem;padding:5px 11px;border-radius:14px}
-.g-lead{aspect-ratio:16/10}
+.g-lead{aspect-ratio:4/5;max-height:560px}
+.g-lead img{object-position:center 60%}
 .gal-tabs{display:flex;gap:6px;margin-bottom:10px}
 .gal-tabs button{flex:1;min-height:44px;padding:9px 12px;border:1px solid var(--border);border-radius:22px;background:var(--white);
   font-family:var(--display);font-weight:700;font-size:.8rem;color:var(--green-700);cursor:pointer}
@@ -1330,17 +1331,17 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
       <h2>ALIV Regenerative Wellness.</h2>
       <p>A doctor-led regenerative medicine and longevity practice founded by Dr. Tandulwadkar, with clinics in Pune and Mumbai. Weight management here starts with tests, not a diet sheet.</p>
     </div>
-    <!-- GALLERY. SWAP: replace each .slot with <figure class="g"><img src="img/clinic/..." alt="..."><figcaption>...</figcaption></figure>
-         Photos: 1200px wide, WebP ~q74. Confirm which city the infusion lounge photo is from. -->
+    <!-- GALLERY. Pune photos: Ambiance Shoot (Praveen) + ALIV Ambiance, Google Drive "Ambiance Images".
+         Mumbai: SWAP each .slot for <figure class="g"><img ...><figcaption>...</figcaption></figure> (800x600 WebP, q~74). -->
     <div class="gallery">
-      <figure class="g g-lead"><img src="img/clinic/lounge.webp" alt="The ALIV infusion lounge" width="1200" height="450" loading="lazy" decoding="async"><figcaption>Infusion lounge</figcaption></figure>
+      <figure class="g g-lead"><img src="img/clinic/lounge-hero.webp" alt="A recliner, IV stand and meditation artwork in the ALIV IV lounge" width="1000" height="1250" loading="lazy" decoding="async"><figcaption>IV lounge, Pune</figcaption></figure>
       <div>
         <div class="gal-tabs" role="tablist" aria-label="Choose a clinic">
           <button type="button" role="tab" aria-selected="true" aria-controls="gal-pune" data-city="pune">Pune · Koregaon Park</button>
           <button type="button" role="tab" aria-selected="false" aria-controls="gal-mumbai" data-city="mumbai">Mumbai · Linking Road</button>
         </div>
-        <div class="gal-grid" id="gal-pune" role="tabpanel" aria-label="Pune clinic"><figure class="g slot"><span>Photo to add<b>Reception</b></span></figure><figure class="g slot"><span>Photo to add<b>Consultation room</b></span></figure><figure class="g slot"><span>Photo to add<b>Body composition scan</b></span></figure><figure class="g slot"><span>Photo to add<b>Clinic exterior</b></span></figure></div>
-        <div class="gal-grid" id="gal-mumbai" role="tabpanel" aria-label="Mumbai clinic" hidden><figure class="g slot"><span>Photo to add<b>Reception</b></span></figure><figure class="g slot"><span>Photo to add<b>Consultation room</b></span></figure><figure class="g slot"><span>Photo to add<b>Infusion lounge</b></span></figure><figure class="g slot"><span>Photo to add<b>Clinic exterior</b></span></figure></div>
+        <div class="gal-grid" id="gal-pune" role="tabpanel" aria-label="Pune clinic"><figure class="g"><img src="img/clinic/pune-reception.webp" alt="ALIV reception desk with the ALIV Regenerative Wellness panel" width="800" height="600" loading="lazy" decoding="async"><figcaption>Reception</figcaption></figure><figure class="g"><img src="img/clinic/pune-lounge.webp" alt="Two recliners by the windows in the IV lounge" width="800" height="600" loading="lazy" decoding="async"><figcaption>IV lounge</figcaption></figure><figure class="g"><img src="img/clinic/pune-consultation.webp" alt="Consultation room with fluted glass walls" width="800" height="600" loading="lazy" decoding="async"><figcaption>Consultation room</figcaption></figure><figure class="g"><img src="img/clinic/pune-waiting.webp" alt="Waiting area seating" width="800" height="600" loading="lazy" decoding="async"><figcaption>Waiting area</figcaption></figure><figure class="g"><img src="img/clinic/pune-checks.webp" alt="A nurse taking a blood pressure reading" width="800" height="600" loading="lazy" decoding="async"><figcaption>Checks before every session</figcaption></figure><figure class="g"><img src="img/clinic/pune-brand.webp" alt="ALIV Regenerative Wellness wall logo" width="800" height="600" loading="lazy" decoding="async"><figcaption>ALIV, Pune</figcaption></figure></div>
+        <div class="gal-grid" id="gal-mumbai" role="tabpanel" aria-label="Mumbai clinic" hidden><figure class="g slot"><span>Photo to add<b>Reception</b></span></figure><figure class="g slot"><span>Photo to add<b>IV lounge</b></span></figure><figure class="g slot"><span>Photo to add<b>Consultation room</b></span></figure><figure class="g slot"><span>Photo to add<b>Clinic exterior</b></span></figure></div>
         <p class="gal-addr"><a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Pune on Maps</a> · <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Mumbai on Maps</a></p>
       </div>
     </div>
@@ -1600,7 +1601,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
     </div>
     <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
     <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
-    <p class="ver">Weight management page · v0.8</p>
+    <p class="ver">Weight management page · v0.9</p>
   </div>
 </footer>
 
