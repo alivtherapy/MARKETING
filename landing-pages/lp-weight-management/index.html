@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-motion="off">
+<html lang="en" data-motion="off" data-version="v0.3">
 <head>
 <meta charset="utf-8">
+<meta name="aliv-lp-version" content="weight-management v0.3">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
 <meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
@@ -52,7 +53,7 @@
 
 <style>
 /* ==========================================================================
-   ALIV — Weight management landing page. Same system as /lp-nad-plus/.
+   ALIV — Weight management landing page · v0.3 (static infographics). Same system as /lp-nad-plus/.
    Mobile first (single column), then a desktop layer from 960px:
    wider container, sticky side headings, multi-column steps and grids.
    ========================================================================== */
@@ -542,6 +543,136 @@ body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
 [data-motion="off"] .marquee .dup{display:none}
 [data-motion="off"] .press-mask{-webkit-mask-image:none;mask-image:none}
 
+
+/* ==========================================================================
+   v0.3: glass research cards, pyramid, programme cards, story timeline, chat
+   ========================================================================== */
+.ev > p + p{margin-top:10px}
+
+/* 3. liquid glass research cards */
+.charts{position:relative;isolation:isolate}
+.charts::before{content:'';position:absolute;z-index:-1;inset:-50px -6%;pointer-events:none;filter:blur(24px);
+  background:radial-gradient(38% 60% at 18% 35%,rgba(46,145,135,.7),transparent 70%),
+             radial-gradient(30% 55% at 82% 70%,rgba(242,194,0,.28),transparent 70%),
+             radial-gradient(34% 50% at 52% 8%,rgba(143,196,189,.45),transparent 70%)}
+.chart{position:relative;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,.22);
+  background:linear-gradient(140deg,rgba(255,255,255,.16),rgba(255,255,255,.04) 42%,rgba(255,255,255,.09));
+  -webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 0 rgba(255,255,255,.08),0 24px 48px rgba(0,0,0,.28)}
+.chart::before{content:'';position:absolute;left:0;right:0;top:0;height:42%;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0))}
+.chart::after{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(255,255,255,0) 38%,rgba(255,255,255,.12) 68%,rgba(255,255,255,.45));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.chart > *{position:relative;z-index:1}
+
+/* 5. pyramid */
+.pyr{margin-top:26px}
+.pyr-shape{display:grid;grid-template-rows:repeat(4,62px);gap:5px;max-width:400px;margin:0 auto}
+.band{display:flex;align-items:center;justify-content:center;background:var(--c);color:var(--white);
+  font-family:var(--display);font-weight:700;font-size:.84rem;text-align:center;line-height:1.2;padding-top:4px}
+.band span{display:flex;flex-direction:column;align-items:center;gap:2px}
+.band b{color:var(--yellow-500);font-size:.68rem}
+.pyr-text{list-style:none;margin-top:24px}
+.pyr-text li{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--border)}
+.pyr-text li:last-child{border-bottom:1px solid var(--border)}
+.pn{width:30px;height:30px;border-radius:50%;background:var(--c);color:var(--yellow-500);font-family:var(--display);
+  font-weight:700;font-size:.7rem;display:flex;align-items:center;justify-content:center}
+.pyr-text h3{font-size:.98rem;margin-bottom:3px}
+.pyr-text p{margin:0;font-size:.9rem;color:var(--text-longform);line-height:1.5}
+.pyr-text em{font-style:normal;display:inline-block;margin-top:6px;font-size:.72rem;font-family:var(--display);font-weight:700;
+  color:var(--teal-900);background:var(--teal-100);padding:2px 8px;border-radius:2px}
+
+/* 6. programme cards */
+.pscale{display:flex;align-items:center;gap:10px;margin:20px 0 4px;font-family:var(--display);font-weight:700;font-size:.72rem;color:var(--neutral-700)}
+.pscale i{flex:1;max-width:60px;height:1px;background:var(--neutral-300)}
+.pcard{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  transition:box-shadow .2s,border-color .2s}
+.pcard:hover{border-color:var(--teal-300);box-shadow:0 10px 28px rgba(12,84,77,.1)}
+.pcard-top{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--c);color:var(--white);padding:13px 20px}
+.pcard-type{font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase}
+.pcard-lvl{display:flex;align-items:center;gap:4px}
+.pcard-lvl i{display:block;width:16px;height:4px;border-radius:2px;background:rgba(255,255,255,.3)}
+.pcard-lvl i.on{background:var(--yellow-500)}
+.pcard-lvl small{font-size:.7rem;margin-left:6px;color:rgba(255,255,255,.85)}
+.pcard-body{padding:18px 20px 6px;flex:1}
+.pcard-body h3{font-size:1.1rem;margin-bottom:6px}
+.pcard-body p{font-size:.9rem;color:var(--text-longform);margin-bottom:14px;line-height:1.5}
+.pcard-body .pcard-k{font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--neutral-700);margin-bottom:6px}
+.pcard-body ul{list-style:none;margin-bottom:14px}
+.pcard-body li{position:relative;padding:5px 0 5px 22px;font-size:.88rem;color:var(--text-longform);border-top:1px dashed var(--border)}
+.pcard-body li:first-child{border-top:none}
+.pcard-body li::before{content:'';position:absolute;left:3px;top:11px;width:8px;height:5px;border-left:2px solid var(--teal-500);border-bottom:2px solid var(--teal-500);transform:rotate(-45deg)}
+.pcard-cta{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-top:1px solid var(--border);
+  font-family:var(--display);font-weight:700;font-size:.88rem;color:var(--link);text-decoration:none;min-height:48px}
+.pcard-cta:hover{background:var(--aqua);color:var(--link-dark)}
+
+/* 7. Listen. Plan. Review. */
+.story-lead{font-size:1.02rem;color:var(--text-longform);max-width:560px}
+.story{list-style:none;display:grid;gap:30px;margin-top:26px;position:relative}
+.chap{position:relative}
+.ill{margin:0 0 14px;background:var(--white);border:1px solid var(--border);border-radius:18px;padding:14px 16px;
+  display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;position:relative;z-index:1}
+.ill svg{width:100%;height:100%;overflow:visible}
+.ln{fill:none;stroke:var(--green-700);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ln2{fill:none;stroke:var(--teal-500);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ln-s{fill:none;stroke:var(--neutral-300);stroke-width:3;stroke-linecap:round}
+.ok{fill:none;stroke:var(--teal-600);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.up{fill:none;stroke:var(--yellow-600);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.dot{fill:var(--teal-500)}
+.t-l{font-family:var(--display);font-weight:700;font-size:10.5px;fill:var(--green-700)}
+.t-s{font-family:var(--body);font-size:9px;fill:var(--neutral-700)}
+.t-c{font-family:var(--display);font-weight:700;font-size:12px;fill:var(--green-700)}
+.nod{transform-box:view-box;transform-origin:182px 74px;animation:nod 3.4s ease-in-out infinite}
+@keyframes nod{0%,55%,100%{transform:rotate(0)}64%{transform:rotate(-8deg)}72%{transform:rotate(0)}80%{transform:rotate(-7deg)}88%{transform:rotate(0)}}
+.chap-n{display:inline-block;font-family:var(--display);font-weight:700;font-size:.78rem;color:var(--white);background:var(--teal-600);
+  padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.chap h3{font-size:1.08rem}
+.chap p{font-size:.94rem;color:var(--text-longform);margin:0}
+.chap:not(:last-child)::after{content:'';display:block;width:0;height:30px;margin:14px auto -30px;border-left:2px dashed var(--teal-300)}
+.loop{margin:26px 0 0;font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--teal-700)}
+.loop span{display:inline-block;font-size:1.2rem;margin-right:6px;vertical-align:-2px}
+
+/* 1. chat assistant */
+.chat-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:75;display:flex;align-items:center;gap:9px;
+  background:var(--green-700);color:var(--white);border:none;border-radius:28px;padding:13px 18px 13px 14px;cursor:pointer;
+  font-family:var(--display);font-weight:700;font-size:.88rem;box-shadow:0 8px 24px rgba(4,48,28,.3);
+  opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s,bottom .3s}
+.chat-fab svg{width:22px;height:22px}
+body.past-hero .chat-fab{opacity:1;transform:none;pointer-events:auto}
+body.cta-on .chat-fab{bottom:calc(84px + env(safe-area-inset-bottom))}
+body.chat-open .chat-fab{opacity:0;pointer-events:none}
+.chat{padding:0 !important;position:fixed;z-index:95;right:0;left:0;bottom:0;height:min(82vh,640px);background:var(--white);border-radius:18px 18px 0 0;
+  box-shadow:0 -10px 40px rgba(4,48,28,.25);display:flex;flex-direction:column;transform:translateY(105%);visibility:hidden;
+  transition:transform .3s cubic-bezier(.4,0,.2,1),visibility 0s linear .3s}
+body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.chat-h{display:flex;align-items:center;gap:12px;padding:14px 14px 12px 18px;background:var(--teal-700);color:var(--white);border-radius:18px 18px 0 0}
+.chat-h img{height:30px;width:auto}
+.chat-h div{flex:1;line-height:1.3}
+.chat-h b{display:block;font-family:var(--display);font-size:.95rem}
+.chat-h small{font-size:.72rem;color:#BFDDD7}
+.chat-x{width:44px;height:44px;border:none;background:none;color:var(--white);font-size:1.6rem;cursor:pointer}
+.chat-log{flex:1;overflow-y:auto;padding:16px;background:var(--aqua);display:flex;flex-direction:column;gap:10px}
+.msg{max-width:86%;padding:10px 13px;border-radius:14px;font-size:.9rem;line-height:1.5}
+.msg.bot{background:var(--white);color:var(--neutral-800);border:1px solid var(--border);border-bottom-left-radius:4px;align-self:flex-start}
+.msg.me{background:var(--teal-600);color:var(--white);border-bottom-right-radius:4px;align-self:flex-end}
+.msg.alert{background:#FFF6D6;border-color:var(--yellow-500)}
+.msg a{color:var(--link)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start}
+.chips button,.chips a{font-family:var(--display);font-weight:700;font-size:.78rem;border:1px solid var(--teal-500);color:var(--teal-700);
+  background:var(--white);border-radius:16px;padding:7px 12px;cursor:pointer;text-decoration:none;min-height:34px}
+.chips button:hover,.chips a:hover{background:var(--teal-100)}
+.chips .go{background:var(--yellow-500);border-color:var(--yellow-500);color:var(--cta-text)}
+.chat-f{display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--border)}
+.chat-f input{flex:1;border:1px solid var(--border);border-radius:22px;padding:11px 16px;font-family:var(--body);font-size:1rem;min-width:0}
+.chat-f input:focus{outline:2px solid var(--teal-500);outline-offset:0}
+.chat-f button{border:none;background:var(--green-700);color:var(--white);border-radius:22px;padding:0 18px;font-family:var(--display);font-weight:700;cursor:pointer}
+.chat-note{font-size:.68rem;color:var(--neutral-700);text-align:center;padding:0 12px 8px}
+.ver{font-size:.7rem;color:var(--neutral-300);margin-top:12px}
+
+@media (prefers-reduced-motion:reduce){ .nod{animation:none} }
+
 /* ==========================================================================
    TABLET (680px+)
    ========================================================================== */
@@ -558,6 +689,8 @@ body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
   .creds{grid-template-columns:repeat(4,1fr)}
   .charts{grid-template-columns:1fr 1fr}
   .team{grid-template-columns:repeat(3,1fr)}
+  .chat{left:auto;right:20px;bottom:20px;width:380px;height:min(78vh,600px);border-radius:18px}
+  body.cta-on .chat{bottom:92px}
 }
 
 /* ==========================================================================
@@ -610,6 +743,16 @@ body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
   .progs{grid-template-columns:repeat(3,1fr);gap:20px}
   .layers{max-width:760px;margin:34px auto 8px}
   .l2{width:94%}.l3{width:88%}.l4{width:82%}
+  .pyr{display:grid;grid-template-columns:420px 1fr;gap:0 48px;align-items:start}
+  .pyr-shape{grid-template-rows:repeat(4,104px);margin:0;max-width:none}
+  .band{font-size:.98rem}.band b{font-size:.74rem}
+  .pyr-text{display:grid;grid-template-rows:repeat(4,104px);gap:5px;margin:0}
+  .pyr-text li{align-self:center;border:none;padding:0;position:relative}
+  .pyr-text li:last-child{border:none}
+  .pyr-text li::before{content:'';position:absolute;left:-44px;top:15px;width:36px;border-top:2px dotted var(--teal-300)}
+  .layers-cap{text-align:left;margin-left:0}
+  .story{grid-template-columns:repeat(3,1fr);gap:28px}
+  .chap:not(:last-child)::after{position:absolute;z-index:0;top:33%;right:-28px;width:28px;height:0;margin:0;border-left:none;border-top:2px dashed var(--teal-300)}
   .layer{grid-template-columns:44px 1fr;padding:20px 26px}
   .steps::before{left:26px;right:26px;top:52px;bottom:auto;width:auto;height:2px;transform:scaleX(0);transform-origin:left}
   .rv.in .steps::before{transform:scaleX(1)}
@@ -769,53 +912,36 @@ body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
           <span class="tier t-strong">Strong human evidence</span>
           <h3>Nutrition built around a steady deficit</h3>
           <p>Losing weight needs an energy deficit. That part is settled. What isn't one-size-fits-all is how you get there: what you eat, when, and how much your blood sugar and appetite allow.</p>
-          <details class="more">
-            <summary><span class="ac-chev" aria-hidden="true"></span>More</summary>
-            <div class="ac-b"><p>Crash diets lose weight fast, and much of it is muscle and water. We plan for a pace you can hold and food you'll actually eat, Indian food included.</p></div>
-          </details>
+          <p>Crash diets lose weight fast, and much of it is muscle and water. We plan for a pace you can hold and food you'll actually eat, Indian food included.</p>
         </div>
 
         <div class="ev ev-strong">
           <span class="tier t-strong">Strong human evidence</span>
           <h3>Protein and strength training</h3>
           <p>Eating enough protein and lifting weights while in a deficit protects muscle. In one trial, a higher-protein group lost more fat and gained muscle on the same calorie deficit<a class="cite" href="#references">4</a>.</p>
-          <details class="more">
-            <summary><span class="ac-chev" aria-hidden="true"></span>More</summary>
-            <div class="ac-b"><p>This is what decides whether you end up lighter or actually leaner. It matters even more if medication is part of the plan, because rapid loss takes muscle with it.</p></div>
-          </details>
+          <p>This is what decides whether you end up lighter or actually leaner. It matters even more if medication is part of the plan, because rapid loss takes muscle with it.</p>
         </div>
 
         <div class="ev ev-strong">
           <span class="tier t-strong">Strong human evidence</span>
           <h3>Prescription medication, where clinically appropriate</h3>
           <p>Newer medicines that act on appetite hormones produced average losses of roughly 15–20% of body weight in large trials, alongside lifestyle changes<a class="cite" href="#references">5</a><a class="cite" href="#references">6</a>.</p>
-          <details class="more">
-            <summary><span class="ac-chev" aria-hidden="true"></span>More</summary>
-            <div class="ac-b">
-              <p>They are prescription-only, not right for everyone, and not a shortcut. When people stopped, most regained a large share of the weight within a year<a class="cite" href="#references">7</a>. That is why we only consider them inside a plan that builds muscle and habits.</p>
+          <p>They are prescription-only, not right for everyone, and not a shortcut. When people stopped, most regained a large share of the weight within a year<a class="cite" href="#references">7</a>. That is why we only consider them inside a plan that builds muscle and habits.</p>
               <p><strong>Your doctor decides if medication has a role. You can't book it on its own.</strong></p>
-            </div>
-          </details>
         </div>
 
         <div class="ev ev-mixed">
           <span class="tier t-mixed">Good, smaller trials</span>
           <h3>Sleep and stress</h3>
           <p>Better sleep won't melt fat by itself, but poor sleep undermines everything else. In a controlled trial, short sleep cut the share of weight lost as fat on the same diet<a class="cite" href="#references">3</a>.</p>
-          <details class="more">
-            <summary><span class="ac-chev" aria-hidden="true"></span>More</summary>
-            <div class="ac-b"><p>It's a small study, so treat it as direction, not a precise number. In practice, fixing sleep is often what makes the rest of the plan stick.</p></div>
-          </details>
+          <p>It's a small study, so treat it as direction, not a precise number. In practice, fixing sleep is often what makes the rest of the plan stick.</p>
         </div>
 
         <div class="ev ev-early ev-last">
           <span class="tier t-early">Early or weak evidence</span>
           <h3>Supplements and "fat burners"</h3>
           <p>Most products sold for weight loss have little good evidence in humans. Some support a specific deficiency your bloodwork shows. Few do much beyond that.</p>
-          <details class="more">
-            <summary><span class="ac-chev" aria-hidden="true"></span>More</summary>
-            <div class="ac-b"><p>If you're low in something, correcting it helps you feel better and train better. We'll tell you what's worth taking and what's worth skipping.</p></div>
-          </details>
+          <p>If you're low in something, correcting it helps you feel better and train better. We'll tell you what's worth taking and what's worth skipping.</p>
         </div>
       </div>
     </div>
@@ -870,13 +996,11 @@ body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
     <h2>Lifestyle-led or medically supported.</h2>
     <p style="margin-bottom:20px">Not competing options. Different starting points, set by your results.</p>
 
-    <div class="layers rv" aria-label="The approach, built in four layers from the bottom up">
-      <div class="layer l1" style="--i:0"><b>01</b><div><h3>Diagnostics</h3><p>Bloodwork, body composition, and FibroScan where indicated. Every plan starts here.</p></div></div>
-      <div class="layer l2" style="--i:1"><b>02</b><div><h3>Lifestyle foundation</h3><p>Nutrition for your blood sugar, strength training for muscle, sleep and stress.</p></div></div>
-      <div class="layer l3" style="--i:2"><b>03</b><div><h3>Targeted IV and nutrient support</h3><p>Corrects deficiencies and supports energy and training. Supports the plan, doesn't replace it.</p><em>Supportive, evidence still early</em></div></div>
-      <div class="layer l4" style="--i:3"><b>04</b><div><h3>Prescription support</h3><p>Only where clinically appropriate, with closer monitoring and an exit plan.</p><em>Your doctor decides</em></div></div>
+    <div class="pyr" role="group" aria-label="The approach, built in four layers from the bottom up">
+      <div class="pyr-shape" aria-hidden="true"><div class="band" style="--c:var(--teal-500);clip-path:polygon(38.0% 0,62.0% 0,71.5% 100%,28.5% 100%)"><span><b>04</b>Prescription</span></div><div class="band" style="--c:var(--teal-600);clip-path:polygon(28.5% 0,71.5% 0,81.0% 100%,19.0% 100%)"><span><b>03</b>IV &amp; nutrients</span></div><div class="band" style="--c:var(--teal-700);clip-path:polygon(19.0% 0,81.0% 0,90.5% 100%,9.5% 100%)"><span><b>02</b>Lifestyle</span></div><div class="band" style="--c:var(--green-700);clip-path:polygon(9.5% 0,90.5% 0,100.0% 100%,0.0% 100%)"><span><b>01</b>Diagnostics</span></div></div>
+      <ol class="pyr-text"><li style="--c:var(--teal-500)"><span class="pn">04</span><div><h3>Prescription support</h3><p>Only where clinically appropriate, with closer monitoring and an exit plan.</p><em>Your doctor decides</em></div></li><li style="--c:var(--teal-600)"><span class="pn">03</span><div><h3>Targeted IV and nutrient support</h3><p>Corrects deficiencies and supports energy and training. Supports the plan, doesn't replace it.</p><em>Supportive, evidence still early</em></div></li><li style="--c:var(--teal-700)"><span class="pn">02</span><div><h3>Lifestyle foundation</h3><p>Nutrition for your blood sugar, strength training for muscle, sleep and stress.</p></div></li><li style="--c:var(--green-700)"><span class="pn">01</span><div><h3>Diagnostics</h3><p>Bloodwork, body composition, and FibroScan where indicated. Every plan starts here.</p></div></li></ol>
     </div>
-    <p class="layers-cap">Built from the bottom up. Not everyone needs the top two layers.</p>
+    <p class="layers-cap">Built from the bottom up. Everyone starts at 01. Not everyone needs the top two layers.</p>
 
     <div class="pull">Medication can start it. Muscle and habits keep it.</div>
 
@@ -942,24 +1066,86 @@ body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
     <span class="eyebrow">Programmes</span>
     <h2>Where your plan can lead.</h2>
     <p class="note" style="margin-bottom:0">ALIV programmes your doctor may recommend. Eligibility is decided after assessment.</p>
+    <div class="pscale" aria-hidden="true"><span>Supportive</span><i></i><span>Intensive</span><i></i><span>Clinical</span></div>
     <div class="progs">
-      <a class="prog" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/trim-tone-elixir" target="_blank" rel="noopener"><h3>Trim &amp; Tone Elixir</h3><p>IV nutrient support for plateaus, postpartum weight and active people.</p><span>View programme &rarr;</span></a>
-      <a class="prog" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/fatloss-max" target="_blank" rel="noopener"><h3>FatLoss Max</h3><p>ALIV's most intensive medically guided protocol, for significant weight loss.</p><span>View programme &rarr;</span></a>
-      <a class="prog" href="https://www.alivtherapy.in/therapy/speciality-protocols/advanced-metabolic-reset" target="_blank" rel="noopener"><h3>Advanced Metabolic Reset</h3><p>For established metabolic disease: insulin resistance, fatty liver, type 2 diabetes.</p><span>View programme &rarr;</span></a>
+      <article class="pcard">
+        <div class="pcard-top" style="--c:var(--teal-500)"><span class="pcard-type">IV nutrient therapy</span><span class="pcard-lvl" title="Supportive"><i class="on"></i><i class=""></i><i class=""></i><small>Supportive</small></span></div>
+        <div class="pcard-body"><h3>Trim &amp; Tone Elixir</h3><p>Supports fat metabolism, energy and training alongside your plan.</p><p class="pcard-k">Best for</p><ul><li>Stuck at a plateau</li><li>Postpartum weight</li><li>Active people and fitness beginners</li></ul></div>
+        <a class="pcard-cta" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/trim-tone-elixir" target="_blank" rel="noopener">View programme <span aria-hidden="true">&rarr;</span></a>
+      </article>
+      <article class="pcard">
+        <div class="pcard-top" style="--c:var(--teal-700)"><span class="pcard-type">Medically guided protocol</span><span class="pcard-lvl" title="Intensive"><i class="on"></i><i class="on"></i><i class=""></i><small>Intensive</small></span></div>
+        <div class="pcard-body"><h3>FatLoss Max</h3><p>ALIV's most intensive protocol for significant weight loss and breaking plateaus.</p><p class="pcard-k">Best for</p><ul><li>Significant weight to lose</li><li>Repeated plateaus</li><li>Eligible after doctor assessment</li></ul></div>
+        <a class="pcard-cta" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/fatloss-max" target="_blank" rel="noopener">View programme <span aria-hidden="true">&rarr;</span></a>
+      </article>
+      <article class="pcard">
+        <div class="pcard-top" style="--c:var(--green-700)"><span class="pcard-type">Speciality protocol</span><span class="pcard-lvl" title="Clinical"><i class="on"></i><i class="on"></i><i class="on"></i><small>Clinical</small></span></div>
+        <div class="pcard-body"><h3>Advanced Metabolic Reset</h3><p>For established metabolic disease, beyond weight loss.</p><p class="pcard-k">Best for</p><ul><li>Insulin resistance or pre-diabetes</li><li>Fatty liver (NAFLD)</li><li>"Normal" BMI with poor markers</li></ul></div>
+        <a class="pcard-cta" href="https://www.alivtherapy.in/therapy/speciality-protocols/advanced-metabolic-reset" target="_blank" rel="noopener">View programme <span aria-hidden="true">&rarr;</span></a>
+      </article>
     </div>
-
   </section>
 
-  <!-- ======================= 9. HOW IT WORKS ======================= -->
+  <!-- ======================= 9. HOW IT WORKS: Listen. Plan. Review. ======================= -->
   <section class="rv wash" id="steps">
-    <span class="eyebrow">How it runs</span>
-    <h2>Your next steps.</h2>
-    <div class="steps">
-      <div class="step"><div class="num"><span>01</span></div><div><h3>Consultation and assessment</h3><p>A medical consultation, bloodwork and body composition. Some people need further tests before a plan makes sense.</p></div></div>
-      <div class="step"><div class="num"><span>02</span></div><div><h3>Your plan</h3><p>Your results and goals set the plan: nutrition, training, sleep, and whether medical support has a role.</p></div></div>
-      <div class="step"><div class="num"><span>03</span></div><div><h3>Start and review</h3><p>Review points are set from day one, tracked on body composition and repeat bloodwork, not just the scale. If it isn't working, it changes.</p></div></div>
-    </div>
-    <a class="btn" href="#book" style="margin-top:28px">Book a Consultation</a>
+    <span class="eyebrow">How it works</span>
+    <h2>Listen. Plan. Review.</h2>
+    <p class="story-lead">Three words to remember. The last two repeat until the plan is working.</p>
+    <ol class="story">
+      <li class="chap">
+        <figure class="ill"><svg viewBox="0 0 240 160" role="img" aria-label="A doctor sitting across a table from a patient, nodding as she listens">
+  <path class="ln2" d="M80 22h44a8 8 0 0 1 8 8v12a8 8 0 0 1-8 8H98l-10 8v-8h-8a8 8 0 0 1-8-8V30a8 8 0 0 1 8-8z"/>
+  <circle class="dot" cx="92" cy="36" r="2.4"/><circle class="dot" cx="102" cy="36" r="2.4"/><circle class="dot" cx="112" cy="36" r="2.4"/>
+  <path class="ln" d="M34 150V112h36M34 112V82"/>
+  <circle class="ln" cx="58" cy="66" r="11"/>
+  <path class="ln" d="M58 78c-6 14-6 24-2 34h26v38M58 92c12 6 26 9 44 9"/>
+  <path class="ln" d="M96 104h52M122 104v46M108 150h28"/>
+  <rect class="ln2" x="126" y="96" width="16" height="8" rx="1"/>
+  <path class="ln" d="M206 150V112h-36M206 112V82"/>
+  <path class="ln" d="M182 78c6 14 6 24 2 34h-26v38M182 92c-10 6-22 8-36 8"/>
+  <path class="ln2" d="M176 84c2 12 10 12 12 0M182 96v6"/><circle class="ln2" cx="182" cy="104" r="2.5"/>
+  <g class="nod">
+    <circle class="ln" cx="182" cy="62" r="11"/>
+    <path class="ln" d="M171 60c0-13 8-17 15-16 7 1 9 7 8 14"/>
+    <circle class="ln" cx="195" cy="50" r="4.5"/>
+    <path class="ln" d="M175 64h4"/>
+  </g>
+</svg></figure>
+        <span class="chap-n">01 · We listen</span>
+        <h3>Consultation and assessment</h3>
+        <p>You talk, the doctor listens. Then bloodwork and body composition show what's actually going on. Some people need further tests before a plan makes sense.</p>
+      </li>
+      <li class="chap">
+        <figure class="ill"><svg viewBox="0 0 300 170" role="img" aria-label="Your plan as a wheel: nutrition, strength, sleep and stress, nutrients and IV, and medical support if needed"><path d="M151.6 40.0 A46 46 0 0 1 193.2 70.3" fill="none" stroke="var(--green-700)" stroke-width="18"/><text x="195.8" y="25.9" text-anchor="start" class="t-l">Nutrition</text><path d="M194.2 73.3 A46 46 0 0 1 178.3 122.2" fill="none" stroke="var(--teal-700)" stroke-width="18"/><text x="224.2" y="113.1" text-anchor="start" class="t-l">Strength</text><path d="M175.7 124.1 A46 46 0 0 1 124.3 124.1" fill="none" stroke="var(--teal-600)" stroke-width="18"/><text x="150.0" y="167.0" text-anchor="middle" class="t-l">Sleep &amp; stress</text><path d="M121.7 122.2 A46 46 0 0 1 105.8 73.3" fill="none" stroke="var(--teal-500)" stroke-width="18"/><text x="75.8" y="113.1" text-anchor="end" class="t-l">Nutrients &amp; IV</text><path d="M106.8 70.3 A46 46 0 0 1 148.4 40.0" fill="none" stroke="var(--teal-300)" stroke-width="18" stroke-dasharray="5 4"/><text x="104.2" y="25.9" text-anchor="end" class="t-l">Medical support<tspan x="104.2" dy="11" class="t-s">if needed</tspan></text><text x="150" y="84" text-anchor="middle" class="t-c">Your</text><text x="150" y="98" text-anchor="middle" class="t-c">plan</text></svg></figure>
+        <span class="chap-n">02 · We plan</span>
+        <h3>A plan built from your results</h3>
+        <p>Nutrition, strength, sleep and stress, plus nutrients or medical support only if your results call for it.</p>
+      </li>
+      <li class="chap">
+        <figure class="ill"><svg viewBox="0 0 240 160" role="img" aria-label="A doctor reviewing a report, ticking what is on track and marking what needs work">
+  <circle class="ln" cx="66" cy="48" r="12"/>
+  <path class="ln" d="M54 48c-1-14 6-19 12-19s14 4 12 19M54 48c-1 9 1 13 4 15M78 48c1 9-1 13-4 15"/>
+  <circle class="ln2" cx="61" cy="49" r="3.4"/><circle class="ln2" cx="71" cy="49" r="3.4"/><path class="ln2" d="M64.4 49h3.2"/>
+  <path class="ln" d="M40 150c0-40 6-76 26-78 20 2 26 38 26 78M66 72l-6 16M66 72l6 16"/>
+  <path class="ln" d="M46 104c14 10 40 8 66 0M88 96c10-2 18-8 24-12"/>
+  <g transform="rotate(5 150 90)">
+    <rect class="ln" x="112" y="36" width="80" height="104" rx="5" fill="#fff"/>
+    <path class="ln2" d="M124 50h40"/>
+    <path class="ln-s" d="M124 68h34M124 88h34M124 108h34M124 126h26"/>
+    <path class="ok" d="M168 66l4 4 8-9M168 86l4 4 8-9M168 124l4 4 8-9"/>
+    <path class="up" d="M174 112v-10M169 106l5-5 5 5"/>
+  </g>
+  <path class="ln" d="M112 84l14-16"/><path class="ln2" d="M126 68l3-4"/>
+  <path class="ok" d="M128 152l3 3 6-7"/><text x="140" y="155" class="t-s">On track</text>
+  <path class="up" d="M188 156v-8M184 151l4-4 4 4"/><text x="196" y="155" class="t-s">Needs work</text>
+</svg></figure>
+        <span class="chap-n">03 · We review</span>
+        <h3>Review, then adjust</h3>
+        <p>Review points are set from day one, judged on body composition and repeat bloodwork, not just the scale. What's on track stays. What isn't, changes.</p>
+      </li>
+    </ol>
+    <p class="loop"><span aria-hidden="true">&#8635;</span> Plan and review repeat until it's working.</p>
+    <a class="btn" href="#book" style="margin-top:22px">Book a Consultation</a>
   </section>
 
   <!-- ============================== 10. FAQ ============================== -->
@@ -1077,8 +1263,29 @@ body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
     </div>
     <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
     <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
+    <p class="ver">Weight management page · v0.3</p>
   </div>
 </footer>
+
+<!-- Weight management chat assistant (guided, answers from this page; AI backend can plug in later) -->
+<button class="chat-fab" id="chatFab" type="button" aria-controls="chat" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
+  Ask about weight
+</button>
+<section class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Weight management questions" aria-hidden="true">
+  <div class="chat-h">
+    <img src="img/logo/aliv-white.webp" alt="" width="360" height="214" loading="lazy">
+    <div><b>Weight questions</b><small>Instant answers from our doctors' guidance</small></div>
+    <button class="chat-x" id="chatX" type="button" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-log" id="chatLog" aria-live="polite"></div>
+  <p class="chat-note">General information, not medical advice. Emergencies: call 112.</p>
+  <form class="chat-f" id="chatF" autocomplete="off">
+    <label class="sr" for="chatIn" style="position:absolute;left:-9999px">Your question</label>
+    <input id="chatIn" type="text" maxlength="300" placeholder="Type your question">
+    <button type="submit">Send</button>
+  </form>
+</section>
 
 <div class="sticky" id="sticky">
   <div class="sticky-in">
@@ -1150,10 +1357,78 @@ if('IntersectionObserver' in window){
     var cur=-1; secs.forEach(function(s,i){ if(s&&s.getBoundingClientRect().top<=window.innerHeight*0.35) cur=i; });
     links.forEach(function(a,i){a.classList.toggle('on',i===cur);a.classList.toggle('done',i<cur);
       if(i===cur) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');});
-    if(st&&aliv) st.classList.toggle('show',aliv.getBoundingClientRect().top<window.innerHeight*0.6);
+    var ctaOn=!!(st&&aliv&&aliv.getBoundingClientRect().top<window.innerHeight*0.6);
+    if(st) st.classList.toggle('show',ctaOn);
+    body.classList.toggle('cta-on',ctaOn);
+    var hero=document.querySelector('.hero'); if(hero) body.classList.toggle('past-hero',hero.getBoundingClientRect().bottom<80);
   }
   window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(update);} },{passive:true});
   window.addEventListener('resize',update); update();
+})();
+
+
+/* --- weight management chat assistant ---
+   Guided and rule-based: every answer below is written to match this page, so it cannot invent medical claims.
+   BACKEND HOOK: to make it AI-powered later, replace reply() with a call to your own server (e.g. Claude API),
+   keeping RED_FLAGS checked first, in the browser. */
+(function(){
+  var body=document.body,fab=document.getElementById('chatFab'),box=document.getElementById('chat'),
+      log=document.getElementById('chatLog'),form=document.getElementById('chatF'),inp=document.getElementById('chatIn'),
+      x=document.getElementById('chatX');
+  if(!fab) return;
+  var WA='https://wa.me/917719988811';
+  var A={
+    why:{k:['why','stuck','plateau','not losing',"can't lose",'cant lose','stalled','not moving','gain'],
+      t:"Usually it's more than one thing: insulin resistance, thyroid, hormones (PCOS, menopause, low testosterone), short sleep, losing muscle while dieting, fat in the liver, or some medicines. Each shows up in tests, which is why we test before we plan.",
+      n:['thyroid','pcos','consult']},
+    thyroid:{k:['thyroid','tsh','hypothyroid'],t:"An underactive thyroid slows how your body uses energy and is common, especially in women. It's a simple blood test. If it's off, it's treated first. If it's normal, we look at the other causes.",n:['why','consult']},
+    pcos:{k:['pcos','pcod','ovary','ovarian','periods'],t:"PCOS is closely linked to insulin resistance, so diets often stall. The plan works on blood sugar, muscle and hormones together. If you're also trying to conceive, our fertility specialists work alongside.",n:['diet','consult']},
+    meds:{k:['injection','injections','ozempic','mounjaro','wegovy','semaglutide','tirzepatide','glp','medicine','medication','tablet','pill'],
+      t:"Prescription weight-loss medicines can help some people, but only after a doctor's assessment. They can't be booked on their own. In large trials most people regained much of the weight within a year of stopping, so we only use them inside a plan that protects muscle and includes an exit plan.",n:['safe','consult']},
+    consult:{k:['consult','consultation','appointment','first visit','what happens','assessment','test','tests','blood','bloodwork','scan'],
+      t:"At your first visit: a medical consultation, bloodwork (blood sugar, insulin resistance, thyroid, hormones, lipids, liver) and a body composition scan. Your doctor explains the results and the plan. Some people need extra tests first.",n:['cost','time','book']},
+    cost:{k:['cost','price','fee','fees','charges','how much','rupees','rs','inr','package'],t:"It depends on your plan, which depends on your results. You'll get a clear quote after your assessment, before anything starts. For consultation fees, message us on WhatsApp.",n:['consult','human']},
+    time:{k:['how long','how fast','weeks','months','quick','results','kg'],t:"Weeks, not days. We aim for a steady pace that protects muscle, and judge progress on body composition and repeat bloodwork, not just the scale.",n:['diet','consult']},
+    diet:{k:['diet','food','eat','eating','keto','fasting','vegetarian','vegan','protein','gym','exercise','workout'],t:"No crash diets. Nutrition is built around your blood sugar, with enough protein to protect muscle, and food you'll actually eat, Indian and vegetarian included. Strength training is part of every plan.",n:['time','consult']},
+    iv:{k:['iv','drip','drips','trim','tone','fatloss max','nutrient','nutrients','vitamin'],t:"IV nutrient therapy (such as Trim & Tone Elixir) can correct deficiencies and support energy and training. It supports the plan. It doesn't replace food, training and sleep. Your doctor will say whether it suits you.",n:['safe','consult']},
+    safe:{k:['safe','safety','side effect','side effects','risk','risks'],t:"Under medical supervision, weight management is safe for most people. Some approaches aren't suitable during pregnancy or breastfeeding, or with certain medical histories. Your assessment decides what's safe for you.",n:['consult','human']},
+    where:{k:['where','location','clinic','pune','mumbai','address','timing','timings','open'],t:'Two clinics: <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Koregaon Park, Pune</a> and <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Linking Road, Mumbai</a>.',html:true,n:['book','human']},
+    human:{k:['human','person','call','talk','whatsapp','speak','contact','number'],t:'Happy to connect you. <a href="'+WA+'" target="_blank" rel="noopener">WhatsApp us</a> or call <a href="tel:+917719988811">+91 77199 88811</a>. Or book a consultation and a doctor reviews it first.',html:true,n:['book']}
+  };
+  var LABEL={why:"Why can't I lose weight?",thyroid:'Is it my thyroid?',pcos:'PCOS and weight',meds:'Weight-loss injections',consult:'What happens at the first visit?',
+    cost:'What does it cost?',time:'How long does it take?',diet:'Do I have to diet?',iv:'IV therapy',safe:'Is it safe?',where:'Clinic locations',human:'Talk to a person',book:'Book a consultation'};
+  var RED=['chest pain','faint','fainting','suicid','self harm','self-harm','kill myself','emergency','vomiting blood','can\'t breathe','cannot breathe'];
+  var PREG=['pregnan','breastfeed','breast feed','nursing'];
+  function el(t,c,html){var d=document.createElement('div');d.className=c;if(html)d.innerHTML=t;else d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
+  function chips(keys){
+    var c=document.createElement('div');c.className='chips';
+    keys.forEach(function(k){
+      if(k==='book'){var a=document.createElement('a');a.href='#book';a.className='go';a.textContent=LABEL.book;a.addEventListener('click',function(){close()});c.appendChild(a);return;}
+      var b=document.createElement('button');b.type='button';b.textContent=LABEL[k];b.addEventListener('click',function(){ask(LABEL[k],k)});c.appendChild(b);
+    });
+    log.appendChild(c);log.scrollTop=log.scrollHeight;
+  }
+  function has(q,w){ return w.length<=3 ? new RegExp('\\b'+w+'\\b').test(q) : q.indexOf(w)>-1; }
+  function reply(q,key){
+    q=' '+q.toLowerCase()+' ';
+    if(RED.some(function(w){return has(q,w)})){ el('This sounds urgent. Please call 112 or go to the nearest emergency department now. This chat can\'t help with emergencies.','msg bot alert'); return; }
+    if(!key && PREG.some(function(w){return has(q,w)})){ el("During pregnancy or breastfeeding, weight-loss treatments aren't suitable. Please speak to your obstetrician. We're happy to help afterwards.",'msg bot'); chips(['human']); return; }
+    if(!key){ var best=null,score=0; Object.keys(A).forEach(function(k){var s=A[k].k.filter(function(w){return has(q,w)}).length; if(s>score){score=s;best=k;}}); key=best; }
+    if(key==='book'){ location.hash='#book'; close(); return; }
+    if(!key){ el("I don't have a good answer for that here. A doctor can help: book a consultation or message us on WhatsApp.",'msg bot'); chips(['human','book']); return; }
+    el(A[key].t,'msg bot',A[key].html); chips(A[key].n.concat(A[key].n.indexOf('book')<0?['book']:[]));
+  }
+  function ask(text,key){ el(text,'msg me'); setTimeout(function(){reply(text,key)},280); }
+  var started=false;
+  function open(){
+    body.classList.add('chat-open');box.setAttribute('aria-hidden','false');fab.setAttribute('aria-expanded','true');
+    if(!started){started=true; el("Hi. Ask anything about weight management, or pick a question. Answers follow our doctors' guidance.",'msg bot'); chips(['why','meds','consult','cost','pcos','human']);}
+    setTimeout(function(){inp.focus()},300);
+  }
+  function close(){ body.classList.remove('chat-open');box.setAttribute('aria-hidden','true');fab.setAttribute('aria-expanded','false'); }
+  fab.addEventListener('click',open); x.addEventListener('click',function(){close();fab.focus()});
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&body.classList.contains('chat-open')) close(); });
+  form.addEventListener('submit',function(e){ e.preventDefault(); var q=inp.value.trim(); if(!q) return; inp.value=''; ask(q); });
 })();
 
 /* --- pause the logo marquee while it is off-screen --- */

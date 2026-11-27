@@ -10,7 +10,10 @@
   blue #1257A8 = links only. Fonts: Avenir Heavy (display), Gordita (body).
 - Tracking IDs reused on every LP: Clarity uxteeaz5rs, Google Ads AW-11058315015, Meta Pixel 429598552784651.
 - Pages: `lp-weight-management/` (mobile-first, desktop two-column layer at 960px+).
-  Preview build (tracking stripped, assets inlined): `preview/lp-weight-management-preview.html`.
+  Current version: v0.3 (static infographics). Preview build: `preview/lp-weight-management-v0.3-preview.html`.
+  v0.3 adds: evidence text inline (no "More"), liquid-glass research cards, approach pyramid (labels inside,
+  explanations right), structured programme cards (type, level, best for), "Listen. Plan. Review." illustrated
+  story (doctor nods), and a guided weight-management chat assistant (rule-based; AI backend hook in code).
 
 ## Brand facts (from alivtherapy.in, Nov 2026)
 - Homepage: "Pioneering Regenerative Medicine & Longevity Since 2016" (therapy pages say "since 2015": unresolved).
@@ -32,6 +35,7 @@
 - Sticky side headings on desktop; "Contents" drawer listing the flow (tap to jump, tracks position).
 - Sticky Book bar appears only from the About ALIV section.
 - Logos: img/logo/aliv-green.webp (light bg), aliv-white.webp (dark bg), aliv-blue.webp (spare).
+- "How it works" mantra to keep across materials: Listen. Plan. Review.
 - Two versions: v1 = static infographics (`<html data-motion="off">`); v2 = advanced animated (data-motion="on" + plugins).
 
 ## Visual system (lp-weight-management)
