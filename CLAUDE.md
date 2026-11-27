@@ -10,7 +10,12 @@
   blue #1257A8 = links only. Fonts: Avenir Heavy (display), Gordita (body).
 - Tracking IDs reused on every LP: Clarity uxteeaz5rs, Google Ads AW-11058315015, Meta Pixel 429598552784651.
 - Pages: `lp-weight-management/` (mobile-first, desktop two-column layer at 960px+).
-  Current version: v0.6. Preview build: `preview/lp-weight-management-v0.6-preview.html`.
+  Current version: v0.7. Preview build: `preview/lp-weight-management-v0.7-preview.html`.
+  v0.7 (content only, graphics pass later): "Get the base right" section after the approach (sleep / food and
+  water / movement, daily additions, "treatment is a multiplier", 8-item readiness check); "What we check, in order"
+  between doctors and programmes (body composition -> thyroid -> insulin resistance -> safety screening, plus
+  where each result leads); review step = 1-month trial, weekly inches, monthly body comp; FAQs on inches vs kilos
+  and after the goal; chat asks which basics are in place and names the missing ones.
   v0.6: NO section menu anywhere (rail and phone strip removed, per Rish). Chat is conversational: greetings,
   thanks, yes/no, "who are you", typed answers to the current question (e.g. "about 3 years"), Hinglish
   ("vajan kam nahi ho raha"), one-letter and swapped-letter typos, and a helpful fallback instead of a dead end.
@@ -41,13 +46,25 @@
 ## Page rules from Rish (Nov 2026)
 - Say "weight management", never "fat loss" (body-fat physiology wording is fine).
 - Hero = the problem only. No ALIV mention, no booking button. Sell later in the page.
-- Order: problem → evidence → research → approach → safety → About ALIV (credentials + press)
-  → doctors → programmes → how it works → FAQ → form → references → footer.
+- Order: problem → evidence → research → approach → base (lifestyle) → safety → About ALIV (credentials + press)
+  → doctors → what we check → programmes → how it works → FAQ → form → references → footer.
 - Sticky side headings on desktop (not Safety or FAQ). No section menu of any kind on the page.
 - Sticky Book bar appears only from the About ALIV section.
 - Logos: img/logo/aliv-green.webp (light bg), aliv-white.webp (dark bg), aliv-blue.webp (spare).
 - "How it works" mantra to keep across materials: Listen. Plan. Review.
 - Two versions: v1 = static infographics (`<html data-motion="off">`); v2 = advanced animated (data-motion="on" + plugins).
+
+## ALIV weight-management protocol (from the pre-consultation video, Nov 2026)
+- Base of the pyramid: sleep 7-8 h, screens off 1 h before bed; water 3-4 L; protein >= 1 g/kg goal weight;
+  meal order protein+fibre -> fats -> carbs; high-GI foods only at end of meals; 10-11 h eating window (9am-7pm),
+  nuts/seeds between; morning water with moringa/cinnamon/turmeric; zone 2 incline walking 30-45 -> 60-75 min
+  in one go + dead bugs; strength trainers judged on inches.
+- Checks: body composition (BMI, fat vs muscle, visceral vs subcutaneous), thyroid (fix first; recheck 6 weeks;
+  every 6-9 months with family history), insulin resistance (often missed), safety screening before medication.
+- Process: 1-month trial (4-5 weekly sessions), inches weekly, body comp monthly, monthly review; goal 70-80%
+  with support, then maintenance top-ups. "Treatment is a multiplier: x zero effort = zero." Inches over kilos.
+- Kept OFF the page: drug names and doses, "3-5 kg a month", claims about pharma companies, microdosing organ
+  benefits, "IV burns/flushes fat".
 
 ## Visual system (lp-weight-management)
 - Scroll-triggered, once-only motion; all off under prefers-reduced-motion. No JS libraries.

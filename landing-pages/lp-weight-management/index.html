@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-motion="off" data-version="v0.6">
+<html lang="en" data-motion="off" data-version="v0.7">
 <head>
 <meta charset="utf-8">
-<meta name="aliv-lp-version" content="weight-management v0.6">
+<meta name="aliv-lp-version" content="weight-management v0.7">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
 <meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
@@ -53,7 +53,7 @@
 
 <style>
 /* ==========================================================================
-   ALIV — Weight management landing page · v0.6 (static infographics; research charts animate; conversational guided chat; no menu). Same system as /lp-nad-plus/.
+   ALIV — Weight management landing page · v0.6 (static infographics; research charts animate; conversational guided chat; no menu; base + checks sections). Same system as /lp-nad-plus/.
    Mobile first (single column), then a desktop layer from 960px:
    wider container, sticky side headings, multi-column steps and grids.
    ========================================================================== */
@@ -641,6 +641,31 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 .msg ul.worth{margin:2px 0 0 18px}
 .msg ul.worth li{margin:3px 0;font-family:var(--display);font-weight:700;color:var(--green-700)}
 .chat-added{margin:18px 0 0;padding:10px 12px;border-left:3px solid var(--yellow-500);background:rgba(255,255,255,.08);font-size:.84rem;color:var(--white) !important}
+.basics{display:grid;gap:14px;margin-top:22px}
+.basic{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.basic h3{margin-bottom:8px}
+.basic ul{list-style:none}
+.basic li{position:relative;padding:6px 0 6px 18px;font-size:.92rem;color:var(--text-longform);line-height:1.5;border-top:1px dashed var(--border)}
+.basic li:first-child{border-top:none}
+.basic li::before{content:'';position:absolute;left:2px;top:14px;width:6px;height:6px;border-radius:50%;background:var(--teal-500)}
+.basic-extra{margin-top:14px}
+.basic-extra p{font-size:.92rem;color:var(--text-longform);margin:0}
+.ready{margin-top:26px;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--yellow-500);border-radius:12px;padding:20px 22px}
+.ready label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:.92rem;color:var(--text-longform);cursor:pointer;border-top:1px dashed var(--border)}
+.ready label:first-of-type{border-top:none}
+.ready input{margin-top:4px;width:18px;height:18px;accent-color:var(--teal-600);flex:none}
+.ready-out{margin:12px 0 0;font-family:var(--display);font-weight:700;color:var(--green-700)}
+.checks{list-style:none;margin-top:22px}
+.checks li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--border)}
+.checks li:last-child{border-bottom:1px solid var(--border)}
+.checks li b{font-family:var(--display);color:var(--teal-500);font-size:.95rem;padding-top:2px}
+.checks h3{margin-bottom:4px}
+.checks p{margin:0;font-size:.93rem;color:var(--text-longform)}
+.paths{margin-top:24px;display:grid;gap:10px}
+.path{display:grid;gap:2px;padding:12px 16px;background:var(--aqua);border-radius:10px}
+.path b{font-family:var(--display);color:var(--green-700);font-size:.92rem}
+.path span{font-size:.9rem;color:var(--text-longform)}
+@media(min-width:960px){ .basics{grid-template-columns:repeat(3,1fr)} .paths{grid-template-columns:repeat(2,1fr)} .paths .pcard-k{grid-column:1/-1} }
 .ver{font-size:.7rem;color:var(--neutral-300);margin-top:12px}
 
 @media (prefers-reduced-motion:reduce){ .nod{animation:none} }
@@ -989,8 +1014,64 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
     <div class="disc"><strong>What we won't tell you:</strong> that it's all willpower, or that medical support is cheating. Both are wrong. The right plan depends on your body, and your body shows up in your results.</div>
   </section>
 
+  <!-- ======================= 4b. GET THE BASE RIGHT (lifestyle basics) ======================= -->
+  <section class="rv wash" id="base">
+    <span class="eyebrow">The base of the pyramid</span>
+    <h2>Get the base right first.</h2>
+    <p style="max-width:640px">Most people hope a treatment will do the work. It can't on its own. These three basics come first for everyone, and everything else is built on them.</p>
+    <div class="basics">
+      <div class="basic">
+        <h3>1 · Sleep</h3>
+        <ul>
+          <li>7 to 8 hours, waking up fresh.</li>
+          <li>Screens off for the last hour before bed, so your sleep hormones can do their job.</li>
+          <li>Poor sleep upsets the hormones that control hunger and fat burning<a class="cite" href="#references">3</a>.</li>
+        </ul>
+      </div>
+      <div class="basic">
+        <h3>2 · Food and water</h3>
+        <ul>
+          <li>3 to 4 litres of water a day.</li>
+          <li>Protein of at least 1 g per kg of your goal weight. Aiming for 75 kg means about 75 g a day. Track it.</li>
+          <li>Eat in order: protein and fibre first, then fats, then carbohydrates. This keeps blood sugar steady.</li>
+          <li>Keep fruit and simple carbs for the end of a meal, not as snacks.</li>
+          <li>Eat within a 10 to 11 hour window, for example 9am to 7pm. If you're hungry in between: nuts, seeds or a protein bar.</li>
+        </ul>
+      </div>
+      <div class="basic">
+        <h3>3 · Movement</h3>
+        <ul>
+          <li>Brisk walking on an incline (zone 2 cardio). Start with 30 to 45 minutes and build to 60 to 75, in one go.</li>
+          <li>Add core work, such as dead bugs.</li>
+          <li>Knee or foot problems? Walk flat and a little longer instead.</li>
+          <li>Already strength training? Keep going, and judge progress in inches, not kilos.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="basic basic-extra">
+      <span class="tier t-early">Early evidence</span>
+      <h3>Small daily additions</h3>
+      <p>ALIV's lifestyle guide includes a morning glass of water with natural powders such as moringa, cinnamon and turmeric. They add micronutrients and antioxidants. They support the basics; they don't replace them.</p>
+    </div>
+    <div class="pull">Treatment is a multiplier. Multiply it by zero effort, and the result is zero.</div>
+
+    <div class="ready" id="ready">
+      <h3>Are you ready? A 30-second check</h3>
+      <p class="note">Tick what you already do most days.</p>
+      <label><input type="checkbox"> I sleep 7 to 8 hours and wake up fresh</label>
+      <label><input type="checkbox"> I keep screens away for the last hour before bed</label>
+      <label><input type="checkbox"> I drink 3 to 4 litres of water</label>
+      <label><input type="checkbox"> I eat protein at every meal</label>
+      <label><input type="checkbox"> I eat protein and fibre before carbs</label>
+      <label><input type="checkbox"> I eat within a 10 to 11 hour window</label>
+      <label><input type="checkbox"> I walk briskly for 45 minutes or more, in one go</label>
+      <label><input type="checkbox"> I snack on nuts or seeds, not sugar</label>
+      <p class="ready-out" id="readyOut" aria-live="polite">0 of 8. Every tick makes any treatment work harder for you.</p>
+    </div>
+  </section>
+
   <!-- ============================ 5. SAFETY ============================ -->
-  <section class="rv wash" id="safety">
+  <section class="rv" id="safety">
     <div class="split no-stick">
       <div class="side">
         <span class="eyebrow">Safety</span>
@@ -1054,6 +1135,26 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
         <div class="why"><h3>Measured.</h3><p>Bloodwork and body composition set the plan, and repeat tests show whether it's working.</p></div>
         <div class="why"><h3>Honest.</h3><p>No crash diets. No miracle promises. Every claim on this page carries its evidence.</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ======================= 7b. WHAT WE CHECK, IN ORDER ======================= -->
+  <section class="rv" id="checks">
+    <span class="eyebrow">What we check</span>
+    <h2>What we check, in order.</h2>
+    <p style="max-width:640px">Before anything starts, these four checks decide which plan is right for you, and whether you're ready to start at all.</p>
+    <ol class="checks">
+      <li><b>01</b><div><h3>Body composition</h3><p>BMI first, then how much of your weight is fat and how much is muscle and bone. Then which kind of fat: around the organs (the stubborn kind) or under the skin. More fat around the organs means a longer walking routine.</p></div></li>
+      <li><b>02</b><div><h3>Thyroid</h3><p>If your thyroid is off, nothing else works until it's treated. You fix the base and sort your thyroid medicine for 1 to 2 months, repeat the tests after about 6 weeks, and only then start. With a family history, check it every 6 to 9 months.</p></div></li>
+      <li><b>03</b><div><h3>Insulin resistance</h3><p>Often the missed test. If you lose weight on a diet and it comes straight back the moment you stop, insulin resistance is a common reason. It decides whether medical support has a role.</p></div></li>
+      <li><b>04</b><div><h3>Safety screening</h3><p>Before any prescription support: your family history and screening tests, so the doctor knows it's safe for you.</p></div></li>
+    </ol>
+    <div class="paths">
+      <p class="pcard-k">Where the checks usually lead</p>
+      <div class="path"><b>Thyroid off</b><span>Fix the thyroid and the base first. Re-test, then start.</span></div>
+      <div class="path"><b>Thyroid and insulin normal</b><span>The basics plus IV support.</span></div>
+      <div class="path"><b>Insulin resistance, or appetite hard to control</b><span>The basics plus doctor-led medical support, at the lowest effective dose.</span></div>
+      <div class="path"><b>Established metabolic disease</b><span>Advanced Metabolic Reset.</span></div>
     </div>
   </section>
 
@@ -1137,7 +1238,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 </svg></figure>
         <span class="chap-n">03 · We review</span>
         <h3>Review, then adjust</h3>
-        <p>Review points are set from day one, judged on body composition and repeat bloodwork, not just the scale. What's on track stays. What isn't, changes.</p>
+        <p>The first month is a trial: 4 to 5 weekly sessions. Inches are measured every week and body composition every month, with a review each month. What's on track stays. What isn't, changes.</p>
       </li>
     </ol>
     <p class="loop"><span aria-hidden="true">&#8635;</span> Plan and review repeat until it's working.</p>
@@ -1157,6 +1258,8 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
         <details class="q"><summary>Will the weight come back?</summary><div class="body"><p>It can, which is why the plan is built for maintenance from the start. Keeping muscle, sleep and eating habits in place is what holds the result. Stopping medication without that plan usually means regain<a class="cite" href="#references">7</a>.</p></div></details>
         <details class="q"><summary>How fast will I lose weight?</summary><div class="body"><p>It depends on where you start. We aim for a steady pace that protects muscle, and judge progress on body composition and bloodwork as well as the scale.</p></div></details>
         <details class="q"><summary>I'm not overweight, but my waist and blood sugar are creeping up. Is this for me?</summary><div class="body"><p>Often, yes. This is common in South Asians at a "normal" BMI<a class="cite" href="#references">1</a>. Your assessment will show whether it's fat around the organs, blood sugar, or something else.</p></div></details>
+        <details class="q"><summary>Why do you focus on inches, not kilos?</summary><div class="body"><p>Because the scale can't tell fat from muscle. Someone can lose 5 inches in a week with no change in weight, and that's a great result: fat is going and muscle is staying. If weight drops but inches don't, something is wrong, usually too little protein. We aim for at least as much inch loss as weight loss.</p></div></details>
+        <details class="q"><summary>What happens after I reach my goal?</summary><div class="body"><p>The aim is to get about 70 to 80% of the way with our support. By then your body has reset, and the basics carry you the rest of the way. If there are times in the year when the routine slips, a few top-up sessions help you stay on track rather than drifting back.</p></div></details>
         <details class="q"><summary>What does it cost?</summary><div class="body"><p>It depends on your plan, which depends on your results. You'll get a clear quote after your assessment, before anything starts.</p></div></details>
         <details class="q"><summary>Is it safe?</summary><div class="body"><p>Under medical supervision, for most people, yes. Some approaches aren't suitable for everyone. Pregnancy, breastfeeding and some medical histories are exclusions, and your assessment decides what's safe for you.</p></div></details>
       </div>
@@ -1261,7 +1364,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
     </div>
     <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
     <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
-    <p class="ver">Weight management page · v0.6</p>
+    <p class="ver">Weight management page · v0.7</p>
   </div>
 </footer>
 
@@ -1347,6 +1450,18 @@ if('IntersectionObserver' in window){
   window.addEventListener('resize',update); update();
 })();
 
+/* --- readiness check --- */
+(function(){
+  var box=document.getElementById('ready'),out=document.getElementById('readyOut'); if(!box) return;
+  var cbs=[].slice.call(box.querySelectorAll('input[type=checkbox]'));
+  function upd(){ var n=cbs.filter(function(c){return c.checked}).length,msg;
+    if(n===cbs.length) msg='8 of 8. Your base is strong. If weight still won\'t move, it\'s time to test what\'s underneath.';
+    else if(n>=5) msg=n+' of 8. A good base. Tightening the rest makes any treatment work harder for you.';
+    else msg=n+' of 8. Start here. These basics come first, and a consultation shows which matter most for you.';
+    out.textContent=msg; }
+  cbs.forEach(function(c){c.addEventListener('change',upd)});
+})();
+
 /* --- clinic gallery tabs --- */
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.gal-tabs [role="tab"]'));
@@ -1407,7 +1522,7 @@ if('IntersectionObserver' in window){
   /* ---------- free-text answers (side questions at any point) ---------- */
   var A={
     why:{k:['why','stuck','plateau','not losing',"can't lose",'cant lose','stalled','not moving','gain','gaining','not reducing','kam nahi','vajan','wajan','motapa','belly','tummy','overweight','obese','obesity','lose weight','weight loss'],t:"Usually it's more than one thing: insulin resistance, thyroid, hormones (PCOS, menopause, low testosterone), short sleep, losing muscle while dieting, fat in the liver, or some medicines. Each shows up in tests, which is why we test before we plan."},
-    thyroid:{k:['thyroid','tsh','hypothyroid'],t:"An underactive thyroid slows how your body uses energy and is common, especially in women. It's a simple blood test. If it's off, it's treated first. If it's normal, we look at the other causes."},
+    thyroid:{k:['thyroid','tsh','hypothyroid'],t:"An underactive thyroid slows how your body uses energy and is common, especially in women. If it's off, nothing else works until it's treated: you fix it and the basics first, re-test after about 6 weeks, then start. With a family history, check it every 6 to 9 months."},
     pcos:{k:['pcos','pcod','ovary','ovarian','periods'],t:"PCOS is closely linked to insulin resistance, so diets often stall. The plan works on blood sugar, muscle and hormones together. If you're also trying to conceive, our fertility specialists work alongside."},
     meds:{k:['injection','injections','ozempic','mounjaro','wegovy','semaglutide','tirzepatide','glp','medicine','medication','tablet','pill'],t:"Prescription weight-loss medicines can help some people, but only after a doctor's assessment, and they can't be booked on their own. In large trials most people regained much of the weight within a year of stopping, so we only use them inside a plan that protects muscle and includes an exit plan."},
     consult:{k:['consult','consultation','appointment','first visit','what happens','assessment','test','tests','blood','bloodwork','scan'],t:"At your first visit: a medical consultation, bloodwork (blood sugar, insulin resistance, thyroid, hormones, lipids, liver) and a body composition scan. Your doctor explains the results and the plan. Some people need extra tests first."},
@@ -1470,7 +1585,9 @@ if('IntersectionObserver' in window){
     chips(Object.keys(DUR).map(function(k){return {label:DUR[k],fn:function(){ me(DUR[k]); S.duration=k; later(askTried); }}}));
   }
   function askTried(){ S.step='tried'; bot("What have you tried so far? Pick all that apply."); multi(TRIED,'tried',function(){ later(askSigns); },'none'); }
-  function askSigns(){ S.step='signs'; bot("Do any of these sound like you? Pick all that apply, or skip with Done."); multi(SIGNS,'signs',function(){ later(askSafety); }); }
+  function askSigns(){ S.step='signs'; bot("Do any of these sound like you? Pick all that apply, or skip with Done."); multi(SIGNS,'signs',function(){ later(askBasics); }); }
+  var BASICS={sleep:'7 to 8 hours of sleep',water:'3 to 4 litres of water',protein:'Protein at every meal',walk:'45+ minutes of brisk walking'};
+  function askBasics(){ S.step='basics'; bot("And which of these basics do you already do most days?"); multi(BASICS,'basics',function(){ later(askSafety); }); }
   function askSafety(){ S.step='safety';
     bot('One quick check. Does any of this apply right now?');
     chips([{label:'Pregnant or breastfeeding',fn:function(){ me('Pregnant or breastfeeding'); later(function(){ bot("Thanks for telling us. Weight-loss treatment isn't suitable right now. Please speak to your obstetrician, and we'd be glad to help afterwards."); endSoft(); }); }},
@@ -1490,6 +1607,7 @@ if('IntersectionObserver' in window){
     if(sig.indexOf('medicine')>-1) add('your current medicines');
     if(worth.length<2){ add('insulin resistance and blood sugar'); add('thyroid'); }
     worth=worth.slice(0,4);
+    var missing=Object.keys(BASICS).filter(function(k){return (S.basics||[]).indexOf(k)<0});
     var opener='';
     if(S.duration==='long'||S.tried.indexOf('diet')>-1) opener="Diets that work for a while and then stop is a very common pattern. It usually means something underneath hasn't been measured yet. ";
     else if(S.concern==='regain') opener="Weight coming back isn't a willpower failure. After weight loss the body pushes hunger up and, if muscle was lost, uses less energy. ";
@@ -1500,6 +1618,7 @@ if('IntersectionObserver' in window){
       if(sig.indexOf('sleep')>-1) later(function(){ bot('On sleep: in a controlled trial, people on the same diet lost less fat and more muscle when their sleep was cut short.'); askHow(); },500);
       else if(S.concern==='regain') later(function(){ bot('On regain: protecting muscle and having an exit plan is what helps weight stay off. That is built into every ALIV plan.'); askHow(); },500);
       else later(askHow,500);
+      if(missing.length) later(function(){ bot('And the base to build: '+missing.map(function(k){return BASICS[k].toLowerCase()}).join(', ')+'. Treatment multiplies effort, so these come first.'); },350);
     },450);
     track('chat_reflect',{concern:S.concern});
   }
@@ -1525,6 +1644,7 @@ if('IntersectionObserver' in window){
     if(S.duration) parts.push('Trying for: '+DUR[S.duration]);
     if(S.tried.length) parts.push('Tried: '+S.tried.map(function(k){return TRIED[k]}).join(', '));
     if(S.signs.length) parts.push('Also: '+S.signs.map(function(k){return SIGNS[k]}).join(', '));
+    if(S.basics) parts.push('Basics in place: '+(S.basics.length?S.basics.map(function(k){return BASICS[k]}).join(', '):'none yet'));
     return parts.join('. ')+'.';
   }
   function handoff(){ S.step='handoff';
@@ -1560,7 +1680,7 @@ if('IntersectionObserver' in window){
   function resumeFlow(silent){
     if(silent!==true) me('Continue');
     var go=({start:function(){ bot('What brings you here?'); chips(Object.keys(CONCERN).map(function(k){return {label:CONCERN[k],fn:function(){ me(CONCERN[k]); S.concern=k; later(askDuration); }}})); },
-             free:freeMode,duration:askDuration,tried:askTried,signs:askSigns,safety:askSafety,reflect:askHow,how:askHow,doubts:function(){doubts()},handoff:handoff})[S.step]||freeMode;
+             free:freeMode,duration:askDuration,tried:askTried,signs:askSigns,basics:askBasics,safety:askSafety,reflect:askHow,how:askHow,doubts:function(){doubts()},handoff:handoff})[S.step]||freeMode;
     later(go,250);
   }
 
