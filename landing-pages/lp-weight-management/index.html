@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-motion="off">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Medical Fat Loss | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
-<meta name="description" content="Doctor-led fat loss in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
+<title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
+<meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
 <!-- Speed: hero image and brand fonts (self-hosted) are fetched first -->
 <link rel="preload" as="image" href="img/band-sm.webp" media="(max-width:699px)" fetchpriority="high">
 <link rel="preload" as="image" href="img/band.webp" media="(min-width:700px)" fetchpriority="high">
@@ -52,7 +52,7 @@
 
 <style>
 /* ==========================================================================
-   ALIV — Fat loss landing page. Same system as /lp-nad-plus/.
+   ALIV — Weight management landing page. Same system as /lp-nad-plus/.
    Mobile first (single column), then a desktop layer from 960px:
    wider container, sticky side headings, multi-column steps and grids.
    ========================================================================== */
@@ -97,9 +97,9 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
 [id]{scroll-margin-top:78px}
-body{overflow-x:hidden;background:var(--ground);color:var(--text);
+body{overflow-x:hidden;overflow-x:clip;background:var(--ground);color:var(--text);
   font-family:var(--body);font-size:16px;line-height:1.6;font-weight:400;
   -webkit-font-smoothing:antialiased;padding-bottom:88px}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
@@ -483,6 +483,65 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   .marquee .dup{display:none}
 }
 
+
+/* ==========================================================================
+   v1 ADDITIONS: logo, contents drawer, hero drivers, static (no-motion) mode
+   ========================================================================== */
+.logo img{display:block;height:50px;width:auto}
+.nav-in{position:relative}
+.read-bar{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--teal-500);transform-origin:left;transform:scaleX(var(--p,0))}
+.menu-btn{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--green-700);border-radius:var(--radius);
+  padding:10px 14px;min-height:44px;cursor:pointer;color:var(--green-700);font-family:var(--display);font-weight:700;font-size:.86rem}
+.menu-btn:hover{background:var(--green-700);color:var(--white)}
+.menu-btn i{display:block;width:18px;height:2px;background:currentColor;position:relative}
+.menu-btn i::before,.menu-btn i::after{content:'';position:absolute;left:0;width:18px;height:2px;background:currentColor}
+.menu-btn i::before{top:-6px}.menu-btn i::after{top:6px}
+
+.toc-scrim{position:fixed;inset:0;z-index:80;background:rgba(4,48,28,.45);opacity:0;pointer-events:none;transition:opacity .25s}
+.toc{position:fixed;top:0;right:0;bottom:0;z-index:90;width:min(340px,88vw);background:var(--white);overflow-y:auto;
+  padding:20px 24px 32px;box-shadow:-8px 0 30px rgba(4,48,28,.18);transform:translateX(100%);visibility:hidden;
+  transition:transform .3s cubic-bezier(.4,0,.2,1),visibility 0s linear .3s}
+body.toc-open{overflow:hidden}
+body.toc-open .toc{transform:none;visibility:visible;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
+.toc-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.toc-h b{font-family:var(--display);font-weight:700;color:var(--green-700);font-size:1.05rem}
+.toc-close{width:44px;height:44px;border:none;background:none;cursor:pointer;font-size:1.6rem;line-height:1;color:var(--green-700)}
+.toc-group{font-family:var(--display);font-weight:700;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--neutral-700);margin:18px 0 4px}
+.toc ol{list-style:none;position:relative}
+.toc ol::before{content:'';position:absolute;left:13px;top:22px;bottom:22px;width:2px;background:var(--teal-100)}
+.toc a{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:center;padding:7px 0;min-height:44px;text-decoration:none;
+  color:var(--green-700);font-family:var(--display);font-weight:700;font-size:.92rem;line-height:1.3}
+.toc a span{position:relative;z-index:1;width:28px;height:28px;border-radius:50%;background:var(--white);border:2px solid var(--teal-200);
+  display:flex;align-items:center;justify-content:center;font-size:.68rem;color:var(--teal-600)}
+.toc a.done span{background:var(--teal-100);border-color:var(--teal-300)}
+.toc a.on{color:var(--teal-700)}
+.toc a.on span{background:var(--teal-600);border-color:var(--teal-600);color:var(--white)}
+.toc a:hover{color:var(--teal-600)}
+.toc-cta{margin-top:24px}
+
+.drivers{list-style:none;counter-reset:d}
+.drivers li{counter-increment:d;display:grid;grid-template-columns:26px 1fr;gap:10px;padding:9px 0;
+  border-top:1px solid rgba(255,255,255,.1);font-size:.9rem;color:#D9ECE8;line-height:1.4}
+.drivers li:first-child{border-top:none}
+.drivers li::before{content:counter(d,decimal-leading-zero);font-family:var(--display);font-weight:700;font-size:.72rem;color:var(--yellow-500);padding-top:2px}
+
+.aliv-intro{max-width:640px}
+.form-logo{display:block;height:54px;width:auto;margin-bottom:26px}
+.foot-logo{display:block;height:64px;width:auto;margin-bottom:22px}
+
+/* STATIC MODE (this version): infographics show in their final state, nothing moves.
+   The advanced version sets data-motion="on" to switch the animations back on. */
+[data-motion="off"] .rv{opacity:1;transform:none;transition:none}
+[data-motion="off"] .mk i::after,[data-motion="off"] .seg,[data-motion="off"] .bar-row i::after,
+[data-motion="off"] .layer,[data-motion="off"] .steps::before{transition:none !important;transform:none !important;opacity:1}
+[data-motion="off"] .lc .path{transition:none;stroke-dashoffset:0}
+[data-motion="off"] .lc circle,[data-motion="off"] .pin{transition:none;opacity:1}
+[data-motion="off"] .scan,[data-motion="off"] .live::before{animation:none}
+[data-motion="off"] .marquee{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:18px 40px}
+[data-motion="off"] .marquee .dup{display:none}
+[data-motion="off"] .press-mask{-webkit-mask-image:none;mask-image:none}
+
 /* ==========================================================================
    TABLET (680px+)
    ========================================================================== */
@@ -506,12 +565,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
    ========================================================================== */
 @media(min-width:960px){
   :root{--max:1140px;--pad:40px}
-  body{font-size:17px;padding-bottom:0}
+  body{font-size:17px}
   h1{font-size:3.1rem}
   h2{font-size:2.25rem}
-  .nav-links{display:flex;gap:28px;margin-left:auto}
-  .nav-links a{font-family:var(--display);font-weight:700;font-size:.88rem;color:var(--green-700);text-decoration:none;padding:10px 0}
-  .nav-links a:hover{color:var(--teal-600)}
+  .logo img{height:56px}
 
   /* hero: copy left, "what we measure" right */
   .hero{padding:96px 0 92px}
@@ -545,7 +602,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   footer .foot-grid{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:start}
   footer .cols{margin:0;justify-content:space-between}
 
-  .sticky{display:none}
 
   .hero .panel{margin-top:0;padding:26px 28px 20px}
   .creds{padding:44px 0 34px}
@@ -570,17 +626,38 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 <body>
 <nav>
   <div class="nav-in">
-    <a class="logo" href="#top">ALIV<span>REGENERATIVE WELLNESS</span></a>
-    <div class="nav-links">
-      <a href="#why-stalls">Why it stalls</a>
-      <a href="#explored">What works</a>
-      <a href="#numbers">The research</a>
-      <a href="#routes">The approach</a>
-      <a href="#faq">FAQ</a>
-    </div>
-    <a class="nav-cta" href="#book">Book</a>
+    <a class="logo" href="#top"><img src="img/logo/aliv-green.webp" alt="ALIV Regenerative Wellness by Dr. Tandulwadkar" width="360" height="214"></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="toc"><i aria-hidden="true"></i>Contents</button>
   </div>
+  <span class="read-bar" id="readBar" aria-hidden="true"></span>
 </nav>
+
+<!-- Contents drawer: the page's flow; tap any step to jump there -->
+<div class="toc-scrim" id="tocScrim" aria-hidden="true"></div>
+<aside class="toc" id="toc" aria-label="On this page">
+  <div class="toc-h"><b>On this page</b><button class="toc-close" id="tocClose" type="button" aria-label="Close contents">&times;</button></div>
+  <p class="toc-group">Understand the problem</p>
+  <ol>
+    <li><a href="#why-stalls"><span>1</span>Why weight loss stalls</a></li>
+    <li><a href="#explored"><span>2</span>What works</a></li>
+    <li><a href="#numbers"><span>3</span>The research</a></li>
+    <li><a href="#routes"><span>4</span>The approach</a></li>
+    <li><a href="#safety"><span>5</span>Safety</a></li>
+  </ol>
+  <p class="toc-group">Who can help</p>
+  <ol>
+    <li><a href="#aliv"><span>6</span>About ALIV</a></li>
+    <li><a href="#team"><span>7</span>Our doctors</a></li>
+    <li><a href="#programmes"><span>8</span>Programmes</a></li>
+    <li><a href="#steps"><span>9</span>How it works</a></li>
+  </ol>
+  <p class="toc-group">Next steps</p>
+  <ol>
+    <li><a href="#faq"><span>10</span>Questions</a></li>
+    <li><a href="#book"><span>11</span>Book a consultation</a></li>
+    <li><a href="#references"><span>12</span>References</a></li>
+  </ol>
+</aside>
 
 <div id="top" class="wrap">
 
@@ -589,56 +666,37 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     <div class="hero-media" aria-hidden="true"><video id="heroVid" muted loop playsinline preload="none"></video></div>
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">Medical Fat Loss &nbsp;·&nbsp; Pune &amp; Mumbai</span>
-        <h1>Fat loss that lasts is a metabolic problem. <em>Not a willpower one.</em></h1>
-        <p class="lead">You've done the diets. The weight came off, then came back. Often something underneath was never measured: blood sugar, thyroid, hormones, sleep, muscle.</p>
-        <p class="lead">We measure first. Then we build the plan.</p>
-        <a class="btn" href="#book">Book a Consultation</a>
-        <a class="btn-ghost" href="#explored">See what actually works &nbsp;&darr;</a>
-        <div class="trust">
-          <span>Doctor-led, not a diet plan</span>
-          <span>Bloodwork before any plan</span>
-          <span>Koregaon Park &amp; Linking Road</span>
-        </div>
+        <span class="eyebrow">Weight management</span>
+        <h1>Doing everything right, and the weight still won't shift? <em>It's rarely about willpower.</em></h1>
+        <p class="lead">Eating less and moving more works for a while, then stops. Or the weight comes back. Usually something underneath hasn't been looked at yet.</p>
+        <a class="btn" href="#why-stalls">See why it stalls &nbsp;&darr;</a>
       </div>
-      <aside class="panel rv" aria-label="What we measure before we advise">
-        <div class="scan" aria-hidden="true"></div>
-        <div class="panel-h"><h3>What we measure before we advise</h3><span class="live">Assessment</span></div>
-        <div class="mk" style="--d:0"><span>Insulin resistance (HOMA-IR)</span><i style="--w:78%"></i></div>
-        <div class="mk" style="--d:1"><span>HbA1c and fasting glucose</span><i style="--w:62%"></i></div>
-        <div class="mk" style="--d:2"><span>ApoB, Lp(a) and full lipids</span><i style="--w:70%"></i></div>
-        <div class="mk" style="--d:3"><span>hs-CRP (inflammation)</span><i style="--w:48%"></i></div>
-        <div class="mk" style="--d:4"><span>Thyroid and hormones</span><i style="--w:66%"></i></div>
-        <div class="mk" style="--d:5"><span>Liver enzymes, FibroScan where indicated</span><i style="--w:56%"></i></div>
-        <div class="mk" style="--d:6"><span>Body composition: fat versus muscle</span><i style="--w:84%"></i></div>
-        <p class="fineprint">Illustrative. Your own results set your plan.</p>
+      <aside class="panel" aria-label="What can quietly stall weight loss">
+        <div class="panel-h"><h3>What can quietly stall weight loss</h3></div>
+        <ol class="drivers">
+          <li>Insulin resistance and blood sugar</li>
+          <li>An underactive thyroid</li>
+          <li>Hormones: PCOS, menopause, low testosterone</li>
+          <li>Short sleep and long-term stress</li>
+          <li>Losing muscle while dieting</li>
+          <li>Fat in the liver</li>
+          <li>Some everyday medicines</li>
+        </ol>
+        <p class="fineprint">Most people have more than one. Each shows up in tests.</p>
       </aside>
     </div>
-    <div class="disc"><strong>Important information.</strong> Fat loss at ALIV is doctor-led and starts with a medical assessment. Results vary from person to person and no outcome is guaranteed. This page is educational and is not medical advice.</div>
   </header>
 
-  <!-- ===================== CREDENTIALS + PRESS ===================== -->
-  <div class="creds rv" aria-label="About ALIV">
-    <div class="cred"><b>2016</b><span>Pioneering regenerative medicine and longevity since</span></div>
-    <div class="cred"><b><span class="cnt" data-count="10">10</span></b><span>Doctors and scientists on the ALIV panel</span></div>
-    <div class="cred"><b><span class="cnt" data-count="9">9</span><small>+</small></b><span>Markers checked before any plan</span></div>
-    <div class="cred"><b><span class="cnt" data-count="2">2</span></b><span>Clinics: Koregaon Park, Pune and Linking Road, Mumbai</span></div>
-  </div>
-  <div class="press">
-    <p>As featured in</p>
-    <div class="press-mask"><div class="marquee"><img src="img/press/femina.webp" alt="Femina" width="180" height="90" loading="lazy"><img src="img/press/midday.webp" alt="Mid-day" width="180" height="90" loading="lazy"><img src="img/press/pune-times.webp" alt="Pune Times" width="180" height="90" loading="lazy"><img src="img/press/pune-mirror.webp" alt="Pune Mirror" width="180" height="90" loading="lazy"><img src="img/press/biospectrum.webp" alt="BioSpectrum" width="180" height="90" loading="lazy"><img src="img/press/sakal.webp" alt="Sakal" width="180" height="90" loading="lazy"><img src="img/press/women-shine.webp" alt="Women Shine" width="180" height="90" loading="lazy"><img src="img/press/apn-news.webp" alt="APN News" width="180" height="90" loading="lazy"><img src="img/press/dainik-daitya.webp" alt="Dainik" width="180" height="90" loading="lazy"><img class="dup" src="img/press/femina.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/midday.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/pune-times.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/pune-mirror.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/biospectrum.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/sakal.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/women-shine.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/apn-news.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/dainik-daitya.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"></div></div>
-  </div>
-
-  <!-- ======================= 1. WHY FAT LOSS STALLS ======================= -->
+  <!-- ======================= 1. WHY WEIGHT LOSS STALLS ======================= -->
   <section class="rv" id="why-stalls">
     <div class="split">
       <div class="side">
         <span class="eyebrow">The body you're working with</span>
-        <h2>Why fat loss stalls.</h2>
+        <h2>Why weight loss stalls.</h2>
         <div class="pull">The scale can look normal while the metabolic risk is already there.</div>
       </div>
       <div>
-        <p>Fat isn't only stored energy. It's run by hormones, sleep, muscle and blood sugar. When one of those is off, eating less and moving more works for a while, then stops.</p>
+        <p>Body fat isn't only stored energy. It's run by hormones, sleep, muscle and blood sugar. When one of those is off, eating less and moving more works for a while, then stops.</p>
         <p><strong>South Asian bodies carry risk earlier.</strong> At the same BMI, South Asians tend to carry more body fat, and more of it around the organs. The WHO recommends lower BMI action points for Asian populations<a class="cite" href="#references">1</a>, and one well-known comparison found more than double the body fat in an Indian man of the same BMI as a European man<a class="cite" href="#references">2</a>.</p>
         <div class="bmi rv" role="img" aria-label="BMI risk cut-offs. Global: increased risk from 25, high risk from 30. Asian populations: increased risk from 23, high risk from 27.5. A BMI of 24 is normal on the global scale but already increased risk on the Asian scale.">
           <h3>Same number, different risk</h3>
@@ -710,7 +768,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
         <div class="ev ev-strong ev-first">
           <span class="tier t-strong">Strong human evidence</span>
           <h3>Nutrition built around a steady deficit</h3>
-          <p>Fat loss needs an energy deficit. That part is settled. What isn't one-size-fits-all is how you get there: what you eat, when, and how much your blood sugar and appetite allow.</p>
+          <p>Losing weight needs an energy deficit. That part is settled. What isn't one-size-fits-all is how you get there: what you eat, when, and how much your blood sugar and appetite allow.</p>
           <details class="more">
             <summary><span class="ac-chev" aria-hidden="true"></span>More</summary>
             <div class="ac-b"><p>Crash diets lose weight fast, and much of it is muscle and water. We plan for a pace you can hold and food you'll actually eat, Indian food included.</p></div>
@@ -753,7 +811,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
         <div class="ev ev-early ev-last">
           <span class="tier t-early">Early or weak evidence</span>
           <h3>Supplements and "fat burners"</h3>
-          <p>Most products sold for fat loss have little good evidence in humans. Some support a specific deficiency your bloodwork shows. Few do much beyond that.</p>
+          <p>Most products sold for weight loss have little good evidence in humans. Some support a specific deficiency your bloodwork shows. Few do much beyond that.</p>
           <details class="more">
             <summary><span class="ac-chev" aria-hidden="true"></span>More</summary>
             <div class="ac-b"><p>If you're low in something, correcting it helps you feel better and train better. We'll tell you what's worth taking and what's worth skipping.</p></div>
@@ -763,7 +821,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     </div>
   </section>
 
-  <!-- ==================== 2b. THE NUMBERS (research band) ==================== -->
+  <!-- ==================== 3. THE RESEARCH ==================== -->
   <section class="rv dark" id="numbers">
     <span class="eyebrow">The numbers behind the plan</span>
     <h2>What the trials actually measured.</h2>
@@ -806,13 +864,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     </div>
   </section>
 
-  <!-- ======================= 3. THE APPROACH ======================= -->
+  <!-- ======================= 4. THE APPROACH ======================= -->
   <section class="rv" id="routes">
     <span class="eyebrow">The approach</span>
     <h2>Lifestyle-led or medically supported.</h2>
     <p style="margin-bottom:20px">Not competing options. Different starting points, set by your results.</p>
 
-    <div class="layers rv" aria-label="ALIV's approach, built in four layers from the bottom up">
+    <div class="layers rv" aria-label="The approach, built in four layers from the bottom up">
       <div class="layer l1" style="--i:0"><b>01</b><div><h3>Diagnostics</h3><p>Bloodwork, body composition, and FibroScan where indicated. Every plan starts here.</p></div></div>
       <div class="layer l2" style="--i:1"><b>02</b><div><h3>Lifestyle foundation</h3><p>Nutrition for your blood sugar, strength training for muscle, sleep and stress.</p></div></div>
       <div class="layer l3" style="--i:2"><b>03</b><div><h3>Targeted IV and nutrient support</h3><p>Corrects deficiencies and supports energy and training. Supports the plan, doesn't replace it.</p><em>Supportive, evidence still early</em></div></div>
@@ -820,42 +878,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     </div>
     <p class="layers-cap">Built from the bottom up. Not everyone needs the top two layers.</p>
 
-    <h3 style="margin-top:34px">Where your plan can lead</h3>
-    <p class="note" style="margin-bottom:0">ALIV programmes your doctor may recommend. Eligibility is decided after assessment.</p>
-    <div class="progs">
-      <a class="prog" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/trim-tone-elixir" target="_blank" rel="noopener"><h3>Trim &amp; Tone Elixir</h3><p>IV nutrient support for plateaus, postpartum weight and active people.</p><span>View programme &rarr;</span></a>
-      <a class="prog" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/fatloss-max" target="_blank" rel="noopener"><h3>FatLoss Max</h3><p>ALIV's most intensive medically guided protocol, for significant weight loss.</p><span>View programme &rarr;</span></a>
-      <a class="prog" href="https://www.alivtherapy.in/therapy/speciality-protocols/advanced-metabolic-reset" target="_blank" rel="noopener"><h3>Advanced Metabolic Reset</h3><p>For established metabolic disease: insulin resistance, fatty liver, type 2 diabetes.</p><span>View programme &rarr;</span></a>
-    </div>
-
     <div class="pull">Medication can start it. Muscle and habits keep it.</div>
 
     <div class="disc"><strong>What we won't tell you:</strong> that it's all willpower, or that medical support is cheating. Both are wrong. The right plan depends on your body, and your body shows up in your results.</div>
   </section>
-</div>
-
-
-
-<div class="wrap">
-  <!-- ======================= 4. YOUR NEXT STEPS ======================= -->
-  <section class="rv wash">
-    <span class="eyebrow">How it runs</span>
-    <h2>Your next steps.</h2>
-    <div class="steps">
-      <div class="step"><div class="num"><span>01</span></div><div><h3>Consultation and assessment</h3><p>A medical consultation, bloodwork and body composition. Some people need further tests before a plan makes sense.</p></div></div>
-      <div class="step"><div class="num"><span>02</span></div><div><h3>Your plan</h3><p>Your results and goals set the plan: nutrition, training, sleep, and whether medical support has a role.</p></div></div>
-      <div class="step"><div class="num"><span>03</span></div><div><h3>Start and review</h3><p>Review points are set from day one, tracked on body composition and repeat bloodwork, not just the scale. If it isn't working, it changes.</p></div></div>
-    </div>
-    <a class="btn" href="#book" style="margin-top:28px">Book a Consultation</a>
-  </section>
 
   <!-- ============================ 5. SAFETY ============================ -->
-  <section class="rv">
+  <section class="rv wash" id="safety">
     <div class="split">
       <div class="side">
         <span class="eyebrow">Safety</span>
         <h2>Faster isn't better. Not everyone qualifies.</h2>
-        <p>Done under supervision, fat loss is safe for most people. That is not the same as every method being right for everyone.</p>
+        <p>Done under supervision, weight management is safe for most people. That is not the same as every method being right for everyone.</p>
       </div>
       <div class="cards">
         <div class="job"><h3>The pace matters</h3><p>Losing too fast costs muscle, energy and sometimes gallbladder health. We aim for a pace your body can hold.</p></div>
@@ -866,15 +900,35 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     </div>
   </section>
 
-  <!-- =========================== 6. WHY ALIV =========================== -->
-  <section class="rv wash">
+  <!-- =================== 6. ABOUT ALIV (credentials + press) =================== -->
+  <section class="rv" id="aliv">
+    <div class="aliv-intro">
+      <span class="eyebrow">Who can help</span>
+      <h2>ALIV Regenerative Wellness.</h2>
+      <p>A doctor-led regenerative medicine and longevity practice founded by Dr. Tandulwadkar, with clinics in Pune and Mumbai. Weight management here starts with tests, not a diet sheet.</p>
+    </div>
+  <div class="creds rv" aria-label="About ALIV">
+    <div class="cred"><b>2016</b><span>Pioneering regenerative medicine and longevity since</span></div>
+    <div class="cred"><b><span class="cnt" data-count="10">10</span></b><span>Doctors and scientists on the ALIV panel</span></div>
+    <div class="cred"><b><span class="cnt" data-count="9">9</span><small>+</small></b><span>Markers checked before any plan</span></div>
+    <div class="cred"><b><span class="cnt" data-count="2">2</span></b><span>Clinics: Koregaon Park, Pune and Linking Road, Mumbai</span></div>
+  </div>
+  <div class="press">
+    <p>As featured in</p>
+    <div class="press-mask"><div class="marquee"><img src="img/press/femina.webp" alt="Femina" width="180" height="90" loading="lazy"><img src="img/press/midday.webp" alt="Mid-day" width="180" height="90" loading="lazy"><img src="img/press/pune-times.webp" alt="Pune Times" width="180" height="90" loading="lazy"><img src="img/press/pune-mirror.webp" alt="Pune Mirror" width="180" height="90" loading="lazy"><img src="img/press/biospectrum.webp" alt="BioSpectrum" width="180" height="90" loading="lazy"><img src="img/press/sakal.webp" alt="Sakal" width="180" height="90" loading="lazy"><img src="img/press/women-shine.webp" alt="Women Shine" width="180" height="90" loading="lazy"><img src="img/press/apn-news.webp" alt="APN News" width="180" height="90" loading="lazy"><img src="img/press/dainik-daitya.webp" alt="Dainik" width="180" height="90" loading="lazy"><img class="dup" src="img/press/femina.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/midday.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/pune-times.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/pune-mirror.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/biospectrum.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/sakal.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/women-shine.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/apn-news.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"><img class="dup" src="img/press/dainik-daitya.webp" alt="" aria-hidden="true" width="180" height="90" loading="lazy"></div></div>
+  </div>
+
+  </section>
+
+  <!-- =========================== 7. OUR DOCTORS =========================== -->
+  <section class="rv wash" id="team">
     <div class="why-grid">
       <div>
         <div class="team"><figure class="member"><div class="ph"><img src="img/team/Dr-Rajesh.webp" alt="Dr. Rajesh Tandulwadkar" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Rajesh Tandulwadkar</b><span>Gastro Surgeon &amp; Liver Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sunita.webp" alt="Dr. Sunita Tandulwadkar" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Sunita Tandulwadkar</b><span>ObGyn &amp; Infertility Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Ramesh.webp" alt="Dr. Ramesh Bhonde" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Ramesh Bhonde</b><span>Scientific Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Samta.webp" alt="Dr. Samta Singhania" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Samta Singhania</b><span>Obstetrician &amp; Gynecologist</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sonali.webp" alt="Dr. Sonali Dhomane" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Sonali Dhomane</b><span>Infertility Specialist</span></figure><figure class="member"><div class="ph"><img src="img/team/rishi.webp" alt="Rishi Tandulwadkar" width="480" height="360" loading="lazy" decoding="async"></div><b>Rishi Tandulwadkar</b><span>Founder &amp; CEO</span></figure></div>
         <p class="team-more">Plus orthopaedic, surgical and counselling specialists on the wider ALIV panel.</p>
       </div>
       <div>
-        <span class="eyebrow">Why ALIV</span>
+        <span class="eyebrow">Our doctors</span>
         <h2>Assessment first, every time.</h2>
         <div class="why"><h3>Doctor-led.</h3><p>Dr. Sunita Tandulwadkar and Dr. Rajesh Tandulwadkar lead the clinical team. They will tell you if something isn't for you.</p></div>
         <div class="why"><h3>Measured.</h3><p>Bloodwork and body composition set the plan, and repeat tests show whether it's working.</p></div>
@@ -883,11 +937,56 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     </div>
   </section>
 
-  <!-- ============================= 7. FORM ============================= -->
+  <!-- ======================= 8. PROGRAMMES ======================= -->
+  <section class="rv" id="programmes">
+    <span class="eyebrow">Programmes</span>
+    <h2>Where your plan can lead.</h2>
+    <p class="note" style="margin-bottom:0">ALIV programmes your doctor may recommend. Eligibility is decided after assessment.</p>
+    <div class="progs">
+      <a class="prog" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/trim-tone-elixir" target="_blank" rel="noopener"><h3>Trim &amp; Tone Elixir</h3><p>IV nutrient support for plateaus, postpartum weight and active people.</p><span>View programme &rarr;</span></a>
+      <a class="prog" href="https://www.alivtherapy.in/therapy/targeted-iv-drip-therapy/fatloss-max" target="_blank" rel="noopener"><h3>FatLoss Max</h3><p>ALIV's most intensive medically guided protocol, for significant weight loss.</p><span>View programme &rarr;</span></a>
+      <a class="prog" href="https://www.alivtherapy.in/therapy/speciality-protocols/advanced-metabolic-reset" target="_blank" rel="noopener"><h3>Advanced Metabolic Reset</h3><p>For established metabolic disease: insulin resistance, fatty liver, type 2 diabetes.</p><span>View programme &rarr;</span></a>
+    </div>
+
+  </section>
+
+  <!-- ======================= 9. HOW IT WORKS ======================= -->
+  <section class="rv wash" id="steps">
+    <span class="eyebrow">How it runs</span>
+    <h2>Your next steps.</h2>
+    <div class="steps">
+      <div class="step"><div class="num"><span>01</span></div><div><h3>Consultation and assessment</h3><p>A medical consultation, bloodwork and body composition. Some people need further tests before a plan makes sense.</p></div></div>
+      <div class="step"><div class="num"><span>02</span></div><div><h3>Your plan</h3><p>Your results and goals set the plan: nutrition, training, sleep, and whether medical support has a role.</p></div></div>
+      <div class="step"><div class="num"><span>03</span></div><div><h3>Start and review</h3><p>Review points are set from day one, tracked on body composition and repeat bloodwork, not just the scale. If it isn't working, it changes.</p></div></div>
+    </div>
+    <a class="btn" href="#book" style="margin-top:28px">Book a Consultation</a>
+  </section>
+
+  <!-- ============================== 10. FAQ ============================== -->
+  <section class="rv" id="faq">
+    <div class="split">
+      <div class="side">
+        <span class="eyebrow">Questions</span>
+        <h2>The ones people actually ask.</h2>
+      </div>
+      <div>
+        <details class="q"><summary>Is this a diet plan?</summary><div class="body"><p>No. A diet plan starts with food. We start with your bloodwork, body composition and history, then build nutrition, training and sleep around what they show.</p></div></details>
+        <details class="q"><summary>Can I just get the weight-loss injection?</summary><div class="body"><p>Not on its own. Prescription medication is a clinical decision made after assessment, only for people who qualify, and only inside a plan that protects muscle and prepares you for coming off it.</p></div></details>
+        <details class="q"><summary>Will the weight come back?</summary><div class="body"><p>It can, which is why the plan is built for maintenance from the start. Keeping muscle, sleep and eating habits in place is what holds the result. Stopping medication without that plan usually means regain<a class="cite" href="#references">7</a>.</p></div></details>
+        <details class="q"><summary>How fast will I lose weight?</summary><div class="body"><p>It depends on where you start. We aim for a steady pace that protects muscle, and judge progress on body composition and bloodwork as well as the scale.</p></div></details>
+        <details class="q"><summary>I'm not overweight, but my waist and blood sugar are creeping up. Is this for me?</summary><div class="body"><p>Often, yes. This is common in South Asians at a "normal" BMI<a class="cite" href="#references">1</a>. Your assessment will show whether it's fat around the organs, blood sugar, or something else.</p></div></details>
+        <details class="q"><summary>What does it cost?</summary><div class="body"><p>It depends on your plan, which depends on your results. You'll get a clear quote after your assessment, before anything starts.</p></div></details>
+        <details class="q"><summary>Is it safe?</summary><div class="body"><p>Under medical supervision, for most people, yes. Some approaches aren't suitable for everyone. Pregnancy, breastfeeding and some medical histories are exclusions, and your assessment decides what's safe for you.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= 11. FORM ============================= -->
   <section class="rv" id="book">
     <div class="form">
       <div class="form-grid">
         <div>
+          <img class="form-logo" src="img/logo/aliv-white.webp" alt="ALIV" width="360" height="214" loading="lazy">
           <span class="eyebrow">Begin</span>
           <h2>Are you the right fit?</h2>
           <p>One conversation, your bloodwork, and a straight answer about what will actually move the needle for you. Nothing begins before that.</p>
@@ -900,7 +999,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
         <div>
           <!-- BACKEND: posts to this page like /lp-nad-plus/. Wire to the same handler. -->
           <form method="post" id="enquiryForm" novalidate>
-            <input type="hidden" name="source" value="lp-fat-loss">
+            <input type="hidden" name="source" value="lp-weight-management">
             <label for="n">Name</label>
             <input id="n" name="name" type="text" autocomplete="name" required maxlength="80">
 
@@ -917,7 +1016,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 
             <label for="ai">Area of interest</label>
             <select id="ai" name="interest" required>
-              <option value="Fat that won't shift despite effort">Fat that won't shift despite effort</option>
+              <option value="Weight that won't shift despite effort">Weight that won't shift despite effort</option>
               <option value="Weight that keeps coming back">Weight that keeps coming back</option>
               <option value="PCOS or hormones">PCOS or hormones</option>
               <option value="Blood sugar or insulin resistance">Blood sugar or insulin resistance</option>
@@ -936,27 +1035,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
     </div>
   </section>
 
-  <!-- ============================== 8. FAQ ============================== -->
-  <section class="rv wash" id="faq">
-    <div class="split">
-      <div class="side">
-        <span class="eyebrow">Questions</span>
-        <h2>The ones people actually ask.</h2>
-      </div>
-      <div>
-        <details class="q"><summary>Is this a diet plan?</summary><div class="body"><p>No. A diet plan starts with food. We start with your bloodwork, body composition and history, then build nutrition, training and sleep around what they show.</p></div></details>
-        <details class="q"><summary>Can I just get the weight-loss injection?</summary><div class="body"><p>Not on its own. Prescription medication is a clinical decision made after assessment, only for people who qualify, and only inside a plan that protects muscle and prepares you for coming off it.</p></div></details>
-        <details class="q"><summary>Will the weight come back?</summary><div class="body"><p>It can, which is why the plan is built for maintenance from the start. Keeping muscle, sleep and eating habits in place is what holds the result. Stopping medication without that plan usually means regain<a class="cite" href="#references">7</a>.</p></div></details>
-        <details class="q"><summary>How fast will I lose fat?</summary><div class="body"><p>It depends on where you start. We aim for a steady pace that protects muscle, and judge progress on body composition and bloodwork as well as the scale.</p></div></details>
-        <details class="q"><summary>I'm not overweight, but my waist and blood sugar are creeping up. Is this for me?</summary><div class="body"><p>Often, yes. This is common in South Asians at a "normal" BMI<a class="cite" href="#references">1</a>. Your assessment will show whether it's fat around the organs, blood sugar, or something else.</p></div></details>
-        <details class="q"><summary>What does it cost?</summary><div class="body"><p>It depends on your plan, which depends on your results. You'll get a clear quote after your assessment, before anything starts.</p></div></details>
-        <details class="q"><summary>Is it safe?</summary><div class="body"><p>Under medical supervision, for most people, yes. Some approaches aren't suitable for everyone. Pregnancy, breastfeeding and some medical histories are exclusions, and your assessment decides what's safe for you.</p></div></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================== 9. REFERENCES ========================== -->
-  <section class="rv" id="references">
+  <!-- ========================== 12. REFERENCES ========================== -->
+  <section class="rv wash" id="references">
     <div class="split">
       <div class="side">
         <span class="eyebrow">References</span>
@@ -984,17 +1064,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   <div class="wrap">
     <div class="foot-grid">
       <div>
+        <img class="foot-logo" src="img/logo/aliv-green.webp" alt="ALIV Regenerative Wellness by Dr. Tandulwadkar" width="360" height="214" loading="lazy">
         <div class="tag">Live better now, Age better later</div>
         <h2>Begin with a single conversation.</h2>
         <a class="btn" href="#book" style="margin-top:18px">Book a Consultation</a>
       </div>
       <div class="cols">
-        <div><h4>Explore</h4><a href="#why-stalls">Why fat loss stalls</a><a href="#explored">What works</a><a href="#routes">The approach</a><a href="#book">Book a consultation</a></div>
+        <div><h4>Explore</h4><a href="#why-stalls">Why weight loss stalls</a><a href="#explored">What works</a><a href="#aliv">About ALIV</a><a href="#book">Book a consultation</a></div>
         <div><h4>Contact</h4><a href="tel:+917719988811">+91 77199 88811</a><a href="https://wa.me/917719988811" target="_blank" rel="noopener">WhatsApp</a></div>
         <div><h4>Clinics</h4><a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Koregaon Park, Pune</a><a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Linking Road, Mumbai</a></div>
       </div>
     </div>
-    <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering medical fat loss at Koregaon Park, Pune and Linking Road, Mumbai.</p>
+    <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
     <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
   </div>
 </footer>
@@ -1008,10 +1089,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 
 <script>
 /* --- hero loop: add encoded files to enable; falls back to the still image --- */
-var ROOT = '/lp-fat-loss/';
+var ROOT = '/lp-weight-management/';
 var HERO_VIDEO = {
-  wide: { webm:'', mp4:'' },   /* e.g. ROOT + 'assets/fat-hero-1920x1080.mp4' */
-  tall: { webm:'', mp4:'' }    /* e.g. ROOT + 'assets/fat-hero-720x1280.mp4'  */
+  wide: { webm:'', mp4:'' },   /* e.g. ROOT + 'assets/wm-hero-1920x1080.mp4' */
+  tall: { webm:'', mp4:'' }    /* e.g. ROOT + 'assets/wm-hero-720x1280.mp4'  */
 };
 (function(){
   var v=document.getElementById('heroVid'); if(!v) return;
@@ -1040,12 +1121,40 @@ if('IntersectionObserver' in window){
   },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 
-  /* --- sticky cta (mobile/tablet only; hidden on desktop by CSS) --- */
-  var st=document.getElementById('sticky'),hero=document.querySelector('.hero');
-  new IntersectionObserver(function(es){ st.classList.toggle('show',!es[0].isIntersecting); },{threshold:0}).observe(hero);
 } else {
   document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
 }
+
+/* --- contents drawer, reading bar, section tracker, sticky CTA --- */
+(function(){
+  var body=document.body,btn=document.getElementById('menuBtn'),toc=document.getElementById('toc'),
+      scrim=document.getElementById('tocScrim'),cls=document.getElementById('tocClose'),
+      bar=document.getElementById('readBar'),st=document.getElementById('sticky'),aliv=document.getElementById('aliv');
+  var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  toc.setAttribute('aria-hidden','true');
+  function open(){body.classList.add('toc-open');btn.setAttribute('aria-expanded','true');toc.removeAttribute('aria-hidden');
+    var on=toc.querySelector('a.on')||links[0]; setTimeout(function(){on.focus()},60);}
+  function close(focusBtn){body.classList.remove('toc-open');btn.setAttribute('aria-expanded','false');toc.setAttribute('aria-hidden','true');
+    if(focusBtn) btn.focus();}
+  btn.addEventListener('click',function(){ body.classList.contains('toc-open')?close(true):open(); });
+  cls.addEventListener('click',function(){close(true)});
+  scrim.addEventListener('click',function(){close(true)});
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&body.classList.contains('toc-open')) close(true); });
+  links.forEach(function(a){a.addEventListener('click',function(){close(false)})});
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var y=window.scrollY,max=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.setProperty('--p',max>0?Math.min(1,y/max):0);
+    var cur=-1; secs.forEach(function(s,i){ if(s&&s.getBoundingClientRect().top<=window.innerHeight*0.35) cur=i; });
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur);a.classList.toggle('done',i<cur);
+      if(i===cur) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');});
+    if(st&&aliv) st.classList.toggle('show',aliv.getBoundingClientRect().top<window.innerHeight*0.6);
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(update);} },{passive:true});
+  window.addEventListener('resize',update); update();
+})();
 
 /* --- pause the logo marquee while it is off-screen --- */
 (function(){
@@ -1057,6 +1166,7 @@ if('IntersectionObserver' in window){
 (function(){
   var els=document.querySelectorAll('.cnt'); if(!els.length||!('IntersectionObserver' in window)) return;
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(document.documentElement.dataset.motion==='off') return;
   var o=new IntersectionObserver(function(es){es.forEach(function(e){
     if(!e.isIntersecting) return; o.unobserve(e.target);
     var el=e.target,end=+el.dataset.count,t0=null;
