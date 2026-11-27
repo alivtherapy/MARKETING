@@ -10,7 +10,10 @@
   blue #1257A8 = links only. Fonts: Avenir Heavy (display), Gordita (body).
 - Tracking IDs reused on every LP: Clarity uxteeaz5rs, Google Ads AW-11058315015, Meta Pixel 429598552784651.
 - Pages: `lp-weight-management/` (mobile-first, desktop two-column layer at 960px+).
-  Current version: v0.3 (static infographics). Preview build: `preview/lp-weight-management-v0.3-preview.html`.
+  Current version: v0.4. Preview build: `preview/lp-weight-management-v0.4-preview.html`.
+  v0.4 adds: left section rail on wide screens (no button; current section in red #C8102E), chip strip under the
+  top bar on phones; clinic gallery in About ALIV (lounge photo + Pune/Mumbai photo slots to fill);
+  Safety and FAQ headings no longer sticky; research charts animate in (bars + numbers from 0, line flows from 0%).
   v0.3 adds: evidence text inline (no "More"), liquid-glass research cards, approach pyramid (labels inside,
   explanations right), structured programme cards (type, level, best for), "Listen. Plan. Review." illustrated
   story (doctor nods), and a guided weight-management chat assistant (rule-based; AI backend hook in code).
@@ -32,7 +35,7 @@
 - Hero = the problem only. No ALIV mention, no booking button. Sell later in the page.
 - Order: problem → evidence → research → approach → safety → About ALIV (credentials + press)
   → doctors → programmes → how it works → FAQ → form → references → footer.
-- Sticky side headings on desktop; "Contents" drawer listing the flow (tap to jump, tracks position).
+- Sticky side headings on desktop (not Safety or FAQ). Section rail on the left (no Contents button), current section red.
 - Sticky Book bar appears only from the About ALIV section.
 - Logos: img/logo/aliv-green.webp (light bg), aliv-white.webp (dark bg), aliv-blue.webp (spare).
 - "How it works" mantra to keep across materials: Listen. Plan. Review.
@@ -58,5 +61,8 @@
 - No body-shaming / negative self-image hooks in weight-loss copy (Meta policy).
 
 ## Open items
+- Clinic photos needed: Pune + Mumbai (reception, consultation room, body composition scan, exterior; Mumbai lounge).
+  Confirm which city the infusion-lounge photo is from.
+- Chat assistant conversion flow: proposed, waiting for approval before building.
 - "Medically reviewed by [DOCTOR NAME]" placeholder on NAD+ and fat-loss pages.
 - Confirm WhatsApp number = +91 77199 88811; founding year 2015 vs 2016.

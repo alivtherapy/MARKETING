@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-motion="off" data-version="v0.3">
+<html lang="en" data-motion="off" data-version="v0.4">
 <head>
 <meta charset="utf-8">
-<meta name="aliv-lp-version" content="weight-management v0.3">
+<meta name="aliv-lp-version" content="weight-management v0.4">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weight Management | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
 <meta name="description" content="Doctor-led weight management in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
@@ -53,7 +53,7 @@
 
 <style>
 /* ==========================================================================
-   ALIV — Weight management landing page · v0.3 (static infographics). Same system as /lp-nad-plus/.
+   ALIV — Weight management landing page · v0.4 (static infographics; research charts animate). Same system as /lp-nad-plus/.
    Mobile first (single column), then a desktop layer from 960px:
    wider container, sticky side headings, multi-column steps and grids.
    ========================================================================== */
@@ -417,7 +417,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .bar-row i{display:block;height:8px;border-radius:4px;background:rgba(255,255,255,.08);position:relative;overflow:hidden}
 .bar-row i::after{content:'';position:absolute;top:0;bottom:0;left:0;width:var(--v);background:var(--c,var(--teal-300));border-radius:4px;
   transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.2,.7,.3,1) var(--dl,.2s)}
-.rv.in .bar-row i::after{transform:scaleX(1)}
 .src{font-size:.75rem;color:#8FBDB5 !important;margin:16px 0 0 !important;line-height:1.5}
 .lc{display:block;width:100%;height:auto;margin-top:12px;overflow:visible}
 .lc .axis{stroke:rgba(255,255,255,.2);stroke-width:1}
@@ -491,36 +490,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .logo img{display:block;height:50px;width:auto}
 .nav-in{position:relative}
 .read-bar{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--teal-500);transform-origin:left;transform:scaleX(var(--p,0))}
-.menu-btn{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--green-700);border-radius:var(--radius);
-  padding:10px 14px;min-height:44px;cursor:pointer;color:var(--green-700);font-family:var(--display);font-weight:700;font-size:.86rem}
-.menu-btn:hover{background:var(--green-700);color:var(--white)}
-.menu-btn i{display:block;width:18px;height:2px;background:currentColor;position:relative}
-.menu-btn i::before,.menu-btn i::after{content:'';position:absolute;left:0;width:18px;height:2px;background:currentColor}
-.menu-btn i::before{top:-6px}.menu-btn i::after{top:6px}
-
-.toc-scrim{position:fixed;inset:0;z-index:80;background:rgba(4,48,28,.45);opacity:0;pointer-events:none;transition:opacity .25s}
-.toc{position:fixed;top:0;right:0;bottom:0;z-index:90;width:min(340px,88vw);background:var(--white);overflow-y:auto;
-  padding:20px 24px 32px;box-shadow:-8px 0 30px rgba(4,48,28,.18);transform:translateX(100%);visibility:hidden;
-  transition:transform .3s cubic-bezier(.4,0,.2,1),visibility 0s linear .3s}
-body.toc-open{overflow:hidden}
-body.toc-open .toc{transform:none;visibility:visible;transition:transform .3s cubic-bezier(.4,0,.2,1)}
-body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
-.toc-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.toc-h b{font-family:var(--display);font-weight:700;color:var(--green-700);font-size:1.05rem}
-.toc-close{width:44px;height:44px;border:none;background:none;cursor:pointer;font-size:1.6rem;line-height:1;color:var(--green-700)}
-.toc-group{font-family:var(--display);font-weight:700;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--neutral-700);margin:18px 0 4px}
-.toc ol{list-style:none;position:relative}
-.toc ol::before{content:'';position:absolute;left:13px;top:22px;bottom:22px;width:2px;background:var(--teal-100)}
-.toc a{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:center;padding:7px 0;min-height:44px;text-decoration:none;
-  color:var(--green-700);font-family:var(--display);font-weight:700;font-size:.92rem;line-height:1.3}
-.toc a span{position:relative;z-index:1;width:28px;height:28px;border-radius:50%;background:var(--white);border:2px solid var(--teal-200);
-  display:flex;align-items:center;justify-content:center;font-size:.68rem;color:var(--teal-600)}
-.toc a.done span{background:var(--teal-100);border-color:var(--teal-300)}
-.toc a.on{color:var(--teal-700)}
-.toc a.on span{background:var(--teal-600);border-color:var(--teal-600);color:var(--white)}
-.toc a:hover{color:var(--teal-600)}
-.toc-cta{margin-top:24px}
-
 .drivers{list-style:none;counter-reset:d}
 .drivers li{counter-increment:d;display:grid;grid-template-columns:26px 1fr;gap:10px;padding:9px 0;
   border-top:1px solid rgba(255,255,255,.1);font-size:.9rem;color:#D9ECE8;line-height:1.4}
@@ -534,9 +503,8 @@ body.toc-open .toc-scrim{opacity:1;pointer-events:auto}
 /* STATIC MODE (this version): infographics show in their final state, nothing moves.
    The advanced version sets data-motion="on" to switch the animations back on. */
 [data-motion="off"] .rv{opacity:1;transform:none;transition:none}
-[data-motion="off"] .mk i::after,[data-motion="off"] .seg,[data-motion="off"] .bar-row i::after,
+[data-motion="off"] .mk i::after,[data-motion="off"] .seg,
 [data-motion="off"] .layer,[data-motion="off"] .steps::before{transition:none !important;transform:none !important;opacity:1}
-[data-motion="off"] .lc .path{transition:none;stroke-dashoffset:0}
 [data-motion="off"] .lc circle,[data-motion="off"] .pin{transition:none;opacity:1}
 [data-motion="off"] .scan,[data-motion="off"] .live::before{animation:none}
 [data-motion="off"] .marquee{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:18px 40px}
@@ -673,6 +641,75 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 
 @media (prefers-reduced-motion:reduce){ .nod{animation:none} }
 
+
+/* ---------- section rail ---------- */
+:root{--red:#C8102E;--red-bg:#FDECEE}
+[id]{scroll-margin-top:136px}
+.rail{position:sticky;top:var(--navh,79px);z-index:55;background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);
+  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{display:none}
+.rail-in{display:flex;width:max-content;padding:8px 12px}
+.rail .rail-logo,.rail .rail-g{display:none}
+.rail ol{list-style:none;display:flex;gap:4px}
+.rail a{display:block;padding:7px 12px;border-radius:16px;font-family:var(--display);font-weight:700;font-size:.78rem;
+  color:var(--neutral-700);text-decoration:none;white-space:nowrap;transition:color .2s,background .2s}
+.rail a:hover{color:var(--red)}
+.rail a.on{color:var(--red);background:var(--red-bg)}
+.split > .side{top:150px}
+.split.no-stick > .side{position:static}
+
+/* ---------- clinic gallery ---------- */
+.gallery{display:grid;gap:14px;margin:30px 0 8px}
+.g{margin:0;position:relative;overflow:hidden;border-radius:12px;background:var(--teal-100)}
+.g img{display:block;width:100%;height:100%;object-fit:cover}
+.g figcaption{position:absolute;left:10px;bottom:10px;background:rgba(4,48,28,.75);color:var(--white);font-family:var(--display);
+  font-weight:700;font-size:.74rem;padding:5px 11px;border-radius:14px}
+.g-lead{aspect-ratio:16/10}
+.gal-tabs{display:flex;gap:6px;margin-bottom:10px}
+.gal-tabs button{flex:1;min-height:44px;padding:9px 12px;border:1px solid var(--border);border-radius:22px;background:var(--white);
+  font-family:var(--display);font-weight:700;font-size:.8rem;color:var(--green-700);cursor:pointer}
+.gal-tabs button[aria-selected="true"]{background:var(--green-700);border-color:var(--green-700);color:var(--white)}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gal-grid .g{aspect-ratio:4/3}
+.gal-grid[hidden]{display:none}
+.slot{display:flex;align-items:center;justify-content:center;text-align:center;border:1.5px dashed var(--teal-300);background:var(--aqua)}
+.slot span{font-size:.7rem;color:var(--neutral-700);line-height:1.4;padding:8px}
+.slot b{display:block;font-family:var(--display);font-size:.84rem;color:var(--teal-700)}
+.gal-addr{font-size:.82rem;color:var(--neutral-700);margin:10px 0 0}
+.gal-addr a{color:var(--link)}
+
+/* ---------- research chart entrance ---------- */
+.charts.go .bar-row i::after{transform:scaleX(1)}
+.lc .path{stroke-dasharray:none !important;stroke-dashoffset:0 !important;transition:none !important}
+.lc circle{opacity:1 !important;transition:none !important}
+.lc .v{transition:opacity .5s ease 1.3s}
+.charts.pre .lc .v{opacity:0}
+.charts.pre.go .lc .v{opacity:1}
+
+/* wide screens: the rail lives on the left on its own */
+@media(min-width:1200px){
+  :root{--rail:236px}
+  body{padding-left:var(--rail)}
+  body > nav:first-of-type{display:none}
+  [id]{scroll-margin-top:28px}
+  .split > .side{top:40px}
+  .rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);border-bottom:none;border-right:1px solid var(--border);
+    overflow-y:auto;overflow-x:hidden;background:var(--white);z-index:60}
+  .rail-in{display:block;width:auto;padding:26px 0}
+  .rail .rail-logo{display:block;padding:0 26px 14px;background:none}
+  .rail-logo img{height:54px;width:auto;display:block}
+  .rail .rail-g{display:block;padding:18px 26px 6px;font-family:var(--display);font-weight:700;font-size:.62rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--neutral-700)}
+  .rail ol{display:block}
+  .rail a{position:relative;border-radius:0;padding:8px 22px 8px 26px;font-size:.86rem;color:var(--green-700);white-space:normal;line-height:1.3}
+  .rail a::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:transparent}
+  .rail a.done{color:var(--neutral-700)}
+  .rail a.on{color:var(--red);background:var(--red-bg)}
+  .rail a.on::before{background:var(--red)}
+  .hero-media{width:calc(100vw - var(--rail))}
+  .sticky{left:var(--rail)}
+}
+
 /* ==========================================================================
    TABLET (680px+)
    ========================================================================== */
@@ -744,6 +781,8 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
   .layers{max-width:760px;margin:34px auto 8px}
   .l2{width:94%}.l3{width:88%}.l4{width:82%}
   .pyr{display:grid;grid-template-columns:420px 1fr;gap:0 48px;align-items:start}
+  .gallery{grid-template-columns:7fr 5fr;align-items:stretch}
+  .g-lead{aspect-ratio:auto;min-height:340px}
   .pyr-shape{grid-template-rows:repeat(4,104px);margin:0;max-width:none}
   .band{font-size:.98rem}.band b{font-size:.74rem}
   .pyr-text{display:grid;grid-template-rows:repeat(4,104px);gap:5px;margin:0}
@@ -770,37 +809,18 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 <nav>
   <div class="nav-in">
     <a class="logo" href="#top"><img src="img/logo/aliv-green-sm.webp" alt="ALIV Regenerative Wellness by Dr. Tandulwadkar" width="200" height="119"></a>
-    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="toc"><i aria-hidden="true"></i>Contents</button>
   </div>
   <span class="read-bar" id="readBar" aria-hidden="true"></span>
 </nav>
 
-<!-- Contents drawer: the page's flow; tap any step to jump there -->
-<div class="toc-scrim" id="tocScrim" aria-hidden="true"></div>
-<aside class="toc" id="toc" aria-label="On this page">
-  <div class="toc-h"><b>On this page</b><button class="toc-close" id="tocClose" type="button" aria-label="Close contents">&times;</button></div>
-  <p class="toc-group">Understand the problem</p>
-  <ol>
-    <li><a href="#why-stalls"><span>1</span>Why weight loss stalls</a></li>
-    <li><a href="#explored"><span>2</span>What works</a></li>
-    <li><a href="#numbers"><span>3</span>The research</a></li>
-    <li><a href="#routes"><span>4</span>The approach</a></li>
-    <li><a href="#safety"><span>5</span>Safety</a></li>
-  </ol>
-  <p class="toc-group">Who can help</p>
-  <ol>
-    <li><a href="#aliv"><span>6</span>About ALIV</a></li>
-    <li><a href="#team"><span>7</span>Our doctors</a></li>
-    <li><a href="#programmes"><span>8</span>Programmes</a></li>
-    <li><a href="#steps"><span>9</span>How it works</a></li>
-  </ol>
-  <p class="toc-group">Next steps</p>
-  <ol>
-    <li><a href="#faq"><span>10</span>Questions</a></li>
-    <li><a href="#book"><span>11</span>Book a consultation</a></li>
-    <li><a href="#references"><span>12</span>References</a></li>
-  </ol>
-</aside>
+<!-- Section rail: fixed on the left on wide screens, a sticky strip under the top bar on phones.
+     The section you're reading is highlighted in red. -->
+<nav class="rail" id="rail" aria-label="Sections on this page">
+  <div class="rail-in">
+    <a class="rail-logo" href="#top"><img src="img/logo/aliv-green-sm.webp" alt="ALIV Regenerative Wellness by Dr. Tandulwadkar" width="200" height="119"></a>
+    <p class="rail-g">Understand the problem</p><ol><li><a href="#why-stalls">Why weight loss stalls</a></li><li><a href="#explored">What works</a></li><li><a href="#numbers">The research</a></li><li><a href="#routes">The approach</a></li><li><a href="#safety">Safety</a></li></ol><p class="rail-g">Who can help</p><ol><li><a href="#aliv">About ALIV</a></li><li><a href="#team">Our doctors</a></li><li><a href="#programmes">Programmes</a></li><li><a href="#steps">How it works</a></li></ol><p class="rail-g">Next steps</p><ol><li><a href="#faq">Questions</a></li><li><a href="#book">Book a consultation</a></li><li><a href="#references">References</a></li></ol>
+  </div>
+</nav>
 
 <div id="top" class="wrap">
 
@@ -980,8 +1000,8 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
           <line class="stop" x1="183" y1="22" x2="183" y2="150"/>
           <text x="188" y="36">Treatment stopped</text>
           <text x="0" y="26">0%</text><text x="0" y="128">−17%</text>
-          <path class="path" pathLength="1" d="M30 22 C 80 40, 130 118, 183 125 S 262 66, 300 56"/>
-          <circle class="c1" cx="30" cy="22" r="4"/><circle class="c2" cx="183" cy="125" r="5"/><circle class="c3" cx="300" cy="56" r="5"/>
+          <path class="path" id="lcPath" d="M30 22 C 80 40, 130 118, 183 125 S 262 66, 300 56"><animate class="lc-anim" attributeName="d" begin="indefinite" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .7 .3 1" from="M30 22 C 80 22, 130 22, 183 22 S 262 22, 300 22" to="M30 22 C 80 40, 130 118, 183 125 S 262 66, 300 56"/></path>
+          <circle class="c1" cx="30" cy="22" r="4"/><circle class="c2" cx="183" cy="125" r="5"><animate class="lc-anim" attributeName="cy" begin="indefinite" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .7 .3 1" from="22" to="125"/></circle><circle class="c3" cx="300" cy="56" r="5"><animate class="lc-anim" attributeName="cy" begin="indefinite" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".25 .7 .3 1" from="22" to="56"/></circle>
           <text class="v" x="128" y="142">−17.3%</text><text class="v" x="262" y="80">−5.6%</text>
           <text x="22" y="168">Wk 0</text><text x="170" y="168">Wk 68</text><text x="282" y="168">Wk 120</text>
         </svg>
@@ -1009,7 +1029,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 
   <!-- ============================ 5. SAFETY ============================ -->
   <section class="rv wash" id="safety">
-    <div class="split">
+    <div class="split no-stick">
       <div class="side">
         <span class="eyebrow">Safety</span>
         <h2>Faster isn't better. Not everyone qualifies.</h2>
@@ -1030,6 +1050,20 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
       <span class="eyebrow">Who can help</span>
       <h2>ALIV Regenerative Wellness.</h2>
       <p>A doctor-led regenerative medicine and longevity practice founded by Dr. Tandulwadkar, with clinics in Pune and Mumbai. Weight management here starts with tests, not a diet sheet.</p>
+    </div>
+    <!-- GALLERY. SWAP: replace each .slot with <figure class="g"><img src="img/clinic/..." alt="..."><figcaption>...</figcaption></figure>
+         Photos: 1200px wide, WebP ~q74. Confirm which city the infusion lounge photo is from. -->
+    <div class="gallery">
+      <figure class="g g-lead"><img src="img/clinic/lounge.webp" alt="The ALIV infusion lounge" width="1200" height="450" loading="lazy" decoding="async"><figcaption>Infusion lounge</figcaption></figure>
+      <div>
+        <div class="gal-tabs" role="tablist" aria-label="Choose a clinic">
+          <button type="button" role="tab" aria-selected="true" aria-controls="gal-pune" data-city="pune">Pune · Koregaon Park</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="gal-mumbai" data-city="mumbai">Mumbai · Linking Road</button>
+        </div>
+        <div class="gal-grid" id="gal-pune" role="tabpanel" aria-label="Pune clinic"><figure class="g slot"><span>Photo to add<b>Reception</b></span></figure><figure class="g slot"><span>Photo to add<b>Consultation room</b></span></figure><figure class="g slot"><span>Photo to add<b>Body composition scan</b></span></figure><figure class="g slot"><span>Photo to add<b>Clinic exterior</b></span></figure></div>
+        <div class="gal-grid" id="gal-mumbai" role="tabpanel" aria-label="Mumbai clinic" hidden><figure class="g slot"><span>Photo to add<b>Reception</b></span></figure><figure class="g slot"><span>Photo to add<b>Consultation room</b></span></figure><figure class="g slot"><span>Photo to add<b>Infusion lounge</b></span></figure><figure class="g slot"><span>Photo to add<b>Clinic exterior</b></span></figure></div>
+        <p class="gal-addr"><a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Koregaon+Park+Pune" target="_blank" rel="noopener">Pune on Maps</a> · <a href="https://www.google.com/maps/search/?api=1&query=ALIV+Regenerative+Wellness+Linking+Road+Mumbai" target="_blank" rel="noopener">Mumbai on Maps</a></p>
+      </div>
     </div>
   <div class="creds rv" aria-label="About ALIV">
     <div class="cred"><b>2016</b><span>Pioneering regenerative medicine and longevity since</span></div>
@@ -1150,7 +1184,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
 
   <!-- ============================== 10. FAQ ============================== -->
   <section class="rv" id="faq">
-    <div class="split">
+    <div class="split no-stick">
       <div class="side">
         <span class="eyebrow">Questions</span>
         <h2>The ones people actually ask.</h2>
@@ -1263,7 +1297,7 @@ body.chat-open .chat{transform:none;visibility:visible;transition:transform .3s 
     </div>
     <p style="font-size:.84rem;color:var(--neutral-700);margin-top:30px">A doctor-led regenerative wellness and longevity practice offering doctor-led weight management at Koregaon Park, Pune and Linking Road, Mumbai.</p>
     <div class="legal"><strong>Disclaimer.</strong> The information on this page is for educational purposes only and is not a substitute for medical advice, diagnosis or treatment. Prescription medicines are only considered after a medical assessment and are not available on request. Individual results vary and no outcome is guaranteed.</div>
-    <p class="ver">Weight management page · v0.3</p>
+    <p class="ver">Weight management page · v0.4</p>
   </div>
 </footer>
 
@@ -1332,40 +1366,71 @@ if('IntersectionObserver' in window){
   document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
 }
 
-/* --- contents drawer, reading bar, section tracker, sticky CTA --- */
+/* --- section rail (red = where you are), reading bar, sticky CTA, chat placement --- */
 (function(){
-  var body=document.body,btn=document.getElementById('menuBtn'),toc=document.getElementById('toc'),
-      scrim=document.getElementById('tocScrim'),cls=document.getElementById('tocClose'),
-      bar=document.getElementById('readBar'),st=document.getElementById('sticky'),aliv=document.getElementById('aliv');
-  var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+  var body=document.body,rail=document.getElementById('rail'),topNav=document.querySelector('body > nav'),
+      bar=document.getElementById('readBar'),st=document.getElementById('sticky'),aliv=document.getElementById('aliv'),
+      hero=document.querySelector('.hero');
+  var links=[].slice.call(rail.querySelectorAll('ol a[href^="#"]'));
   var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
-  toc.setAttribute('aria-hidden','true');
-  function open(){body.classList.add('toc-open');btn.setAttribute('aria-expanded','true');toc.removeAttribute('aria-hidden');
-    var on=toc.querySelector('a.on')||links[0]; setTimeout(function(){on.focus()},60);}
-  function close(focusBtn){body.classList.remove('toc-open');btn.setAttribute('aria-expanded','false');toc.setAttribute('aria-hidden','true');
-    if(focusBtn) btn.focus();}
-  btn.addEventListener('click',function(){ body.classList.contains('toc-open')?close(true):open(); });
-  cls.addEventListener('click',function(){close(true)});
-  scrim.addEventListener('click',function(){close(true)});
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&body.classList.contains('toc-open')) close(true); });
-  links.forEach(function(a){a.addEventListener('click',function(){close(false)})});
-  var ticking=false;
+  var wide=window.matchMedia('(min-width:1200px)'),last=-2,ticking=false;
+  function setNavH(){ document.documentElement.style.setProperty('--navh',(topNav&&!wide.matches?topNav.offsetHeight:0)+'px'); }
   function update(){
     ticking=false;
     var y=window.scrollY,max=document.documentElement.scrollHeight-window.innerHeight;
-    bar.style.setProperty('--p',max>0?Math.min(1,y/max):0);
-    var cur=-1; secs.forEach(function(s,i){ if(s&&s.getBoundingClientRect().top<=window.innerHeight*0.35) cur=i; });
-    links.forEach(function(a,i){a.classList.toggle('on',i===cur);a.classList.toggle('done',i<cur);
-      if(i===cur) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');});
-    var ctaOn=!!(st&&aliv&&aliv.getBoundingClientRect().top<window.innerHeight*0.6);
+    if(bar) bar.style.setProperty('--p',max>0?Math.min(1,y/max):0);
+    var line=window.innerHeight*0.35,cur=-1;
+    secs.forEach(function(s,i){ if(s&&s.getBoundingClientRect().top<=line) cur=i; });
+    if(cur!==last){
+      last=cur;
+      links.forEach(function(a,i){ a.classList.toggle('on',i===cur); a.classList.toggle('done',i<cur);
+        if(i===cur) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); });
+      if(cur>-1 && !wide.matches){ var a=links[cur]; rail.scrollTo({left:a.offsetLeft-rail.clientWidth/2+a.offsetWidth/2,behavior:'smooth'}); }
+    }
+    var ctaOn=!!(aliv&&aliv.getBoundingClientRect().top<window.innerHeight*0.6);
     if(st) st.classList.toggle('show',ctaOn);
     body.classList.toggle('cta-on',ctaOn);
-    var hero=document.querySelector('.hero'); if(hero) body.classList.toggle('past-hero',hero.getBoundingClientRect().bottom<80);
+    if(hero) body.classList.toggle('past-hero',hero.getBoundingClientRect().bottom<80);
   }
   window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(update);} },{passive:true});
-  window.addEventListener('resize',update); update();
+  window.addEventListener('resize',function(){setNavH();last=-2;update();});
+  setNavH(); update();
 })();
 
+/* --- clinic gallery tabs --- */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.gal-tabs [role="tab"]'));
+  tabs.forEach(function(t){ t.addEventListener('click',function(){
+    tabs.forEach(function(o){ var on=o===t; o.setAttribute('aria-selected',on?'true':'false');
+      document.getElementById('gal-'+o.dataset.city).hidden=!on; });
+  });});
+})();
+
+/* --- research charts: bars grow from 0, numbers count up, the line flows down from 0% --- */
+(function(){
+  var ch=document.querySelector('.charts'); if(!ch) return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){ ch.classList.add('go'); return; }
+  ch.classList.add('pre');
+  var path=document.getElementById('lcPath');
+  var FLAT='M30 22 C 80 22, 130 22, 183 22 S 262 22, 300 22';
+  if(path){ path.setAttribute('d',FLAT); ch.querySelectorAll('.lc .c2,.lc .c3').forEach(function(c){c.setAttribute('cy','22')}); }
+  var nums=[].slice.call(ch.querySelectorAll('.bar-row .lbl b')).map(function(b){
+    var m=b.textContent.match(/^([+−-]?)(\d+(?:\.\d+)?)(.*)$/); if(!m) return null;
+    var o={el:b,sign:m[1],to:parseFloat(m[2]),dec:(m[2].split('.')[1]||'').length,unit:m[3],
+           delay:parseFloat(getComputedStyle(b.closest('.bar-row').querySelector('i')).getPropertyValue('--dl'))||0.2};
+    b.textContent=o.sign+(0).toFixed(o.dec)+o.unit; return o; }).filter(Boolean);
+  function count(o){ var t0=null; function f(t){ if(!t0)t0=t; var k=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-k,3);
+      o.el.textContent=o.sign+(o.to*e).toFixed(o.dec)+o.unit; if(k<1) requestAnimationFrame(f); }
+    setTimeout(function(){requestAnimationFrame(f)},o.delay*1000); }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(!e.isIntersecting) return; io.disconnect();
+    ch.classList.add('go'); nums.forEach(count);
+    setTimeout(function(){ ch.querySelectorAll('.lc-anim').forEach(function(a){ try{a.beginElement()}catch(err){} });
+      setTimeout(function(){ if(path) path.setAttribute('d','M30 22 C 80 40, 130 118, 183 125 S 262 66, 300 56'); },1700); },250);
+  }); },{threshold:.3});
+  io.observe(ch);
+})();
 
 /* --- weight management chat assistant ---
    Guided and rule-based: every answer below is written to match this page, so it cannot invent medical claims.
