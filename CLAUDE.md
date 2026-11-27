@@ -28,6 +28,14 @@
 - Components: live biomarker panel (hero), count-up credentials, press marquee, BMI cut-off infographic,
   animated trial bar/line charts (dark band), layered approach stack, programme cards, step progress line, team grid.
 
+## Speed rules for every LP
+- Self-host brand fonts in the LP folder (alivtherapy.in fonts send no CORS headers, so they break on other domains).
+  Preload both woff2 files. No Google Fonts.
+- Preload the hero image (small version under 700px, full version above). Team/inline images max 480px wide, WebP q~74.
+- Clarity and the Meta Pixel library load after the page `load` event; gtag stays async. fbq calls queue, so nothing is lost.
+- Animate only transform/opacity; pause infinite animations off-screen; respect prefers-reduced-motion.
+- Baseline (Nov 2026, lp-fat-loss): ~140 KB first load on mobile, ~200 KB after a full scroll, CLS 0.
+
 ## Compliance rules for copy
 - Every clinical claim gets a citation and an evidence label. No guarantees, no before/after.
 - Never name or promote prescription drugs in copy (Indian ad rules + Meta/Google policy);

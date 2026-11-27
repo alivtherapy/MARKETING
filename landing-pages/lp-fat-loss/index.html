@@ -5,18 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Medical Fat Loss | ALIV Regenerative Wellness, Pune &amp; Mumbai</title>
 <meta name="description" content="Doctor-led fat loss in Pune and Mumbai. Bloodwork and body composition first, a plan built on the results, and every claim labelled by the strength of its evidence.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Speed: hero image and brand fonts (self-hosted) are fetched first -->
+<link rel="preload" as="image" href="img/band-sm.webp" media="(max-width:699px)" fetchpriority="high">
+<link rel="preload" as="image" href="img/band.webp" media="(min-width:700px)" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="fonts/avenir_heavy-webfont.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/gordita-regular-webfont.woff2" crossorigin>
 
 <!-- ===== Tracking: same accounts as /lp-nad-plus/ ===== -->
-<!-- Microsoft Clarity -->
+<!-- Microsoft Clarity: loads after the page has rendered -->
 <script type="text/javascript">
+  window.addEventListener('load', function () { setTimeout(function () {
   (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
   })(window, document, "clarity", "script", "uxteeaz5rs");
+  }, 1500); });
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11058315015"></script>
@@ -28,14 +32,15 @@
 </script>
 <!-- Meta Pixel Code -->
 <script>
+  /* fbq() is queued immediately (PageView and Lead are never lost); the library itself loads after the page */
   !function (f, b, e, v, n, t, s) {
     if (f.fbq) return; n = f.fbq = function () {
       n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
     };
     if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
     n.queue = []; t = b.createElement(e); t.async = !0;
-    t.src = v; s = b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t, s)
+    t.src = v;
+    window.addEventListener('load', function () { s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) });
   }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '429598552784651');
   fbq('track', 'PageView');
@@ -54,12 +59,12 @@
 
 @font-face{
   font-family:'avenirheavy';
-  src:url('https://www.alivtherapy.in/assets_web/fonts/avenir_heavy-webfont.woff2') format('woff2');
+  src:url('fonts/avenir_heavy-webfont.woff2') format('woff2');
   font-weight:400 800; font-style:normal; font-display:swap;
 }
 @font-face{
   font-family:'gorditaregular';
-  src:url('https://www.alivtherapy.in/assets_web/fonts/gordita-regular-webfont.woff2') format('woff2');
+  src:url('fonts/gordita-regular-webfont.woff2') format('woff2');
   font-weight:300 600; font-style:normal; font-display:swap;
 }
 
@@ -82,8 +87,8 @@
 
   --t-strong:var(--green-700); --t-mixed:var(--teal-600); --t-early:var(--teal-400);
 
-  --display:'avenirheavy','Avenir Heavy','Avenir Next',Mulish,'Nunito Sans',sans-serif;
-  --body:'gorditaregular',Gordita,Avenir,Jost,system-ui,sans-serif;
+  --display:'avenirheavy','Avenir Heavy','Avenir Next','Segoe UI',system-ui,sans-serif;
+  --body:'gorditaregular',Gordita,Avenir,'Segoe UI',system-ui,sans-serif;
 
   /* SWAP: hero still. Falls back to the gradient if the file is missing. */
   --hero-img:url("img/band.webp");
@@ -144,6 +149,7 @@ section{padding:44px 0}
   width:100vw;overflow:hidden;background-color:var(--teal-900);
   background-image:var(--hero-img);background-size:cover;background-position:center}
 .hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:699px){ :root{--hero-img:url("img/band-sm.webp")} }
 .hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(8,59,54,.82),rgba(12,84,77,.62))}
 .hero h1,.hero h1 em,.hero .lead{color:var(--white)}
 .hero h1 em{font-style:normal;color:var(--teal-200)}
@@ -155,16 +161,6 @@ section{padding:44px 0}
 .hero .btn-ghost:hover{color:var(--yellow-500)}
 .hero .disc{border-color:rgba(255,255,255,.45);border-left-color:var(--teal-500)}
 
-/* hero side panel: what gets measured first */
-.measure{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
-  border-left:3px solid var(--yellow-500);border-radius:var(--radius);padding:20px 22px;margin-top:28px}
-.measure h3{color:var(--white);font-size:.98rem;margin-bottom:12px}
-.measure ul{list-style:none}
-.measure li{color:#D9ECE8;font-size:.9rem;padding:7px 0 7px 22px;position:relative;
-  border-top:1px solid rgba(255,255,255,.12)}
-.measure li:first-child{border-top:none}
-.measure li::before{content:'';position:absolute;left:2px;top:15px;width:8px;height:8px;
-  border-right:2px solid var(--yellow-500);border-bottom:2px solid var(--yellow-500);transform:rotate(-45deg)}
 
 /* ---------- buttons ---------- */
 .btn{display:block;width:100%;text-align:center;background:var(--cta);color:var(--cta-text);
@@ -204,11 +200,6 @@ footer .btn:hover,footer .btn:focus-visible{background:var(--green-600)}
   margin-top:26px;border:1px solid var(--border);border-left:3px solid var(--teal-300)}
 .disc strong{color:var(--neutral-900);font-size:.83rem}
 
-/* stat row: two numbers that carry the South Asian argument */
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0 8px}
-.stat{background:var(--aqua);border-radius:var(--radius);padding:18px 16px}
-.stat b{display:block;font-family:var(--display);font-weight:700;font-size:1.9rem;line-height:1;color:var(--green-700)}
-.stat span{display:block;font-size:.82rem;line-height:1.45;color:var(--neutral-800);margin-top:8px}
 
 /* ---------- accordion ---------- */
 .ac-list{border-top:1px solid var(--border);margin-top:22px}
@@ -356,8 +347,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .panel-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
 .panel-h h3{color:var(--white);font-size:.95rem;margin:0}
 .live{font-size:.7rem;color:#BFDDD7;display:flex;align-items:center;gap:7px;white-space:nowrap}
-.live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--yellow-500);animation:pulse 1.8s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,194,0,.6)}70%{box-shadow:0 0 0 8px rgba(242,194,0,0)}100%{box-shadow:0 0 0 0 rgba(242,194,0,0)}}
+.live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--yellow-500);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .mk{display:grid;grid-template-columns:1fr 84px;gap:12px;align-items:center;padding:8px 0;
   border-top:1px solid rgba(255,255,255,.1);font-size:.84rem;color:#D9ECE8;line-height:1.35}
 .mk:first-of-type{border-top:none}
@@ -366,9 +357,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   background:linear-gradient(90deg,var(--teal-400),var(--yellow-500));transform:scaleX(0);transform-origin:left;
   transition:transform 1.2s cubic-bezier(.2,.7,.3,1);transition-delay:calc(var(--d) * 110ms + 250ms)}
 .panel.in .mk i::after{transform:scaleX(1)}
-.scan{position:absolute;left:0;right:0;height:70px;top:-70px;pointer-events:none;
+.scan{position:absolute;left:0;right:0;height:70px;top:0;pointer-events:none;will-change:transform;
   background:linear-gradient(transparent,rgba(143,196,189,.16),transparent);animation:scan 5s ease-in-out infinite}
-@keyframes scan{0%{top:-70px}65%,100%{top:100%}}
+@keyframes scan{0%{transform:translateY(-70px)}65%,100%{transform:translateY(560px)}}
 .panel .fineprint{font-size:.7rem;color:#8FBDB5;margin:10px 0 0}
 
 /* credentials + press */
@@ -381,7 +372,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   color:var(--neutral-700);text-align:center;margin-bottom:12px}
 .press-mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
 .marquee{display:flex;align-items:center;width:max-content;gap:44px;animation:marq 38s linear infinite}
-.press:hover .marquee{animation-play-state:paused}
+.press:hover .marquee,.press.off .marquee{animation-play-state:paused}
 .marquee img{height:40px;width:auto;filter:grayscale(1) contrast(1.1);opacity:.62;transition:opacity .2s,filter .2s}
 .marquee img:hover{opacity:1;filter:none}
 @keyframes marq{to{transform:translateX(-50%)}}
@@ -525,7 +516,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   /* hero: copy left, "what we measure" right */
   .hero{padding:96px 0 92px}
   .hero-grid{display:grid;grid-template-columns:7fr 4fr;gap:72px;align-items:center}
-  .hero .measure{margin-top:0;padding:26px 28px}
   .hero .disc{max-width:640px}
 
   /* side-heading layout: heading sticks while the content scrolls */
@@ -537,10 +527,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   .ac-list.two .ac{border-top:1px solid var(--border);border-bottom:none}
   .ac-list.two .ac:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
 
-  .routes{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:10px}
-  .routes .job{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--teal-500);
-    padding:26px 28px;border-radius:var(--radius)}
-  .routes .job:first-of-type{border-top:3px solid var(--teal-500)}
 
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:10px}
   .step{display:block;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:26px 26px 28px}
@@ -551,7 +537,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   .cards .job:nth-child(2){border-top:1px solid var(--border)}
 
   .why-grid{display:grid;grid-template-columns:6fr 5fr;gap:64px;align-items:center}
-  .why-grid .fig{margin:0}
 
   .form{margin:0;padding:64px 64px;border-radius:6px}
   .form-grid{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:start}
@@ -885,7 +870,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   <section class="rv wash">
     <div class="why-grid">
       <div>
-        <div class="team"><figure class="member"><div class="ph"><img src="img/team/Dr-Rajesh.webp" alt="Dr. Rajesh Tandulwadkar" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Rajesh Tandulwadkar</b><span>Gastro Surgeon &amp; Liver Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sunita.webp" alt="Dr. Sunita Tandulwadkar" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Sunita Tandulwadkar</b><span>ObGyn &amp; Infertility Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Ramesh.webp" alt="Dr. Ramesh Bhonde" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Ramesh Bhonde</b><span>Scientific Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Samta.webp" alt="Dr. Samta Singhania" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Samta Singhania</b><span>Obstetrician &amp; Gynecologist</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sonali.webp" alt="Dr. Sonali Dhomane" width="800" height="600" loading="lazy" decoding="async"></div><b>Dr. Sonali Dhomane</b><span>Infertility Specialist</span></figure><figure class="member"><div class="ph"><img src="img/team/rishi.webp" alt="Rishi Tandulwadkar" width="800" height="600" loading="lazy" decoding="async"></div><b>Rishi Tandulwadkar</b><span>Founder &amp; CEO</span></figure></div>
+        <div class="team"><figure class="member"><div class="ph"><img src="img/team/Dr-Rajesh.webp" alt="Dr. Rajesh Tandulwadkar" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Rajesh Tandulwadkar</b><span>Gastro Surgeon &amp; Liver Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sunita.webp" alt="Dr. Sunita Tandulwadkar" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Sunita Tandulwadkar</b><span>ObGyn &amp; Infertility Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Ramesh.webp" alt="Dr. Ramesh Bhonde" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Ramesh Bhonde</b><span>Scientific Expert</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Samta.webp" alt="Dr. Samta Singhania" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Samta Singhania</b><span>Obstetrician &amp; Gynecologist</span></figure><figure class="member"><div class="ph"><img src="img/team/Dr-Sonali.webp" alt="Dr. Sonali Dhomane" width="480" height="360" loading="lazy" decoding="async"></div><b>Dr. Sonali Dhomane</b><span>Infertility Specialist</span></figure><figure class="member"><div class="ph"><img src="img/team/rishi.webp" alt="Rishi Tandulwadkar" width="480" height="360" loading="lazy" decoding="async"></div><b>Rishi Tandulwadkar</b><span>Founder &amp; CEO</span></figure></div>
         <p class="team-more">Plus orthopaedic, surgical and counselling specialists on the wider ALIV panel.</p>
       </div>
       <div>
@@ -1061,6 +1046,12 @@ if('IntersectionObserver' in window){
 } else {
   document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
 }
+
+/* --- pause the logo marquee while it is off-screen --- */
+(function(){
+  var pr=document.querySelector('.press'); if(!pr||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(es){ pr.classList.toggle('off',!es[0].isIntersecting); }).observe(pr);
+})();
 
 /* --- count-up for credential numbers --- */
 (function(){
